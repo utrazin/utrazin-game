@@ -1,0 +1,53 @@
+# Normalização de texto
+* text=auto
+*.py   text eol=lf
+*.md   text eol=lf
+*.json text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.ps1  text eol=crlf
+*.bat  text eol=crlf
+*.cpp  text eol=crlf
+*.h    text eol=crlf
+*.cs   text eol=crlf
+*.ini  text eol=crlf
+*.uproject text eol=crlf
+*.uplugin  text eol=crlf
+
+# ---------- Git LFS (somente binários relevantes) ----------
+# Unreal
+*.uasset filter=lfs diff=lfs merge=lfs -text lockable
+*.umap   filter=lfs diff=lfs merge=lfs -text lockable
+# Blender e intercâmbio 3D
+*.blend  filter=lfs diff=lfs merge=lfs -text lockable
+*.fbx    filter=lfs diff=lfs merge=lfs -text
+*.glb    filter=lfs diff=lfs merge=lfs -text
+*.gltf   text eol=lf
+*.obj    filter=lfs diff=lfs merge=lfs -text
+*.abc    filter=lfs diff=lfs merge=lfs -text
+*.bvh    filter=lfs diff=lfs merge=lfs -text
+# Áudio
+*.wav    filter=lfs diff=lfs merge=lfs -text
+*.flac   filter=lfs diff=lfs merge=lfs -text
+*.ogg    filter=lfs diff=lfs merge=lfs -text
+*.mp3    filter=lfs diff=lfs merge=lfs -text
+# Imagens de produção (texturas e fontes de arte)
+*.psd    filter=lfs diff=lfs merge=lfs -text
+*.kra    filter=lfs diff=lfs merge=lfs -text
+*.xcf    filter=lfs diff=lfs merge=lfs -text
+*.exr    filter=lfs diff=lfs merge=lfs -text
+*.tga    filter=lfs diff=lfs merge=lfs -text
+*.tif    filter=lfs diff=lfs merge=lfs -text
+*.tiff   filter=lfs diff=lfs merge=lfs -text
+*.hdr    filter=lfs diff=lfs merge=lfs -text
+# PNG/JPG grandes ficam em LFS apenas dentro de assets/ e design/concepts
+assets/**/*.png        filter=lfs diff=lfs merge=lfs -text
+assets/**/*.jpg        filter=lfs diff=lfs merge=lfs -text
+design/concepts/**/*.png filter=lfs diff=lfs merge=lfs -text
+design/concepts/**/*.jpg filter=lfs diff=lfs merge=lfs -text
+# Fontes
+*.ttf    filter=lfs diff=lfs merge=lfs -text
+*.otf    filter=lfs diff=lfs merge=lfs -text
+# Vídeo
+*.mp4    filter=lfs diff=lfs merge=lfs -text
+*.mov    filter=lfs diff=lfs merge=lfs -text

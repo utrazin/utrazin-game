@@ -1,0 +1,74 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      unreal_full:
+        description: "Rodar build Unreal + Automation Tests (requer runner Windows self-hosted com UE 5.8.4)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  fast:
+    name: Testes rápidos (Python, manifesto, licenças, docs, lógica C++ pura)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false   # não baixa binários LFS (economiza banda)
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Dependências
+        run: python -m pip install -r tools/requirements.txt
+      - name: Testes Python
+        run: python -m pytest tests/python -q
+      - name: Manifesto
+        run: python tools/pipeline/manifest.py validate
+      - name: Licenças
+        run: python tools/pipeline/check_licenses.py --report reports/licenses.md
+      - name: Nomes de assets
+        run: python tools/pipeline/validate_naming.py assets/final unreal/JogoResgate/Content blender/scenes
+      - name: Links locais
+        run: python tools/pipeline/validate_references.py
+      - name: Configurações JSON
+        run: |
+          python -c "import json,sys; [json.load(open(p, encoding='utf-8')) for p in sys.argv[1:]]" \
+            .claude/settings.json unreal/JogoResgate/JogoResgate.uproject assets/manifest/manifest.schema.json
+      - name: Lógica C++ pura (fora da Unreal, com stubs)
+        run: sh tests/cpp/run_pure_tests.sh
+
+  unreal-full:
+    name: Build Unreal + Automation Tests (opcional)
+    if: github.event_name == 'workflow_dispatch' && inputs.unreal_full
+    runs-on: [self-hosted, windows, unreal-5.8]
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+      - name: Build Editor
+        shell: pwsh
+        run: |
+          & "$env:UE_ROOT\Engine\Build\BatchFiles\Build.bat" JogoResgateEditor Win64 Development `
+            -Project="$env:GITHUB_WORKSPACE\unreal\JogoResgate\JogoResgate.uproject" -WaitMutex
+      - name: Automation Tests JR.*
+        shell: pwsh
+        run: |
+          & "$env:UE_ROOT\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" `
+            "$env:GITHUB_WORKSPACE\unreal\JogoResgate\JogoResgate.uproject" `
+            -ExecCmds="Automation RunTests JR.; Quit" -unattended -nullrhi -nosplash -log `
+            -ReportExportPath="$env:GITHUB_WORKSPACE\reports\automation"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: automation-report
+          path: reports/automation
+          retention-days: 14

@@ -1,0 +1,10 @@
+{
+  "file": "PRP-001_Barrel_v001.blend",
+  "objects": [
+    {"name": "SM_Barrel", "type": "MESH", "collection": "EXPORT", "scale": [1, 1, 1], "rotation": [0, 0, 0],
+     "polygons": [4, 4, 4, 4, 4, 4, 3, 3], "degenerate_faces": 0, "uv_layers": ["UVMap"], "materials": ["M_Barrel"]},
+    {"name": "UCX_SM_Barrel_00", "type": "MESH", "collection": "EXPORT", "scale": [1, 1, 1], "rotation": [0, 0, 0],
+     "polygons": [4, 4, 4, 4, 4, 4], "degenerate_faces": 0, "uv_layers": [], "materials": []},
+    {"name": "RefImage", "type": "EMPTY", "collection": "REF", "scale": [2, 2, 2], "rotation": [0, 0, 0]}
+  ]
+}

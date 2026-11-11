@@ -1,0 +1,37 @@
+name: Asset
+description: Pedido de novo asset (personagem, inimigo, veículo, prop, animação, áudio, UI)
+labels: [asset]
+body:
+  - type: input
+    id: asset_id
+    attributes:
+      label: ID no manifesto
+      placeholder: "ex.: PRP-012 (ou 'novo')"
+  - type: dropdown
+    id: category
+    attributes:
+      label: Categoria
+      options: [character, skin, enemy, vehicle, weapon, prop, environment, animation, audio, music, ui, font, material, vfx]
+    validations:
+      required: true
+  - type: textarea
+    id: purpose
+    attributes:
+      label: Finalidade e uso no jogo
+    validations:
+      required: true
+  - type: textarea
+    id: budget
+    attributes:
+      label: Orçamento (triângulos, texturas, duração)
+  - type: dropdown
+    id: origin
+    attributes:
+      label: Origem pretendida
+      options: [original, biblioteca gratuita, IA assistida, placeholder]
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: Licença e URL (se terceiros)

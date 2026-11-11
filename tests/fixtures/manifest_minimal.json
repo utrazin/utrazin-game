@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "art_bible_version": "0.1",
+  "assets": [
+    {
+      "id": "PRP-001", "category": "prop", "name": "Barril", "description": "teste",
+      "source_file": null, "export_file": null, "engine_path": "/Game/Props/Barrel",
+      "author": "utrazin", "origin_url": null, "creation_method": "original",
+      "generator_name": null, "generator_version": null, "license": "Proprietary (projeto)",
+      "commercial_use_status": "allowed", "attribution": null, "hash": null,
+      "art_bible_version": "0.1", "status": "modeling", "reviewer": null, "approved_at": null,
+      "poly_budget": 5000, "texture_budget": "atlas 2K", "rig": null, "lods": 2, "notes": ""
+    }
+  ]
+}

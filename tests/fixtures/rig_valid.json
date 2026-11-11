@@ -1,0 +1,63 @@
+{
+  "file": "CHR-001_Hero_v001.blend",
+  "armatures": [
+    {
+      "name": "root",
+      "bones": {
+        "pelvis": null,
+        "spine_01": "pelvis",
+        "spine_02": "spine_01",
+        "spine_03": "spine_02",
+        "neck_01": "spine_03",
+        "head": "neck_01",
+        "clavicle_l": "spine_03",
+        "upperarm_l": "clavicle_l",
+        "lowerarm_l": "upperarm_l",
+        "hand_l": "lowerarm_l",
+        "clavicle_r": "spine_03",
+        "upperarm_r": "clavicle_r",
+        "lowerarm_r": "upperarm_r",
+        "hand_r": "lowerarm_r",
+        "thigh_l": "pelvis",
+        "calf_l": "thigh_l",
+        "foot_l": "calf_l",
+        "ball_l": "foot_l",
+        "thigh_r": "pelvis",
+        "calf_r": "thigh_r",
+        "foot_r": "calf_r",
+        "ball_r": "foot_r"
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "SK_Hero",
+      "armature": "root",
+      "has_modifier": true,
+      "vertex_groups": [
+        "pelvis",
+        "spine_01",
+        "spine_02",
+        "spine_03",
+        "neck_01",
+        "head",
+        "clavicle_l",
+        "upperarm_l",
+        "lowerarm_l",
+        "hand_l",
+        "clavicle_r",
+        "upperarm_r",
+        "lowerarm_r",
+        "hand_r",
+        "thigh_l",
+        "calf_l",
+        "foot_l",
+        "ball_l",
+        "thigh_r",
+        "calf_r",
+        "foot_r",
+        "ball_r"
+      ]
+    }
+  ]
+}

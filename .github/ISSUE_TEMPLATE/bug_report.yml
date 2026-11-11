@@ -1,0 +1,38 @@
+name: Bug
+description: Comportamento incorreto no jogo, ferramentas ou pipeline
+labels: [bug]
+body:
+  - type: input
+    id: build
+    attributes:
+      label: Build / commit
+      placeholder: "ex.: a1b2c3d, Development Editor"
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área
+      options: [Veículo, Personagem/combate, IA, Fase/checkpoint, Save, UI/HUD, Áudio, Performance, Pipeline/ferramentas, Outro]
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Passos para reproduzir
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Esperado vs. obtido
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidências (log, print, vídeo)

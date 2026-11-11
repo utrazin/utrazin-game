@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/utrazin/utrazin-game/assets/manifest/manifest.schema.json",
+  "title": "Manifesto de assets do Jogo de Resgate",
+  "type": "object",
+  "required": ["schema_version", "assets"],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": { "type": "integer", "const": 1 },
+    "art_bible_version": { "type": "string" },
+    "assets": { "type": "array", "items": { "$ref": "#/$defs/asset" } }
+  },
+  "$defs": {
+    "nullableString": { "type": ["string", "null"] },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "category", "name", "description", "source_file", "export_file",
+        "engine_path", "author", "origin_url", "creation_method",
+        "generator_name", "generator_version", "license",
+        "commercial_use_status", "attribution", "hash",
+        "art_bible_version", "status", "reviewer", "approved_at",
+        "poly_budget", "texture_budget", "rig", "lods", "notes"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^(CHR|SKN|ENM|VEH|WPN|PRP|ENV|ANM|SFX|MUS|UI|FNT|MAT|VFX)-[0-9]{3}$" },
+        "category": { "enum": ["character", "skin", "enemy", "vehicle", "weapon", "prop", "environment", "animation", "audio", "music", "ui", "font", "material", "vfx"] },
+        "name": { "type": "string", "minLength": 1 },
+        "description": { "type": "string" },
+        "source_file": { "$ref": "#/$defs/nullableString" },
+        "export_file": { "$ref": "#/$defs/nullableString" },
+        "engine_path": { "type": ["string", "null"], "pattern": "^/Game/" },
+        "author": { "$ref": "#/$defs/nullableString" },
+        "origin_url": { "type": ["string", "null"] },
+        "creation_method": { "enum": ["original", "library", "ai_assisted", "placeholder", "procedural"] },
+        "generator_name": { "$ref": "#/$defs/nullableString" },
+        "generator_version": { "$ref": "#/$defs/nullableString" },
+        "license": { "type": ["string", "null"] },
+        "commercial_use_status": { "enum": ["allowed", "blocked", "needs_review", "unknown"] },
+        "attribution": { "$ref": "#/$defs/nullableString" },
+        "hash": { "type": ["string", "null"], "pattern": "^sha256:[0-9a-f]{64}$" },
+        "art_bible_version": { "$ref": "#/$defs/nullableString" },
+        "status": { "enum": ["planned", "concept", "approved_concept", "modeling", "rigging", "animation", "exported", "imported", "in_review", "approved", "rejected", "deprecated"] },
+        "reviewer": { "$ref": "#/$defs/nullableString" },
+        "approved_at": { "type": ["string", "null"], "format": "date-time" },
+        "poly_budget": { "type": ["integer", "null"], "minimum": 0 },
+        "texture_budget": { "type": ["string", "null"] },
+        "rig": { "$ref": "#/$defs/nullableString" },
+        "lods": { "type": ["integer", "null"], "minimum": 0, "maximum": 8 },
+        "notes": { "type": "string" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "approved" } } },
+          "then": {
+            "properties": {
+              "reviewer": { "type": "string", "minLength": 1 },
+              "approved_at": { "type": "string" },
+              "commercial_use_status": { "const": "allowed" },
+              "creation_method": { "not": { "const": "placeholder" } }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "creation_method": { "enum": ["library", "ai_assisted"] } } },
+          "then": { "properties": { "license": { "type": "string", "minLength": 1 } } }
+        }
+      ]
+    }
+  }
+}

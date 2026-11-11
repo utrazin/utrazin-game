@@ -1,0 +1,9 @@
+{
+  "file": "bad.blend",
+  "objects": [
+    {"name": "Cube.001", "type": "MESH", "collection": "EXPORT", "scale": [100, 100, 100], "rotation": [0, 0, 0],
+     "polygons": [4, 7, 3], "degenerate_faces": 2, "uv_layers": [], "materials": [null]},
+    {"name": "SM_Rock", "type": "MESH", "collection": "EXPORT", "scale": [1, 1, 1], "rotation": [1.57, 0, 0],
+     "polygons": [], "degenerate_faces": 0, "uv_layers": ["UVMap"], "materials": ["M_Rock"]}
+  ]
+}

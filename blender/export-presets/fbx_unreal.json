@@ -1,0 +1,29 @@
+{
+  "_comment": "Preset FBX para Unreal. Chaves = argumentos de bpy.ops.export_scene.fbx (Blender 5.2). Conferir nomes se a API mudar.",
+  "name": "fbx_unreal",
+  "format": "fbx",
+  "operator_kwargs": {
+    "use_selection": true,
+    "apply_unit_scale": true,
+    "apply_scale_options": "FBX_SCALE_UNITS",
+    "axis_forward": "-Y",
+    "axis_up": "Z",
+    "use_mesh_modifiers": true,
+    "mesh_smooth_type": "FACE",
+    "use_tspace": true,
+    "add_leaf_bones": false,
+    "primary_bone_axis": "Y",
+    "secondary_bone_axis": "X",
+    "armature_nodetype": "NULL",
+    "bake_anim": false,
+    "path_mode": "COPY",
+    "embed_textures": false
+  },
+  "animation_overrides": {
+    "bake_anim": true,
+    "bake_anim_use_all_actions": false,
+    "bake_anim_use_nla_strips": false,
+    "bake_anim_force_startend_keying": true,
+    "bake_anim_simplify_factor": 0.0
+  }
+}

@@ -1,0 +1,19 @@
+#!/bin/sh
+# Validadores leves antes do commit. Ativado por: git config core.hooksPath .githooks
+PY=python
+[ -x ".venv/Scripts/python.exe" ] && PY=".venv/Scripts/python.exe"
+[ -x ".venv/bin/python" ] && PY=".venv/bin/python"
+command -v "$PY" >/dev/null 2>&1 || PY=python3
+
+if git diff --cached --name-only | grep -qE '^(assets/manifest/|assets/final/)'; then
+  "$PY" tools/pipeline/manifest.py validate || exit 1
+  "$PY" tools/pipeline/check_licenses.py || exit 1
+fi
+if git diff --cached --name-only | grep -qE '\.md$'; then
+  "$PY" tools/pipeline/validate_references.py || exit 1
+fi
+STAGED_PY=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.py$')
+if [ -n "$STAGED_PY" ]; then
+  "$PY" -m py_compile $STAGED_PY || exit 1
+fi
+exit 0

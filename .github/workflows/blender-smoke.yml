@@ -1,0 +1,29 @@
+name: blender-smoke
+
+# Roda os scripts de tools/blender dentro do Blender 5.2 LTS (módulo bpy do PyPI) quando eles mudam.
+on:
+  push:
+    branches: [main]
+    paths: ["tools/blender/**", "blender/export-presets/**", "tests/blender/**"]
+  pull_request:
+    paths: ["tools/blender/**", "blender/export-presets/**", "tests/blender/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Blender como módulo Python (bpy 5.2 LTS)
+        run: python -m pip install "bpy==5.2.4"
+      - name: Smoke test (cena, validação, export FBX, rig)
+        run: python tests/blender/smoke_test.py

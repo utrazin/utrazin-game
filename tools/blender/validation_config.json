@@ -1,0 +1,19 @@
+{
+  "_comment": "Limites provisórios derivados da Art Bible v0.1. Sobrescreva por categoria em 'categories'.",
+  "max_ngon_sides": 4,
+  "allow_ngons": false,
+  "max_triangles": 100000,
+  "scale_tolerance": 0.0001,
+  "require_uv": true,
+  "require_material": true,
+  "export_collection": "EXPORT",
+  "allowed_prefixes": ["SM_", "SK_", "UCX_", "root"],
+  "categories": {
+    "character": { "max_triangles": 60000 },
+    "enemy": { "max_triangles": 35000 },
+    "vehicle": { "max_triangles": 90000 },
+    "weapon": { "max_triangles": 12000 },
+    "prop": { "max_triangles": 5000 },
+    "environment": { "max_triangles": 15000 }
+  }
+}

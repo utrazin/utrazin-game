@@ -1,0 +1,75 @@
+# ---------- Unreal Engine ----------
+unreal/**/Binaries/
+unreal/**/Intermediate/
+unreal/**/DerivedDataCache/
+unreal/**/Saved/
+unreal/**/Build/
+unreal/**/.vs/
+unreal/**/*.sln
+unreal/**/*.VC.db
+unreal/**/*.opensdf
+unreal/**/*.sdf
+unreal/**/*.suo
+unreal/**/*.xcodeproj
+unreal/**/*.xcworkspace
+unreal/**/.vsconfig
+# Plugins: manter fonte, ignorar artefatos de build
+unreal/**/Plugins/**/Binaries/
+unreal/**/Plugins/**/Intermediate/
+# Content "Developer" é pessoal por padrão
+unreal/**/Content/Developers/
+unreal/**/Content/Collections/
+# Builds empacotados
+**/WindowsNoEditor/
+**/Windows/
+build/artifacts/*
+!build/artifacts/.gitkeep
+
+# ---------- Blender ----------
+*.blend1
+*.blend2
+*.blend@
+*.blend.tmp
+blender/**/autosave/
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+uv.lock.bak
+
+# ---------- Logs e relatórios gerados ----------
+*.log
+logs/
+/reports/
+tools/**/reports/
+
+# ---------- Segredos ----------
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+.mcp.json
+.claude/settings.local.json
+
+# ---------- SO / editores ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.swp
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Pasta temporária de instalação (tools/setup/bootstrap_dirs.ps1)
+_bootstrap/

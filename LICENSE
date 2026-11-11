@@ -1,0 +1,13 @@
+Copyright (c) 2026 utrazin. Todos os direitos reservados.
+
+Este repositório contém código-fonte, documentação e assets originais do
+projeto "Jogo de Resgate" (título provisório). Nenhuma permissão de uso,
+cópia, modificação ou distribuição é concedida sem autorização prévia e por
+escrito do titular.
+
+Assets e bibliotecas de terceiros mantêm suas próprias licenças, registradas
+em ASSET_LICENSES.md e assets/licenses/. O uso do Unreal Engine está sujeito
+ao Unreal Engine EULA da Epic Games.
+
+Observação: esta é uma licença provisória "todos os direitos reservados".
+A escolha definitiva está registrada em docs/decisions/OPEN_DECISIONS.md (OD-021).

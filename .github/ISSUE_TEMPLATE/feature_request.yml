@@ -1,0 +1,32 @@
+name: Funcionalidade
+description: Nova funcionalidade ou mudança de design
+labels: [feature]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema / objetivo
+    validations:
+      required: true
+  - type: input
+    id: gdd
+    attributes:
+      label: Referência no GDD ou OPEN_DECISIONS
+      placeholder: "ex.: GDD 6.2, OD-015"
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposta
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Critérios de aceite
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Escopo
+      options:
+        - label: Não muda decisões aprovadas do GDD (ou há proposta registrada)
+        - label: Não introduz multiplayer, backend ou serviços online
