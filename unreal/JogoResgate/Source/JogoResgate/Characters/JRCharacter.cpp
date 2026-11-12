@@ -178,9 +178,9 @@ float AJRCharacter::PlayRescueHug()
 
 void AJRCharacter::ApplySkin(const FJRSkinDefinition& Skin)
 {
-	if (USkeletalMesh* Mesh = Skin.Mesh.LoadSynchronous())
+	if (USkeletalMesh* SkinMesh = Skin.Mesh.LoadSynchronous())
 	{
-		GetMesh()->SetSkeletalMeshAsset(Mesh);
+		GetMesh()->SetSkeletalMeshAsset(SkinMesh);
 	}
 	for (int32 Slot = 0; Slot < Skin.MaterialOverrides.Num(); ++Slot)
 	{

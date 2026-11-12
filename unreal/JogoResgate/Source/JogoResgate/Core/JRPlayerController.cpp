@@ -14,9 +14,9 @@ void AJRPlayerController::OnPossess(APawn* InPawn)
 {
 	Super::OnPossess(InPawn);
 	ApplyMappingContextFor(InPawn);
-	if (AJRCharacter* Character = Cast<AJRCharacter>(InPawn))
+	if (AJRCharacter* OnFootChar = Cast<AJRCharacter>(InPawn))
 	{
-		OnFootCharacter = Character;
+		OnFootCharacter = OnFootChar;
 	}
 	OnControlledPawnChanged.Broadcast(InPawn);
 }
@@ -54,10 +54,10 @@ bool AJRPlayerController::RequestExitVehicle(const FTransform& FallbackTransform
 	const FTransform SpawnTransform = Vehicle->GetExitTransform();
 
 	// Reutiliza o personagem se já existir: a transição nunca duplica personagens.
-	AJRCharacter* Character = OnFootCharacter;
-	if (Character)
+	AJRCharacter* OnFootChar = OnFootCharacter;
+	if (OnFootChar)
 	{
-		Character->SetActorTransform(SpawnTransform, false, nullptr, ETeleportType::TeleportPhysics);
+		OnFootChar->SetActorTransform(SpawnTransform, false, nullptr, ETeleportType::TeleportPhysics);
 	}
 	else
 	{
@@ -70,12 +70,12 @@ bool AJRPlayerController::RequestExitVehicle(const FTransform& FallbackTransform
 		}
 		FActorSpawnParameters Params;
 		Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
-		Character = GetWorld()->SpawnActor<AJRCharacter>(CharacterClass, SpawnTransform, Params);
-		if (!Character)
+		OnFootChar = GetWorld()->SpawnActor<AJRCharacter>(CharacterClass, SpawnTransform, Params);
+		if (!OnFootChar)
 		{
-			Character = GetWorld()->SpawnActor<AJRCharacter>(CharacterClass, FallbackTransform, Params);
+			OnFootChar = GetWorld()->SpawnActor<AJRCharacter>(CharacterClass, FallbackTransform, Params);
 		}
-		if (!Character)
+		if (!OnFootChar)
 		{
 			UE_LOG(LogJR, Error, TEXT("RequestExitVehicle: falha ao spawnar personagem."));
 			bExitInProgress = false;
@@ -85,12 +85,12 @@ bool AJRPlayerController::RequestExitVehicle(const FTransform& FallbackTransform
 
 	Vehicle->ParkAndDisable();
 	ParkedVehicle = Vehicle;
-	Possess(Character); // UnPossessed do veículo zera os inputs
+	Possess(OnFootChar); // UnPossessed do veículo zera os inputs
 	if (GameMode)
 	{
-		GameMode->ApplySelectedSkin(Character);
+		GameMode->ApplySelectedSkin(OnFootChar);
 	}
-	Character->PlayExitVehicleSequence();
+	OnFootChar->PlayExitVehicleSequence();
 	bExitInProgress = false;
 	return true;
 }

@@ -35,5 +35,5 @@ Itens que **dependem do usuário**. A coluna "Proposta" aponta para a suposiçã
 
 | ID | Impedimento | Efeito | Como resolver |
 |---|---|---|---|
-| IMP-001 | Unreal Engine, Visual Studio e Blender não instalados | Código C++ e `.uproject` nunca compilados/abertos; sem `.uasset`/`.umap` | Seguir `docs/setup/INSTALL_UNREAL.md` e `INSTALL_BLENDER.md` |
+| IMP-001 | ~~Unreal Engine, Visual Studio e Blender não instalados~~ resolvido em 2026-11-11 (falta só Blender no PATH) | Código C++ e `.uproject` nunca compilados/abertos; sem `.uasset`/`.umap` | Seguir `docs/setup/INSTALL_UNREAL.md` e `INSTALL_BLENDER.md` |
 | IMP-002 | Repositório criado em ambiente remoto (sem acesso ao shell do PC) | Inspeção do ambiente local não executada; Git LFS não verificado | Rodar `python tools/setup/check_environment.py` no PC |

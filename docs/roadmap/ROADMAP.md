@@ -12,8 +12,8 @@ O MVP de lançamento contém **3 fases**. A primeira meta executável é o **ver
 - [x] Scripts Python testados (`pytest` verde no ambiente de criação; CI roda no primeiro push)
 - [x] Regras, agentes, skills e hooks configurados; `settings.json` válido
 - [x] Política de licenças definida
-- [ ] Ambiente local inspecionado (`check_environment.py` no PC do usuário)
-- [ ] Unreal 5.8.4 + VS instalados e projeto compilado uma vez (log em `docs/qa/`)
+- [x] Ambiente local inspecionado (`check_environment.py` no PC do usuário)
+- [x] Unreal 5.8.4 + VS instalados e projeto compilado uma vez (ver `docs/qa/reports/2026-11-11_M0.md`)
 - [ ] Usuário revisou ASSUMPTIONS e respondeu decisões que bloqueiam M1
 
 ## M1 Greybox

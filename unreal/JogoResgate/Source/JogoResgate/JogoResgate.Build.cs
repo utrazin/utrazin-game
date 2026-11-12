@@ -24,7 +24,8 @@ public class JogoResgate : ModuleRules
 			"AIModule",
 			"NavigationSystem",
 			"StateTreeModule",
-			"GameplayStateTreeModule"
+			"GameplayStateTreeModule",
+			"Niagara"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[]

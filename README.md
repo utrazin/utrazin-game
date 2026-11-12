@@ -14,7 +14,7 @@ Jogo 3D **single player, offline, em terceira pessoa**: em cada fase o jogador d
 | Item | Estado |
 |---|---|
 | Marco atual | **M0 Fundação** (estrutura, docs, pipeline, agentes) |
-| Unreal Engine | **Não instalada** na máquina de desenvolvimento. Projeto Unreal existe só como código-fonte C++ e `.uproject`, **nunca compilado**. |
+| Unreal Engine | 5.8.4 instalada. Módulo C++ **compila** (Development Editor Win64, 0 warnings). Automation Tests `JR.*`: 7/7 ok. Assets do Editor (Blueprints, mapas) ainda não criados. |
 | Blender | Não instalado |
 | Scripts Python de pipeline | Implementados e cobertos por testes (`pytest`, 171 testes) |
 | Lógica C++ pura | Compilada e testada **fora** da Unreal com stubs (`tests/cpp`) |

@@ -6,7 +6,7 @@ Automation Tests em C++ ficam em `unreal/JogoResgate/Source/JogoResgate/Tests/` 
 & "$env:UE_ROOT\Engine\Binaries\Win64\UnrealEditor-Cmd.exe" "$PWD\unreal\JogoResgate\JogoResgate.uproject" -ExecCmds="Automation RunTests JR.; Quit" -unattended -nullrhi -nosplash -log -ReportExportPath="$PWD\reports\automation"
 ```
 
-Status: nunca executados (IMP-001).
+Status: 7/7 ok em 2026-11-11 (UE 5.8.4, Windows 11).
 
 | Grupo | O que cobre |
 |---|---|
