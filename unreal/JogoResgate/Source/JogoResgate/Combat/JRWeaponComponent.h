@@ -78,6 +78,10 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
 	TEnumAsByte<ECollisionChannel> TraceChannel = ECC_Visibility;
 
+	/** Desenha o rastro do tiro (greybox, até existir arma/VFX). */
+	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
+	bool bDrawDebugTracer = true;
+
 private:
 	FJRAmmoState Ammo;
 	FTimerHandle FireTimer;

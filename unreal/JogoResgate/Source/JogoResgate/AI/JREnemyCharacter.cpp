@@ -5,6 +5,7 @@
 #include "AI/JREnemyArchetype.h"
 #include "AI/JREnemyBudgetSubsystem.h"
 #include "AIController.h"
+#include "Navigation/PathFollowingComponent.h"
 #include "Combat/JRHealthComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/SkeletalMeshComponent.h"
@@ -12,6 +13,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "JogoResgate.h"
 #include "TimerManager.h"
 
 AJREnemyCharacter::AJREnemyCharacter()
@@ -74,16 +76,18 @@ void AJREnemyCharacter::RestartBrainTimer()
 		return;
 	}
 	const float Interval = bFullUpdate ? FullUpdateInterval : ReducedUpdateInterval;
+	UE_LOG(LogJR, Log, TEXT("IA %s: cérebro ligado (%s, a cada %.2fs)"), *GetName(), bFullUpdate ? TEXT("completo") : TEXT("reduzido"), Interval);
 	// Desfasa inimigos para não decidirem todos no mesmo frame.
 	GetWorldTimerManager().SetTimer(BrainTimer, this, &AJREnemyCharacter::UpdateBrain, Interval, true, Random.FRandRange(0.f, Interval));
 }
 
 void AJREnemyCharacter::SetEnemyState(EJREnemyState NewState)
 {
-	if (NewState == CurrentState && StateEnterTime > 0.0)
+	if (NewState == CurrentState && bStateInitialized)
 	{
 		return;
 	}
+	bStateInitialized = true;
 	const EJREnemyState Old = CurrentState;
 	CurrentState = NewState;
 	StateEnterTime = GetWorld()->GetTimeSeconds();
@@ -91,6 +95,8 @@ void AJREnemyCharacter::SetEnemyState(EJREnemyState NewState)
 	{
 		UGameplayStatics::PlaySoundAtLocation(this, Archetype->AlertSound, GetActorLocation());
 	}
+	UE_LOG(LogJR, Log, TEXT("IA %s: %s -> %s (controller=%s)"), *GetName(), *UEnum::GetValueAsString(Old),
+		*UEnum::GetValueAsString(NewState), *GetNameSafe(GetController()));
 	OnEnemyStateChanged.Broadcast(Old, NewState);
 }
 
@@ -98,6 +104,8 @@ void AJREnemyCharacter::UpdateBrain()
 {
 	if (IsDead() || !Archetype)
 	{
+		UE_LOG(LogJR, Warning, TEXT("IA %s: sem Archetype ou morto, cérebro parado"), *GetName());
+		GetWorldTimerManager().ClearTimer(BrainTimer);
 		return;
 	}
 	// O alvo é o pawn atual do jogador: veículo ou personagem (perseguição de ambos).
@@ -111,8 +119,9 @@ void AJREnemyCharacter::UpdateBrain()
 	if (PlayerPawn)
 	{
 		In.DistanceToTarget = static_cast<float>(FVector::Dist(GetActorLocation(), PlayerPawn->GetActorLocation()));
-		// Traço de visão só para agentes completos ou já engajados (custo).
-		In.bHasLineOfSight = (bFullUpdate || CurrentState != EJREnemyState::Idle) && AI && AI->LineOfSightTo(PlayerPawn);
+		// Traço de visão só quando o alvo está perto o bastante para importar (custo).
+		const bool bWorthTracing = In.DistanceToTarget <= Archetype->LoseAggroRadius;
+		In.bHasLineOfSight = bWorthTracing && AI && AI->LineOfSightTo(PlayerPawn);
 	}
 
 	FJREnemyDecisionParams P;
@@ -123,6 +132,12 @@ void AJREnemyCharacter::UpdateBrain()
 	P.bHasPatrol = bHasPatrol;
 
 	const EJREnemyState Next = FJREnemyStateLogic::Decide(In, P);
+	if (BrainDebugLogsLeft > 0 && PlayerPawn && In.DistanceToTarget < P.LoseAggroRadius)
+	{
+		--BrainDebugLogsLeft;
+		UE_LOG(LogJR, Log, TEXT("IA %s: alvo=%s dist=%.0f visão=%d estado=%s -> %s"), *GetName(), *PlayerPawn->GetName(),
+			In.DistanceToTarget, In.bHasLineOfSight ? 1 : 0, *UEnum::GetValueAsString(CurrentState), *UEnum::GetValueAsString(Next));
+	}
 	SetEnemyState(Next);
 
 	if (!AI)
@@ -134,7 +149,12 @@ void AJREnemyCharacter::UpdateBrain()
 	case EJREnemyState::Chase:
 		if (PlayerPawn)
 		{
-			AI->MoveToActor(PlayerPawn, Archetype->AttackRange * 0.8f, true, true, true);
+			const EPathFollowingRequestResult::Type Result = AI->MoveToActor(PlayerPawn, Archetype->AttackRange * 0.8f, true, true, true);
+			if (Result == EPathFollowingRequestResult::Failed && !bLoggedMoveFailure)
+			{
+				bLoggedMoveFailure = true;
+				UE_LOG(LogJR, Warning, TEXT("IA %s: MoveToActor falhou (sem navmesh ou alvo fora da navmesh?)"), *GetName());
+			}
 		}
 		break;
 	case EJREnemyState::Attack:
@@ -260,5 +280,6 @@ void AJREnemyCharacter::HandleDeath(UJRHealthComponent* Health, AActor* Killer)
 	GetMesh()->SetCollisionProfileName(TEXT("Ragdoll"));
 	GetMesh()->SetSimulatePhysics(true);
 	SetLifeSpan(Archetype ? Archetype->CorpseLifetime : 10.f);
+	UE_LOG(LogJR, Log, TEXT("IA %s morreu"), *GetName());
 	OnEnemyDied.Broadcast(this);
 }

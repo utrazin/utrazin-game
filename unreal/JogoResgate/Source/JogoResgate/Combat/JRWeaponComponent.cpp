@@ -8,6 +8,7 @@
 #include "GameFramework/Pawn.h"
 #include "JogoResgate.h"
 #include "Kismet/GameplayStatics.h"
+#include "DrawDebugHelpers.h"
 #include "TimerManager.h"
 
 UJRWeaponComponent::UJRWeaponComponent()
@@ -151,6 +152,17 @@ void UJRWeaponComponent::FireOnce()
 	{
 		UGameplayStatics::ApplyPointDamage(Hit.GetActor(), Definition->Damage, Direction, Hit,
 			GetOwner()->GetInstigatorController(), GetOwner(), nullptr);
+	}
+	if (bDrawDebugTracer)
+	{
+		// Greybox: rastro visível do tiro até existir arma/VFX de verdade.
+		const FVector Muzzle = GetOwner()->GetActorLocation() + FVector(0.f, 0.f, 50.f);
+		const FVector Impact = bHit ? FVector(Hit.ImpactPoint) : End;
+		DrawDebugLine(GetWorld(), Muzzle, Impact, FColor::Cyan, false, 0.12f, 0, 2.f);
+		if (bHit)
+		{
+			DrawDebugSphere(GetWorld(), Impact, 12.f, 8, FColor::Red, false, 0.3f);
+		}
 	}
 	OnWeaponFired.Broadcast(ViewLocation, bHit ? Hit.ImpactPoint : End);
 	OnAmmoChanged.Broadcast(Ammo.Magazine, Ammo.Reserve);

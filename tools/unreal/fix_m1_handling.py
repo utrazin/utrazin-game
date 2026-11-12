@@ -70,7 +70,7 @@ def checkpoints():
         loc = cp.get_actor_location()
         dist = (loc - start).length() / 100.0 if start else None
         REPORT["checkpoints"].append({"label": cp.get_actor_label(), "location": str(loc), "dist_from_start_m": dist})
-    unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).save_current_level()
+    unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True, True)  # mapas World Partition: salva também os pacotes de atores externos
 
 
 step("vehicle", vehicle)

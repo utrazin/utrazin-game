@@ -35,6 +35,8 @@ float UJRHealthComponent::ApplyDamage(float Amount, AActor* DamageCauser)
 	const float Before = Health;
 	Health = FMath::Clamp(Health - Amount * DamageTakenMultiplier, 0.f, MaxHealth);
 	const float Delta = Health - Before;
+	UE_LOG(LogJR, Log, TEXT("%s recebeu %.0f de dano de %s (vida %.0f/%.0f)"), *GetNameSafe(GetOwner()), -Delta,
+		*GetNameSafe(DamageCauser), Health, MaxHealth);
 	OnHealthChanged.Broadcast(this, Health, Delta);
 	if (Health <= 0.f)
 	{

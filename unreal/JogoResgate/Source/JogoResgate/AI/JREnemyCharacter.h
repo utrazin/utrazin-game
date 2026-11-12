@@ -99,4 +99,7 @@ private:
 	double LastAttackTime = -1000.0;
 	int32 BurstShotsRemaining = 0;
 	bool bFullUpdate = false;
+	bool bLoggedMoveFailure = false;
+	bool bStateInitialized = false;
+	int32 BrainDebugLogsLeft = 3;
 };

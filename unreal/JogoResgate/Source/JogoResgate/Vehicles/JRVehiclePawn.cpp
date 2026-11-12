@@ -44,7 +44,7 @@ AJRVehiclePawn::AJRVehiclePawn()
 
 	ExitPoint = CreateDefaultSubobject<USceneComponent>(TEXT("ExitPoint"));
 	ExitPoint->SetupAttachment(GetMesh());
-	ExitPoint->SetRelativeLocation(FVector(0.f, -180.f, 50.f));
+	ExitPoint->SetRelativeLocation(FVector(0.f, -320.f, 120.f)); // longe o bastante do Offroad (largo)
 
 	DamageComponent = CreateDefaultSubobject<UJRVehicleDamageComponent>(TEXT("DamageComponent"));
 

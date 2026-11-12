@@ -162,7 +162,7 @@ def main():
     except Exception as exc:  # noqa: BLE001
         err("WorldSettings.default_game_mode", exc)
 
-    unreal.get_editor_subsystem(unreal.LevelEditorSubsystem).save_current_level()
+    unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True, True)  # mapas World Partition: salva também os pacotes de atores externos
 
 
 try:

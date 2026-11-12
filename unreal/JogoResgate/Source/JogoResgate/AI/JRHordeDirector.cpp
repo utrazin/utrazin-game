@@ -61,6 +61,7 @@ void AJRHordeDirector::StartHorde()
 void AJRHordeDirector::BeginWave(int32 WaveIndex)
 {
 	CurrentWave = WaveIndex;
+	UE_LOG(LogJR, Log, TEXT("Horda: onda %d de %d"), WaveIndex + 1, Waves.Num());
 	SpawnedInWave = 0;
 	OnWaveStarted.Broadcast(WaveIndex, Waves.Num());
 	GetWorldTimerManager().SetTimer(SpawnTimer, this, &AJRHordeDirector::SpawnTick,
@@ -125,6 +126,7 @@ void AJRHordeDirector::SpawnTick()
 	}
 	if (Candidates.Num() == 0)
 	{
+		UE_LOG(LogJR, Verbose, TEXT("Horda: nenhum ponto de spawn válido agora (todos à vista ou perto demais)"));
 		return; // tenta de novo no próximo tick: nunca spawna à vista
 	}
 	const AActor* Point = Candidates[FMath::RandRange(0, Candidates.Num() - 1)];
@@ -135,6 +137,12 @@ void AJRHordeDirector::SpawnTick()
 		Enemy->OnEnemyDied.AddDynamic(this, &AJRHordeDirector::HandleEnemyDied);
 		Alive.Add(Enemy);
 		++SpawnedInWave;
+		UE_LOG(LogJR, Log, TEXT("Horda onda %d: spawn %d/%d (%s) em %s"), CurrentWave + 1, SpawnedInWave, Wave.Count,
+			*Enemy->GetName(), *Point->GetName());
+	}
+	else
+	{
+		UE_LOG(LogJR, Warning, TEXT("Horda: SpawnActor falhou em %s (colisão?)"), *Point->GetName());
 	}
 }
 

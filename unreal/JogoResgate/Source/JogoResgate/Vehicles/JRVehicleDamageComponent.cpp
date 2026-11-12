@@ -166,6 +166,12 @@ void UJRVehicleDamageComponent::HandleActorHit(AActor* SelfActor, AActor* OtherA
 	// Atropelamento: alvos com saúde recebem dano; o carro sofre uma fração na frente (A-010).
 	if (OtherActor && OtherActor->FindComponentByClass<UJRHealthComponent>())
 	{
+		// Carro estacionado/sem motorista não "atropela" (ex.: personagem saindo do carro).
+		const APawn* SelfPawn = Cast<APawn>(SelfActor);
+		if (!SelfPawn || !SelfPawn->GetController())
+		{
+			return;
+		}
 		UGameplayStatics::ApplyDamage(OtherActor, ImpactKmh * RunOverDamagePerKmh, SelfActor->GetInstigatorController(), SelfActor, nullptr);
 		ApplyZoneDamage(EJRVehicleZone::Front, Damage * RunOverSelfDamageScale);
 		return;

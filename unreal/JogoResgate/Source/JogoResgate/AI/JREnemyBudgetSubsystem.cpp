@@ -32,6 +32,8 @@ void UJREnemyBudgetSubsystem::RegisterEnemy(AJREnemyCharacter* Enemy)
 	if (Enemy)
 	{
 		Enemies.AddUnique(Enemy);
+		// Liga o "cérebro" já no registro (mesmo sem jogador ainda); o rebalanceamento ajusta depois.
+		Enemy->SetFullUpdate(Enemies.Num() <= MaxFullUpdateEnemies);
 		Rebalance();
 	}
 }
