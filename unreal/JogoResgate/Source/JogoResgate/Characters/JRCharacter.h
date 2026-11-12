@@ -84,6 +84,10 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
 	TObjectPtr<UInputAction> LookAction;
 
+	/** Olhar com o mouse (separado do analógico, como no template da Epic). */
+	UPROPERTY(EditDefaultsOnly, Category = "Input")
+	TObjectPtr<UInputAction> MouseLookAction;
+
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
 	TObjectPtr<UInputAction> JumpAction;
 
@@ -109,10 +113,10 @@ protected:
 	float SprintSpeed = 600.f;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Camera", meta = (Units = "cm"))
-	float DefaultArmLength = 300.f;
+	float DefaultArmLength = 400.f;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Camera", meta = (Units = "cm"))
-	float AimArmLength = 150.f;
+	float AimArmLength = 200.f;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Animation")
 	TObjectPtr<UAnimMontage> ExitVehicleMontage;

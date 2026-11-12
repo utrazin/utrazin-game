@@ -10,6 +10,7 @@ class UCameraComponent;
 class UInputAction;
 class UJRVehicleDamageComponent;
 class USpringArmComponent;
+class UStaticMeshComponent;
 struct FInputActionValue;
 
 /**
@@ -64,6 +65,23 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Vehicle")
 	TObjectPtr<UJRVehicleDamageComponent> DamageComponent;
 
+	/** Carroceria visual (estática), presa ao esqueleto da suspensão. */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Vehicle|Visual")
+	TObjectPtr<UStaticMeshComponent> ChassisMesh;
+
+	/** Pneus visuais nos sockets VisWheel_* (FL, FR, BL, BR). */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Vehicle|Visual")
+	TObjectPtr<UStaticMeshComponent> TireFL;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Vehicle|Visual")
+	TObjectPtr<UStaticMeshComponent> TireFR;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Vehicle|Visual")
+	TObjectPtr<UStaticMeshComponent> TireBL;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Vehicle|Visual")
+	TObjectPtr<UStaticMeshComponent> TireBR;
+
 	/** Onde o personagem aparece ao sair do carro (lado do motorista). */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Vehicle")
 	TObjectPtr<USceneComponent> ExitPoint;
@@ -82,6 +100,9 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
 	TObjectPtr<UInputAction> LookAction;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Input")
+	TObjectPtr<UInputAction> MouseLookAction;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Vehicle", meta = (Units = "s"))
 	float SleepDelayAfterPark = 2.f;

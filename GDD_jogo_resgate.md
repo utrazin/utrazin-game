@@ -1,6 +1,6 @@
 # GDD: Jogo de Resgate (título provisório)
 
-> Versão 0.2 (rascunho). Documento vivo. Itens marcados com **[DEFINIR]** dependem de decisão. A seção 14 lista as perguntas em aberto.
+> Versão 0.4 (rascunho). Documento vivo. Itens marcados com **[DEFINIR]** dependem de decisão. A seção 14 lista as perguntas em aberto.
 > Valores provisórios propostos para cada **[DEFINIR]** estão em [`docs/decisions/ASSUMPTIONS.md`](docs/decisions/ASSUMPTIONS.md) e **não foram aprovados**. Este GDD só muda quando o usuário aprovar.
 
 ---
@@ -219,10 +219,10 @@ Regras: usar apenas assets com **licença compatível com uso comercial** (caso 
 ### Engine e plataforma
 1. Confirma **Unreal Engine** (qual versão) com **Blueprint, C++ ou ambos**?
 2. Plataforma alvo (Windows, Mac, Linux) e hardware mínimo?
-3. Teclado/mouse, controle ou os dois?
+3. ~~Teclado/mouse, controle ou os dois?~~ **Os dois.**
 
 ### Estilo e tom
-4. Estilo visual: realista, estilizado, low poly?
+4. ~~Estilo visual?~~ **Cartunesco**, sem realismo elevado (física continua crível, o visual é que é estilizado).
 5. Tom e classificação: gore pesado, mais leve, humor?
 6. Referências de jogo (visual e jogabilidade)?
 
@@ -233,7 +233,7 @@ Regras: usar apenas assets com **licença compatível com uso comercial** (caso 
 
 ### Fases
 10. Tema, ambiente e objetivo específico das fases 2 e 3?
-11. Quanto tempo de duração por fase (ex.: 15 a 20 min)?
+11. ~~Quanto tempo de duração por fase?~~ **Fase 1: no máximo 10 min.** Fases 2 e 3 a definir.
 12. Dificuldade: um nível só ou fácil/normal/difícil?
 
 ### Carro
@@ -244,7 +244,7 @@ Regras: usar apenas assets com **licença compatível com uso comercial** (caso 
 ### Combate e progressão
 16. Só a pistola alienígena no MVP, ou mais armas? Munição limitada?
 17. Há itens, upgrades, loot ou moeda? Ou progressão apenas linear?
-18. Morreu: volta ao último checkpoint? Há mais de um checkpoint por fase?
+18. ~~Morreu: volta ao último checkpoint?~~ **Sim** (também quando o carro é destruído). Quantidade de checkpoints: início + transição por padrão.
 
 ### Produção
 19. Time: só você, ou há outras pessoas (artistas, animadores)?
@@ -259,6 +259,8 @@ Regras: usar apenas assets com **licença compatível com uso comercial** (caso 
 |---|---|---|---|
 | 0.1 | 2026-11-11 | Rascunho inicial (arquivo original `GDD_jogo_resgate_1.md`) | utrazin |
 | 0.2 | 2026-11-11 | Repositório criado; links para ASSUMPTIONS/OPEN_DECISIONS. Nenhuma decisão de design alterada. | Claude (M0) |
+| 0.4 | 2026-11-11 | Estilo visual decidido: **cartunesco** (OD-004). | utrazin |
+| 0.3 | 2026-11-11 | Decididos: teclado/mouse **e** controle (OD-003); morte ou carro destruído voltam ao último checkpoint (OD-018); Fase 1 com **no máximo 10 min** (OD-011). | utrazin |
 
 Regra: toda alteração de decisão registra versão, data, motivo e referência ao item de `OPEN_DECISIONS.md` resolvido.
 

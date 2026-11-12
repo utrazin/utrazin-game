@@ -34,15 +34,17 @@ protected:
 
 	void ApplyMappingContextFor(const APawn* InPawn);
 
+	/** Contextos ativos ao dirigir (ex.: teclado/controle + mouse). */
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
-	TObjectPtr<UInputMappingContext> VehicleMappingContext;
+	TArray<TObjectPtr<UInputMappingContext>> VehicleMappingContexts;
 
+	/** Contextos ativos a pé (movimento, mouse, combate). */
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
-	TObjectPtr<UInputMappingContext> OnFootMappingContext;
+	TArray<TObjectPtr<UInputMappingContext>> OnFootMappingContexts;
 
-	/** Mapeamento sempre ativo (pausa, menu). */
+	/** Contextos sempre ativos (pausa, menu). */
 	UPROPERTY(EditDefaultsOnly, Category = "Input")
-	TObjectPtr<UInputMappingContext> GlobalMappingContext;
+	TArray<TObjectPtr<UInputMappingContext>> GlobalMappingContexts;
 
 private:
 	UPROPERTY()

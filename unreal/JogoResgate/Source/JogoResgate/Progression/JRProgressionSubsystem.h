@@ -54,6 +54,9 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "Progression")
 	FJROnProgressSaved OnProgressSaved;
 
+	/** Marcado antes de recarregar o mapa após falha: o próximo carregamento usa o checkpoint salvo. */
+	bool bRestartingFromCheckpoint = false;
+
 	static const FString SlotName;
 	static constexpr int32 UserIndex = 0;
 

@@ -69,6 +69,7 @@ void UJRVehicleDamageComponent::SetTireFlat(EJRWheel Wheel, bool bFlat)
 	State.SetTireFlat(Wheel, bFlat);
 	if (bFlat)
 	{
+		UE_LOG(LogJR, Log, TEXT("%s: pneu %s furado"), *GetNameSafe(GetOwner()), *UEnum::GetValueAsString(Wheel));
 		OnTireFlat.Broadcast(Wheel);
 	}
 	ApplyEffectsToMovement();

@@ -95,7 +95,7 @@ protected:
 
 	/** Impacto lateral nesta velocidade (km/h) perto de uma roda pode furar o pneu. */
 	UPROPERTY(EditDefaultsOnly, Category = "Vehicle|Damage")
-	float TireBurstImpactKmh = 40.f;
+	float TireBurstImpactKmh = 55.f;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Vehicle|Damage", meta = (Units = "cm"))
 	float TireHitRadius = 60.f;

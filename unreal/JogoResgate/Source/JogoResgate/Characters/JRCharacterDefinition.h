@@ -17,20 +17,20 @@ struct FJRSkinDefinition
 {
 	GENERATED_BODY()
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Skin")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Skin")
 	FName SkinId;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Skin")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Skin")
 	FText DisplayName;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Skin")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Skin")
 	TSoftObjectPtr<USkeletalMesh> Mesh;
 
 	/** Opcional: sobrescreve materiais por slot (índice = slot). */
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Skin")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Skin")
 	TArray<TSoftObjectPtr<UMaterialInterface>> MaterialOverrides;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Skin")
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Skin")
 	TSoftObjectPtr<UTexture2D> Portrait;
 };
 

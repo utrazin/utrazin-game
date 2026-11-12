@@ -30,14 +30,20 @@ void AJRPlayerController::ApplyMappingContextFor(const APawn* InPawn)
 		return;
 	}
 	Subsystem->ClearAllMappings();
-	if (GlobalMappingContext)
+	for (UInputMappingContext* Context : GlobalMappingContexts)
 	{
-		Subsystem->AddMappingContext(GlobalMappingContext, 10);
+		if (Context)
+		{
+			Subsystem->AddMappingContext(Context, 10);
+		}
 	}
-	UInputMappingContext* Context = InPawn && InPawn->IsA<AJRVehiclePawn>() ? VehicleMappingContext.Get() : OnFootMappingContext.Get();
-	if (Context)
+	const bool bInVehicle = InPawn && InPawn->IsA<AJRVehiclePawn>();
+	for (UInputMappingContext* Context : bInVehicle ? VehicleMappingContexts : OnFootMappingContexts)
 	{
-		Subsystem->AddMappingContext(Context, 0);
+		if (Context)
+		{
+			Subsystem->AddMappingContext(Context, 0);
+		}
 	}
 }
 

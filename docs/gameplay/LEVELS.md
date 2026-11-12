@@ -20,12 +20,21 @@ Adicionar fase = novo Data Asset + mapa (skill `/add-level`), **sem código novo
 
 ## Greybox L01 (M1)
 
+Orçamento de tempo (A-018: **no máximo 10 min**, ~50% carro / ~50% a pé):
+
+| Trecho | Tempo alvo | Tamanho |
+|---|---|---|
+| Carro (velocidade média ~30 km/h em terreno ruim) | 4 a 5 min | ~1,5 km |
+| A pé até a arena (3 encontros) | 2 a 3 min | ~300 m |
+| Horda final | 1,5 a 2 min | arena ~40 m |
+| Resgate + abraço | < 30 s | |
+
 ```
 [Início/carro] --estrada sinuosa com morros e buracos (~1,5 km)--> [Checkpoint de transição]
-      --trilha a pé com ruínas e obstáculos (~600 m)--> [Arena da horda] --> [Cela / resgate]
+      --trilha a pé com ruínas e obstáculos (~300 m)--> [Arena da horda] --> [Cela / resgate]
 ```
 
-- Landscape 2 x 2 km (provisório), resolução 2017 x 2017.
+- Landscape 1 x 1 km (suficiente para o percurso sinuoso), resolução 1009 x 1009.
 - Trecho de carro: 3 subidas, 2 descidas fortes, 6 buracos, 4 pontos de emboscada de arqueiros.
 - Transição: área plana com socket de saída do carro e checkpoint.
 - Trecho a pé: 3 encontros escalonados (corpo a corpo, misto, misto + atirador).

@@ -60,6 +60,18 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Game", meta = (Units = "s"))
 	float RestartDelay = 1.5f;
 
+	/** No Editor (PIE), cada Play começa do início da fase; o checkpoint salvo só vale após morrer. */
+	UPROPERTY(EditDefaultsOnly, Category = "Game")
+	bool bStartFromBeginningInEditor = true;
+
+	/** Altura extra ao spawnar personagem num checkpoint (meia altura da cápsula + folga). */
+	UPROPERTY(EditDefaultsOnly, Category = "Game", meta = (Units = "cm"))
+	float CharacterSpawnHeight = 110.f;
+
+	/** Altura extra ao spawnar veículo num checkpoint. */
+	UPROPERTY(EditDefaultsOnly, Category = "Game", meta = (Units = "cm"))
+	float VehicleSpawnHeight = 80.f;
+
 private:
 	FTimerHandle RestartTimer;
 	bool bFailurePending = false;

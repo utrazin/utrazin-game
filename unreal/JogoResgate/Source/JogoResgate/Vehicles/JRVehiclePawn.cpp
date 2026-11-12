@@ -4,6 +4,7 @@
 #include "Camera/CameraComponent.h"
 #include "ChaosVehicleMovementComponent.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Components/StaticMeshComponent.h"
 #include "Core/JRGameMode.h"
 #include "EnhancedInputComponent.h"
 #include "Engine/World.h"
@@ -16,8 +17,10 @@ AJRVehiclePawn::AJRVehiclePawn()
 {
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
 	SpringArm->SetupAttachment(GetMesh());
-	SpringArm->TargetArmLength = 650.f;
-	SpringArm->SocketOffset = FVector(0.f, 0.f, 150.f);
+	// Origem do braço acima do chão: evita a câmera "afundar" quando o traço de colisão nasce no terreno.
+	SpringArm->SetRelativeLocation(FVector(0.f, 0.f, 200.f));
+	SpringArm->TargetArmLength = 900.f;
+	SpringArm->SocketOffset = FVector(0.f, 0.f, 120.f);
 	SpringArm->bUsePawnControlRotation = true;
 	SpringArm->bEnableCameraLag = true;
 	SpringArm->CameraLagSpeed = 8.f;
@@ -25,11 +28,28 @@ AJRVehiclePawn::AJRVehiclePawn()
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
 
+	auto MakeVisual = [this](const TCHAR* Name, FName Socket) -> UStaticMeshComponent*
+	{
+		UStaticMeshComponent* Comp = CreateDefaultSubobject<UStaticMeshComponent>(Name);
+		Comp->SetupAttachment(GetMesh(), Socket);
+		Comp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+		Comp->SetCanEverAffectNavigation(false);
+		return Comp;
+	};
+	ChassisMesh = MakeVisual(TEXT("ChassisMesh"), NAME_None);
+	TireFL = MakeVisual(TEXT("TireFL"), TEXT("VisWheel_FL"));
+	TireFR = MakeVisual(TEXT("TireFR"), TEXT("VisWheel_FR"));
+	TireBL = MakeVisual(TEXT("TireBL"), TEXT("VisWheel_BL"));
+	TireBR = MakeVisual(TEXT("TireBR"), TEXT("VisWheel_BR"));
+
 	ExitPoint = CreateDefaultSubobject<USceneComponent>(TEXT("ExitPoint"));
 	ExitPoint->SetupAttachment(GetMesh());
 	ExitPoint->SetRelativeLocation(FVector(0.f, -180.f, 50.f));
 
 	DamageComponent = CreateDefaultSubobject<UJRVehicleDamageComponent>(TEXT("DamageComponent"));
+
+	// Necessário para disparar AJRCheckpoint e outros gatilhos (malha esquelética vem desligada).
+	GetMesh()->SetGenerateOverlapEvents(true);
 }
 
 void AJRVehiclePawn::BeginPlay()
@@ -79,6 +99,10 @@ void AJRVehiclePawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 	if (LookAction)
 	{
 		Input->BindAction(LookAction, ETriggerEvent::Triggered, this, &AJRVehiclePawn::HandleLook);
+	}
+	if (MouseLookAction)
+	{
+		Input->BindAction(MouseLookAction, ETriggerEvent::Triggered, this, &AJRVehiclePawn::HandleLook);
 	}
 }
 

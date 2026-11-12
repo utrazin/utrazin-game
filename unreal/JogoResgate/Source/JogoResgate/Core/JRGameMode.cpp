@@ -30,7 +30,12 @@ AJRCheckpoint* AJRGameMode::ResolveRespawnCheckpoint() const
 	{
 		if (const UJRProgressionSubsystem* Progression = GetGameInstance()->GetSubsystem<UJRProgressionSubsystem>())
 		{
-			SavedId = Progression->GetLastCheckpoint(LevelDefinition->LevelId);
+			const bool bFreshEditorRun = bStartFromBeginningInEditor && GetWorld()->IsPlayInEditor()
+				&& !Progression->bRestartingFromCheckpoint;
+			if (!bFreshEditorRun)
+			{
+				SavedId = Progression->GetLastCheckpoint(LevelDefinition->LevelId);
+			}
 		}
 	}
 	AJRCheckpoint* StartCheckpoint = nullptr;
@@ -56,11 +61,17 @@ void AJRGameMode::StartPlay()
 	{
 		Objective->InitializeLevel(LevelDefinition, Stage);
 	}
+	UE_LOG(LogJR, Log, TEXT("StartPlay: GameMode=%s LevelDefinition=%s Checkpoint=%s Stage=%s"),
+		*GetClass()->GetPathName(), *GetNameSafe(LevelDefinition), *GetNameSafe(Checkpoint), *UEnum::GetValueAsString(Stage));
 	if (!LevelDefinition)
 	{
 		UE_LOG(LogJR, Warning, TEXT("%s sem LevelDefinition: progresso não será salvo."), *GetName());
 	}
 	Super::StartPlay();
+	if (UJRProgressionSubsystem* Progression = GetGameInstance()->GetSubsystem<UJRProgressionSubsystem>())
+	{
+		Progression->bRestartingFromCheckpoint = false;
+	}
 }
 
 AActor* AJRGameMode::FindPlayerStart_Implementation(AController* Player, const FString& IncomingName)
@@ -89,11 +100,32 @@ UClass* AJRGameMode::GetDefaultPawnClassForController_Implementation(AController
 
 APawn* AJRGameMode::SpawnDefaultPawnFor_Implementation(AController* NewPlayer, AActor* StartSpot)
 {
+	APawn* Spawned = nullptr;
 	if (const AJRCheckpoint* Checkpoint = Cast<AJRCheckpoint>(StartSpot))
 	{
-		return SpawnDefaultPawnAtTransform(NewPlayer, Checkpoint->GetRespawnTransform());
+		FTransform SpawnTransform = Checkpoint->GetRespawnTransform();
+		SpawnTransform.SetScale3D(FVector::OneVector);
+		UClass* PawnClass = GetDefaultPawnClassForController(NewPlayer);
+		const bool bVehicle = PawnClass && PawnClass->IsChildOf(AJRVehiclePawn::StaticClass());
+		// Nasce acima do chão (rodas/cápsula não podem começar dentro do terreno).
+		SpawnTransform.AddToTranslation(FVector(0.f, 0.f, bVehicle ? VehicleSpawnHeight : CharacterSpawnHeight));
+		if (PawnClass)
+		{
+			FActorSpawnParameters Params;
+			Params.Instigator = GetInstigator();
+			Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+			Params.ObjectFlags |= RF_Transient;
+			Spawned = GetWorld()->SpawnActor<APawn>(PawnClass, SpawnTransform, Params);
+		}
 	}
-	return Super::SpawnDefaultPawnFor_Implementation(NewPlayer, StartSpot);
+	else
+	{
+		Spawned = Super::SpawnDefaultPawnFor_Implementation(NewPlayer, StartSpot);
+	}
+	UE_LOG(LogJR, Log, TEXT("SpawnDefaultPawnFor: classe=%s inicio=%s resultado=%s em %s"),
+		*GetNameSafe(GetDefaultPawnClassForController(NewPlayer)), *GetNameSafe(StartSpot), *GetNameSafe(Spawned),
+		Spawned ? *Spawned->GetActorLocation().ToString() : TEXT("-"));
+	return Spawned;
 }
 
 void AJRGameMode::SetPlayerDefaults(APawn* PlayerPawn)
@@ -154,6 +186,10 @@ void AJRGameMode::HandlePlayerFailure(APawn* FailedPawn)
 	if (UJRObjectiveSubsystem* Objective = GetWorld()->GetSubsystem<UJRObjectiveSubsystem>())
 	{
 		Objective->FailLevel();
+	}
+	if (UJRProgressionSubsystem* Progression = GetGameInstance()->GetSubsystem<UJRProgressionSubsystem>())
+	{
+		Progression->bRestartingFromCheckpoint = true;
 	}
 	GetWorldTimerManager().SetTimer(RestartTimer, this, &AJRGameMode::RestartFromCheckpoint, RestartDelay, false);
 }

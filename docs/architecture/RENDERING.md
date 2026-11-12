@@ -1,6 +1,6 @@
 # Renderização e otimização
 
-Política: **ligar recursos caros só com medição** (prompt mestre, Etapa 8). Medir com `stat unit`, `stat gpu`, Unreal Insights, em build `Development` standalone, na GPU de referência (A-023).
+Estilo **cartunesco** (A-004): Lumen, Nanite, distance fields, auto exposure e motion blur ficam **desligados no projeto** (DefaultEngine.ini); anti-aliasing TAA. Política: **ligar recursos caros só com medição** (prompt mestre, Etapa 8). Medir com `stat unit`, `stat gpu`, Unreal Insights, em build `Development` standalone, na GPU de referência (A-023).
 
 | Recurso | Padrão inicial | Quando reconsiderar |
 |---|---|---|

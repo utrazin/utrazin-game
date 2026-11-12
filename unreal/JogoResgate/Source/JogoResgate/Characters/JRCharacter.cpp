@@ -36,10 +36,9 @@ AJRCharacter::AJRCharacter()
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
 	SpringArm->SetupAttachment(RootComponent);
 	SpringArm->TargetArmLength = DefaultArmLength;
-	SpringArm->SocketOffset = FVector(0.f, 50.f, 60.f);
+	SpringArm->SocketOffset = FVector(0.f, 0.f, 40.f);
 	SpringArm->bUsePawnControlRotation = true;
-	SpringArm->bEnableCameraLag = true;
-	SpringArm->CameraLagSpeed = 12.f;
+	SpringArm->bEnableCameraLag = false; // lag + física causava tremido
 
 	Camera = CreateDefaultSubobject<UCameraComponent>(TEXT("Camera"));
 	Camera->SetupAttachment(SpringArm, USpringArmComponent::SocketName);
@@ -66,6 +65,7 @@ void AJRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	}
 	if (MoveAction) { Input->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AJRCharacter::HandleMove); }
 	if (LookAction) { Input->BindAction(LookAction, ETriggerEvent::Triggered, this, &AJRCharacter::HandleLook); }
+	if (MouseLookAction) { Input->BindAction(MouseLookAction, ETriggerEvent::Triggered, this, &AJRCharacter::HandleLook); }
 	if (JumpAction)
 	{
 		Input->BindAction(JumpAction, ETriggerEvent::Started, this, &ACharacter::Jump);
