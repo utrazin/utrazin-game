@@ -1,0 +1,45 @@
+{
+ "src": "/mnt/user-data/uploads/utrazin-game/assets/raw/imports/CHR-002/",
+ "height_m": 1.68,
+ "object_name": "SK_Hero02",
+ "parts": {
+  "pants": {
+   "file": "pants-victoria.glb",
+   "scale": 0.552,
+   "zstretch": 1.06,
+   "z0": 0.0
+  },
+  "jacket": {
+   "file": "jacket-victoria.glb",
+   "scale": 0.412,
+   "z0": 0.406
+  },
+  "head": {
+   "file": "head-victoria-2.glb",
+   "scale": 0.218,
+   "z0": 0.76212,
+   "dy": 0.05
+  }
+ },
+ "jacket_neck_cut": {
+  "z": 9,
+  "max_abs_x": 0.085
+ },
+ "head_bottom_cut": null,
+ "tex_override": {
+  "head": "/home/claude/chr2/tex_head2_tone.png"
+ },
+ "head_bottom_cut_min_y": 0.05,
+ "head_neck_remove": {
+  "z": 1.364,
+  "yc": 0.05,
+  "r_max": 0.06
+ },
+ "jacket_neck_stretch": {
+  "z0": 1.325,
+  "yc": 0.05,
+  "r_max": 0.07,
+  "k": 1.35,
+  "widen": 1.12
+ }
+}

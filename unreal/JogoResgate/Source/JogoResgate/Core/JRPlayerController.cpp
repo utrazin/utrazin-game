@@ -4,11 +4,27 @@
 #include "Characters/JRCharacter.h"
 #include "Core/JRGameMode.h"
 #include "EnhancedInputSubsystems.h"
+#include "Engine/GameInstance.h"
 #include "Engine/LocalPlayer.h"
 #include "Engine/World.h"
 #include "InputMappingContext.h"
 #include "JogoResgate.h"
+#include "Kismet/GameplayStatics.h"
+#include "Progression/JRProgressionSubsystem.h"
 #include "Vehicles/JRVehiclePawn.h"
+
+void AJRPlayerController::JRHeroi(const FString& CharacterId)
+{
+	UJRProgressionSubsystem* Progression = GetGameInstance() ? GetGameInstance()->GetSubsystem<UJRProgressionSubsystem>() : nullptr;
+	if (!Progression)
+	{
+		UE_LOG(LogJR, Warning, TEXT("JRHeroi: sem ProgressionSubsystem."));
+		return;
+	}
+	Progression->SelectCharacter(FName(*CharacterId), NAME_None);
+	UE_LOG(LogJR, Log, TEXT("JRHeroi: personagem selecionado %s. Reiniciando a fase."), *CharacterId);
+	UGameplayStatics::OpenLevel(this, FName(*UGameplayStatics::GetCurrentLevelName(this)));
+}
 
 void AJRPlayerController::OnPossess(APawn* InPawn)
 {

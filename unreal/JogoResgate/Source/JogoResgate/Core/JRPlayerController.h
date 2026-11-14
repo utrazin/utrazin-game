@@ -29,6 +29,10 @@ public:
 	UPROPERTY(BlueprintAssignable, Category = "Player")
 	FJROnControlledPawnChanged OnControlledPawnChanged;
 
+	/** Console (teste): "JRHeroi CHR-001" ou "JRHeroi CHR-002". Troca o personagem e reinicia a fase. */
+	UFUNCTION(Exec)
+	void JRHeroi(const FString& CharacterId);
+
 protected:
 	virtual void OnPossess(APawn* InPawn) override;
 

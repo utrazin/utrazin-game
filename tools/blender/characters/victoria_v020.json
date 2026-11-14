@@ -1,0 +1,38 @@
+{
+ "height_m": 1.68,
+ "parts": {
+  "pants": {
+   "scale": 0.514,
+   "z0": 0.0219,
+   "dy": -0.02
+  },
+  "hoodie": {
+   "file": "hoodie2",
+   "scale": 0.461,
+   "z0": 0.5486,
+   "dy": 0.0
+  },
+  "head": {
+   "scale": 0.1991,
+   "z0": 0.8,
+   "dy": 0.008
+  }
+ },
+ "pants_stretch": {
+  "from": 0.15,
+  "top": 0.96
+ },
+ "head_dx": 0.0,
+ "delete_islands": [
+  {
+   "part": "head",
+   "c": [
+    -0.1125,
+    -0.02,
+    1.465
+   ],
+   "r": 0.02,
+   "max_faces": 30
+  }
+ ]
+}
