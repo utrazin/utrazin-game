@@ -36,7 +36,20 @@ bool FJRSaveMigration::Migrate(UJRSaveGame& Save, FString& OutError)
 		Save.SaveVersion = 2;
 	}
 
-	// Próximos passos: if (Save.SaveVersion == 2) { ...; Save.SaveVersion = 3; }
+	// v2 -> v3 [Remap F1]: carteira e bancada começam zeradas (quem já jogava o L01 começa a cidade do zero).
+	if (Save.SaveVersion == 2)
+	{
+		Save.Credits = 0;
+		Save.Scrap = 0;
+		Save.Crystals = 0;
+		Save.BenchLevel = 0;
+		Save.OwnedWeaponSlots.Reset();
+		Save.BestWave = 0;
+		Save.RunsPlayed = 0;
+		Save.SaveVersion = 3;
+	}
+
+	// Próximos passos: if (Save.SaveVersion == 3) { ...; Save.SaveVersion = 4; }
 
 	return Save.SaveVersion == UJRSaveGame::CurrentVersion;
 }

@@ -1,0 +1,10 @@
+{
+  "targets": [
+    {
+      "id": "default",
+      "format": "glb",
+      "output": "galao/exports/galao.glb",
+      "runtime_role": "default"
+    }
+  ]
+}

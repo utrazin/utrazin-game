@@ -153,6 +153,12 @@ public:
 	UFUNCTION(Exec)
 	void JRArmas();
 
+	/** [Remap F1] Cartas de velocidade: escala andar e correr a partir dos valores originais. */
+	void SetMoveSpeedMultiplier(float Multiplier);
+
+	/** [Remap F1] Vida máxima antes das cartas (-1 = ainda não guardada). */
+	float RemapBaseMaxHealth = -1.f;
+
 	UFUNCTION(BlueprintPure, Category = "Weapon")
 	bool IsAimHeld() const { return bAimHeld; }
 
@@ -588,6 +594,10 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Movement", meta = (Units = "cm/s"))
 	float SprintSpeed = 600.f;
+
+	/** [Remap F1] WalkSpeed/SprintSpeed antes das cartas (-1 = ainda não guardado). */
+	float BaseWalkSpeed = -1.f;
+	float BaseSprintSpeed = -1.f;
 
 	/** Distância da câmera (era 400: herói ~15% da altura da tela; 300 = ~20%, A-057). */
 	UPROPERTY(EditDefaultsOnly, Category = "Camera", meta = (Units = "cm"))

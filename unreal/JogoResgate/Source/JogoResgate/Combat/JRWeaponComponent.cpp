@@ -81,6 +81,16 @@ void UJRWeaponComponent::SetBoost(float InDamageMultiplier, float InFireRateMult
 	}
 }
 
+void UJRWeaponComponent::SetUpgradeMultipliers(float InDamageMultiplier, float InFireRateMultiplier)
+{
+	UpgradeDamageMultiplier = FMath::Max(0.1f, InDamageMultiplier);
+	UpgradeFireRateMultiplier = FMath::Max(0.1f, InFireRateMultiplier);
+	if (bWantsToFire)
+	{
+		StartFire();
+	}
+}
+
 void UJRWeaponComponent::StartFire()
 {
 	if (!Definition || bReloading)
@@ -89,7 +99,7 @@ void UJRWeaponComponent::StartFire()
 	}
 	bWantsToFire = true;
 	UWorld* World = GetWorld();
-	const float Interval = 1.f / (Definition->FireRate * FireRateMultiplier);
+	const float Interval = 1.f / (Definition->FireRate * FireRateMultiplier * UpgradeFireRateMultiplier);
 	const double Elapsed = World->GetTimeSeconds() - LastFireTime;
 	const float FirstDelay = FMath::Max(0.f, Interval - static_cast<float>(Elapsed));
 	World->GetTimerManager().SetTimer(FireTimer, this, &UJRWeaponComponent::FireOnce, Interval, true, FirstDelay);
@@ -299,6 +309,30 @@ void UJRWeaponComponent::ApplyPelletHit(const FHitResult& Hit, const FVector& Di
 	}
 }
 
+bool UJRWeaponComponent::TraceShot(UWorld* World, FHitResult& OutHit, const FVector& Start, const FVector& End,
+	const FCollisionQueryParams& Params) const
+{
+	// Cenário pelo canal de sempre; corpos (Pawn) pela cápsula até o ponto onde o cenário parou o tiro.
+	// Os zumbis rigados (A-053) não têm Physics Asset e a cápsula/malha ignoram Visibility: sem isto o tiro
+	// atravessa o zumbi e cai no chão atrás dele (parecia "tiro torto").
+	FHitResult SceneHit;
+	const bool bScene = World->LineTraceSingleByChannel(SceneHit, Start, End, TraceChannel, Params);
+	if (bScene && SceneHit.GetActor() && SceneHit.GetActor()->IsA<APawn>())
+	{
+		OutHit = SceneHit; // malha com física de verdade: fica com o osso (tiro na cabeça)
+		return true;
+	}
+	FHitResult PawnHit;
+	const FVector PawnEnd = bScene ? FVector(SceneHit.Location) : End;
+	if (World->LineTraceSingleByObjectType(PawnHit, Start, PawnEnd, FCollisionObjectQueryParams(ECC_Pawn), Params))
+	{
+		OutHit = PawnHit;
+		return true;
+	}
+	OutHit = SceneHit;
+	return bScene;
+}
+
 void UJRWeaponComponent::FireOnce()
 {
 	if (!Definition || !bWantsToFire)
@@ -336,7 +370,7 @@ void UJRWeaponComponent::FireOnce()
 	bool bHit = false;
 	FVector End = ViewLocation + Direction * Definition->Range;
 	const int32 Pellets = FMath::Max(1, Definition->PelletCount);
-	const float Amount = Definition->Damage * DamageMultiplier;
+	const float Amount = Definition->Damage * DamageMultiplier * UpgradeDamageMultiplier;
 	const float BoltSpeed = FMath::Max(1000.f, Definition->BoltSpeed);
 	for (int32 Pellet = 0; Pellet < Pellets; ++Pellet)
 	{
@@ -345,7 +379,7 @@ void UJRWeaponComponent::FireOnce()
 			: Direction;
 		const FVector PelletEnd = ViewLocation + PelletDir * Definition->Range;
 		FHitResult PelletHit;
-		bool bPelletHit = World->LineTraceSingleByChannel(PelletHit, ViewLocation, PelletEnd, TraceChannel, Params);
+		bool bPelletHit = TraceShot(World, PelletHit, ViewLocation, PelletEnd, Params);
 		if (Pellet == 0)
 		{
 			Hit = PelletHit;
@@ -370,7 +404,7 @@ void UJRWeaponComponent::FireOnce()
 				ApplyPelletHit(PiercedHit, PiercedDir, Amount, false);
 			}), FMath::Max(0.001f, PierceDelay), false);
 			PierceParams.AddIgnoredActor(Pierced);
-			bPelletHit = World->LineTraceSingleByChannel(PelletHit, FVector(PiercedHit.ImpactPoint), PelletEnd, TraceChannel, PierceParams);
+			bPelletHit = TraceShot(World, PelletHit, FVector(PiercedHit.ImpactPoint), PelletEnd, PierceParams);
 		}
 		const FVector Impact = bPelletHit ? FVector(PelletHit.ImpactPoint) : PelletEnd;
 		// Plasma visível do cano até o impacto (o rastro sempre sai da arma, não da câmera).

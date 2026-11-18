@@ -41,6 +41,12 @@ AJREnemyCharacter::AJREnemyCharacter()
 	DamageFXComponent->SetBloodType(EJRBloodType::Zombie);
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 	bUseControllerRotationYaw = false;
+	GunMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("GunMesh"));
+	GunMesh->SetupAttachment(GetMesh());
+	GunMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	GunMesh->SetVisibility(false);
+	GunMesh->SetCastShadow(false);
+	GunStaticMesh = TSoftObjectPtr<UStaticMesh>(FSoftObjectPath(TEXT("/Game/Weapons/SM_AlienPistol.SM_AlienPistol")));
 }
 
 void AJREnemyCharacter::BeginPlay()
@@ -57,7 +63,24 @@ void AJREnemyCharacter::BeginPlay()
 	OnTakePointDamage.AddDynamic(this, &AJREnemyCharacter::HandlePointDamageFeel);
 	// O carro atravessa o zumbi (sobreposição) em vez de bater num "poste": nada de atolar.
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Vehicle, ECR_Overlap);
+
 	GetCapsuleComponent()->SetGenerateOverlapEvents(true);
+	// [Remap F1] A ABP dos zumbis só toca "andar" com aceleração; caminho sem aceleração = desliza parado.
+	if (FNavMovementProperties* NavProps = GetCharacterMovement()->GetNavMovementProperties())
+	{
+		NavProps->bUseAccelerationForPaths = true;
+	}
+	// [Remap F1] Atirador segura a pistola.
+	if (Archetype && Archetype->AttackType == EJREnemyAttackType::Burst && GunMesh && GetMesh())
+	{
+		if (UStaticMesh* Gun = GunStaticMesh.LoadSynchronous())
+		{
+			GunMesh->SetStaticMesh(Gun);
+			GunMesh->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, MuzzleSocket);
+			GunMesh->SetRelativeTransform(GunGripOffset);
+			GunMesh->SetVisibility(true);
+		}
+	}
 	GetMesh()->SetCollisionResponseToChannel(ECC_Vehicle, ECR_Ignore);
 	GetCapsuleComponent()->OnComponentBeginOverlap.AddDynamic(this, &AJREnemyCharacter::HandleCapsuleOverlap);
 	FlankAngle = Random.FRandRange(-75.f, 75.f);
@@ -113,6 +136,17 @@ void AJREnemyCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
 	GetWorldTimerManager().ClearTimer(BurstTimer);
 	GetWorldTimerManager().ClearTimer(GrabTimer);
 	Super::EndPlay(EndPlayReason);
+}
+
+void AJREnemyCharacter::ChaseWithoutNavmesh(AAIController* AI, AActor* ChaseTarget)
+{
+	// [Remap F1] Sem navmesh (ou alvo fora dela): vai em linha reta. Melhor que ficar parado no lugar.
+	if (!bLoggedMoveFailure)
+	{
+		bLoggedMoveFailure = true;
+		UE_LOG(LogJR, Warning, TEXT("IA %s: sem caminho na navmesh; perseguindo em linha reta"), *GetName());
+	}
+	AI->MoveToActor(ChaseTarget, Archetype ? Archetype->AttackRange * 0.6f : 80.f, /*bStopOnOverlap*/ false, /*bUsePathfinding*/ false, true);
 }
 
 void AJREnemyCharacter::SetFullUpdate(bool bFull)
@@ -320,18 +354,18 @@ void AJREnemyCharacter::UpdateBrain()
 			const FVector Side = ToMe.RotateAngleAxis(FlankAngle, FVector::UpVector);
 			const FVector Goal = PlayerPawn->GetActorLocation() + Side * (FlankDistance * 0.6f);
 			const EPathFollowingRequestResult::Type Result = AI->MoveToLocation(Goal, 80.f, true, true, true, true);
-			if (Result == EPathFollowingRequestResult::Failed)
+			if (Result == EPathFollowingRequestResult::Failed
+				&& AI->MoveToActor(PlayerPawn, Archetype->AttackRange * 0.6f, /*bStopOnOverlap*/ false, true, true) == EPathFollowingRequestResult::Failed)
 			{
-				AI->MoveToActor(PlayerPawn, Archetype->AttackRange * 0.8f, true, true, true);
+				ChaseWithoutNavmesh(AI, PlayerPawn);
 			}
 		}
 		else if (PlayerPawn)
 		{
-			const EPathFollowingRequestResult::Type Result = AI->MoveToActor(PlayerPawn, Archetype->AttackRange * 0.8f, true, true, true);
-			if (Result == EPathFollowingRequestResult::Failed && !bLoggedMoveFailure)
+			const EPathFollowingRequestResult::Type Result = AI->MoveToActor(PlayerPawn, Archetype->AttackRange * 0.6f, /*bStopOnOverlap*/ false, true, true);
+			if (Result == EPathFollowingRequestResult::Failed)
 			{
-				bLoggedMoveFailure = true;
-				UE_LOG(LogJR, Warning, TEXT("IA %s: MoveToActor falhou (sem navmesh ou alvo fora da navmesh?)"), *GetName());
+				ChaseWithoutNavmesh(AI, PlayerPawn);
 			}
 		}
 		break;
@@ -584,7 +618,20 @@ void AJREnemyCharacter::FireRangedShot()
 		FHitResult Hit;
 		FCollisionQueryParams Query(SCENE_QUERY_STAT(JREnemyShot), true, this);
 		const FVector End = Muzzle + Dir * (Archetype->AttackRange * 1.5f);
-		const bool bShotHit = GetWorld()->LineTraceSingleByChannel(Hit, Muzzle, End, ECC_Visibility, Query);
+		bool bShotHit = GetWorld()->LineTraceSingleByChannel(Hit, Muzzle, End, ECC_Visibility, Query);
+		// [Remap F1] Corpos não bloqueiam Visibility: procura o primeiro corpo que não é zumbi até a parede.
+		TArray<FHitResult> PawnHits;
+		GetWorld()->LineTraceMultiByObjectType(PawnHits, Muzzle, bShotHit ? FVector(Hit.Location) : End,
+			FCollisionObjectQueryParams(ECC_Pawn), Query);
+		for (const FHitResult& PH : PawnHits)
+		{
+			if (PH.GetActor() && !PH.GetActor()->IsA<AJREnemyCharacter>())
+			{
+				Hit = PH;
+				bShotHit = true;
+				break;
+			}
+		}
 		if (bShotHit && Hit.GetActor())
 		{
 			UGameplayStatics::ApplyPointDamage(Hit.GetActor(), Archetype->AttackDamage, Dir, Hit, GetController(), this, nullptr);

@@ -45,6 +45,14 @@ public:
 
 	void SetMaxHealth(float NewMax, bool bRefill);
 
+	/** [Remap F1] Ignora dano por alguns segundos (depois de escolher carta). */
+	UFUNCTION(BlueprintCallable, Category = "Health")
+	void SetInvulnerableFor(float Seconds);
+
+	/** [Remap F1] Carta "Couraça" (1 = normal, 0,85 = -15% de dano recebido). */
+	UFUNCTION(BlueprintCallable, Category = "Health")
+	void SetDamageTakenMultiplier(float Multiplier) { DamageTakenMultiplier = FMath::Max(0.f, Multiplier); }
+
 	UPROPERTY(BlueprintAssignable, Category = "Health")
 	FJROnHealthChanged OnHealthChanged;
 
@@ -70,4 +78,5 @@ private:
 	float Health = 100.f;
 
 	bool bIsDead = false;
+	double InvulnerableUntil = -1.0; // [Remap F1]
 };

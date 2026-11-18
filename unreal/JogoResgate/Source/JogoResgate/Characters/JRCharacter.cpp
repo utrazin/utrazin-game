@@ -286,6 +286,22 @@ void AJRCharacter::GrantWeapon(EJRWeaponSlot Slot, bool bEquipNow)
 	}
 }
 
+void AJRCharacter::SetMoveSpeedMultiplier(float Multiplier)
+{
+	if (BaseWalkSpeed < 0.f)
+	{
+		BaseWalkSpeed = WalkSpeed;
+		BaseSprintSpeed = SprintSpeed;
+	}
+	const float M = FMath::Clamp(Multiplier, 0.2f, 3.f);
+	WalkSpeed = BaseWalkSpeed * M;
+	SprintSpeed = BaseSprintSpeed * M;
+	if (!bHealing && GetCharacterMovement())
+	{
+		GetCharacterMovement()->MaxWalkSpeed = bIsSprinting ? SprintSpeed : WalkSpeed;
+	}
+}
+
 void AJRCharacter::JRArmas()
 {
 	GrantWeapon(EJRWeaponSlot::Melee, false);
@@ -505,7 +521,8 @@ void AJRCharacter::DoMeleeHit()
 		}
 		const UJRHealthComponent* OtherHealth = Other->FindComponentByClass<UJRHealthComponent>();
 		const bool bOtherAlive = OtherHealth && !OtherHealth->IsDead();
-		const float Mult = GetFuryRemaining() > 0.f ? FuryDamageMultiplier : 1.f;
+		const float Mult = (GetFuryRemaining() > 0.f ? FuryDamageMultiplier : 1.f)
+			* (WeaponComponent ? WeaponComponent->GetUpgradeDamageMultiplier() : 1.f); // [Remap F1]
 		UGameplayStatics::ApplyPointDamage(Other, MeleeDamage * Mult, Fwd, Hit, GetController(), this, nullptr);
 		if (bOtherAlive)
 		{

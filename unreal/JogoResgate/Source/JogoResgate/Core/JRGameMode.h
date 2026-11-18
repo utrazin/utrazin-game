@@ -33,7 +33,7 @@ public:
 
 	/** Morte do personagem ou carro inutilizado. Idempotente. */
 	UFUNCTION(BlueprintCallable, Category = "Game")
-	void HandlePlayerFailure(APawn* FailedPawn);
+	virtual void HandlePlayerFailure(APawn* FailedPawn); // [Remap F1] virtual
 
 	/** Classe do personagem selecionado (save + catálogo), com fallback. */
 	TSubclassOf<AJRCharacter> ResolveCharacterClass() const;

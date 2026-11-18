@@ -434,6 +434,22 @@ Regra: **o que o jogador olha de perto e toca precisa estar no nível do herói*
 
 F1 é o mais importante: prova se o loop é divertido antes de gastar com arte.
 
+### 11.1 F1 em andamento (2026-11-18)
+Código pronto, ainda não compilado (A-080). Como testar:
+1. Feche a Unreal e rode `E:\game\compilar_remap.bat` (log em `E:\game\_compilar_log.txt`).
+2. Abra a Unreal e, na caixa Cmd (modo Python): `py "E:/game/utrazin-game/tools/unreal/build_remap_f1.py"`.
+3. Com `L_Cidade` aberto, Play. Fale com Kaar (E) e escolha "Arena nível 1".
+4. Na arena: sobreviva, escolha cartas (1/2/3), entre no círculo da nave quando ela aparecer (a cada 3 ondas) ou arrisque mais.
+5. De volta à cidade: relatório, compre a escopeta com Krug (2.000) e calibre na Ix-Vel. Atalho de teste: console `JRCreditos 5000`.
+Pronto quando: 3 voltas seguidas sem bug.
+
+Anotado no teste de 18/11 (fazer depois que o combate estiver ok):
+- Zumbi com brilho (contorno/emissivo leve) para enxergar no escuro da arena.
+- HUD de interação e da loja feia (é cinza de propósito; refazer no estilo do HUD v2).
+- Som da escopeta ruim (retrabalho de áudio).
+- Vila e arena com arte de verdade (hoje são blocos).
+- Zumbi andando "duro/deslizando": a animação não acompanha o movimento. Primeira tentativa (bUseAccelerationForPaths) fez eles pararem; desfeita.
+
 ---
 
 ## 12. Perguntas que ainda faltam

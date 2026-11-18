@@ -57,7 +57,7 @@ class JOGORESGATE_API UJRSaveGame : public USaveGame
 	GENERATED_BODY()
 
 public:
-	static constexpr int32 CurrentVersion = 2; // [A-074] v2: bIntroSeen
+	static constexpr int32 CurrentVersion = 3; // [A-074] v2: bIntroSeen; [Remap F1] v3: carteira, bancada, armas compradas
 
 	/** 0 = save criado antes do versionamento ou recém-criado sem migração. */
 	UPROPERTY()
@@ -84,6 +84,33 @@ public:
 	/** [A-074] Já viu a abertura inteira (ou pulou): "Jogar" vai direto ao fim; "Ver abertura" mostra de novo. */
 	UPROPERTY(BlueprintReadWrite, Category = "Save")
 	bool bIntroSeen = false;
+
+	// ---------------- [Remap F1] v3: cidade Villa Star + arena
+	/** Créditos (dinheiro). */
+	UPROPERTY(BlueprintReadOnly, Category = "Save|Remap")
+	int64 Credits = 0;
+
+	/** Sucata e cristais (F3; já guardados para não precisar de outra versão). */
+	UPROPERTY(BlueprintReadOnly, Category = "Save|Remap")
+	int64 Scrap = 0;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Save|Remap")
+	int64 Crystals = 0;
+
+	/** Nível da Bancada (cada nível = +10% de dano). */
+	UPROPERTY(BlueprintReadOnly, Category = "Save|Remap")
+	int32 BenchLevel = 0;
+
+	/** Armas compradas no Armeiro (valores de EJRWeaponSlot). Graveto e pistola são de graça. */
+	UPROPERTY(BlueprintReadOnly, Category = "Save|Remap")
+	TArray<uint8> OwnedWeaponSlots;
+
+	/** Recorde de ondas numa corrida e corridas jogadas. */
+	UPROPERTY(BlueprintReadOnly, Category = "Save|Remap")
+	int32 BestWave = 0;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Save|Remap")
+	int32 RunsPlayed = 0;
 
 	FJRLevelProgress& FindOrAddLevel(FName LevelId);
 	const FJRLevelProgress* FindLevel(FName LevelId) const;

@@ -32,6 +32,10 @@ float UJRHealthComponent::ApplyDamage(float Amount, AActor* DamageCauser)
 	{
 		return 0.f;
 	}
+	if (InvulnerableUntil > 0.0 && GetWorld() && GetWorld()->GetTimeSeconds() < InvulnerableUntil) // [Remap F1]
+	{
+		return 0.f;
+	}
 	const float Before = Health;
 	Health = FMath::Clamp(Health - Amount * DamageTakenMultiplier, 0.f, MaxHealth);
 	const float Delta = Health - Before;
@@ -69,6 +73,14 @@ void UJRHealthComponent::ResetHealth()
 	const float Delta = MaxHealth - Health;
 	Health = MaxHealth;
 	OnHealthChanged.Broadcast(this, Health, Delta);
+}
+
+void UJRHealthComponent::SetInvulnerableFor(float Seconds)
+{
+	if (const UWorld* World = GetWorld())
+	{
+		InvulnerableUntil = World->GetTimeSeconds() + FMath::Max(0.f, Seconds);
+	}
 }
 
 void UJRHealthComponent::SetMaxHealth(float NewMax, bool bRefill)

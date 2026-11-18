@@ -30,6 +30,8 @@ Itens que **dependem do usuário**. A coluna "Proposta" aponta para a suposiçã
 | OD-024 | Ferramentas de textura (Blender, GIMP, Krita) | Krita + GIMP + Blender | Pipeline | M3 |
 | OD-025 | Uso de IA gerativa para conceitos (qual ferramenta, licença dos pesos) | nenhuma escolhida | Concepts | M3 |
 | OD-026 | Recordes/estatísticas no save | não no MVP | Save | M2 |
+| OD-P09 | Estilo dos assets do Forge 3D (low poly) junto dos modelos do Tripo | **Decidido 2026-11-17 (usuário: low poly só onde fizer sentido):** Forge 3D para props de fundo, interiores e coisas de arena; personagens e prédios principais vêm do Tripo (REMAP v0.3) | Consistência visual | antes de gerar props em massa |
+| OD-P10 | O Noct3DViewer só pode ser usado em projeto pessoal e não comercial. O jogo vai ser vendido? | **Provisório 2026-11-17 (usuário: "não por enquanto, talvez no futuro"):** usar normalmente; se for vender, trocar a inspeção por Blender/Unreal | Licença | antes de qualquer venda |
 
 ## Impedimentos técnicos atuais
 

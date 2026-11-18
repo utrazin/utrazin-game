@@ -12,6 +12,8 @@ class UJREnemyArchetype;
 class AJRVehiclePawn;
 class AAIController;
 class UJRHealthComponent;
+class UStaticMeshComponent;
+class UStaticMesh;
 class UJRDamageFXComponent;
 class UStaticMesh;
 class UAnimMontage;
@@ -264,6 +266,17 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Enemy")
 	FName MuzzleSocket = TEXT("hand_r");
 
+	/** [Remap F1] Arma na mão do atirador (Burst). */
+	UPROPERTY(VisibleAnywhere, Category = "Enemy|Combat")
+	TObjectPtr<UStaticMeshComponent> GunMesh;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Combat")
+	TSoftObjectPtr<UStaticMesh> GunStaticMesh;
+
+	/** Encaixe da arma no osso da mão (MuzzleSocket). Ajustar no BP se ficar torta. */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Combat")
+	FTransform GunGripOffset = FTransform(FRotator(0.f, 90.f, 0.f), FVector(0.f, 4.f, 0.f));
+
 	/** Vagar quando calmo (A-048). Barricada (SetHoldPosition) continua parada. */
 	UPROPERTY(EditAnywhere, Category = "Enemy|Life")
 	bool bWanderEnabled = true;
@@ -345,6 +358,8 @@ private:
 	int32 BurstShotsRemaining = 0;
 	bool bFullUpdate = false;
 	bool bLoggedMoveFailure = false;
+	/** [Remap F1] Persegue em linha reta quando não há caminho na navmesh. */
+	void ChaseWithoutNavmesh(class AAIController* AI, AActor* ChaseTarget);
 	bool bStateInitialized = false;
 	bool bForceAggro = false;
 	bool bKilledByVehicle = false;

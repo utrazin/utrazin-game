@@ -60,6 +60,13 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
 	void SetBoost(float InDamageMultiplier, float InFireRateMultiplier);
 
+	/** [Remap F1] Bancada + cartas da corrida. Multiplica junto com o SetBoost (Fúria), sem um apagar o outro. */
+	UFUNCTION(BlueprintCallable, Category = "Weapon")
+	void SetUpgradeMultipliers(float InDamageMultiplier, float InFireRateMultiplier);
+
+	UFUNCTION(BlueprintPure, Category = "Weapon")
+	float GetUpgradeDamageMultiplier() const { return UpgradeDamageMultiplier; }
+
 	UFUNCTION(BlueprintPure, Category = "Weapon")
 	UJRWeaponDefinition* GetDefinition() const { return Definition; }
 
@@ -149,6 +156,10 @@ private:
 	bool bAiming = false;
 	float DamageMultiplier = 1.f;
 	float FireRateMultiplier = 1.f;
+	/** Traço do tiro: cenário pelo TraceChannel e corpos pela cápsula (Pawn). */
+	bool TraceShot(UWorld* World, FHitResult& OutHit, const FVector& Start, const FVector& End, const FCollisionQueryParams& Params) const;
+	float UpgradeDamageMultiplier = 1.f;   // [Remap F1]
+	float UpgradeFireRateMultiplier = 1.f; // [Remap F1]
 
 	TWeakObjectPtr<USceneComponent> MuzzleComponent;
 	float BloomValue = 0.f;

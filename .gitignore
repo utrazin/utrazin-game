@@ -76,3 +76,6 @@ _bootstrap/
 
 # Pacotes Quaternius: arquivos .zip originais ficam fora do git (dá para baixar de novo, ver LICENSE_SOURCE.txt)
 assets/raw/quaternius/**/*.zip
+
+# Ferramentas Noct (instaladas fora do repo)
+noct-tools/
