@@ -8,7 +8,7 @@ description: Valida e exporta um asset do Blender para FBX com preset do projeto
 Valida e exporta um asset do Blender para FBX com preset do projeto e registra hash no manifesto.
 
 ## Pré-requisitos
-- Blender 5.2 instalado (`BLENDER_EXE` ou PATH)
+- Blender 5.3 instalado (`BLENDER_EXE` ou PATH)
 - Asset em `modeling`/`rigging`/`animation`
 - `.blend` com coleção EXPORT
 

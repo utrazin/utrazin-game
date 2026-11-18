@@ -22,7 +22,11 @@ EJREnemyState FJREnemyStateLogic::Decide(const FJREnemyDecisionInput& In, const 
 	if (!bEngaged)
 	{
 		const bool bNoticed = In.DistanceToTarget <= P.AggroRadius && In.bHasLineOfSight;
-		return bNoticed ? EJREnemyState::Alert : Calm;
+		if (bNoticed)
+		{
+			return EJREnemyState::Alert;
+		}
+		return In.bInvestigating ? EJREnemyState::Investigate : Calm;
 	}
 
 	// Alert telegrafa o ataque por um tempo mínimo antes de agir.

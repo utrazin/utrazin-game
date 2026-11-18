@@ -1,0 +1,494 @@
+{
+ "ilhas_apagadas": [
+  [
+   4,
+   [
+    0.495,
+    -0.452,
+    0.484
+   ]
+  ],
+  [
+   4,
+   [
+    0.495,
+    -0.491,
+    0.523
+   ]
+  ]
+ ],
+ "buracos": [
+  {
+   "arestas": 32,
+   "centro": [
+    -0.386,
+    -0.12,
+    0.266
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 31,
+   "centro": [
+    -0.286,
+    -0.107,
+    0.29
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    0.019,
+    -0.251,
+    0.264
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 38,
+   "centro": [
+    -0.009,
+    -0.14,
+    0.278
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    -0.169,
+    -0.187,
+    0.277
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    -0.136,
+    -0.235,
+    0.258
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 37,
+   "centro": [
+    -0.384,
+    -0.321,
+    0.457
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 19,
+   "centro": [
+    -0.36,
+    -0.311,
+    0.524
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 33,
+   "centro": [
+    -0.332,
+    -0.278,
+    0.448
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 29,
+   "centro": [
+    -0.426,
+    -0.337,
+    0.515
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    -0.042,
+    -0.374,
+    0.51
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 28,
+   "centro": [
+    -0.024,
+    0.015,
+    0.429
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 28,
+   "centro": [
+    0.01,
+    0.016,
+    0.426
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    0.042,
+    -0.232,
+    0.256
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    0.054,
+    -0.239,
+    0.268
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 32,
+   "centro": [
+    0.366,
+    -0.121,
+    0.265
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 4,
+   "centro": [
+    0.059,
+    -0.31,
+    0.375
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 37,
+   "centro": [
+    0.365,
+    -0.322,
+    0.457
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 29,
+   "centro": [
+    0.365,
+    -0.32,
+    0.523
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 22,
+   "centro": [
+    0.188,
+    -0.001,
+    0.494
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 30,
+   "centro": [
+    0.308,
+    -0.276,
+    0.45
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 29,
+   "centro": [
+    0.406,
+    -0.337,
+    0.513
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 5,
+   "centro": [
+    -0.147,
+    0.025,
+    0.27
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 12,
+   "centro": [
+    0.059,
+    0.052,
+    0.274
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    -0.364,
+    -0.087,
+    0.275
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    -0.308,
+    -0.065,
+    0.301
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    -0.071,
+    -0.251,
+    0.268
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    0.345,
+    -0.087,
+    0.27
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 12,
+   "centro": [
+    0.056,
+    -0.303,
+    0.363
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    0.155,
+    0.015,
+    0.278
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    -0.376,
+    -0.097,
+    0.258
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    -0.319,
+    -0.088,
+    0.322
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 1,
+   "centro": [
+    -0.07,
+    -0.276,
+    0.409
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    -0.077,
+    -0.233,
+    0.162
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    0.027,
+    -0.249,
+    0.266
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    -0.153,
+    -0.161,
+    0.277
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    -0.112,
+    -0.257,
+    0.445
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    0.054,
+    -0.241,
+    0.256
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    0.28,
+    -0.06,
+    0.293
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    0.29,
+    -0.065,
+    0.295
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    0.046,
+    -0.302,
+    0.376
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    0.075,
+    -0.269,
+    0.471
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    0.169,
+    0.003,
+    0.529
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 4,
+   "centro": [
+    0.351,
+    -0.288,
+    0.419
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    0.349,
+    -0.331,
+    0.541
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    0.132,
+    0.007,
+    0.289
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 1,
+   "centro": [
+    0.052,
+    -0.276,
+    0.409
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    0.071,
+    -0.293,
+    0.338
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 1,
+   "centro": [
+    0.044,
+    -0.296,
+    0.382
+   ],
+   "fechado": false
+  },
+  {
+   "arestas": 3,
+   "centro": [
+    0.179,
+    -0.026,
+    0.531
+   ],
+   "fechado": false
+  }
+ ],
+ "pele_uv": [
+  0.9552440047264099,
+  0.19002217054367065
+ ],
+ "pele_hit_y": -0.434,
+ "faces_bolso": 25,
+ "uv_avental": [
+  0.4093192517757416,
+  0.4049908220767975
+ ],
+ "loops_sem_doador": 0,
+ "faces_boca": 12,
+ "uv_pele": [
+  0.6056018471717834,
+  0.8835877180099487
+ ],
+ "boca_loops_sem_doador": 0,
+ "escala": 3.8763,
+ "verts": 9587,
+ "faces": 18448,
+ "altura_m": 2.4,
+ "largura_m": 3.77
+}

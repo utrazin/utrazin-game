@@ -37,8 +37,16 @@ public:
 	/** Força recálculo imediato. */
 	void Rebalance();
 
+	/** Registra um corpo em ragdoll; acima de MaxActiveRagdolls o mais antigo congela e some logo. */
+	void RegisterRagdoll(AJREnemyCharacter* Enemy);
+
+	UFUNCTION(BlueprintCallable, Category = "Enemy Budget")
+	void SetMaxActiveRagdolls(int32 NewMax) { MaxActiveRagdolls = FMath::Max(1, NewMax); }
+
 private:
 	TArray<TWeakObjectPtr<AJREnemyCharacter>> Enemies;
+	TArray<TWeakObjectPtr<AJREnemyCharacter>> Ragdolls;
+	int32 MaxActiveRagdolls = 15;
 	FTimerHandle RebalanceTimer;
 	int32 MaxFullUpdateEnemies = 12;
 	float RebalanceInterval = 0.5f;

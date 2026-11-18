@@ -29,7 +29,14 @@ bool FJRSaveMigration::Migrate(UJRSaveGame& Save, FString& OutError)
 		Save.SaveVersion = 1;
 	}
 
-	// Próximos passos: if (Save.SaveVersion == 1) { ...; Save.SaveVersion = 2; }
+	// v1 -> v2 [A-074]: flag da abertura (quem já jogava ainda não viu a abertura nova).
+	if (Save.SaveVersion == 1)
+	{
+		Save.bIntroSeen = false;
+		Save.SaveVersion = 2;
+	}
+
+	// Próximos passos: if (Save.SaveVersion == 2) { ...; Save.SaveVersion = 3; }
 
 	return Save.SaveVersion == UJRSaveGame::CurrentVersion;
 }

@@ -40,6 +40,9 @@ Fora dessas pastas, apenas leitura, salvo autorização explícita do coordenado
 ## Testes exigidos
 - Checklist de /review-art-style
 
+## Skills que consulta
+`blender-director`, `material-lighting-audit`, `review-art-style`
+
 ## Proibições
 - Marcar asset approved
 - Usar nome de franquia, artista vivo ou marca em prompts

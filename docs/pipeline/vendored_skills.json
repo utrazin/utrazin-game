@@ -1,0 +1,60 @@
+{
+ "_comment": "Skills de terceiros incorporadas. Mantido junto de docs/licenses/THIRD_PARTY_SOURCES.md.",
+ "sources": {
+  "awesome-gamedev-agent-skills": {
+   "license": "Apache-2.0",
+   "url": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills",
+   "skills": [
+    "audio-design",
+    "camera-systems",
+    "dialogue-systems",
+    "fps-shooter",
+    "game-ai",
+    "game-feel",
+    "game-ui-ux",
+    "level-design",
+    "performance-optimization",
+    "physics-tuning",
+    "procedural-gen",
+    "shader-programming",
+    "unreal-behavior-trees",
+    "unreal-blueprints",
+    "unreal-cpp-gameplay",
+    "unreal-enhanced-input",
+    "unreal-niagara",
+    "unreal-packaging"
+   ]
+  },
+  "blender-skills": {
+   "license": "MIT",
+   "url": "https://github.com/arjun988/blender-skills",
+   "skills": [
+    "blender-animation",
+    "blender-asset-optimization",
+    "blender-camera-cinematography",
+    "blender-character-artist",
+    "blender-collision-proxy",
+    "blender-director",
+    "blender-environment-artist",
+    "blender-export-pipeline",
+    "blender-geometry-nodes",
+    "blender-hard-surface",
+    "blender-lighting",
+    "blender-lod-pipeline",
+    "blender-materials",
+    "blender-modeler",
+    "blender-prop-artist",
+    "blender-qa-review",
+    "blender-retopology",
+    "blender-rigging",
+    "blender-scene-assembly",
+    "blender-stylized-style",
+    "blender-texture-workflow",
+    "blender-unreal-export",
+    "blender-uv-workflow",
+    "blender-vegetation-artist",
+    "blender-vehicle-artist"
+   ]
+  }
+ }
+}

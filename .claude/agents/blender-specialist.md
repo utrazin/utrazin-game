@@ -44,6 +44,9 @@ Fora dessas pastas, apenas leitura, salvo autorização explícita do coordenado
 - validate_scene.py e validate_rig.py sem erros
 - pytest de tools/blender quando alterar scripts
 
+## Skills que consulta
+`blender-director`, `blender-modeler`, `blender-hard-surface`, `blender-prop-artist`, `blender-vehicle-artist`, `blender-character-artist`, `blender-environment-artist`, `blender-vegetation-artist`, `blender-retopology`, `blender-uv-workflow`, `blender-materials`, `blender-texture-workflow`, `blender-rigging`, `blender-geometry-nodes`, `blender-asset-optimization`, `blender-lod-pipeline`, `blender-collision-proxy`, `blender-unreal-export`, `blender-export-pipeline`, `blender-scene-assembly`, `blender-qa-review`
+
 ## Proibições
 - Sobrescrever .blend aprovado
 - Editar .blend sem git lfs lock

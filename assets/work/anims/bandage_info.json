@@ -1,0 +1,51 @@
+{
+ "base": "base.fbx",
+ "frames": [
+  1,
+  72
+ ],
+ "fps": 30,
+ "checks": {
+  "right_wrist_to_left_forearm_m": [
+   0.032,
+   0.075
+  ],
+  "right_reach_error_max_m": 0.046,
+  "min_dist_hands_elbow_to_torso_axis_m": 0.081,
+  "roundtrip_max_err_cm": 0.0,
+  "fbx_frames": [
+   1.0,
+   72.0
+  ]
+ },
+ "armature_scale": 0.01,
+ "base_action": "Armature|mixamo.com|Layer0",
+ "arm_lengths_m": [
+  0.165,
+  0.2
+ ],
+ "head_track_axis": "TRACK_Z",
+ "forearm": {
+  "elbow": [
+   0.146,
+   -0.102,
+   1.198
+  ],
+  "wrist": [
+   -0.002,
+   -0.236,
+   1.201
+  ],
+  "angle_from_horizontal_deg": 0.9
+ },
+ "preview_rig": "boneco de cápsulas no esqueleto exportado (laranja = mão direita, ciano = braço esquerdo)",
+ "previews": [
+  "claude/band/out/previews/bandage_f01_inicio.png",
+  "claude/band/out/previews/bandage_f14_volta_1.png",
+  "claude/band/out/previews/bandage_f26_volta_2.png",
+  "claude/band/out/previews/bandage_f40_volta_3.png",
+  "claude/band/out/previews/bandage_f52_puxao.png",
+  "claude/band/out/previews/bandage_f61_testando.png"
+ ],
+ "contact_sheet": "/home/claude/band/out/previews/bandage_contato.png"
+}

@@ -8,7 +8,9 @@
 
 class AJRCharacter;
 class AJRCheckpoint;
+class AJRVehiclePawn;
 class UJRLevelDefinition;
+struct FJRSkinDefinition;
 
 /**
  * Regras de uma fase: escolhe onde e com qual pawn o jogador começa (veículo ou a pé)
@@ -39,8 +41,24 @@ public:
 	/** Aplica a skin selecionada no save. */
 	void ApplySelectedSkin(AJRCharacter* Character) const;
 
+	/** Armas do checkpoint onde a fase (re)começou (herói criado ao sair do carro depois de renascer nele). */
+	void ApplyRespawnLoadout(AJRCharacter* Character) const;
+
+	/** O carro colocado no mapa (buggy do acampamento), se houver e não estiver destruído. */
+	AJRVehiclePawn* FindLevelVehicle() const;
+
+	/** Skin selecionada no save (ou a primeira do personagem). Nulo se não houver. */
+	const FJRSkinDefinition* ResolveSelectedSkin() const;
+
 	UFUNCTION(BlueprintPure, Category = "Game")
 	UJRLevelDefinition* GetLevelDefinition() const { return LevelDefinition; }
+
+	/**
+	 * [A-074] A abertura (tela de start + queda da nave) roda nesta carga do mapa: há um AJRIntroDirector ligado,
+	 * a fase começa do início e não é um renascer depois de morrer. Aí o herói nasce no ponto do diretor (ao lado da nave).
+	 * Decidido uma vez por carga do mapa.
+	 */
+	bool ShouldPlayIntro() const;
 
 protected:
 	AJRCheckpoint* ResolveRespawnCheckpoint() const;
@@ -72,7 +90,20 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Game", meta = (Units = "cm"))
 	float VehicleSpawnHeight = 80.f;
 
+	/**
+	 * Fase com carro colocado no mapa (L01 v3): renascer "no carro" usa esse carro (não cria outro) e
+	 * renascer a pé estaciona o carro no ponto do checkpoint (bParkVehicleOnRespawn).
+	 */
+	UPROPERTY(EditDefaultsOnly, Category = "Game")
+	bool bUseLevelVehicle = true;
+
 private:
+	/** Checkpoint usado no começo desta carga do mapa (guardado no StartPlay). */
+	TWeakObjectPtr<AJRCheckpoint> StartCheckpoint;
+
 	FTimerHandle RestartTimer;
 	bool bFailurePending = false;
+
+	/** [A-074] -1 = ainda não decidido, 0 = sem abertura, 1 = com abertura. */
+	mutable int8 IntroDecision = -1;
 };

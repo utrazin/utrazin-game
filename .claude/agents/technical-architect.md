@@ -42,6 +42,9 @@ Fora dessas pastas, apenas leitura, salvo autorização explícita do coordenado
 - Revisão de headers alterados
 - Build C++ quando a Unreal estiver instalada (anexar log)
 
+## Skills que consulta
+`unreal-cpp-gameplay`, `unreal-blueprints`, `team-orchestrate`
+
 ## Proibições
 - Mudar escopo do GDD
 - Introduzir plugin experimental ou pago

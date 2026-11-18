@@ -1,7 +1,7 @@
-# Instalar Blender 5.2 LTS
+# Instalar Blender 5.3
 
-1. Baixe em https://www.blender.org/download/lts/ (versão **5.2 LTS**, instalador Windows ou portable `.zip`).
-2. Instale no SSD E: (ex.: `E:\Tools\Blender\5.2`).
+1. Baixe em https://www.blender.org/download/lts/ (versão **5.3**, instalador Windows ou portable `.zip`).
+2. Instale no SSD E: (ex.: `E:\Tools\Blender\5.3`).
 3. Adicione a pasta ao `PATH` **ou** defina a variável `BLENDER_EXE` apontando para `blender.exe` (usada por `tools/blender/*.py` e pelo `check_environment.py`).
 4. Preferências recomendadas:
    - **Edit > Preferences > System**: GPU em Cycles (CUDA/OptiX/HIP).

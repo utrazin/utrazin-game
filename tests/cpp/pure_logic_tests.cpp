@@ -130,6 +130,14 @@ static void EnemyStates()
 	CHECK(FJREnemyStateLogic::Decide(In, P) == EJREnemyState::Chase);   // histerese: ainda persegue
 	In.DistanceToTarget = 4000.f;
 	CHECK(FJREnemyStateLogic::Decide(In, P) == EJREnemyState::Patrol);  // desiste
+	In.Current = EJREnemyState::Patrol; In.bInvestigating = true;
+	CHECK(FJREnemyStateLogic::Decide(In, P) == EJREnemyState::Investigate); // ouviu barulho, vai ver
+	In.Current = EJREnemyState::Investigate; In.DistanceToTarget = 2000.f;
+	CHECK(FJREnemyStateLogic::Decide(In, P) == EJREnemyState::Alert);       // investigando, viu o jogador
+	In.Current = EJREnemyState::Investigate; In.bHasLineOfSight = false;
+	CHECK(FJREnemyStateLogic::Decide(In, P) == EJREnemyState::Investigate); // sem visão continua procurando
+	In.bInvestigating = false;
+	CHECK(FJREnemyStateLogic::Decide(In, P) == EJREnemyState::Patrol);      // desistiu de procurar
 	In.bIsDead = true;
 	CHECK(FJREnemyStateLogic::Decide(In, P) == EJREnemyState::Dead);
 }

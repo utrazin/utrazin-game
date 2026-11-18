@@ -1,0 +1,2088 @@
+{
+ "version": 1,
+ "unit": "m",
+ "buildings": {
+  "PostoLoja": {
+   "nome": "Loja de conveniência do posto",
+   "zona": 2,
+   "size_m": [
+    10.0,
+    14.0
+   ],
+   "h_m": 3.4,
+   "mesh": "SM_INT_PostoLoja",
+   "note": "Loja 10 x 14 m (era 8,5 x 10 m fechada). Vitrine e porta dupla na frente, geladeiras na parede, 4 gôndolas, balcão com caixa; depósito nos fundos com estantes e medkit; banheiro.",
+   "doors": [
+    {
+     "side": "+X",
+     "offset_m": -1.6,
+     "width_m": 1.8
+    },
+    {
+     "side": "-X",
+     "offset_m": 5.0,
+     "width_m": 1.2
+    }
+   ],
+   "furniture": [
+    {
+     "mesh": "SM_INT_Balcao",
+     "x": 2.9,
+     "y": -4.6,
+     "yaw": 180,
+     "radius_m": 1.4
+    },
+    {
+     "mesh": "SM_INT_Gondola",
+     "x": 0.6,
+     "y": -0.8,
+     "yaw": 0,
+     "radius_m": 1.3
+    },
+    {
+     "mesh": "SM_INT_Gondola",
+     "x": 0.6,
+     "y": 2.6,
+     "yaw": 0,
+     "radius_m": 1.3
+    },
+    {
+     "mesh": "SM_INT_Gondola",
+     "x": -1.0,
+     "y": -0.8,
+     "yaw": 0,
+     "radius_m": 1.3
+    },
+    {
+     "mesh": "SM_INT_Gondola",
+     "x": -1.0,
+     "y": 2.6,
+     "yaw": 0,
+     "radius_m": 1.3
+    },
+    {
+     "mesh": "SM_INT_Geladeira",
+     "x": -0.9,
+     "y": 6.45,
+     "yaw": -90,
+     "radius_m": 0.6
+    },
+    {
+     "mesh": "SM_INT_Geladeira",
+     "x": 0.1,
+     "y": 6.45,
+     "yaw": -90,
+     "radius_m": 0.6
+    },
+    {
+     "mesh": "SM_INT_Geladeira",
+     "x": 1.1,
+     "y": 6.45,
+     "yaw": -90,
+     "radius_m": 0.6
+    },
+    {
+     "mesh": "SM_INT_Geladeira",
+     "x": 2.1,
+     "y": 6.45,
+     "yaw": -90,
+     "radius_m": 0.6
+    },
+    {
+     "mesh": "SM_INT_PrateleiraParede",
+     "x": -4.6,
+     "y": -2.6,
+     "yaw": 0,
+     "radius_m": 1.05
+    },
+    {
+     "mesh": "SM_INT_PrateleiraParede",
+     "x": -4.6,
+     "y": -0.2,
+     "yaw": 0,
+     "radius_m": 1.05
+    },
+    {
+     "mesh": "SM_INT_PrateleiraParede",
+     "x": -4.6,
+     "y": 2.4,
+     "yaw": 0,
+     "radius_m": 1.05
+    },
+    {
+     "mesh": "SM_INT_Caixotes",
+     "x": -3.0,
+     "y": -6.1,
+     "yaw": 20,
+     "radius_m": 0.7
+    },
+    {
+     "mesh": "SM_INT_Barril",
+     "x": -4.5,
+     "y": -6.4,
+     "yaw": 0,
+     "radius_m": 0.32
+    },
+    {
+     "mesh": "SM_INT_Gerador",
+     "x": -3.1,
+     "y": 3.4,
+     "yaw": 0,
+     "radius_m": 0.65
+    },
+    {
+     "mesh": "SM_INT_Arquivo",
+     "x": -2.6,
+     "y": -0.6,
+     "yaw": 180,
+     "radius_m": 0.4
+    },
+    {
+     "mesh": "SM_INT_Lixo",
+     "x": -3.5,
+     "y": -1.2,
+     "yaw": 40,
+     "radius_m": 0.0
+    },
+    {
+     "mesh": "SM_INT_Vaso",
+     "x": -4.4,
+     "y": 6.0,
+     "yaw": 0,
+     "radius_m": 0.35
+    },
+    {
+     "mesh": "SM_INT_Caixotes",
+     "x": 4.0,
+     "y": 4.8,
+     "yaw": -15,
+     "radius_m": 0.7
+    },
+    {
+     "mesh": "SM_INT_Lixo",
+     "x": 2.0,
+     "y": 1.2,
+     "yaw": 30,
+     "radius_m": 0.0
+    },
+    {
+     "mesh": "SM_INT_Lixo",
+     "x": -0.2,
+     "y": 4.6,
+     "yaw": -20,
+     "radius_m": 0.0
+    },
+    {
+     "mesh": "SM_INT_Quadro",
+     "x": -2.11,
+     "y": 1.5,
+     "yaw": 0,
+     "radius_m": 0.0
+    }
+   ],
+   "door_leaves": [
+    {
+     "x": 5.0,
+     "y": -1.6,
+     "yaw": 0.0,
+     "width_m": 1.8,
+     "height_m": 2.25,
+     "double": true,
+     "start_open": false,
+     "style": "PortaVidro",
+     "inner": false,
+     "mesh": "SM_INT_PortaVidro"
+    },
+    {
+     "x": -5.0,
+     "y": -5.0,
+     "yaw": 180.0,
+     "width_m": 1.2,
+     "height_m": 2.25,
+     "double": false,
+     "start_open": false,
+     "style": "PortaMetal",
+     "inner": false,
+     "mesh": "SM_INT_PortaMetal"
+    },
+    {
+     "x": -2.2,
+     "y": -3.0,
+     "yaw": 180.0,
+     "width_m": 1.4,
+     "height_m": 2.25,
+     "double": false,
+     "start_open": false,
+     "style": "PortaMetal",
+     "inner": true,
+     "mesh": "SM_INT_PortaMetal"
+    },
+    {
+     "x": -2.2,
+     "y": 5.6,
+     "yaw": 180.0,
+     "width_m": 1.0,
+     "height_m": 2.25,
+     "double": false,
+     "start_open": false,
+     "style": "PortaMetal",
+     "inner": true,
+     "mesh": "SM_INT_PortaMetal"
+    }
+   ],
+   "lights": [
+    {
+     "x": 1.5,
+     "y": -4.0,
+     "z": 3.05,
+     "candelas": 30.0
+    },
+    {
+     "x": 0.0,
+     "y": 1.0,
+     "z": 3.05,
+     "candelas": 30.0
+    },
+    {
+     "x": 1.5,
+     "y": 5.0,
+     "z": 3.05,
+     "candelas": 30.0
+    },
+    {
+     "x": -3.6,
+     "y": -3.0,
+     "z": 3.05,
+     "candelas": 30.0
+    },
+    {
+     "x": -3.6,
+     "y": 5.6,
+     "z": 3.05,
+     "candelas": 30.0
+    }
+   ],
+   "luminaire_mesh": "SM_INT_Luminaria",
+   "pickups": [
+    {
+     "type": "BANDAGE",
+     "x": 0.6,
+     "y": 2.0,
+     "z": 0.77
+    },
+    {
+     "type": "BANDAGE",
+     "x": -3.6,
+     "y": 5.4,
+     "z": 0.0
+    }
+   ],
+   "chests": [],
+   "story": null,
+   "camera_zone": {
+    "extent_m": [
+     4.9,
+     6.9,
+     1.7
+    ],
+    "arm_cm": 190.0
+   },
+   "replaces": {
+    "user": [
+     "CON_PostoLoja"
+    ],
+    "blockout": [
+     [
+      "Posto",
+      "SpaceKit/Building_L"
+     ],
+     [
+      "Posto",
+      "SpaceKit/Roof_Radar"
+     ]
+    ]
+   },
+   "place": null,
+   "absorb_pickups": {
+    "Pickup_Medkit_Posto": [
+     -4.3,
+     -4.2
+    ],
+    "Pickup_Municao_Posto": [
+     2.95,
+     -5.4
+    ]
+   }
+  },
+  "Escritorio": {
+   "nome": "Escritório do posto (sala trancada)",
+   "zona": 2,
+   "size_m": [
+    6.0,
+    7.0
+   ],
+   "h_m": 3.0,
+   "mesh": "SM_INT_Escritorio",
+   "note": "Sala dos fundos do posto: escrivaninha, arquivos, o baú da pistola no canto.",
+   "doors": [
+    {
+     "side": "+X",
+     "offset_m": -1.8,
+     "width_m": 1.2
+    }
+   ],
+   "furniture": [
+    {
+     "mesh": "SM_INT_Escrivaninha",
+     "x": -2.0,
+     "y": 0.0,
+     "yaw": 0,
+     "radius_m": 0.8
+    },
+    {
+     "mesh": "SM_INT_Cadeira",
+     "x": -1.2,
+     "y": 0.3,
+     "yaw": 180,
+     "radius_m": 0.35
+    },
+    {
+     "mesh": "SM_INT_Arquivo",
+     "x": -2.6,
+     "y": 3.0,
+     "yaw": 0,
+     "radius_m": 0.4
+    },
+    {
+     "mesh": "SM_INT_Arquivo",
+     "x": -2.6,
+     "y": 2.45,
+     "yaw": 0,
+     "radius_m": 0.4
+    },
+    {
+     "mesh": "SM_INT_Armario",
+     "x": 1.8,
+     "y": 3.1,
+     "yaw": -90,
+     "radius_m": 0.7
+    },
+    {
+     "mesh": "SM_INT_Caixotes",
+     "x": 2.4,
+     "y": -3.0,
+     "yaw": 90,
+     "radius_m": 0.7
+    },
+    {
+     "mesh": "SM_INT_Estante",
+     "x": -2.7,
+     "y": -1.7,
+     "yaw": 0,
+     "radius_m": 0.85
+    },
+    {
+     "mesh": "SM_INT_Tapete",
+     "x": 0.4,
+     "y": 0.3,
+     "yaw": 90,
+     "radius_m": 0.0
+    },
+    {
+     "mesh": "SM_INT_Quadro",
+     "x": 0.0,
+     "y": 3.39,
+     "yaw": -90,
+     "radius_m": 0.0
+    },
+    {
+     "mesh": "SM_INT_Lixo",
+     "x": 0.8,
+     "y": -1.0,
+     "yaw": 20,
+     "radius_m": 0.0
+    },
+    {
+     "mesh": "SM_INT_Cadeira",
+     "x": 0.6,
+     "y": 1.2,
+     "yaw": 40,
+     "radius_m": 0.35
+    }
+   ],
+   "door_leaves": [
+    {
+     "x": 3.0,
+     "y": -1.8,
+     "yaw": 0.0,
+     "width_m": 1.2,
+     "height_m": 2.25,
+     "double": false,
+     "start_open": false,
+     "style": "PortaMadeira",
+     "inner": false,
+     "mesh": "SM_INT_PortaMadeira"
+    }
+   ],
+   "lights": [
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 2.65,
+     "candelas": 30.0
+    }
+   ],
+   "luminaire_mesh": "SM_INT_Luminaria",
+   "pickups": [
+    {
+     "type": "AMMO",
+     "x": -2.0,
+     "y": 0.45,
+     "z": 0.79
+    }
+   ],
+   "chests": [
+    {
+     "label": "Bau_Pistola_Posto",
+     "x": -1.0,
+     "y": -2.7,
+     "yaw": 0
+    }
+   ],
+   "story": null,
+   "camera_zone": {
+    "extent_m": [
+     2.9,
+     3.4,
+     1.5
+    ],
+    "arm_cm": 190.0
+   },
+   "replaces": {
+    "blockout": [
+     [
+      "SalaTrancada",
+      "SpaceKit/House_Single"
+     ]
+    ]
+   },
+   "place": null,
+   "absorb_pickups": {}
+  },
+  "Conteiner": {
+   "nome": "Contêiner do acampamento",
+   "zona": 0,
+   "size_m": [
+    6.1,
+    2.5
+   ],
+   "h_m": 2.6,
+   "mesh": "SM_INT_Conteiner",
+   "note": "Contêiner aberto numa ponta (porta de 2,2 m), estante e caixotes, bandagem.",
+   "doors": [
+    {
+     "side": "+X",
+     "offset_m": 0.0,
+     "width_m": 2.2
+    }
+   ],
+   "furniture": [
+    {
+     "mesh": "SM_INT_Caixotes",
+     "x": -2.6,
+     "y": 0.75,
+     "yaw": -90,
+     "radius_m": 0.7
+    },
+    {
+     "mesh": "SM_INT_PrateleiraParede",
+     "x": -0.6,
+     "y": 0.85,
+     "yaw": -90,
+     "radius_m": 1.05
+    },
+    {
+     "mesh": "SM_INT_Barril",
+     "x": -2.6,
+     "y": -0.75,
+     "yaw": 0,
+     "radius_m": 0.32
+    },
+    {
+     "mesh": "SM_INT_Cadeira",
+     "x": -1.2,
+     "y": -0.6,
+     "yaw": 30,
+     "radius_m": 0.35
+    },
+    {
+     "mesh": "SM_INT_Lixo",
+     "x": 0.4,
+     "y": -0.3,
+     "yaw": 10,
+     "radius_m": 0.0
+    }
+   ],
+   "door_leaves": [
+    {
+     "x": 3.05,
+     "y": 0.0,
+     "yaw": 0.0,
+     "width_m": 2.2,
+     "height_m": 2.25,
+     "double": true,
+     "start_open": false,
+     "style": "PortaMetal",
+     "inner": false,
+     "mesh": "SM_INT_PortaMetal"
+    }
+   ],
+   "lights": [
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 2.25,
+     "candelas": 30.0
+    }
+   ],
+   "luminaire_mesh": "SM_INT_Luminaria",
+   "pickups": [
+    {
+     "type": "BANDAGE",
+     "x": -0.6,
+     "y": 0.85,
+     "z": 0.73
+    }
+   ],
+   "chests": [],
+   "story": null,
+   "camera_zone": {
+    "extent_m": [
+     2.9499999999999997,
+     1.15,
+     1.3
+    ],
+    "arm_cm": 190.0
+   },
+   "replaces": {
+    "user": [
+     "CON_Conteiner"
+    ]
+   },
+   "place": null,
+   "absorb_pickups": {}
+  },
+  "CasaSobrevivente": {
+   "nome": "Casa da vila (sala, cozinha, quarto)",
+   "zona": 6,
+   "size_m": [
+    9.0,
+    11.0
+   ],
+   "h_m": 3.0,
+   "mesh": "SM_INT_CasaSobrevivente",
+   "note": "Casa de tijolo 9 x 11 m com telhado de duas águas: sala com sofá e mesa, cozinha, quarto com o baú.",
+   "doors": [
+    {
+     "side": "+X",
+     "offset_m": -1.0,
+     "width_m": 1.3
+    }
+   ],
+   "furniture": [
+    {
+     "mesh": "SM_INT_Sofa",
+     "x": 2.6,
+     "y": 4.2,
+     "yaw": -90,
+     "radius_m": 1.1
+    },
+    {
+     "mesh": "SM_INT_MesaCentro",
+     "x": 2.6,
+     "y": 3.0,
+     "yaw": 90,
+     "radius_m": 0.6
+    },
+    {
+     "mesh": "SM_INT_TV",
+     "x": 2.6,
+     "y": 1.6,
+     "yaw": 90,
+     "radius_m": 0.7
+    },
+    {
+     "mesh": "SM_INT_Tapete",
+     "x": 2.6,
+     "y": 3.0,
+     "yaw": 90,
+     "radius_m": 0.0
+    },
+    {
+     "mesh": "SM_INT_Mesa",
+     "x": 2.0,
+     "y": -2.8,
+     "yaw": 0,
+     "radius_m": 0.95
+    },
+    {
+     "mesh": "SM_INT_Cadeira",
+     "x": 2.0,
+     "y": -3.9,
+     "yaw": 90,
+     "radius_m": 0.35
+    },
+    {
+     "mesh": "SM_INT_Cadeira",
+     "x": 2.0,
+     "y": -1.7,
+     "yaw": -90,
+     "radius_m": 0.35
+    },
+    {
+     "mesh": "SM_INT_Armario",
+     "x": 3.9,
+     "y": 1.4,
+     "yaw": 180,
+     "radius_m": 0.7
+    },
+    {
+     "mesh": "SM_INT_Caixotes",
+     "x": 3.7,
+     "y": -4.6,
+     "yaw": 0,
+     "radius_m": 0.7
+    },
+    {
+     "mesh": "SM_INT_Cozinha",
+     "x": -4.1,
+     "y": -3.4,
+     "yaw": 0,
+     "radius_m": 1.3
+    },
+    {
+     "mesh": "SM_INT_Mesa",
+     "x": -2.5,
+     "y": -0.4,
+     "yaw": 90,
+     "radius_m": 0.95
+    },
+    {
+     "mesh": "SM_INT_Cadeira",
+     "x": -2.5,
+     "y": 0.45,
+     "yaw": -90,
+     "radius_m": 0.35
+    },
+    {
+     "mesh": "SM_INT_Cadeira",
+     "x": -2.5,
+     "y": -1.25,
+     "yaw": 90,
+     "radius_m": 0.35
+    },
+    {
+     "mesh": "SM_INT_Cama",
+     "x": -2.6,
+     "y": 4.2,
+     "yaw": 0,
+     "radius_m": 1.1
+    },
+    {
+     "mesh": "SM_INT_Armario",
+     "x": -4.0,
+     "y": 2.3,
+     "yaw": 0,
+     "radius_m": 0.7
+    },
+    {
+     "mesh": "SM_INT_Tapete",
+     "x": -2.6,
+     "y": 3.0,
+     "yaw": 0,
+     "radius_m": 0.0
+    },
+    {
+     "mesh": "SM_INT_Quadro",
+     "x": -4.39,
+     "y": 4.2,
+     "yaw": 0,
+     "radius_m": 0.0
+    }
+   ],
+   "door_leaves": [
+    {
+     "x": 4.5,
+     "y": -1.0,
+     "yaw": 0.0,
+     "width_m": 1.3,
+     "height_m": 2.25,
+     "double": false,
+     "start_open": false,
+     "style": "PortaMadeira",
+     "inner": false,
+     "mesh": "SM_INT_PortaMadeira"
+    },
+    {
+     "x": -0.5,
+     "y": -2.5,
+     "yaw": 180.0,
+     "width_m": 1.1,
+     "height_m": 2.25,
+     "double": false,
+     "start_open": false,
+     "style": "PortaMadeira",
+     "inner": true,
+     "mesh": "SM_INT_PortaMadeira"
+    },
+    {
+     "x": -0.5,
+     "y": 2.7,
+     "yaw": 180.0,
+     "width_m": 1.1,
+     "height_m": 2.25,
+     "double": false,
+     "start_open": false,
+     "style": "PortaMadeira",
+     "inner": true,
+     "mesh": "SM_INT_PortaMadeira"
+    }
+   ],
+   "lights": [
+    {
+     "x": 2.2,
+     "y": 2.5,
+     "z": 2.65,
+     "candelas": 30.0
+    },
+    {
+     "x": 2.0,
+     "y": -3.0,
+     "z": 2.65,
+     "candelas": 30.0
+    },
+    {
+     "x": -2.5,
+     "y": -2.5,
+     "z": 2.65,
+     "candelas": 30.0
+    },
+    {
+     "x": -2.5,
+     "y": 3.5,
+     "z": 2.65,
+     "candelas": 30.0
+    }
+   ],
+   "luminaire_mesh": "SM_INT_Luminaria",
+   "pickups": [
+    {
+     "type": "HEALTH",
+     "x": -4.1,
+     "y": -2.4,
+     "z": 0.95
+    },
+    {
+     "type": "AMMO",
+     "x": 2.0,
+     "y": -2.8,
+     "z": 0.79
+    }
+   ],
+   "chests": [
+    {
+     "label": "Bau_Vila_Municao",
+     "x": -2.4,
+     "y": 2.3,
+     "yaw": 0
+    }
+   ],
+   "story": null,
+   "camera_zone": {
+    "extent_m": [
+     4.4,
+     5.4,
+     1.5
+    ],
+    "arm_cm": 190.0
+   },
+   "replaces": {
+    "user": [
+     "CON_CasaVila#0"
+    ]
+   },
+   "place": null,
+   "absorb_pickups": {}
+  },
+  "CasaSaqueada": {
+   "nome": "Casa saqueada",
+   "zona": 6,
+   "size_m": [
+    8.0,
+    9.0
+   ],
+   "h_m": 3.0,
+   "mesh": "SM_INT_CasaSaqueada",
+   "note": "Casa revirada: móveis tortos, quarto nos fundos com Fúria.",
+   "doors": [
+    {
+     "side": "+X",
+     "offset_m": 0.0,
+     "width_m": 1.3
+    }
+   ],
+   "furniture": [
+    {
+     "mesh": "SM_INT_Mesa",
+     "x": 1.8,
+     "y": 2.5,
+     "yaw": 25,
+     "radius_m": 0.95
+    },
+    {
+     "mesh": "SM_INT_Cadeira",
+     "x": 1.0,
+     "y": 1.5,
+     "yaw": 70,
+     "radius_m": 0.35
+    },
+    {
+     "mesh": "SM_INT_Armario",
+     "x": -3.6,
+     "y": -3.0,
+     "yaw": 0,
+     "radius_m": 0.7
+    },
+    {
+     "mesh": "SM_INT_Cama",
+     "x": -2.5,
+     "y": 2.8,
+     "yaw": 0,
+     "radius_m": 1.1
+    },
+    {
+     "mesh": "SM_INT_Sofa",
+     "x": 2.0,
+     "y": -3.6,
+     "yaw": 90,
+     "radius_m": 1.1
+    },
+    {
+     "mesh": "SM_INT_Caixotes",
+     "x": -0.3,
+     "y": 3.3,
+     "yaw": 0,
+     "radius_m": 0.7
+    },
+    {
+     "mesh": "SM_INT_Fogao",
+     "x": 0.8,
+     "y": 4.0,
+     "yaw": -90,
+     "radius_m": 0.55
+    },
+    {
+     "mesh": "SM_INT_TV",
+     "x": 3.4,
+     "y": 3.4,
+     "yaw": 180,
+     "radius_m": 0.7
+    },
+    {
+     "mesh": "SM_INT_Barril",
+     "x": -3.4,
+     "y": -0.9,
+     "yaw": 0,
+     "radius_m": 0.32
+    },
+    {
+     "mesh": "SM_INT_Tapete",
+     "x": 1.5,
+     "y": 0.8,
+     "yaw": 15,
+     "radius_m": 0.0
+    },
+    {
+     "mesh": "SM_INT_Lixo",
+     "x": 0.5,
+     "y": -1.0,
+     "yaw": 30,
+     "radius_m": 0.0
+    },
+    {
+     "mesh": "SM_INT_Lixo",
+     "x": 2.5,
+     "y": 1.0,
+     "yaw": -40,
+     "radius_m": 0.0
+    },
+    {
+     "mesh": "SM_INT_Lixo",
+     "x": -2.5,
+     "y": -3.0,
+     "yaw": 10,
+     "radius_m": 0.0
+    },
+    {
+     "mesh": "SM_INT_Lixo",
+     "x": -2.6,
+     "y": 1.2,
+     "yaw": 70,
+     "radius_m": 0.0
+    }
+   ],
+   "door_leaves": [
+    {
+     "x": 4.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "width_m": 1.3,
+     "height_m": 2.25,
+     "double": false,
+     "start_open": false,
+     "style": "PortaMadeira",
+     "inner": false,
+     "mesh": "SM_INT_PortaMadeira"
+    },
+    {
+     "x": -1.0,
+     "y": -1.5,
+     "yaw": 180.0,
+     "width_m": 1.2,
+     "height_m": 2.25,
+     "double": false,
+     "start_open": false,
+     "style": "PortaMadeira",
+     "inner": true,
+     "mesh": "SM_INT_PortaMadeira"
+    }
+   ],
+   "lights": [
+    {
+     "x": 1.5,
+     "y": 0.0,
+     "z": 2.65,
+     "candelas": 30.0
+    },
+    {
+     "x": -2.6,
+     "y": 0.0,
+     "z": 2.65,
+     "candelas": 30.0
+    }
+   ],
+   "luminaire_mesh": "SM_INT_Luminaria",
+   "pickups": [
+    {
+     "type": "FURY",
+     "x": -3.0,
+     "y": -1.0,
+     "z": 0.0
+    },
+    {
+     "type": "HEALTH",
+     "x": 1.8,
+     "y": 2.5,
+     "z": 0.79
+    }
+   ],
+   "chests": [],
+   "story": null,
+   "camera_zone": {
+    "extent_m": [
+     3.9,
+     4.4,
+     1.5
+    ],
+    "arm_cm": 190.0
+   },
+   "replaces": {
+    "user": [
+     "CON_CasaVila#1"
+    ]
+   },
+   "place": null,
+   "absorb_pickups": {}
+  },
+  "Oficina": {
+   "nome": "Oficina/cabana da vila",
+   "zona": 6,
+   "size_m": [
+    7.0,
+    7.0
+   ],
+   "h_m": 3.2,
+   "mesh": "SM_INT_Oficina",
+   "note": "Cabana virou oficina 7 x 7 m com portão largo, bancada de ferramentas, pneus e armários.",
+   "doors": [
+    {
+     "side": "+X",
+     "offset_m": 0.0,
+     "width_m": 2.4
+    }
+   ],
+   "furniture": [
+    {
+     "mesh": "SM_INT_Bancada",
+     "x": -2.9,
+     "y": 0.0,
+     "yaw": 0,
+     "radius_m": 1.2
+    },
+    {
+     "mesh": "SM_INT_Pneus",
+     "x": 2.4,
+     "y": 2.6,
+     "yaw": 0,
+     "radius_m": 0.4
+    },
+    {
+     "mesh": "SM_INT_Pneus",
+     "x": 1.6,
+     "y": 2.8,
+     "yaw": 0,
+     "radius_m": 0.4
+    },
+    {
+     "mesh": "SM_INT_Armarios",
+     "x": 1.8,
+     "y": -3.0,
+     "yaw": 90,
+     "radius_m": 1.05
+    },
+    {
+     "mesh": "SM_INT_Caixotes",
+     "x": -2.6,
+     "y": 3.0,
+     "yaw": -90,
+     "radius_m": 0.7
+    },
+    {
+     "mesh": "SM_INT_Barril",
+     "x": -3.0,
+     "y": -2.9,
+     "yaw": 0,
+     "radius_m": 0.32
+    },
+    {
+     "mesh": "SM_INT_Barril",
+     "x": -2.35,
+     "y": -3.0,
+     "yaw": 0,
+     "radius_m": 0.32
+    },
+    {
+     "mesh": "SM_INT_Gerador",
+     "x": -0.5,
+     "y": 2.8,
+     "yaw": 0,
+     "radius_m": 0.65
+    },
+    {
+     "mesh": "SM_INT_Lixo",
+     "x": 0.5,
+     "y": -0.5,
+     "yaw": 20,
+     "radius_m": 0.0
+    }
+   ],
+   "door_leaves": [
+    {
+     "x": 3.5,
+     "y": 0.0,
+     "yaw": 0.0,
+     "width_m": 2.4,
+     "height_m": 2.25,
+     "double": true,
+     "start_open": false,
+     "style": "PortaMadeira",
+     "inner": false,
+     "mesh": "SM_INT_PortaMadeira"
+    }
+   ],
+   "lights": [
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 2.85,
+     "candelas": 30.0
+    }
+   ],
+   "luminaire_mesh": "SM_INT_Luminaria",
+   "pickups": [
+    {
+     "type": "AMMO",
+     "x": -2.9,
+     "y": 0.6,
+     "z": 0.94
+    },
+    {
+     "type": "BANDAGE",
+     "x": -2.9,
+     "y": -0.7,
+     "z": 0.94
+    }
+   ],
+   "chests": [],
+   "story": null,
+   "camera_zone": {
+    "extent_m": [
+     3.4,
+     3.4,
+     1.6
+    ],
+    "arm_cm": 190.0
+   },
+   "replaces": {
+    "user": [
+     "CON_Cabana"
+    ]
+   },
+   "place": null,
+   "absorb_pickups": {}
+  },
+  "OficinaEstrada": {
+   "nome": "Oficina da estrada (lugar novo)",
+   "zona": 1,
+   "size_m": [
+    12.0,
+    10.0
+   ],
+   "h_m": 4.2,
+   "mesh": "SM_INT_OficinaEstrada",
+   "note": "Galpão de metal 12 x 10 m, portão de 4 m (o buggy entra), elevador, bancada, pneus; reparo e nitro.",
+   "doors": [
+    {
+     "side": "+X",
+     "offset_m": -1.5,
+     "width_m": 4.0
+    },
+    {
+     "side": "-X",
+     "offset_m": 3.5,
+     "width_m": 1.2
+    }
+   ],
+   "furniture": [
+    {
+     "mesh": "SM_INT_Elevador",
+     "x": 1.0,
+     "y": -1.5,
+     "yaw": 0,
+     "radius_m": 1.9
+    },
+    {
+     "mesh": "SM_INT_Bancada",
+     "x": -5.45,
+     "y": 0.3,
+     "yaw": 0,
+     "radius_m": 1.2
+    },
+    {
+     "mesh": "SM_INT_Arquivo",
+     "x": -5.6,
+     "y": -1.4,
+     "yaw": 0,
+     "radius_m": 0.4
+    },
+    {
+     "mesh": "SM_INT_Pneus",
+     "x": 4.8,
+     "y": 4.2,
+     "yaw": 0,
+     "radius_m": 0.4
+    },
+    {
+     "mesh": "SM_INT_Pneus",
+     "x": 4.0,
+     "y": 4.3,
+     "yaw": 0,
+     "radius_m": 0.4
+    },
+    {
+     "mesh": "SM_INT_Pneus",
+     "x": 3.5,
+     "y": 3.4,
+     "yaw": 0,
+     "radius_m": 0.4
+    },
+    {
+     "mesh": "SM_INT_Armarios",
+     "x": -4.5,
+     "y": 4.5,
+     "yaw": -90,
+     "radius_m": 1.05
+    },
+    {
+     "mesh": "SM_INT_Mesa",
+     "x": -5.0,
+     "y": 3.0,
+     "yaw": 0,
+     "radius_m": 0.95
+    },
+    {
+     "mesh": "SM_INT_Cadeira",
+     "x": -4.2,
+     "y": 2.6,
+     "yaw": 180,
+     "radius_m": 0.35
+    },
+    {
+     "mesh": "SM_INT_PrateleiraParede",
+     "x": 2.0,
+     "y": 4.5,
+     "yaw": -90,
+     "radius_m": 1.05
+    },
+    {
+     "mesh": "SM_INT_Caixotes",
+     "x": -3.6,
+     "y": -4.5,
+     "yaw": 90,
+     "radius_m": 0.7
+    },
+    {
+     "mesh": "SM_INT_Barril",
+     "x": 5.3,
+     "y": -4.3,
+     "yaw": 0,
+     "radius_m": 0.32
+    },
+    {
+     "mesh": "SM_INT_Barril",
+     "x": 4.7,
+     "y": -4.4,
+     "yaw": 0,
+     "radius_m": 0.32
+    },
+    {
+     "mesh": "SM_INT_Barril",
+     "x": 5.4,
+     "y": -3.7,
+     "yaw": 0,
+     "radius_m": 0.32
+    },
+    {
+     "mesh": "SM_INT_Gerador",
+     "x": -1.5,
+     "y": 4.3,
+     "yaw": -90,
+     "radius_m": 0.65
+    },
+    {
+     "mesh": "SM_INT_Lixo",
+     "x": -1.0,
+     "y": -3.0,
+     "yaw": 15,
+     "radius_m": 0.0
+    },
+    {
+     "mesh": "SM_INT_Lixo",
+     "x": 3.0,
+     "y": 1.5,
+     "yaw": -30,
+     "radius_m": 0.0
+    }
+   ],
+   "door_leaves": [
+    {
+     "x": 6.0,
+     "y": -1.5,
+     "yaw": 0.0,
+     "width_m": 4.0,
+     "height_m": 2.25,
+     "double": true,
+     "start_open": true,
+     "style": "PortaMetal",
+     "inner": false,
+     "mesh": "SM_INT_PortaMetal"
+    },
+    {
+     "x": -6.0,
+     "y": -3.5,
+     "yaw": 180.0,
+     "width_m": 1.2,
+     "height_m": 2.25,
+     "double": false,
+     "start_open": false,
+     "style": "PortaMetal",
+     "inner": false,
+     "mesh": "SM_INT_PortaMetal"
+    },
+    {
+     "x": -3.0,
+     "y": 3.5,
+     "yaw": 180.0,
+     "width_m": 1.0,
+     "height_m": 2.25,
+     "double": false,
+     "start_open": false,
+     "style": "PortaMetal",
+     "inner": true,
+     "mesh": "SM_INT_PortaMetal"
+    }
+   ],
+   "lights": [
+    {
+     "x": 0.0,
+     "y": -1.5,
+     "z": 3.85,
+     "candelas": 30.0
+    },
+    {
+     "x": -4.5,
+     "y": -2.5,
+     "z": 3.85,
+     "candelas": 30.0
+    },
+    {
+     "x": 2.5,
+     "y": 3.0,
+     "z": 3.85,
+     "candelas": 30.0
+    },
+    {
+     "x": -4.5,
+     "y": 3.5,
+     "z": 3.85,
+     "candelas": 30.0
+    }
+   ],
+   "luminaire_mesh": "SM_INT_Luminaria",
+   "pickups": [
+    {
+     "type": "REPAIR",
+     "x": 4.2,
+     "y": -4.0,
+     "z": 0.0
+    },
+    {
+     "type": "NITRO",
+     "x": -5.4,
+     "y": -1.8,
+     "z": 0.94
+    },
+    {
+     "type": "AMMO",
+     "x": -4.5,
+     "y": 3.4,
+     "z": 0.0
+    }
+   ],
+   "chests": [],
+   "story": {
+    "label": "Historia_INT_OficinaEstrada",
+    "titulo": "Oficina da estrada",
+    "message": "Uma oficina! Deve ter peças pro buggy.",
+    "objective_hint": "Procure peças na oficina"
+   },
+   "camera_zone": {
+    "extent_m": [
+     5.9,
+     4.9,
+     2.1
+    ],
+    "arm_cm": 190.0
+   },
+   "replaces": {},
+   "place": {
+    "near_route": "main",
+    "zone": 1,
+    "side_m": 26.0
+   },
+   "absorb_pickups": {}
+  },
+  "CabanaPesquisador": {
+   "nome": "Cabana do pesquisador (lugar novo)",
+   "zona": 3,
+   "size_m": [
+    7.0,
+    8.0
+   ],
+   "h_m": 3.0,
+   "mesh": "SM_INT_CabanaPesquisador",
+   "note": "Cabana 7 x 8 m na floresta: bancada com cristais brilhando, mesa de anotações, cama.",
+   "doors": [
+    {
+     "side": "+X",
+     "offset_m": -1.5,
+     "width_m": 1.2
+    }
+   ],
+   "furniture": [
+    {
+     "mesh": "SM_INT_MesaLab",
+     "x": -2.9,
+     "y": 0.5,
+     "yaw": 0,
+     "radius_m": 1.3
+    },
+    {
+     "mesh": "SM_INT_Cadeira",
+     "x": -2.0,
+     "y": 0.5,
+     "yaw": 0,
+     "radius_m": 0.35
+    },
+    {
+     "mesh": "SM_INT_Escrivaninha",
+     "x": 1.5,
+     "y": 3.3,
+     "yaw": -90,
+     "radius_m": 0.8
+    },
+    {
+     "mesh": "SM_INT_Cadeira",
+     "x": 1.5,
+     "y": 2.5,
+     "yaw": 90,
+     "radius_m": 0.35
+    },
+    {
+     "mesh": "SM_INT_Cama",
+     "x": -1.0,
+     "y": -3.3,
+     "yaw": 0,
+     "radius_m": 1.1
+    },
+    {
+     "mesh": "SM_INT_Arquivo",
+     "x": -2.9,
+     "y": -3.3,
+     "yaw": 0,
+     "radius_m": 0.4
+    },
+    {
+     "mesh": "SM_INT_PrateleiraParede",
+     "x": -3.1,
+     "y": -2.0,
+     "yaw": 0,
+     "radius_m": 1.05
+    },
+    {
+     "mesh": "SM_INT_Estante",
+     "x": -2.0,
+     "y": 3.7,
+     "yaw": -90,
+     "radius_m": 0.85
+    },
+    {
+     "mesh": "SM_INT_Tapete",
+     "x": 0.5,
+     "y": 0.0,
+     "yaw": 0,
+     "radius_m": 0.0
+    },
+    {
+     "mesh": "SM_INT_Lixo",
+     "x": 0.8,
+     "y": -1.0,
+     "yaw": 20,
+     "radius_m": 0.0
+    }
+   ],
+   "door_leaves": [
+    {
+     "x": 3.5,
+     "y": -1.5,
+     "yaw": 0.0,
+     "width_m": 1.2,
+     "height_m": 2.25,
+     "double": false,
+     "start_open": false,
+     "style": "PortaMadeira",
+     "inner": false,
+     "mesh": "SM_INT_PortaMadeira"
+    }
+   ],
+   "lights": [
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 2.65,
+     "candelas": 30.0
+    },
+    {
+     "x": -2.5,
+     "y": 0.5,
+     "z": 2.65,
+     "candelas": 30.0
+    }
+   ],
+   "luminaire_mesh": "SM_INT_Luminaria",
+   "pickups": [
+    {
+     "type": "HEALTH",
+     "x": 1.5,
+     "y": 3.3,
+     "z": 0.79
+    },
+    {
+     "type": "AMMO",
+     "x": -3.1,
+     "y": -2.0,
+     "z": 0.73
+    }
+   ],
+   "chests": [],
+   "story": {
+    "label": "Historia_INT_CabanaPesquisador",
+    "titulo": "Cabana do pesquisador",
+    "message": "Anotações: 'os cristais acordam os mortos'... Pegue o que puder.",
+    "objective_hint": "Revire a cabana"
+   },
+   "camera_zone": {
+    "extent_m": [
+     3.4,
+     3.9,
+     1.5
+    ],
+    "arm_cm": 190.0
+   },
+   "replaces": {},
+   "place": {
+    "near_route": "main",
+    "zone": 3,
+    "side_m": 30.0
+   },
+   "absorb_pickups": {}
+  },
+  "Galpao": {
+   "nome": "Galpão de abrigo (lugar novo)",
+   "zona": 5,
+   "size_m": [
+    14.0,
+    10.0
+   ],
+   "h_m": 4.5,
+   "mesh": "SM_INT_Galpao",
+   "note": "Galpão 14 x 10 m de pé-direito alto, portão de 4,5 m, estantes industriais, caixotes e Fúria.",
+   "doors": [
+    {
+     "side": "+X",
+     "offset_m": 0.0,
+     "width_m": 4.5
+    },
+    {
+     "side": "-X",
+     "offset_m": -3.0,
+     "width_m": 1.2
+    }
+   ],
+   "furniture": [
+    {
+     "mesh": "SM_INT_PrateleiraParede",
+     "x": -6.5,
+     "y": -2.5,
+     "yaw": 0,
+     "radius_m": 1.05
+    },
+    {
+     "mesh": "SM_INT_PrateleiraParede",
+     "x": -6.5,
+     "y": 0.0,
+     "yaw": 0,
+     "radius_m": 1.05
+    },
+    {
+     "mesh": "SM_INT_Beliche",
+     "x": -5.2,
+     "y": 3.85,
+     "yaw": 0,
+     "radius_m": 1.1
+    },
+    {
+     "mesh": "SM_INT_Beliche",
+     "x": -0.2,
+     "y": 3.85,
+     "yaw": 0,
+     "radius_m": 1.1
+    },
+    {
+     "mesh": "SM_INT_Armarios",
+     "x": 5.5,
+     "y": 4.3,
+     "yaw": -90,
+     "radius_m": 1.05
+    },
+    {
+     "mesh": "SM_INT_TamborFogo",
+     "x": -2.6,
+     "y": 1.2,
+     "yaw": 0,
+     "radius_m": 0.32
+    },
+    {
+     "mesh": "SM_INT_Cadeira",
+     "x": -3.4,
+     "y": 1.2,
+     "yaw": 0,
+     "radius_m": 0.35
+    },
+    {
+     "mesh": "SM_INT_Cadeira",
+     "x": -2.6,
+     "y": 2.0,
+     "yaw": -90,
+     "radius_m": 0.35
+    },
+    {
+     "mesh": "SM_INT_Mesa",
+     "x": -2.5,
+     "y": -1.0,
+     "yaw": 90,
+     "radius_m": 0.95
+    },
+    {
+     "mesh": "SM_INT_Cadeira",
+     "x": -2.5,
+     "y": -1.85,
+     "yaw": 90,
+     "radius_m": 0.35
+    },
+    {
+     "mesh": "SM_INT_Caixotes",
+     "x": 3.5,
+     "y": -3.5,
+     "yaw": 10,
+     "radius_m": 0.7
+    },
+    {
+     "mesh": "SM_INT_Caixotes",
+     "x": -4.6,
+     "y": -3.6,
+     "yaw": -15,
+     "radius_m": 0.7
+    },
+    {
+     "mesh": "SM_INT_Caixotes",
+     "x": 0.0,
+     "y": 0.0,
+     "yaw": 30,
+     "radius_m": 0.7
+    },
+    {
+     "mesh": "SM_INT_Gerador",
+     "x": 5.8,
+     "y": -4.2,
+     "yaw": 0,
+     "radius_m": 0.65
+    },
+    {
+     "mesh": "SM_INT_Barril",
+     "x": 6.3,
+     "y": -3.2,
+     "yaw": 0,
+     "radius_m": 0.32
+    },
+    {
+     "mesh": "SM_INT_Barricada",
+     "x": -3.0,
+     "y": -4.6,
+     "yaw": 90,
+     "radius_m": 1.0
+    },
+    {
+     "mesh": "SM_INT_Barricada",
+     "x": 3.0,
+     "y": -4.6,
+     "yaw": 90,
+     "radius_m": 1.0
+    },
+    {
+     "mesh": "SM_INT_Tapete",
+     "x": -2.7,
+     "y": 3.5,
+     "yaw": 0,
+     "radius_m": 0.0
+    },
+    {
+     "mesh": "SM_INT_Lixo",
+     "x": 1.5,
+     "y": -2.0,
+     "yaw": 30,
+     "radius_m": 0.0
+    },
+    {
+     "mesh": "SM_INT_Lixo",
+     "x": -4.5,
+     "y": 0.5,
+     "yaw": -20,
+     "radius_m": 0.0
+    }
+   ],
+   "door_leaves": [
+    {
+     "x": 7.0,
+     "y": 0.0,
+     "yaw": 0.0,
+     "width_m": 4.5,
+     "height_m": 2.25,
+     "double": true,
+     "start_open": true,
+     "style": "PortaMetal",
+     "inner": false,
+     "mesh": "SM_INT_PortaMetal"
+    },
+    {
+     "x": -7.0,
+     "y": 3.0,
+     "yaw": 180.0,
+     "width_m": 1.2,
+     "height_m": 2.25,
+     "double": false,
+     "start_open": false,
+     "style": "PortaMetal",
+     "inner": false,
+     "mesh": "SM_INT_PortaMetal"
+    }
+   ],
+   "lights": [
+    {
+     "x": -3.0,
+     "y": 0.0,
+     "z": 4.15,
+     "candelas": 30.0
+    },
+    {
+     "x": 3.0,
+     "y": 0.0,
+     "z": 4.15,
+     "candelas": 30.0
+    },
+    {
+     "x": -5.0,
+     "y": 3.0,
+     "z": 4.15,
+     "candelas": 30.0
+    },
+    {
+     "x": 3.0,
+     "y": 3.5,
+     "z": 4.15,
+     "candelas": 30.0
+    }
+   ],
+   "luminaire_mesh": "SM_INT_Luminaria",
+   "pickups": [
+    {
+     "type": "FURY",
+     "x": 0.0,
+     "y": 0.0,
+     "z": 1.2
+    },
+    {
+     "type": "AMMO",
+     "x": -6.5,
+     "y": -2.5,
+     "z": 0.88
+    },
+    {
+     "type": "HEALTH",
+     "x": -2.5,
+     "y": -1.0,
+     "z": 0.79
+    }
+   ],
+   "chests": [],
+   "story": {
+    "label": "Historia_INT_Galpao",
+    "titulo": "Galpão",
+    "message": "Um galpão. Dá pra recuperar o fôlego aqui dentro.",
+    "objective_hint": "Pegue suprimentos no galpão"
+   },
+   "camera_zone": {
+    "extent_m": [
+     6.9,
+     4.9,
+     2.25
+    ],
+    "arm_cm": 190.0
+   },
+   "replaces": {},
+   "place": {
+    "near_route": "main",
+    "zone": 5,
+    "side_m": 34.0
+   },
+   "absorb_pickups": {}
+  },
+  "CabineRadio": {
+   "nome": "Cabine da torre de rádio (lugar novo)",
+   "zona": 2,
+   "size_m": [
+    4.5,
+    5.0
+   ],
+   "h_m": 2.9,
+   "mesh": "SM_INT_CabineRadio",
+   "note": "Cabine 4,5 x 5 m ao pé da torre: rádio chiando (história), munição.",
+   "doors": [
+    {
+     "side": "+X",
+     "offset_m": -1.2,
+     "width_m": 1.2
+    }
+   ],
+   "furniture": [
+    {
+     "mesh": "SM_INT_Radio",
+     "x": -1.6,
+     "y": 0.4,
+     "yaw": 0,
+     "radius_m": 1.0
+    },
+    {
+     "mesh": "SM_INT_Cadeira",
+     "x": -0.9,
+     "y": 0.4,
+     "yaw": 180,
+     "radius_m": 0.35
+    },
+    {
+     "mesh": "SM_INT_Arquivo",
+     "x": 1.4,
+     "y": 2.1,
+     "yaw": -90,
+     "radius_m": 0.4
+    },
+    {
+     "mesh": "SM_INT_Gerador",
+     "x": -1.5,
+     "y": -1.8,
+     "yaw": 90,
+     "radius_m": 0.65
+    },
+    {
+     "mesh": "SM_INT_Barril",
+     "x": 1.7,
+     "y": 1.2,
+     "yaw": 0,
+     "radius_m": 0.32
+    },
+    {
+     "mesh": "SM_INT_Cama",
+     "x": 0.1,
+     "y": 1.9,
+     "yaw": 0,
+     "radius_m": 1.1
+    },
+    {
+     "mesh": "SM_INT_Lixo",
+     "x": 0.3,
+     "y": -0.6,
+     "yaw": 0,
+     "radius_m": 0.0
+    },
+    {
+     "mesh": "SM_INT_Quadro",
+     "x": 0.6,
+     "y": -2.39,
+     "yaw": 90,
+     "radius_m": 0.0
+    }
+   ],
+   "door_leaves": [
+    {
+     "x": 2.25,
+     "y": -1.2,
+     "yaw": 0.0,
+     "width_m": 1.2,
+     "height_m": 2.25,
+     "double": false,
+     "start_open": false,
+     "style": "PortaMetal",
+     "inner": false,
+     "mesh": "SM_INT_PortaMetal"
+    }
+   ],
+   "lights": [
+    {
+     "x": 0.0,
+     "y": 0.0,
+     "z": 2.55,
+     "candelas": 30.0
+    }
+   ],
+   "luminaire_mesh": "SM_INT_Luminaria",
+   "pickups": [
+    {
+     "type": "AMMO",
+     "x": 1.4,
+     "y": 2.1,
+     "z": 1.3
+    }
+   ],
+   "chests": [],
+   "story": {
+    "label": "Historia_INT_CabineRadio",
+    "titulo": "Cabine do rádio",
+    "message": "Rádio: '...resgate... vale... sigam para o portão norte...'",
+    "objective_hint": "Ouça o rádio da torre"
+   },
+   "camera_zone": {
+    "extent_m": [
+     2.15,
+     2.4,
+     1.45
+    ],
+    "arm_cm": 190.0
+   },
+   "replaces": {},
+   "place": {
+    "poi": "TorreRadio",
+    "offset_m": [
+     -9.0,
+     0.0
+    ]
+   },
+   "absorb_pickups": {}
+  }
+ },
+ "furniture": {
+  "SM_INT_Balcao": {
+   "radius_m": 1.4,
+   "height_m": 1.1
+  },
+  "SM_INT_Gondola": {
+   "radius_m": 1.3,
+   "height_m": 1.6
+  },
+  "SM_INT_Geladeira": {
+   "radius_m": 0.6,
+   "height_m": 2.0
+  },
+  "SM_INT_PrateleiraParede": {
+   "radius_m": 1.05,
+   "height_m": 2.0
+  },
+  "SM_INT_Caixotes": {
+   "radius_m": 0.7,
+   "height_m": 1.2
+  },
+  "SM_INT_Barril": {
+   "radius_m": 0.32,
+   "height_m": 0.9
+  },
+  "SM_INT_Gerador": {
+   "radius_m": 0.65,
+   "height_m": 0.9
+  },
+  "SM_INT_Arquivo": {
+   "radius_m": 0.4,
+   "height_m": 1.3
+  },
+  "SM_INT_Lixo": {
+   "radius_m": 0.0,
+   "height_m": 0.1
+  },
+  "SM_INT_Vaso": {
+   "radius_m": 0.35,
+   "height_m": 0.85
+  },
+  "SM_INT_Quadro": {
+   "radius_m": 0.0,
+   "height_m": 1.95
+  },
+  "SM_INT_Luminaria": {
+   "radius_m": 0,
+   "height_m": 0
+  },
+  "SM_INT_PortaVidro": {
+   "radius_m": 0.0,
+   "height_m": 2.2
+  },
+  "SM_INT_PortaMetal": {
+   "radius_m": 0.0,
+   "height_m": 2.2
+  },
+  "SM_INT_Escrivaninha": {
+   "radius_m": 0.8,
+   "height_m": 1.0
+  },
+  "SM_INT_Cadeira": {
+   "radius_m": 0.35,
+   "height_m": 1.05
+  },
+  "SM_INT_Armario": {
+   "radius_m": 0.7,
+   "height_m": 1.9
+  },
+  "SM_INT_Estante": {
+   "radius_m": 0.85,
+   "height_m": 2.0
+  },
+  "SM_INT_Tapete": {
+   "radius_m": 0.0,
+   "height_m": 0.02
+  },
+  "SM_INT_PortaMadeira": {
+   "radius_m": 0.0,
+   "height_m": 2.2
+  },
+  "SM_INT_Sofa": {
+   "radius_m": 1.1,
+   "height_m": 0.9
+  },
+  "SM_INT_MesaCentro": {
+   "radius_m": 0.6,
+   "height_m": 0.45
+  },
+  "SM_INT_TV": {
+   "radius_m": 0.7,
+   "height_m": 1.1
+  },
+  "SM_INT_Mesa": {
+   "radius_m": 0.95,
+   "height_m": 0.8
+  },
+  "SM_INT_Cozinha": {
+   "radius_m": 1.3,
+   "height_m": 2.0
+  },
+  "SM_INT_Cama": {
+   "radius_m": 1.1,
+   "height_m": 1.0
+  },
+  "SM_INT_Fogao": {
+   "radius_m": 0.55,
+   "height_m": 0.9
+  },
+  "SM_INT_Bancada": {
+   "radius_m": 1.2,
+   "height_m": 2.2
+  },
+  "SM_INT_Pneus": {
+   "radius_m": 0.4,
+   "height_m": 0.9
+  },
+  "SM_INT_Armarios": {
+   "radius_m": 1.05,
+   "height_m": 1.9
+  },
+  "SM_INT_Elevador": {
+   "radius_m": 1.9,
+   "height_m": 3.2
+  },
+  "SM_INT_MesaLab": {
+   "radius_m": 1.3,
+   "height_m": 1.2
+  },
+  "SM_INT_Beliche": {
+   "radius_m": 1.1,
+   "height_m": 1.7
+  },
+  "SM_INT_TamborFogo": {
+   "radius_m": 0.32,
+   "height_m": 0.95
+  },
+  "SM_INT_Barricada": {
+   "radius_m": 1.0,
+   "height_m": 1.2
+  },
+  "SM_INT_Radio": {
+   "radius_m": 1.0,
+   "height_m": 1.4
+  }
+ }
+}

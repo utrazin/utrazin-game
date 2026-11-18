@@ -1,0 +1,1406 @@
+{
+ "PRP_Barril": {
+  "fbx": "SM_PRP_Barril.fbx",
+  "texture": "textures/T_PRP_Barril_D.jpg",
+  "tris": 4974,
+  "dims_m": [
+   0.808,
+   0.763,
+   0.9
+  ],
+  "min_m": [
+   -0.404,
+   -0.381,
+   0.0
+  ],
+  "max_m": [
+   0.404,
+   0.381,
+   0.9
+  ],
+  "ucx": [
+   "UCX_SM_PRP_Barril_00"
+  ],
+  "category": "Props",
+  "collision": "box"
+ },
+ "ARM_Graveto": {
+  "fbx": "SM_ARM_Graveto.fbx",
+  "texture": "textures/T_ARM_Graveto_D.jpg",
+  "tris": 17093,
+  "dims_m": [
+   0.9,
+   0.104,
+   0.231
+  ],
+  "min_m": [
+   -0.108,
+   -0.049,
+   -0.112
+  ],
+  "max_m": [
+   0.792,
+   0.055,
+   0.119
+  ],
+  "ucx": [],
+  "category": "Armas",
+  "collision": "none",
+  "grip_from_butt_m": 0.108
+ },
+ "ZMB_Corredor": {
+  "fbx": "SM_ZMB_Corredor.fbx",
+  "texture": "textures/T_ZMB_Corredor_D.jpg",
+  "tris": 19002,
+  "dims_m": [
+   0.416,
+   1.341,
+   1.7
+  ],
+  "min_m": [
+   -0.208,
+   -0.67,
+   0.0
+  ],
+  "max_m": [
+   0.208,
+   0.67,
+   1.7
+  ],
+  "ucx": [],
+  "category": "Personagens",
+  "collision": "none",
+  "mixamo_fbx": "SM_ZMB_Corredor_mixamo.fbx"
+ },
+ "NAT_Flor": {
+  "fbx": "SM_NAT_Flor.fbx",
+  "texture": "textures/T_NAT_Flor_D.jpg",
+  "tris": 19091,
+  "dims_m": [
+   0.55,
+   0.587,
+   0.8
+  ],
+  "min_m": [
+   -0.275,
+   -0.294,
+   0.0
+  ],
+  "max_m": [
+   0.275,
+   0.294,
+   0.8
+  ],
+  "ucx": [],
+  "category": "Natureza",
+  "collision": "none"
+ },
+ "NAT_Arvore1": {
+  "fbx": "SM_NAT_Arvore1.fbx",
+  "texture": "textures/T_NAT_Arvore1_D.jpg",
+  "tris": 4884,
+  "dims_m": [
+   6.477,
+   8.239,
+   10.0
+  ],
+  "min_m": [
+   -3.239,
+   -4.119,
+   0.0
+  ],
+  "max_m": [
+   3.239,
+   4.119,
+   10.0
+  ],
+  "ucx": [
+   "UCX_SM_NAT_Arvore1_00"
+  ],
+  "category": "Natureza",
+  "collision": "trunk"
+ },
+ "MRC_Arco": {
+  "fbx": "SM_MRC_Arco.fbx",
+  "texture": "textures/T_MRC_Arco_D.jpg",
+  "tris": 5070,
+  "dims_m": [
+   19.515,
+   36.0,
+   18.106
+  ],
+  "min_m": [
+   -9.757,
+   -18.0,
+   0.0
+  ],
+  "max_m": [
+   9.757,
+   18.0,
+   18.106
+  ],
+  "ucx": [],
+  "category": "Marcos",
+  "collision": "complex"
+ },
+ "NAT_Arvore2": {
+  "fbx": "SM_NAT_Arvore2.fbx",
+  "texture": "textures/T_NAT_Arvore2_D.jpg",
+  "tris": 4309,
+  "dims_m": [
+   13.155,
+   13.418,
+   12.0
+  ],
+  "min_m": [
+   -6.578,
+   -6.709,
+   0.0
+  ],
+  "max_m": [
+   6.578,
+   6.709,
+   12.0
+  ],
+  "ucx": [
+   "UCX_SM_NAT_Arvore2_00"
+  ],
+  "category": "Natureza",
+  "collision": "trunk"
+ },
+ "NAT_Pedra1": {
+  "fbx": "SM_NAT_Pedra1.fbx",
+  "texture": "textures/T_NAT_Pedra1_D.jpg",
+  "tris": 19562,
+  "dims_m": [
+   0.5,
+   0.48,
+   0.379
+  ],
+  "min_m": [
+   -0.25,
+   -0.24,
+   0.0
+  ],
+  "max_m": [
+   0.25,
+   0.24,
+   0.379
+  ],
+  "ucx": [],
+  "category": "Natureza",
+  "collision": "none"
+ },
+ "MRC_DiscoVoador": {
+  "fbx": "SM_MRC_DiscoVoador.fbx",
+  "texture": "textures/T_MRC_DiscoVoador_D.jpg",
+  "tris": 17553,
+  "dims_m": [
+   24.413,
+   25.0,
+   10.812
+  ],
+  "min_m": [
+   -12.206,
+   -12.5,
+   0.0
+  ],
+  "max_m": [
+   12.206,
+   12.5,
+   10.812
+  ],
+  "ucx": [],
+  "category": "Marcos",
+  "collision": "complex"
+ },
+ "NPC_Sobrevivente": {
+  "fbx": "SM_NPC_Sobrevivente.fbx",
+  "texture": "textures/T_NPC_Sobrevivente_D.jpg",
+  "tris": 18893,
+  "dims_m": [
+   0.469,
+   1.154,
+   1.7
+  ],
+  "min_m": [
+   -0.235,
+   -0.577,
+   0.0
+  ],
+  "max_m": [
+   0.235,
+   0.577,
+   1.7
+  ],
+  "ucx": [],
+  "category": "Personagens",
+  "collision": "none",
+  "mixamo_fbx": "SM_NPC_Sobrevivente_mixamo.fbx"
+ },
+ "NAT_Tronco": {
+  "fbx": "SM_NAT_Tronco.fbx",
+  "texture": "textures/T_NAT_Tronco_D.jpg",
+  "tris": 18457,
+  "dims_m": [
+   2.427,
+   8.0,
+   2.333
+  ],
+  "min_m": [
+   -1.213,
+   -4.0,
+   0.0
+  ],
+  "max_m": [
+   1.213,
+   4.0,
+   2.333
+  ],
+  "ucx": [
+   "UCX_SM_NAT_Tronco_00"
+  ],
+  "category": "Natureza",
+  "collision": "box"
+ },
+ "CON_Conteiner": {
+  "fbx": "SM_CON_Conteiner.fbx",
+  "texture": "textures/T_CON_Conteiner_D.jpg",
+  "tris": 16665,
+  "dims_m": [
+   4.38,
+   6.0,
+   2.337
+  ],
+  "min_m": [
+   -2.19,
+   -3.0,
+   0.0
+  ],
+  "max_m": [
+   2.19,
+   3.0,
+   2.337
+  ],
+  "ucx": [
+   "UCX_SM_CON_Conteiner_00"
+  ],
+  "category": "Construcoes",
+  "collision": "box"
+ },
+ "NAT_Arbusto1": {
+  "fbx": "SM_NAT_Arbusto1.fbx",
+  "texture": "textures/T_NAT_Arbusto1_D.jpg",
+  "tris": 18539,
+  "dims_m": [
+   1.124,
+   1.5,
+   0.848
+  ],
+  "min_m": [
+   -0.562,
+   -0.75,
+   0.0
+  ],
+  "max_m": [
+   0.562,
+   0.75,
+   0.848
+  ],
+  "ucx": [],
+  "category": "Natureza",
+  "collision": "none"
+ },
+ "ZMB_Tanque": {
+  "fbx": "SM_ZMB_Tanque.fbx",
+  "texture": "textures/T_ZMB_Tanque_D.jpg",
+  "tris": 19137,
+  "dims_m": [
+   1.28,
+   2.907,
+   2.6
+  ],
+  "min_m": [
+   -0.64,
+   -1.454,
+   0.0
+  ],
+  "max_m": [
+   0.64,
+   1.454,
+   2.6
+  ],
+  "ucx": [],
+  "category": "Personagens",
+  "collision": "none",
+  "mixamo_fbx": "SM_ZMB_Tanque_mixamo.fbx"
+ },
+ "PRP_Bau": {
+  "fbx": "SM_PRP_Bau.fbx",
+  "texture": "textures/T_PRP_Bau_D.jpg",
+  "tris": 4769,
+  "dims_m": [
+   1.0,
+   0.722,
+   0.53
+  ],
+  "min_m": [
+   -0.5,
+   -0.361,
+   0.0
+  ],
+  "max_m": [
+   0.5,
+   0.361,
+   0.53
+  ],
+  "ucx": [
+   "UCX_SM_PRP_Bau_00"
+  ],
+  "category": "Props",
+  "collision": "box",
+  "split_z_m": 0.329,
+  "parts": {
+   "Base": {
+    "hinge_m": null,
+    "tris": 3233
+   },
+   "Tampa": {
+    "hinge_m": [
+     0.0,
+     0.361,
+     0.329
+    ],
+    "tris": 1944
+   }
+  }
+ },
+ "ZMB_Comum": {
+  "fbx": "SM_ZMB_Comum.fbx",
+  "texture": "textures/T_ZMB_Comum_D.jpg",
+  "tris": 19668,
+  "dims_m": [
+   0.342,
+   1.413,
+   1.8
+  ],
+  "min_m": [
+   -0.171,
+   -0.706,
+   0.0
+  ],
+  "max_m": [
+   0.171,
+   0.706,
+   1.8
+  ],
+  "ucx": [],
+  "category": "Personagens",
+  "collision": "none",
+  "mixamo_fbx": "SM_ZMB_Comum_mixamo.fbx"
+ },
+ "ITM_Chave": {
+  "fbx": "SM_ITM_Chave.fbx",
+  "texture": "textures/T_ITM_Chave_D.jpg",
+  "tris": 18480,
+  "dims_m": [
+   0.03,
+   0.077,
+   0.12
+  ],
+  "min_m": [
+   -0.015,
+   -0.039,
+   0.0
+  ],
+  "max_m": [
+   0.015,
+   0.039,
+   0.12
+  ],
+  "ucx": [],
+  "category": "Itens",
+  "collision": "none"
+ },
+ "PRP_Gerador": {
+  "fbx": "SM_PRP_Gerador.fbx",
+  "texture": "textures/T_PRP_Gerador_D.jpg",
+  "tris": 17963,
+  "dims_m": [
+   0.819,
+   1.5,
+   1.212
+  ],
+  "min_m": [
+   -0.409,
+   -0.75,
+   0.0
+  ],
+  "max_m": [
+   0.409,
+   0.75,
+   1.212
+  ],
+  "ucx": [
+   "UCX_SM_PRP_Gerador_00"
+  ],
+  "category": "Props",
+  "collision": "box"
+ },
+ "NAT_Tentaculo": {
+  "fbx": "SM_NAT_Tentaculo.fbx",
+  "texture": "textures/T_NAT_Tentaculo_D.jpg",
+  "tris": 18666,
+  "dims_m": [
+   1.178,
+   1.726,
+   2.0
+  ],
+  "min_m": [
+   -0.589,
+   -0.863,
+   0.0
+  ],
+  "max_m": [
+   0.589,
+   0.863,
+   2.0
+  ],
+  "ucx": [],
+  "category": "Natureza",
+  "collision": "none"
+ },
+ "MRC_ArvoreMae": {
+  "fbx": "SM_MRC_ArvoreMae.fbx",
+  "texture": "textures/T_MRC_ArvoreMae_D.jpg",
+  "tris": 16722,
+  "dims_m": [
+   28.608,
+   35.568,
+   30.0
+  ],
+  "min_m": [
+   -14.304,
+   -17.784,
+   0.0
+  ],
+  "max_m": [
+   14.304,
+   17.784,
+   30.0
+  ],
+  "ucx": [],
+  "category": "Marcos",
+  "collision": "complex"
+ },
+ "NAT_Cogumelo": {
+  "fbx": "SM_NAT_Cogumelo.fbx",
+  "texture": "textures/T_NAT_Cogumelo_D.jpg",
+  "tris": 19373,
+  "dims_m": [
+   4.98,
+   4.883,
+   5.0
+  ],
+  "min_m": [
+   -2.49,
+   -2.441,
+   0.0
+  ],
+  "max_m": [
+   2.49,
+   2.441,
+   5.0
+  ],
+  "ucx": [
+   "UCX_SM_NAT_Cogumelo_00"
+  ],
+  "category": "Natureza",
+  "collision": "trunk"
+ },
+ "MRC_NaveResgate": {
+  "fbx": "SM_MRC_NaveResgate.fbx",
+  "texture": "textures/T_MRC_NaveResgate_D.jpg",
+  "tris": 19085,
+  "dims_m": [
+   10.841,
+   20.0,
+   6.458
+  ],
+  "min_m": [
+   -5.421,
+   -10.0,
+   0.0
+  ],
+  "max_m": [
+   5.421,
+   10.0,
+   6.458
+  ],
+  "ucx": [],
+  "category": "Marcos",
+  "collision": "complex"
+ },
+ "CON_PostoCobertura": {
+  "fbx": "SM_CON_PostoCobertura.fbx",
+  "texture": "textures/T_CON_PostoCobertura_D.jpg",
+  "tris": 4668,
+  "dims_m": [
+   9.652,
+   12.0,
+   5.847
+  ],
+  "min_m": [
+   -4.826,
+   -6.0,
+   0.0
+  ],
+  "max_m": [
+   4.826,
+   6.0,
+   5.847
+  ],
+  "ucx": [],
+  "category": "Construcoes",
+  "collision": "complex"
+ },
+ "MRC_Cristal": {
+  "fbx": "SM_MRC_Cristal.fbx",
+  "texture": "textures/T_MRC_Cristal_D.jpg",
+  "tris": 4542,
+  "dims_m": [
+   7.969,
+   7.781,
+   8.0
+  ],
+  "min_m": [
+   -3.984,
+   -3.89,
+   0.0
+  ],
+  "max_m": [
+   3.984,
+   3.89,
+   8.0
+  ],
+  "ucx": [],
+  "category": "Marcos",
+  "collision": "complex"
+ },
+ "NAT_Arvore4": {
+  "fbx": "SM_NAT_Arvore4.fbx",
+  "texture": "textures/T_NAT_Arvore4_D.jpg",
+  "tris": 19150,
+  "dims_m": [
+   7.652,
+   9.883,
+   10.0
+  ],
+  "min_m": [
+   -3.826,
+   -4.941,
+   0.0
+  ],
+  "max_m": [
+   3.826,
+   4.941,
+   10.0
+  ],
+  "ucx": [
+   "UCX_SM_NAT_Arvore4_00"
+  ],
+  "category": "Natureza",
+  "collision": "trunk"
+ },
+ "PRP_Onibus": {
+  "fbx": "SM_PRP_Onibus.fbx",
+  "texture": "textures/T_PRP_Onibus_D.jpg",
+  "tris": 17994,
+  "dims_m": [
+   10.0,
+   4.795,
+   3.386
+  ],
+  "min_m": [
+   -5.0,
+   -2.397,
+   0.0
+  ],
+  "max_m": [
+   5.0,
+   2.397,
+   3.386
+  ],
+  "ucx": [
+   "UCX_SM_PRP_Onibus_00"
+  ],
+  "category": "Props",
+  "collision": "box"
+ },
+ "PRP_Poste": {
+  "fbx": "SM_PRP_Poste.fbx",
+  "texture": "textures/T_PRP_Poste_D.jpg",
+  "tris": 18340,
+  "dims_m": [
+   1.399,
+   1.399,
+   5.0
+  ],
+  "min_m": [
+   -0.7,
+   -0.7,
+   0.0
+  ],
+  "max_m": [
+   0.7,
+   0.7,
+   5.0
+  ],
+  "ucx": [
+   "UCX_SM_PRP_Poste_00"
+  ],
+  "category": "Props",
+  "collision": "trunk"
+ },
+ "MRC_Colmeia": {
+  "fbx": "SM_MRC_Colmeia.fbx",
+  "texture": "textures/T_MRC_Colmeia_D.jpg",
+  "tris": 18960,
+  "dims_m": [
+   13.415,
+   15.0,
+   13.18
+  ],
+  "min_m": [
+   -6.707,
+   -7.5,
+   0.0
+  ],
+  "max_m": [
+   6.707,
+   7.5,
+   13.18
+  ],
+  "ucx": [],
+  "category": "Marcos",
+  "collision": "complex"
+ },
+ "NAT_Arvore3": {
+  "fbx": "SM_NAT_Arvore3.fbx",
+  "texture": "textures/T_NAT_Arvore3_D.jpg",
+  "tris": 19366,
+  "dims_m": [
+   4.023,
+   7.75,
+   8.0
+  ],
+  "min_m": [
+   -2.012,
+   -3.875,
+   0.0
+  ],
+  "max_m": [
+   2.012,
+   3.875,
+   8.0
+  ],
+  "ucx": [
+   "UCX_SM_NAT_Arvore3_00"
+  ],
+  "category": "Natureza",
+  "collision": "trunk"
+ },
+ "CON_PostoLoja": {
+  "fbx": "SM_CON_PostoLoja.fbx",
+  "texture": "textures/T_CON_PostoLoja_D.jpg",
+  "tris": 16358,
+  "dims_m": [
+   8.474,
+   10.0,
+   6.673
+  ],
+  "min_m": [
+   -4.237,
+   -5.0,
+   0.0
+  ],
+  "max_m": [
+   4.237,
+   5.0,
+   6.673
+  ],
+  "ucx": [
+   "UCX_SM_CON_PostoLoja_00"
+  ],
+  "category": "Construcoes",
+  "collision": "box"
+ },
+ "NAT_Penhasco": {
+  "fbx": "SM_NAT_Penhasco.fbx",
+  "texture": "textures/T_NAT_Penhasco_D.jpg",
+  "tris": 4889,
+  "dims_m": [
+   13.503,
+   20.0,
+   13.346
+  ],
+  "min_m": [
+   -6.751,
+   -10.0,
+   0.0
+  ],
+  "max_m": [
+   6.751,
+   10.0,
+   13.346
+  ],
+  "ucx": [],
+  "category": "Natureza",
+  "collision": "complex"
+ },
+ "PRP_Barricada": {
+  "fbx": "SM_PRP_Barricada.fbx",
+  "texture": "textures/T_PRP_Barricada_D.jpg",
+  "tris": 18266,
+  "dims_m": [
+   1.943,
+   3.0,
+   1.344
+  ],
+  "min_m": [
+   -0.972,
+   -1.5,
+   0.0
+  ],
+  "max_m": [
+   0.972,
+   1.5,
+   1.344
+  ],
+  "ucx": [
+   "UCX_SM_PRP_Barricada_00"
+  ],
+  "category": "Props",
+  "collision": "box"
+ },
+ "PRP_CarroBatido2": {
+  "fbx": "SM_PRP_CarroBatido2.fbx",
+  "texture": "textures/T_PRP_CarroBatido2_D.jpg",
+  "tris": 4898,
+  "dims_m": [
+   5.0,
+   4.472,
+   1.751
+  ],
+  "min_m": [
+   -2.5,
+   -2.236,
+   0.0
+  ],
+  "max_m": [
+   2.5,
+   2.236,
+   1.751
+  ],
+  "ucx": [
+   "UCX_SM_PRP_CarroBatido2_00"
+  ],
+  "category": "Props",
+  "collision": "box"
+ },
+ "CON_Cabana": {
+  "fbx": "SM_CON_Cabana.fbx",
+  "texture": "textures/T_CON_Cabana_D.jpg",
+  "tris": 4545,
+  "dims_m": [
+   5.718,
+   6.0,
+   5.178
+  ],
+  "min_m": [
+   -2.859,
+   -3.0,
+   0.0
+  ],
+  "max_m": [
+   2.859,
+   3.0,
+   5.178
+  ],
+  "ucx": [
+   "UCX_SM_CON_Cabana_00"
+  ],
+  "category": "Construcoes",
+  "collision": "box"
+ },
+ "ITM_Galao": {
+  "fbx": "SM_ITM_Galao.fbx",
+  "texture": "textures/T_ITM_Galao_D.jpg",
+  "tris": 17982,
+  "dims_m": [
+   0.215,
+   0.385,
+   0.5
+  ],
+  "min_m": [
+   -0.108,
+   -0.192,
+   0.0
+  ],
+  "max_m": [
+   0.108,
+   0.192,
+   0.5
+  ],
+  "ucx": [],
+  "category": "Itens",
+  "collision": "none"
+ },
+ "NAT_Cogumelos": {
+  "fbx": "SM_NAT_Cogumelos.fbx",
+  "texture": "textures/T_NAT_Cogumelos_D.jpg",
+  "tris": 19050,
+  "dims_m": [
+   0.347,
+   0.492,
+   0.5
+  ],
+  "min_m": [
+   -0.174,
+   -0.246,
+   0.0
+  ],
+  "max_m": [
+   0.174,
+   0.246,
+   0.5
+  ],
+  "ucx": [],
+  "category": "Natureza",
+  "collision": "none"
+ },
+ "CON_TorreRadio": {
+  "fbx": "SM_CON_TorreRadio.fbx",
+  "texture": "textures/T_CON_TorreRadio_D.jpg",
+  "tris": 4397,
+  "dims_m": [
+   8.17,
+   8.268,
+   25.0
+  ],
+  "min_m": [
+   -4.085,
+   -4.134,
+   0.0
+  ],
+  "max_m": [
+   4.085,
+   4.134,
+   25.0
+  ],
+  "ucx": [],
+  "category": "Construcoes",
+  "collision": "complex"
+ },
+ "ITM_Explosivo": {
+  "fbx": "SM_ITM_Explosivo.fbx",
+  "texture": "textures/T_ITM_Explosivo_D.jpg",
+  "tris": 19126,
+  "dims_m": [
+   0.235,
+   0.224,
+   0.35
+  ],
+  "min_m": [
+   -0.117,
+   -0.112,
+   0.0
+  ],
+  "max_m": [
+   0.117,
+   0.112,
+   0.35
+  ],
+  "ucx": [],
+  "category": "Itens",
+  "collision": "none"
+ },
+ "NAT_Arbusto2": {
+  "fbx": "SM_NAT_Arbusto2.fbx",
+  "texture": "textures/T_NAT_Arbusto2_D.jpg",
+  "tris": 19073,
+  "dims_m": [
+   1.2,
+   1.181,
+   1.162
+  ],
+  "min_m": [
+   -0.6,
+   -0.591,
+   0.0
+  ],
+  "max_m": [
+   0.6,
+   0.591,
+   1.162
+  ],
+  "ucx": [],
+  "category": "Natureza",
+  "collision": "none"
+ },
+ "NAT_Flor2": {
+  "fbx": "SM_NAT_Flor2.fbx",
+  "texture": "textures/T_NAT_Flor2_D.jpg",
+  "tris": 19364,
+  "dims_m": [
+   0.719,
+   0.759,
+   0.8
+  ],
+  "min_m": [
+   -0.359,
+   -0.38,
+   0.0
+  ],
+  "max_m": [
+   0.359,
+   0.38,
+   0.8
+  ],
+  "ucx": [],
+  "category": "Natureza",
+  "collision": "none"
+ },
+ "CON_Cerca": {
+  "fbx": "SM_CON_Cerca.fbx",
+  "texture": "textures/T_CON_Cerca_D.jpg",
+  "tris": 16249,
+  "dims_m": [
+   0.274,
+   4.0,
+   1.104
+  ],
+  "min_m": [
+   -0.137,
+   -2.0,
+   0.0
+  ],
+  "max_m": [
+   0.137,
+   2.0,
+   1.104
+  ],
+  "ucx": [
+   "UCX_SM_CON_Cerca_00"
+  ],
+  "category": "Construcoes",
+  "collision": "box"
+ },
+ "ARM_Escopeta": {
+  "fbx": "SM_ARM_Escopeta.fbx",
+  "texture": "textures/T_ARM_Escopeta_D.jpg",
+  "tris": 17508,
+  "dims_m": [
+   0.9,
+   0.382,
+   0.347
+  ],
+  "min_m": [
+   -0.163,
+   -0.193,
+   -0.096
+  ],
+  "max_m": [
+   0.737,
+   0.189,
+   0.251
+  ],
+  "ucx": [],
+  "category": "Armas",
+  "collision": "none",
+  "grip_m": [
+   -0.287,
+   0.002,
+   0.096
+  ]
+ },
+ "ITM_Municao": {
+  "fbx": "SM_ITM_Municao.fbx",
+  "texture": "textures/T_ITM_Municao_D.jpg",
+  "tris": 18278,
+  "dims_m": [
+   0.323,
+   0.4,
+   0.305
+  ],
+  "min_m": [
+   -0.162,
+   -0.2,
+   0.0
+  ],
+  "max_m": [
+   0.162,
+   0.2,
+   0.305
+  ],
+  "ucx": [],
+  "category": "Itens",
+  "collision": "none"
+ },
+ "NAT_Arbusto3": {
+  "fbx": "SM_NAT_Arbusto3.fbx",
+  "texture": "textures/T_NAT_Arbusto3_D.jpg",
+  "tris": 4762,
+  "dims_m": [
+   1.477,
+   1.5,
+   1.418
+  ],
+  "min_m": [
+   -0.738,
+   -0.75,
+   0.0
+  ],
+  "max_m": [
+   0.738,
+   0.75,
+   1.418
+  ],
+  "ucx": [],
+  "category": "Natureza",
+  "collision": "none"
+ },
+ "ITM_KitMedico": {
+  "fbx": "SM_ITM_KitMedico.fbx",
+  "texture": "textures/T_ITM_KitMedico_D.jpg",
+  "tris": 4707,
+  "dims_m": [
+   0.245,
+   0.4,
+   0.333
+  ],
+  "min_m": [
+   -0.123,
+   -0.2,
+   0.0
+  ],
+  "max_m": [
+   0.123,
+   0.2,
+   0.333
+  ],
+  "ucx": [],
+  "category": "Itens",
+  "collision": "none"
+ },
+ "NAT_Pedra3": {
+  "fbx": "SM_NAT_Pedra3.fbx",
+  "texture": "textures/T_NAT_Pedra3_D.jpg",
+  "tris": 17279,
+  "dims_m": [
+   5.883,
+   6.0,
+   4.544
+  ],
+  "min_m": [
+   -2.941,
+   -3.0,
+   0.0
+  ],
+  "max_m": [
+   2.941,
+   3.0,
+   4.544
+  ],
+  "ucx": [],
+  "category": "Natureza",
+  "collision": "complex"
+ },
+ "NAT_Pedra2": {
+  "fbx": "SM_NAT_Pedra2.fbx",
+  "texture": "textures/T_NAT_Pedra2_D.jpg",
+  "tris": 19261,
+  "dims_m": [
+   1.898,
+   2.0,
+   1.945
+  ],
+  "min_m": [
+   -0.949,
+   -1.0,
+   0.0
+  ],
+  "max_m": [
+   0.949,
+   1.0,
+   1.945
+  ],
+  "ucx": [
+   "UCX_SM_NAT_Pedra2_00"
+  ],
+  "category": "Natureza",
+  "collision": "box"
+ },
+ "PRP_CarroBatido1": {
+  "fbx": "SM_PRP_CarroBatido1.fbx",
+  "texture": "textures/T_PRP_CarroBatido1_D.jpg",
+  "tris": 18079,
+  "dims_m": [
+   4.5,
+   2.739,
+   1.752
+  ],
+  "min_m": [
+   -2.25,
+   -1.369,
+   0.0
+  ],
+  "max_m": [
+   2.25,
+   1.369,
+   1.752
+  ],
+  "ucx": [
+   "UCX_SM_PRP_CarroBatido1_00"
+  ],
+  "category": "Props",
+  "collision": "box"
+ },
+ "PRP_Placa": {
+  "fbx": "SM_PRP_Placa.fbx",
+  "texture": "textures/T_PRP_Placa_D.jpg",
+  "tris": 4988,
+  "dims_m": [
+   0.474,
+   1.327,
+   2.0
+  ],
+  "min_m": [
+   -0.237,
+   -0.663,
+   0.0
+  ],
+  "max_m": [
+   0.237,
+   0.663,
+   2.0
+  ],
+  "ucx": [
+   "UCX_SM_PRP_Placa_00"
+  ],
+  "category": "Props",
+  "collision": "box"
+ },
+ "CON_Barraca": {
+  "fbx": "SM_CON_Barraca.fbx",
+  "texture": "textures/T_CON_Barraca_D.jpg",
+  "tris": 4698,
+  "dims_m": [
+   5.101,
+   6.5,
+   4.21
+  ],
+  "min_m": [
+   -2.55,
+   -3.25,
+   0.0
+  ],
+  "max_m": [
+   2.55,
+   3.25,
+   4.21
+  ],
+  "ucx": [],
+  "category": "Construcoes",
+  "collision": "complex",
+  "door_clear_height_m": 2.21,
+  "back_wall_x_m": -2.29
+ },
+ "CON_Ponte": {
+  "fbx": "SM_CON_Ponte.fbx",
+  "texture": "textures/T_CON_Ponte_D.jpg",
+  "tris": 18344,
+  "dims_m": [
+   14.0,
+   5.178,
+   4.521
+  ],
+  "min_m": [
+   -7.0,
+   -2.589,
+   0.0
+  ],
+  "max_m": [
+   7.0,
+   2.589,
+   4.521
+  ],
+  "ucx": [],
+  "category": "Construcoes",
+  "collision": "complex",
+  "deck_z_m": {
+   "-0.4": 2.18,
+   "-0.2": 1.718,
+   "+0.0": 1.67,
+   "+0.2": 1.772,
+   "+0.4": 2.207
+  },
+  "deck_half_width_m": 0.834
+ },
+ "PRP_Ossos": {
+  "fbx": "SM_PRP_Ossos.fbx",
+  "texture": "textures/T_PRP_Ossos_D.jpg",
+  "tris": 18815,
+  "dims_m": [
+   2.46,
+   3.0,
+   1.063
+  ],
+  "min_m": [
+   -1.23,
+   -1.5,
+   0.0
+  ],
+  "max_m": [
+   1.23,
+   1.5,
+   1.063
+  ],
+  "ucx": [
+   "UCX_SM_PRP_Ossos_00"
+  ],
+  "category": "Props",
+  "collision": "box"
+ },
+ "CON_CasaVila": {
+  "fbx": "SM_CON_CasaVila.fbx",
+  "texture": "textures/T_CON_CasaVila_D.jpg",
+  "tris": 17902,
+  "dims_m": [
+   9.139,
+   10.0,
+   8.004
+  ],
+  "min_m": [
+   -4.569,
+   -5.0,
+   0.0
+  ],
+  "max_m": [
+   4.569,
+   5.0,
+   8.004
+  ],
+  "ucx": [
+   "UCX_SM_CON_CasaVila_00"
+  ],
+  "category": "Construcoes",
+  "collision": "box"
+ },
+ "CON_Cela": {
+  "fbx": "SM_CON_Cela.fbx",
+  "texture": "textures/T_CON_Cela_D.jpg",
+  "tris": 18351,
+  "dims_m": [
+   3.0,
+   3.0,
+   2.965
+  ],
+  "min_m": [
+   -1.5,
+   -1.5,
+   0.0
+  ],
+  "max_m": [
+   1.5,
+   1.5,
+   2.965
+  ],
+  "ucx": [],
+  "category": "Construcoes",
+  "collision": "complex"
+ },
+ "CON_PostoBomba": {
+  "fbx": "SM_CON_PostoBomba.fbx",
+  "texture": "textures/T_CON_PostoBomba_D.jpg",
+  "tris": 4631,
+  "dims_m": [
+   0.468,
+   0.757,
+   1.8
+  ],
+  "min_m": [
+   -0.234,
+   -0.379,
+   0.0
+  ],
+  "max_m": [
+   0.234,
+   0.379,
+   1.8
+  ],
+  "ucx": [
+   "UCX_SM_CON_PostoBomba_00"
+  ],
+  "category": "Construcoes",
+  "collision": "box"
+ },
+ "CON_Portao": {
+  "fbx": "SM_CON_Portao.fbx",
+  "texture": "textures/T_CON_Portao_D.jpg",
+  "tris": 4896,
+  "dims_m": [
+   1.28,
+   6.0,
+   3.065
+  ],
+  "min_m": [
+   -0.64,
+   -3.0,
+   0.0
+  ],
+  "max_m": [
+   0.64,
+   3.0,
+   3.065
+  ],
+  "ucx": [
+   "UCX_SM_CON_Portao_00"
+  ],
+  "category": "Construcoes",
+  "collision": "box"
+ },
+ "ARM_Sniper": {
+  "fbx": "SM_ARM_Sniper.fbx",
+  "texture": "textures/T_ARM_Sniper_D.jpg",
+  "tris": 18980,
+  "dims_m": [
+   1.2,
+   0.242,
+   0.383
+  ],
+  "min_m": [
+   -0.349,
+   -0.136,
+   -0.094
+  ],
+  "max_m": [
+   0.851,
+   0.106,
+   0.289
+  ],
+  "ucx": [],
+  "category": "Armas",
+  "collision": "none",
+  "grip_m": [
+   -0.251,
+   0.015,
+   0.094
+  ],
+  "scope_m": [
+   0.187,
+   0.0,
+   0.244
+  ]
+ }
+}

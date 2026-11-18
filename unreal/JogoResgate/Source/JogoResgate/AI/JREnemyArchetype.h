@@ -88,4 +88,88 @@ public:
 	/** Tempo até o corpo ser removido após a morte. */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy", meta = (Units = "s"))
 	float CorpseLifetime = 10.f;
+
+	// ---------------------------------------------------------------- Vida própria (A-048)
+
+	/** Vagando: distância mínima do ponto de origem até o próximo destino. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Life", meta = (Units = "cm", ClampMin = "0"))
+	float WanderRadiusMin = 600.f;
+
+	/** Vagando: distância máxima do ponto de origem (o zumbi nunca se afasta muito de "casa"). */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Life", meta = (Units = "cm", ClampMin = "0"))
+	float WanderRadiusMax = 2000.f;
+
+	/** Velocidade arrastada ao vagar: cada zumbi sorteia uma entre o mínimo e o máximo. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Life", meta = (Units = "cm/s", ClampMin = "10"))
+	float WanderSpeedMin = 90.f;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Life", meta = (Units = "cm/s", ClampMin = "10"))
+	float WanderSpeedMax = 140.f;
+
+	/** Pausa entre uma caminhada e outra (sorteada a cada vez). */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Life", meta = (Units = "s", ClampMin = "0"))
+	float WanderPauseMin = 2.f;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Life", meta = (Units = "s", ClampMin = "0"))
+	float WanderPauseMax = 6.f;
+
+	/** Chance de virar para outro lado durante a pausa. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Life", meta = (ClampMin = "0", ClampMax = "1"))
+	float TurnChance = 0.45f;
+
+	/** Chance de seguir um zumbi vizinho (manada) em vez de andar sozinho. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Life", meta = (ClampMin = "0", ClampMax = "1"))
+	float HerdChance = 0.3f;
+
+	/** Colado num destroço/corpo: chance de ficar "comendo" agachado. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Life", meta = (ClampMin = "0", ClampMax = "1"))
+	float FeedChance = 0.6f;
+
+	/** Colado numa parede/destroço: chance de ficar batendo nele. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Life", meta = (ClampMin = "0", ClampMax = "1"))
+	float BangChance = 0.35f;
+
+	/** Chance de um "espasmo" (HitReact lento) numa pausa quando não há IdleVariationMontages. 0 desliga. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Life", meta = (ClampMin = "0", ClampMax = "1"))
+	float IdleTwitchChance = 0.12f;
+
+	/** Variações tocadas de vez em quando parado (coçar, olhar em volta, rosnar). Opcional. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Life")
+	TArray<TObjectPtr<UAnimMontage>> IdleVariationMontages;
+
+	/** "Comendo" agachado perto de corpo/destroço. Vazio: usa o AttackMontage devagar. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Life")
+	TObjectPtr<UAnimMontage> FeedMontage;
+
+	/** Andar rápido indo ver um barulho. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Life", meta = (Units = "cm/s", ClampMin = "10"))
+	float InvestigateSpeed = 230.f;
+
+	/** Tempo máximo procurando o barulho antes de desistir e voltar a vagar. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Perception", meta = (Units = "s", ClampMin = "1"))
+	float InvestigateTime = 15.f;
+
+	/** Meio-ângulo do cone de visão (55 = cone de 110 graus). Perseguindo, não usa cone. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Perception", meta = (ClampMin = "5", ClampMax = "180"))
+	float SightHalfAngleDegrees = 55.f;
+
+	/** Abaixo desta distância percebe o jogador mesmo de costas (passos, cheiro). */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Perception", meta = (Units = "cm", ClampMin = "0"))
+	float CloseSenseRadius = 400.f;
+
+	/** Multiplica o raio de todo barulho que este zumbi ouve (1 = normal). */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Perception", meta = (ClampMin = "0"))
+	float HearingScale = 1.f;
+
+	/** Chance de nascer "corredor" (persegue na MoveSpeed). Os outros perseguem mais devagar. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Movement", meta = (ClampMin = "0", ClampMax = "1"))
+	float RunnerChance = 1.f;
+
+	/** Velocidade de perseguição dos não corredores = MoveSpeed x este valor. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Movement", meta = (ClampMin = "0.1", ClampMax = "1"))
+	float WalkerChaseSpeedScale = 0.72f;
+
+	/** Variação de velocidade das animações por zumbi (0,1 = de 0,9x a 1,1x): ninguém anda sincronizado. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Feedback", meta = (ClampMin = "0", ClampMax = "0.5"))
+	float AnimRateJitter = 0.1f;
 };

@@ -28,4 +28,8 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Interaction", meta = (Units = "cm"))
 	float TraceRadius = 20.f;
+
+	/** Raio de busca quando o jogador não está mirando exatamente no objeto. */
+	UPROPERTY(EditDefaultsOnly, Category = "Interaction", meta = (Units = "cm"))
+	float ProximityRadius = 220.f;
 };

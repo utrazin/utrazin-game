@@ -1,0 +1,398 @@
+{
+ "AreiaVermelha": {
+  "source": "TX_AreiaVermelha.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   1.77,
+   1.96
+  ],
+  "seam_after": [
+   1.77,
+   1.96
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_AreiaVermelha_D.png",
+  "normal": "T_User_AreiaVermelha_N.png"
+ },
+ "Asfalto": {
+  "source": "TX_Asfalto_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_Asfalto_D.png",
+  "normal": "T_User_Asfalto_N.png"
+ },
+ "CascaAlien": {
+  "source": "TX_CascaAlien_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_CascaAlien_D.png",
+  "normal": "T_User_CascaAlien_N.png"
+ },
+ "Concreto": {
+  "source": "TX_Concreto_2048_Seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_Concreto_D.png",
+  "normal": "T_User_Concreto_N.png"
+ },
+ "FolhasAlien": {
+  "source": "TX_FolhasAlien_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.67,
+   1.56
+  ],
+  "seam_after": [
+   0.67,
+   1.56
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_FolhasAlien_D.png",
+  "normal": "T_User_FolhasAlien_N.png"
+ },
+ "GramaAlien": {
+  "source": "TX_GramaAlien_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_GramaAlien_D.png",
+  "normal": "T_User_GramaAlien_N.png"
+ },
+ "LamaToxica": {
+  "source": "TX_LamaToxica_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_LamaToxica_D.png",
+  "normal": "T_User_LamaToxica_N.png"
+ },
+ "Lona": {
+  "source": "TX_Lona_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_Lona_D.png",
+  "normal": "T_User_Lona_N.png"
+ },
+ "MadeiraPiso": {
+  "source": "TX_MadeiraPiso_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   1.08,
+   0.24
+  ],
+  "seam_after": [
+   1.08,
+   0.24
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_MadeiraPiso_D.png",
+  "normal": "T_User_MadeiraPiso_N.png"
+ },
+ "MadeiraTabuas": {
+  "source": "TX_MadeiraTabuas_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_MadeiraTabuas_D.png",
+  "normal": "T_User_MadeiraTabuas_N.png"
+ },
+ "MadeiraVelha": {
+  "source": "TX_MadeiraVelha_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_MadeiraVelha_D.png",
+  "normal": "T_User_MadeiraVelha_N.png"
+ },
+ "MetalAlien": {
+  "source": "TX_MetalAlien_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_MetalAlien_D.png",
+  "normal": "T_User_MetalAlien_N.png"
+ },
+ "MetalOndulado": {
+  "source": "TX_MetalOndulado_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_MetalOndulado_D.png",
+  "normal": "T_User_MetalOndulado_N.png"
+ },
+ "MusgoRoxo": {
+  "source": "TX_MusgoRoxo_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_MusgoRoxo_D.png",
+  "normal": "T_User_MusgoRoxo_N.png"
+ },
+ "Pedra": {
+  "source": "TX_Pedra_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_Pedra_D.png",
+  "normal": "T_User_Pedra_N.png"
+ },
+ "PeleZumbi": {
+  "source": "TX_PeleZumbi_2048_Seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_PeleZumbi_D.png",
+  "normal": "T_User_PeleZumbi_N.png"
+ },
+ "Reboco": {
+  "source": "TX_Reboco_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_Reboco_D.png",
+  "normal": "T_User_Reboco_N.png"
+ },
+ "RochaCristal": {
+  "source": "TX_RochaCristal_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_RochaCristal_D.png",
+  "normal": "T_User_RochaCristal_N.png"
+ },
+ "TelhaCeramica": {
+  "source": "TX_TelhaCeramica_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_TelhaCeramica_D.png",
+  "normal": "T_User_TelhaCeramica_N.png"
+ },
+ "Terra": {
+  "source": "TX_Terra_2048_Seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   1.15,
+   1.27
+  ],
+  "seam_after": [
+   1.15,
+   1.27
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_Terra_D.png",
+  "normal": "T_User_Terra_N.png"
+ },
+ "Tijolo": {
+  "source": "TX_Tijolo_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_Tijolo_D.png",
+  "normal": "T_User_Tijolo_N.png"
+ },
+ "VidroSujo": {
+  "source": "TX_VidroSujo_2048_seamless.png",
+  "size": [
+   2048,
+   2048
+  ],
+  "seam_before": [
+   0.0,
+   0.0
+  ],
+  "seam_after": [
+   0.0,
+   0.0
+  ],
+  "seam_fixed": false,
+  "diffuse": "T_User_VidroSujo_D.png",
+  "normal": "T_User_VidroSujo_N.png"
+ }
+}

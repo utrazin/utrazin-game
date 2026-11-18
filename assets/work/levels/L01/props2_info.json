@@ -1,0 +1,90 @@
+{
+  "SM_Ramp": {
+    "tris": 488,
+    "dims_m": [
+      7.0,
+      5.0,
+      1.95
+    ]
+  },
+  "SM_RampLanding": {
+    "tris": 488,
+    "dims_m": [
+      9.0,
+      5.5,
+      1.35
+    ]
+  },
+  "SM_GuardRail": {
+    "tris": 372,
+    "dims_m": [
+      8.0,
+      0.415,
+      0.9
+    ]
+  },
+  "SM_RockWall": {
+    "tris": 860,
+    "dims_m": [
+      12.0,
+      3.4,
+      8.0
+    ]
+  },
+  "SM_ExplosiveBarrel": {
+    "tris": 200,
+    "dims_m": [
+      0.614,
+      0.62,
+      0.9
+    ]
+  },
+  "SM_Roadblock": {
+    "tris": 140,
+    "dims_m": [
+      3.0,
+      0.61,
+      0.8
+    ]
+  },
+  "SM_Container": {
+    "tris": 492,
+    "dims_m": [
+      6.01,
+      2.4,
+      2.6
+    ]
+  },
+  "SM_BusWreck": {
+    "tris": 756,
+    "dims_m": [
+      10.04,
+      2.5,
+      3.0
+    ]
+  },
+  "SM_SpikeStrip": {
+    "tris": 384,
+    "dims_m": [
+      3.98,
+      0.5,
+      0.15
+    ]
+  },
+  "SM_BridgePlanks": {
+    "tris": 504,
+    "dims_m": [
+      14.0,
+      6.0,
+      0.9
+    ]
+  },
+  "SM_ZombieBillboard": {
+    "tris": 292,
+    "dims_m": [
+      4.1,
+      0.4,
+      4.6
+    ]
+  }
+}

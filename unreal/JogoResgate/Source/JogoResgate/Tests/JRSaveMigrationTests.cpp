@@ -19,6 +19,7 @@ bool FJRSaveMigrationTest::RunTest(const FString& Parameters)
 	TestEqual(TEXT("Versão atual"), Save->SaveVersion, UJRSaveGame::CurrentVersion);
 	TestTrue(TEXT("Fase 1 liberada"), Save->UnlockedLevels.Contains(FJRSaveMigration::FirstLevelId));
 	TestEqual(TEXT("Cultura padrão"), Save->Settings.Culture, FString(TEXT("pt-BR")));
+	TestFalse(TEXT("Abertura ainda não vista"), Save->bIntroSeen); // [A-074]
 
 	TestTrue(TEXT("Idempotente"), FJRSaveMigration::Migrate(*Save, Error));
 	TestEqual(TEXT("Sem duplicar fase"), Save->UnlockedLevels.Num(), 1);

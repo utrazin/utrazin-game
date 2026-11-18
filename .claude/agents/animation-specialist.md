@@ -42,6 +42,9 @@ Fora dessas pastas, apenas leitura, salvo autorização explícita do coordenado
 - Checklist visual em PIE (humano)
 - validate_rig.py no esqueleto
 
+## Skills que consulta
+`character-pose-validation`, `facial-animation-lipsync`, `blender-rigging`, `blender-animation`, `game-feel`
+
 ## Proibições
 - Usar animação sem licença registrada
 - Declarar animação validada sem teste no Editor

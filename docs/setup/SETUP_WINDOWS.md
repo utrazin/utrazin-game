@@ -8,7 +8,7 @@ Ordem recomendada. Tudo gratuito.
 3. **uv** (opcional, gerenciador rápido de Python): `powershell -c "irm https://astral.sh/uv/install.ps1 | iex"`
 4. **Epic Games Launcher + Unreal Engine 5.8.4**: ver [`INSTALL_UNREAL.md`](INSTALL_UNREAL.md)
 5. **Visual Studio 2022 Community**: ver [`INSTALL_UNREAL.md`](INSTALL_UNREAL.md)
-6. **Blender 5.2 LTS**: ver [`INSTALL_BLENDER.md`](INSTALL_BLENDER.md)
+6. **Blender 5.3**: ver [`INSTALL_BLENDER.md`](INSTALL_BLENDER.md)
 7. **Claude Code** (opcional para trabalhar no repo localmente): https://docs.claude.com/en/docs/claude-code
 
 Em seguida, na raiz do repo:

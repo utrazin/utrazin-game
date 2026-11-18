@@ -1,0 +1,9 @@
+Pack: Zombie Apocalypse Kit, March 2024
+Author: Quaternius (https://quaternius.com)
+Page URL: https://quaternius.com/packs/zombieapocalypsekit.html
+Download source: https://drive.google.com/drive/folders/1mWP6sCHun7OUMHQeDNZLrXTteXlzWg_t (official Google Drive link from the pack page)
+Archive: Zombie Apocalypse Kit - March 2024-20261115T191020Z-1-001.zip
+License: CC0 1.0 Universal (Public Domain Dedication) https://creativecommons.org/publicdomain/zero/1.0/
+License verified: CC0 stated on the pack page and in the License.txt shipped inside the archive.
+Attribution: not required (optional credit: Quaternius).
+Downloaded: 2026-11-15

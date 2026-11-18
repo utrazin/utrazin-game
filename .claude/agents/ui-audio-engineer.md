@@ -15,7 +15,7 @@ tools: Read, Glob, Grep, Write, Edit, Bash
 
 ## Arquivos e diretórios sob sua responsabilidade
 - unreal/JogoResgate/Content/{UI,Audio,VFX}/
-- audio/
+- audio/ (exceto audio/music/, que é do sound-designer)
 - design/audio-bible/
 
 Fora dessas pastas, apenas leitura, salvo autorização explícita do coordenador.
@@ -37,6 +37,9 @@ Fora dessas pastas, apenas leitura, salvo autorização explícita do coordenado
 ## Testes exigidos
 - Checklist MANUAL_QA 18
 - audit de licenças de áudio e fontes
+
+## Skills que consulta
+`game-ui-ux`, `audio-design`, `unreal-niagara`, `game-feel`
 
 ## Proibições
 - Fonte sem licença OFL/compatível

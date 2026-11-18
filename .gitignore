@@ -73,3 +73,6 @@ desktop.ini
 
 # Pasta temporária de instalação (tools/setup/bootstrap_dirs.ps1)
 _bootstrap/
+
+# Pacotes Quaternius: arquivos .zip originais ficam fora do git (dá para baixar de novo, ver LICENSE_SOURCE.txt)
+assets/raw/quaternius/**/*.zip

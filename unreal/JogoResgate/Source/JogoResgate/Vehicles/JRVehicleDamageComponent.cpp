@@ -60,6 +60,27 @@ void UJRVehicleDamageComponent::ApplyZoneDamage(EJRVehicleZone Zone, float Amoun
 	}
 }
 
+void UJRVehicleDamageComponent::ApplyDamageAtLocation(const FVector& WorldLocation, float Amount, bool bCanFlatTire)
+{
+	const AActor* Owner = GetOwner();
+	if (!Owner || Amount <= 0.f)
+	{
+		return;
+	}
+	if (bCanFlatTire)
+	{
+		float Dist = 0.f;
+		const int32 Wheel = FindNearestWheel(WorldLocation, Dist);
+		if (Wheel != INDEX_NONE && Dist <= TireHitRadius && Random.FRand() < TireFlatChanceFromProjectile)
+		{
+			SetTireFlat(static_cast<EJRWheel>(Wheel), true);
+			return;
+		}
+	}
+	const FVector Local = Owner->GetActorTransform().InverseTransformPosition(WorldLocation);
+	ApplyZoneDamage(FJRVehicleDamageState::ZoneFromLocalPoint(Local, HalfLength, HalfWidth), Amount);
+}
+
 void UJRVehicleDamageComponent::SetTireFlat(EJRWheel Wheel, bool bFlat)
 {
 	if (State.IsTireFlat(Wheel) == bFlat)

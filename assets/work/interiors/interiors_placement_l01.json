@@ -1,0 +1,91 @@
+{
+ "version": 1,
+ "unit": "cm",
+ "placements": {
+  "PostoLoja": {
+   "x": 25841.1,
+   "y": 70471.2,
+   "yaw": -111.8,
+   "radius_cm": 920.2,
+   "recuo_cm": 922,
+   "desnivel_m": 0.4
+  },
+  "Escritorio": {
+   "x": 22200.0,
+   "y": 72200.0,
+   "yaw": -44.1,
+   "radius_cm": 521.0,
+   "recuo_cm": 0,
+   "desnivel_m": 0.0
+  },
+  "Conteiner": {
+   "x": -72600.0,
+   "y": 75500.0,
+   "yaw": 60.0,
+   "radius_cm": 389.6,
+   "recuo_cm": 0,
+   "desnivel_m": 0.0
+  },
+  "CasaSobrevivente": {
+   "x": -37894.1,
+   "y": -68944.0,
+   "yaw": 115.0,
+   "radius_cm": 770.6,
+   "recuo_cm": 0,
+   "desnivel_m": 0.0
+  },
+  "CasaSaqueada": {
+   "x": -38234.5,
+   "y": -62023.1,
+   "yaw": -110.0,
+   "radius_cm": 662.1,
+   "recuo_cm": 0,
+   "desnivel_m": 0.0
+  },
+  "Oficina": {
+   "x": -43086.3,
+   "y": -65813.8,
+   "yaw": 5.0,
+   "radius_cm": 555.0,
+   "recuo_cm": 0,
+   "desnivel_m": 0.0
+  },
+  "OficinaEstrada": {
+   "x": -17147.6,
+   "y": 57828.0,
+   "yaw": 96.9,
+   "radius_cm": 841.0,
+   "recuo_cm": 0,
+   "desnivel_m": 0.43
+  },
+  "CabanaPesquisador": {
+   "x": 39465.7,
+   "y": 28077.6,
+   "yaw": 20.2,
+   "radius_cm": 591.5,
+   "recuo_cm": 0,
+   "desnivel_m": 0.19
+  },
+  "Galpao": {
+   "x": 12971.7,
+   "y": -35523.8,
+   "yaw": -78.0,
+   "radius_cm": 920.2,
+   "recuo_cm": 0,
+   "desnivel_m": 0.44
+  },
+  "CabineRadio": {
+   "x": 32100.0,
+   "y": 72600.0,
+   "yaw": 180.0,
+   "radius_cm": 396.3,
+   "recuo_cm": 400,
+   "desnivel_m": 0.06
+  }
+ },
+ "notes": [
+  "OficinaEstrada: 60 lugares possíveis; escolhido com desnível 0.43 m",
+  "CabanaPesquisador: 102 lugares possíveis; escolhido com desnível 0.19 m",
+  "Galpao: 192 lugares possíveis; escolhido com desnível 0.44 m"
+ ]
+}

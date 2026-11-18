@@ -1,0 +1,9 @@
+Pack: Stylized Nature MegaKit (Standard / free tier, 68 of 116 models), July 2024
+Author: Quaternius (https://quaternius.com)
+Page URL: https://quaternius.com/packs/stylizednaturemegakit.html
+Download source: https://quaternius.itch.io/stylized-nature-megakit (free "Standard" zip, name-your-own-price, $0)
+Archive: Stylized Nature MegaKit[Standard].zip
+License: CC0 1.0 Universal (Public Domain Dedication) https://creativecommons.org/publicdomain/zero/1.0/
+License verified: CC0 stated on the pack page and in the License.txt shipped inside the archive.
+Attribution: not required (optional credit: Quaternius).
+Downloaded: 2026-11-15

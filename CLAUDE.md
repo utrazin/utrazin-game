@@ -1,6 +1,6 @@
 # CLAUDE.md (raiz)
 
-Você trabalha no **Jogo de Resgate**: single player, offline, terceira pessoa, Unreal Engine 5.8.4 + Blender 5.2 LTS, somente ferramentas e assets gratuitos com licença conhecida.
+Você trabalha no **Jogo de Resgate**: single player, offline, terceira pessoa, Unreal Engine 5.8.4 + Blender 5.3, somente ferramentas e assets gratuitos com licença conhecida.
 
 ## Fontes de verdade (nesta ordem)
 
@@ -65,7 +65,19 @@ Delegue tarefas independentes quando isso reduzir contexto ou risco. Antes de de
 | HUD, menus, áudio de feedback, VFX | `ui-audio-engineer` |
 | Profiling, LOD, budgets | `performance-engineer` |
 | Testes e regressão | `qa-engineer` |
+| Plano multidisciplinar, dependências | `studio-producer` |
+| Espaços, interiores, objetivos por zona | `level-designer` |
+| Materiais, luz, brilho, shaders | `technical-artist` |
+| Câmeras, cutscenes, abertura | `cinematics-director` |
+| Música, ambiente, mix | `sound-designer` |
 | Procedência e licenças | `asset-license-auditor` |
+
+## Roteamento e equipe (v2)
+
+- Comece qualquer tarefa com a skill `gamedev-router`; tarefas com 3+ especialidades usam `team-orchestrate` (agente `studio-producer`).
+- Antes de dar algo visível como pronto: `visual-qa-gate`. Ao editar skills ou agentes: `python tools/pipeline/validate_pipeline.py`.
+- Ferramentas opcionais (ACE-Step, Audio2Face, Blender MCP) nunca são requisito: `docs/pipeline/EXTERNAL_TOOLS.md`.
+- Visão geral, catálogos e como estender: `docs/pipeline/PIPELINE_V2.md`.
 
 ## Padrões críticos
 

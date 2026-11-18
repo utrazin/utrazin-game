@@ -3,6 +3,11 @@
 RODA DENTRO DO EDITOR UNREAL (caixa Cmd):
   py "E:/game/utrazin-game/tools/unreal/update_victoria.py"
 
+v2 (2026-11-15): o Unreal não sobrescreve animações existentes (cria cópias com outro nome e não salva).
+Agora o retarget vai para uma pasta NOVA (Anims/R<data>) e as antigas são "consolidadas" nas novas
+(o ABP passa a usar as novas e as antigas são apagadas). A pasta Anims/Mixamo é apagada para o
+setup_mixamo.py refazer do zero.
+
 1. Reimporta assets/work/characters/CHR-002/SK_Hero02_rig.fbx por cima de /Game/Characters/Hero02/Mesh/SK_Hero02
 2. Refaz IK_Hero02 e RTG_Manny_Hero02
 3. Refaz (sobrescreve) as 21 animações _H02 a partir do Manny. O ABP_Unarmed_H02 é mantido
@@ -113,12 +118,37 @@ def main():
         cls = str(d.asset_class_path.asset_name)
         if cls in ("AnimSequence", "BlendSpace"):
             srcs.append(d)
+    stamp = datetime.now().strftime("R%m%d%H%M")
+    folder = f"{ANIMS_DST}/{stamp}"
+    EAL.make_directory(folder)
     out = unreal.IKRetargetBatchOperation.duplicate_and_retarget(
         srcs, src_mesh, mesh, rtg, search="", replace="", prefix="", suffix="_H02",
-        target_path=ANIMS_DST, use_source_path=False, include_referenced_assets=False,
+        target_path=folder, use_source_path=False, include_referenced_assets=True,
         overwrite_existing_files=True)
-    log(f"animações refeitas: {len(out)}")
+    log(f"animações refeitas em {folder}: {len(out)}")
     R["anims"] = [str(a.package_name) for a in out]
+    unreal.EditorLoadingAndSavingUtils.save_dirty_packages(True, True)
+    # troca as antigas (raiz de Anims) pelas novas em todas as referências (ABP, BS...)
+    done = 0
+    for a in out:
+        name = str(a.asset_name)
+        old_path = f"{ANIMS_DST}/{name}"
+        if not EAL.does_asset_exist(old_path):
+            continue
+        new = EAL.load_asset(str(a.package_name))
+        old = EAL.load_asset(old_path)
+        if new and old and EAL.consolidate_assets(new, [old]):
+            done += 1
+            for q in (old_path, str(a.package_name)):
+                try:
+                    EAL.save_asset(q, only_if_is_dirty=False)  # salvar na hora evita pacote "corrompido"
+                except Exception:  # noqa: BLE001
+                    pass
+    log(f"{done} animações antigas substituídas pelas novas")
+    mix = f"{ANIMS_DST}/Mixamo"
+    if EAL.does_directory_exist(mix):
+        EAL.delete_directory(mix)
+        log("pasta Mixamo apagada (rode setup_mixamo.py depois)")
 
 
 try:

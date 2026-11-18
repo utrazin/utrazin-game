@@ -1,6 +1,7 @@
 // Copyright utrazin. All Rights Reserved.
 
 #include "Interactions/JRInteractionComponent.h"
+#include "Engine/OverlapResult.h"
 #include "Engine/World.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/Pawn.h"
@@ -37,7 +38,31 @@ AActor* UJRInteractionComponent::FindInteractable() const
 			return HitActor;
 		}
 	}
-	return nullptr;
+	// Sem mira exata: o interagível mais próximo em volta (itens no chão, baús).
+	TArray<FOverlapResult> Overlaps;
+	FCollisionObjectQueryParams Objects;
+	Objects.AddObjectTypesToQuery(ECC_WorldDynamic);
+	Objects.AddObjectTypesToQuery(ECC_WorldStatic);
+	Objects.AddObjectTypesToQuery(ECC_Vehicle);     // buggy (entrar com E)
+	Objects.AddObjectTypesToQuery(ECC_PhysicsBody);
+	GetWorld()->OverlapMultiByObjectType(Overlaps, Pawn->GetActorLocation(), FQuat::Identity, Objects,
+		FCollisionShape::MakeSphere(ProximityRadius), Params);
+	AActor* Best = nullptr;
+	float BestDist = TNumericLimits<float>::Max();
+	for (const FOverlapResult& O : Overlaps)
+	{
+		AActor* Candidate = O.GetActor();
+		if (Candidate && Candidate->Implements<UJRInteractable>() && IJRInteractable::Execute_CanInteract(Candidate, GetOwner()))
+		{
+			const float D = FVector::DistSquared(Candidate->GetActorLocation(), Pawn->GetActorLocation());
+			if (D < BestDist)
+			{
+				BestDist = D;
+				Best = Candidate;
+			}
+		}
+	}
+	return Best;
 }
 
 bool UJRInteractionComponent::TryInteract()

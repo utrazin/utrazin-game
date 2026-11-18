@@ -38,6 +38,9 @@ Fora dessas pastas, apenas leitura, salvo autorização explícita do coordenado
 - JR.AI.*
 - Checklist ENEMIES.md
 
+## Skills que consulta
+`game-ai`, `unreal-behavior-trees`
+
 ## Proibições
 - Precisão perfeita
 - Tick por frame em inimigos distantes

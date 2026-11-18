@@ -51,3 +51,6 @@ design/concepts/**/*.jpg filter=lfs diff=lfs merge=lfs -text
 # Vídeo
 *.mp4    filter=lfs diff=lfs merge=lfs -text
 *.mov    filter=lfs diff=lfs merge=lfs -text
+# Dados de nível gerados (vegetação da Fase 1, relevo): binários grandes
+assets/work/levels/**/*.bin filter=lfs diff=lfs merge=lfs -text
+assets/work/levels/**/*.npz filter=lfs diff=lfs merge=lfs -text

@@ -39,6 +39,9 @@ Fora dessas pastas, apenas leitura, salvo autorização explícita do coordenado
 - validate_level.py
 - Checklist MANUAL_QA 1 a 5, 11, 12
 
+## Skills que consulta
+`map-composition`, `procedural-gen`, `level-design`, `blender-environment-artist`, `blender-vegetation-artist`, `blender-scene-assembly`
+
 ## Proibições
 - Ativar World Partition/Nanite/Lumen/PCG sem medição
 - Criar mapas finais das fases 2 e 3 antes de M2

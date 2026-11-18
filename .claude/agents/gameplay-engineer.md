@@ -40,6 +40,9 @@ Fora dessas pastas, apenas leitura, salvo autorização explícita do coordenado
 - JR.Save.*, JR.Combat.*
 - Checklist MANUAL_QA passos 5 a 10, 13 a 17
 
+## Skills que consulta
+`unreal-cpp-gameplay`, `unreal-enhanced-input`, `fps-shooter`, `camera-systems`, `game-feel`, `character-pose-validation`
+
 ## Proibições
 - Replication
 - Lógica de jogo em widgets

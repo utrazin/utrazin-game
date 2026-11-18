@@ -26,6 +26,9 @@ public:
 
 	const TArray<TSoftObjectPtr<UJRLevelDefinition>>& GetLevels() const { return Levels; }
 
+	/** Visão em primeira pessoa escolhida com V. Vale a sessão inteira (sobrevive a reiniciar a fase). */
+	bool bPreferFirstPersonView = false;
+
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Catalog")
 	TArray<TSoftObjectPtr<UJRCharacterDefinition>> Characters;

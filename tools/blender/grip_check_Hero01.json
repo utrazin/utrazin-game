@@ -1,0 +1,244 @@
+{
+ "hero": "Hero01",
+ "hero_fbx": "assets/work/characters/CHR-001/SK_Hero01_rig.fbx",
+ "weapons": {
+  "Pistola": "assets/work/weapons/SM_AlienPistol.fbx",
+  "Escopeta": "assets/work/tripo/SM_ARM_Escopeta.fbx",
+  "Graveto": "assets/work/tripo/SM_ARM_Graveto.fbx"
+ },
+ "jobs": [
+  {
+   "pose": "Mirando",
+   "anim": "assets/raw/mixamo/pistol/Pistol_idle.fbx",
+   "frac": 0.0,
+   "size": 0.6,
+   "propose": [
+    "Pistola",
+    "Escopeta"
+   ],
+   "variants": [
+    {
+     "name": "atual",
+     "weapon": "Pistola",
+     "loc": [
+      -0.151639,
+      0.140683,
+      -1.191541
+     ],
+     "rot": [
+      5.45176,
+      -170.286307,
+      8.574275
+     ]
+    },
+    {
+     "name": "proposta",
+     "weapon": "Pistola",
+     "loc": "proposta"
+    },
+    {
+     "name": "atual",
+     "weapon": "Escopeta",
+     "loc": [
+      -0.151639,
+      0.140683,
+      -1.191541
+     ],
+     "rot": [
+      5.45176,
+      -170.286307,
+      8.574275
+     ]
+    },
+    {
+     "name": "proposta",
+     "weapon": "Escopeta",
+     "loc": "proposta"
+    }
+   ]
+  },
+  {
+   "pose": "Atirando",
+   "anim": "assets/raw/mixamo/hero/Fire_Recoil.fbx",
+   "frac": 0.25,
+   "size": 0.6,
+   "variants": [
+    {
+     "name": "atual",
+     "weapon": "Pistola",
+     "loc": [
+      -0.151639,
+      0.140683,
+      -1.191541
+     ],
+     "rot": [
+      5.45176,
+      -170.286307,
+      8.574275
+     ]
+    },
+    {
+     "name": "proposta",
+     "weapon": "Pistola",
+     "loc": "proposta"
+    },
+    {
+     "name": "atual",
+     "weapon": "Escopeta",
+     "loc": [
+      -0.151639,
+      0.140683,
+      -1.191541
+     ],
+     "rot": [
+      5.45176,
+      -170.286307,
+      8.574275
+     ]
+    },
+    {
+     "name": "proposta",
+     "weapon": "Escopeta",
+     "loc": "proposta"
+    }
+   ]
+  },
+  {
+   "pose": "Recarregando",
+   "anim": "assets/raw/mixamo/hero/Reload_Pistol.fbx",
+   "frac": 0.5,
+   "size": 0.6,
+   "variants": [
+    {
+     "name": "proposta",
+     "weapon": "Pistola",
+     "loc": "proposta"
+    },
+    {
+     "name": "proposta",
+     "weapon": "Escopeta",
+     "loc": "proposta"
+    }
+   ]
+  },
+  {
+   "pose": "GolpeFora30",
+   "anim": "assets/raw/mixamo/hero/Melee_Slash_Out.fbx",
+   "frac": 0.3,
+   "size": 1.4,
+   "propose": [
+    "Graveto",
+    "Graveto0"
+   ],
+   "variants": [
+    {
+     "name": "fixweaponsuser",
+     "weapon": "Graveto",
+     "loc": "proposta",
+     "from": "Graveto0"
+    },
+    {
+     "name": "proposta",
+     "weapon": "Graveto",
+     "loc": "proposta"
+    }
+   ]
+  },
+  {
+   "pose": "GolpeFora60",
+   "anim": "assets/raw/mixamo/hero/Melee_Slash_Out.fbx",
+   "frac": 0.6,
+   "size": 1.4,
+   "variants": [
+    {
+     "name": "proposta",
+     "weapon": "Graveto",
+     "loc": "proposta"
+    }
+   ]
+  },
+  {
+   "pose": "GolpeDentro40",
+   "anim": "assets/raw/mixamo/hero/Melee_Slash_In.fbx",
+   "frac": 0.4,
+   "size": 1.4,
+   "variants": [
+    {
+     "name": "proposta",
+     "weapon": "Graveto",
+     "loc": "proposta"
+    }
+   ]
+  },
+  {
+   "pose": "Abaixada",
+   "anim": "BRACO_ABAIXADO",
+   "size": 0.7,
+   "variants": [
+    {
+     "name": "atual",
+     "weapon": "Pistola",
+     "loc": [
+      -0.151639,
+      0.140683,
+      -1.191541
+     ],
+     "rot": [
+      5.45176,
+      -170.286307,
+      8.574275
+     ]
+    },
+    {
+     "name": "proposta",
+     "weapon": "Pistola",
+     "loc": "proposta"
+    },
+    {
+     "name": "atual",
+     "weapon": "Escopeta",
+     "loc": [
+      -0.151639,
+      0.140683,
+      -1.191541
+     ],
+     "rot": [
+      5.45176,
+      -170.286307,
+      8.574275
+     ]
+    },
+    {
+     "name": "proposta",
+     "weapon": "Escopeta",
+     "loc": "proposta"
+    },
+    {
+     "name": "proposta",
+     "weapon": "Graveto",
+     "loc": "proposta"
+    }
+   ]
+  },
+  {
+   "pose": "ArmadaParada",
+   "anim": "assets/raw/mixamo/hero/Pistol_Idle_Low.fbx",
+   "frac": 0.2,
+   "size": 0.8,
+   "variants": [
+    {
+     "name": "proposta",
+     "weapon": "Pistola",
+     "loc": "proposta"
+    },
+    {
+     "name": "proposta",
+     "weapon": "Escopeta",
+     "loc": "proposta"
+    }
+   ]
+  }
+ ],
+ "blade_forward_deg": 30,
+ "prefix": "_grip_check_"
+}

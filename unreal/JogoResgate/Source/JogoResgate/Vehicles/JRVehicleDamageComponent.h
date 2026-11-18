@@ -30,6 +30,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Vehicle|Damage")
 	void ApplyZoneDamage(EJRVehicleZone Zone, float Amount);
 
+	/** Dano num ponto do mundo: a zona sai da posição. bCanFlatTire = perto da roda pode furar o pneu. */
+	UFUNCTION(BlueprintCallable, Category = "Vehicle|Damage")
+	void ApplyDamageAtLocation(const FVector& WorldLocation, float Amount, bool bCanFlatTire = false);
+
 	UFUNCTION(BlueprintCallable, Category = "Vehicle|Damage")
 	void SetTireFlat(EJRWheel Wheel, bool bFlat);
 

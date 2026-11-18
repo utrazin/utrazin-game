@@ -10,6 +10,7 @@ class APawn;
 class UJRCharacterDefinition;
 class UJREnemyArchetype;
 class USoundBase;
+class UTexture2D;
 class UWorld;
 
 UENUM(BlueprintType)
@@ -78,6 +79,21 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Level|Mood")
 	FName LightingPreset;
+
+	/** Imagem de cima da fase (norte para cima) usada no minimapa e no mapa grande. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Level|Minimap")
+	TSoftObjectPtr<UTexture2D> MinimapTexture;
+
+	/** [A-067] Imagem do mapa grande (tecla M), com os nomes dos lugares. Vazio = usa MinimapTexture. Mesmo enquadramento. */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Level|Minimap")
+	TSoftObjectPtr<UTexture2D> BigMapTexture;
+
+	/** Canto da imagem no mundo (cm): X mínimo, Y mínimo (topo-esquerda = X mín, Y mín). */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Level|Minimap")
+	FVector2D MinimapWorldMin = FVector2D(-100000.f, -100000.f);
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Level|Minimap")
+	FVector2D MinimapWorldMax = FVector2D(100000.f, 100000.f);
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Level|Performance")
 	EJRPerformanceProfile PerformanceProfile = EJRPerformanceProfile::High;

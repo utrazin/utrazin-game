@@ -57,7 +57,7 @@ class JOGORESGATE_API UJRSaveGame : public USaveGame
 	GENERATED_BODY()
 
 public:
-	static constexpr int32 CurrentVersion = 1;
+	static constexpr int32 CurrentVersion = 2; // [A-074] v2: bIntroSeen
 
 	/** 0 = save criado antes do versionamento ou recém-criado sem migração. */
 	UPROPERTY()
@@ -80,6 +80,10 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, Category = "Save")
 	FJRPlayerSettings Settings;
+
+	/** [A-074] Já viu a abertura inteira (ou pulou): "Jogar" vai direto ao fim; "Ver abertura" mostra de novo. */
+	UPROPERTY(BlueprintReadWrite, Category = "Save")
+	bool bIntroSeen = false;
 
 	FJRLevelProgress& FindOrAddLevel(FName LevelId);
 	const FJRLevelProgress* FindLevel(FName LevelId) const;

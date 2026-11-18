@@ -27,7 +27,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from common import REPO_ROOT, setup_logger  # noqa: E402
 
 REQUIRED_UE = "5.8.4"
-REQUIRED_BLENDER_MAJOR_MINOR = "5.2"
+REQUIRED_BLENDER_MAJOR_MINOR = "5.3"
 MIN_FREE_GB = 150
 
 
@@ -115,7 +115,7 @@ def check_blender() -> Check:
     if not version:
         return Check("Blender", "error", f"não foi possível ler a versão de {exe}")
     status = "ok" if version.startswith(REQUIRED_BLENDER_MAJOR_MINOR) else "warn"
-    return Check("Blender", status, f"{version} ({exe}); alvo {REQUIRED_BLENDER_MAJOR_MINOR} LTS")
+    return Check("Blender", status, f"{version} ({exe}); alvo {REQUIRED_BLENDER_MAJOR_MINOR}")
 
 
 def check_tool(name: str, cmd: list[str], required: bool = True) -> Check:

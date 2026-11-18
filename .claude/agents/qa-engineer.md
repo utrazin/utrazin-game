@@ -34,6 +34,9 @@ Fora dessas pastas, apenas leitura, salvo autorização explícita do coordenado
 ## Testes exigidos
 - python -m pytest tests/python -q
 
+## Skills que consulta
+`visual-qa-gate`, `validate-pipeline`, `blender-qa-review`
+
 ## Proibições
 - Marcar como passou algo não executado
 - Desabilitar teste para deixar CI verde

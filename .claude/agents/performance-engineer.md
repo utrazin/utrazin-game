@@ -34,6 +34,9 @@ Fora dessas pastas, apenas leitura, salvo autorização explícita do coordenado
 ## Testes exigidos
 - /profile-performance
 
+## Skills que consulta
+`performance-optimization`, `blender-lod-pipeline`, `blender-asset-optimization`
+
 ## Proibições
 - Inventar números
 - Otimizar sem medir antes e depois

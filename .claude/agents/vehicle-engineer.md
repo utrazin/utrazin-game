@@ -41,6 +41,9 @@ Fora dessas pastas, apenas leitura, salvo autorização explícita do coordenado
 - JR.Vehicle.* (Automation)
 - Checklist VEHICLE.md
 
+## Skills que consulta
+`physics-tuning`, `unreal-cpp-gameplay`, `blender-vehicle-artist`
+
 ## Proibições
 - Implementar física customizada sem ADR
 - Declarar tuning validado sem dirigir em PIE

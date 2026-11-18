@@ -12,8 +12,6 @@ fi
 if git diff --cached --name-only | grep -qE '\.md$'; then
   "$PY" tools/pipeline/validate_references.py || exit 1
 fi
-STAGED_PY=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.py$')
-if [ -n "$STAGED_PY" ]; then
-  "$PY" -m py_compile $STAGED_PY || exit 1
-fi
+# -z/xargs -0: suporta caminhos com espaco (ex.: "Claude outputs/")
+git diff --cached --name-only --diff-filter=ACM -z -- '*.py' | xargs -0 -r "$PY" -m py_compile || exit 1
 exit 0

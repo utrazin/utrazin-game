@@ -24,6 +24,7 @@ void UJREnemyBudgetSubsystem::Deinitialize()
 		World->GetTimerManager().ClearTimer(RebalanceTimer);
 	}
 	Enemies.Reset();
+	Ragdolls.Reset();
 	Super::Deinitialize();
 }
 
@@ -75,5 +76,22 @@ void UJREnemyBudgetSubsystem::Rebalance()
 	for (int32 i = 0; i < Enemies.Num(); ++i)
 	{
 		Enemies[i]->SetFullUpdate(i < MaxFullUpdateEnemies);
+	}
+}
+
+void UJREnemyBudgetSubsystem::RegisterRagdoll(AJREnemyCharacter* Enemy)
+{
+	Ragdolls.RemoveAll([](const TWeakObjectPtr<AJREnemyCharacter>& Weak) { return !Weak.IsValid(); });
+	if (Enemy)
+	{
+		Ragdolls.AddUnique(Enemy);
+	}
+	while (Ragdolls.Num() > MaxActiveRagdolls)
+	{
+		if (AJREnemyCharacter* Oldest = Ragdolls[0].Get())
+		{
+			Oldest->FreezeRagdoll();
+		}
+		Ragdolls.RemoveAt(0);
 	}
 }

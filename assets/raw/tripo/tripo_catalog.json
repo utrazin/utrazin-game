@@ -1,0 +1,1375 @@
+{
+ "version": 1,
+ "note": "Modelos 3D do usuário (Tripo 3D, licença própria). Usado por tools/blender/prep_tripo.py e tools/unreal/import_user_assets.py",
+ "facing": "todos os GLB originais olham para +X do Blender (= +X da Unreal no FBX exportado)",
+ "items": [
+  {
+   "name": "PRP_Barril",
+   "uuid": "066cd04c-3d60-4347-816b-3f212abf3ab7",
+   "src": "tripo_convert_066cd04c-3d60-4347-816b-3f212abf3ab7.glb",
+   "ref2d": "Stylized Red Explosive Barrel.png",
+   "category": "Props",
+   "size_rule": "z",
+   "size_m": 0.9,
+   "bake_yaw_deg": 0,
+   "collision": "box",
+   "tex": 1024,
+   "notes": "",
+   "tris": 4974,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.896,
+    0.846,
+    0.998
+   ]
+  },
+  {
+   "name": "ARM_Graveto",
+   "uuid": "073f570f-ccef-448a-ae1d-284ce8d137a0",
+   "src": "tripo_convert_073f570f-ccef-448a-ae1d-284ce8d137a0.glb",
+   "ref2d": "Glowing Purple Gnarled Fantasy Staff.png",
+   "category": "Armas",
+   "size_rule": "len",
+   "size_m": 0.9,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 1024,
+   "notes": "arma: origem na pegada, lâmina em +X, fio em +Z",
+   "tris": 17093,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.115,
+    0.256,
+    0.998
+   ]
+  },
+  {
+   "name": "ZMB_Corredor",
+   "uuid": "0ccb1557-54ba-4790-916b-d1cf9883f119",
+   "src": "tripo_convert_0ccb1557-54ba-4790-916b-d1cf9883f119.glb",
+   "ref2d": "Glowing Veins Zombie in T-Pose.png",
+   "category": "Personagens",
+   "size_rule": "z",
+   "size_m": 1.7,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 2048,
+   "notes": "sem rig; descalço, magro (corredor); T-pose curvada",
+   "tris": 19002,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.244,
+    0.787,
+    0.998
+   ]
+  },
+  {
+   "name": "NAT_Flor",
+   "uuid": "1289bd80-d952-465d-b550-e489556c6787",
+   "src": "tripo_convert_1289bd80-d952-465d-b550-e489556c6787.glb",
+   "ref2d": "Alien Bioluminescent Lotus Flower.png",
+   "category": "Natureza",
+   "size_rule": "z",
+   "size_m": 0.8,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 1024,
+   "notes": "",
+   "tris": 19091,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.686,
+    0.732,
+    0.998
+   ]
+  },
+  {
+   "name": "NAT_Arvore1",
+   "uuid": "148a7d4b-ad62-4096-8ae6-dbaeafae1cc3",
+   "src": "tripo_convert_148a7d4b-ad62-4096-8ae6-dbaeafae1cc3.glb",
+   "ref2d": "Spiraling Purple Alien Tree.png",
+   "category": "Natureza",
+   "size_rule": "z",
+   "size_m": 10,
+   "bake_yaw_deg": 0,
+   "collision": "trunk",
+   "tex": 2048,
+   "notes": "árvore espiral",
+   "tris": 4884,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.646,
+    0.822,
+    0.998
+   ]
+  },
+  {
+   "name": "MRC_Arco",
+   "uuid": "1a0ee63a-8a28-4b6f-8dff-a5f2742fab27",
+   "src": "tripo_convert_1a0ee63a-8a28-4b6f-8dff-a5f2742fab27.glb",
+   "ref2d": "Stylized Red Sandstone Rock Arch.png",
+   "category": "Marcos",
+   "size_rule": "max",
+   "size_m": 36,
+   "bake_yaw_deg": 0,
+   "collision": "complex",
+   "tex": 2048,
+   "notes": "36 m (não 20): o vão sob o arco fica com ~13 m de largura e altura para a estrada de 12 m passar; vão ao longo de X",
+   "tris": 5070,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.541,
+    0.998,
+    0.502
+   ]
+  },
+  {
+   "name": "NAT_Arvore2",
+   "uuid": "1b8d315b-38f1-43cd-ad0b-37d05079402f",
+   "src": "tripo_convert_1b8d315b-38f1-43cd-ad0b-37d05079402f.glb",
+   "ref2d": "Stylized Alien Mushroom Tree.png",
+   "category": "Natureza",
+   "size_rule": "z",
+   "size_m": 12,
+   "bake_yaw_deg": 0,
+   "collision": "trunk",
+   "tex": 2048,
+   "notes": "árvore guarda-chuva",
+   "tris": 4309,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.979,
+    0.998,
+    0.893
+   ]
+  },
+  {
+   "name": "NAT_Pedra1",
+   "uuid": "1cdafae4-dc49-4630-a82e-8db00eacb5c2",
+   "src": "tripo_convert_1cdafae4-dc49-4630-a82e-8db00eacb5c2.glb",
+   "ref2d": "Stylized Terracotta Game Rock.png",
+   "category": "Natureza",
+   "size_rule": "max",
+   "size_m": 0.5,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 1024,
+   "notes": "",
+   "tris": 19562,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.998,
+    0.959,
+    0.756
+   ]
+  },
+  {
+   "name": "MRC_DiscoVoador",
+   "uuid": "21fb7d23-245b-4863-9bf1-d002f1452626",
+   "src": "tripo_convert_21fb7d23-245b-4863-9bf1-d002f1452626.glb",
+   "ref2d": "Crashed Retro UFO Game Asset.png",
+   "category": "Marcos",
+   "size_rule": "max",
+   "size_m": 25,
+   "bake_yaw_deg": 0,
+   "collision": "complex",
+   "tex": 2048,
+   "notes": "já vem enterrado num monte de terra",
+   "tris": 17553,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.975,
+    0.998,
+    0.432
+   ]
+  },
+  {
+   "name": "NPC_Sobrevivente",
+   "uuid": "32ceba9b-6639-4169-9187-c06104b5219b",
+   "src": "tripo_convert_32ceba9b-6639-4169-9187-c06104b5219b.glb",
+   "ref2d": "Wasteland Scientist Survivor Character.png",
+   "category": "Personagens",
+   "size_rule": "z",
+   "size_m": 1.7,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 2048,
+   "notes": "sem rig; T-pose",
+   "tris": 18893,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.275,
+    0.678,
+    0.998
+   ]
+  },
+  {
+   "name": "NAT_Tronco",
+   "uuid": "35992113-da44-42b3-b405-4a0f4bb730bf",
+   "src": "tripo_convert_35992113-da44-42b3-b405-4a0f4bb730bf.glb",
+   "ref2d": "Bioluminescent Alien Moss Log.png",
+   "category": "Natureza",
+   "size_rule": "max",
+   "size_m": 8,
+   "bake_yaw_deg": 0,
+   "collision": "box",
+   "tex": 2048,
+   "notes": "tronco deitado ao longo de Y",
+   "tris": 18457,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.303,
+    0.998,
+    0.291
+   ]
+  },
+  {
+   "name": "CON_Conteiner",
+   "uuid": "36cc2117-dc28-46f1-9999-044417bc6d76",
+   "src": "tripo_convert_36cc2117-dc28-46f1-9999-044417bc6d76.glb",
+   "ref2d": "Stylized Shipping Container Facade.png",
+   "category": "Construcoes",
+   "size_rule": "max",
+   "size_m": 6,
+   "bake_yaw_deg": 0,
+   "collision": "box",
+   "tex": 2048,
+   "notes": "comprimento ao longo de Y, porta em +X",
+   "tris": 16665,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.729,
+    0.998,
+    0.389
+   ]
+  },
+  {
+   "name": "NAT_Arbusto1",
+   "uuid": "3af9862a-bd61-45c3-9110-03e2a03ef122",
+   "src": "tripo_convert_3af9862a-bd61-45c3-9110-03e2a03ef122.glb",
+   "ref2d": "Bioluminescent Alien Shrub.png",
+   "category": "Natureza",
+   "size_rule": "max",
+   "size_m": 1.5,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 1024,
+   "notes": "",
+   "tris": 18539,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.748,
+    0.998,
+    0.564
+   ]
+  },
+  {
+   "name": "ZMB_Tanque",
+   "uuid": "3c471557-5eb3-4d4f-97bb-c5c941b29e6c",
+   "src": "tripo_convert_3c471557-5eb3-4d4f-97bb-c5c941b29e6c.glb",
+   "ref2d": "Cyan Vein Crystal Tank Zombie.png",
+   "category": "Personagens",
+   "size_rule": "z",
+   "size_m": 2.6,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 2048,
+   "notes": "sem rig; T-pose; cristais roxos nas costas",
+   "tris": 19137,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.439,
+    0.998,
+    0.893
+   ]
+  },
+  {
+   "name": "PRP_Bau",
+   "uuid": "4af866b3-02d4-4577-8485-5ba90998ab0c",
+   "src": "tripo_convert_4af866b3-02d4-4577-8485-5ba90998ab0c.glb",
+   "ref2d": "Stylized Military Loot Chest.png",
+   "category": "Props",
+   "size_rule": "max",
+   "size_m": 1.0,
+   "bake_yaw_deg": -90,
+   "collision": "box",
+   "tex": 1024,
+   "notes": "girado: frente em +Y (padrão do AJRLootChest); também sai em _Base e _Tampa (tampa com origem na dobradiça)",
+   "tris": 4769,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.721,
+    0.998,
+    0.529
+   ]
+  },
+  {
+   "name": "ZMB_Comum",
+   "uuid": "4df1ff59-fecb-4107-88a7-28852faa9af3",
+   "src": "tripo_convert_4df1ff59-fecb-4107-88a7-28852faa9af3.glb",
+   "ref2d": "Alien Zombie Character Reference.png",
+   "category": "Personagens",
+   "size_rule": "z",
+   "size_m": 1.8,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 2048,
+   "notes": "sem rig; T-pose; de botas",
+   "tris": 19668,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.189,
+    0.783,
+    0.998
+   ]
+  },
+  {
+   "name": "ITM_Chave",
+   "uuid": "513e791f-38bb-43a8-a45a-44702c65a586",
+   "src": "tripo_convert_513e791f-38bb-43a8-a45a-44702c65a586.glb",
+   "ref2d": "Buggy Key with Alien Fang Charm.png",
+   "category": "Itens",
+   "size_rule": "max",
+   "size_m": 0.12,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 1024,
+   "notes": "",
+   "tris": 18480,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.248,
+    0.643,
+    0.998
+   ]
+  },
+  {
+   "name": "PRP_Gerador",
+   "uuid": "5e0be74b-0149-4c72-a222-eec89e15dd50",
+   "src": "tripo_convert_5e0be74b-0149-4c72-a222-eec89e15dd50.glb",
+   "ref2d": "Weathered Stylized Diesel Generator.png",
+   "category": "Props",
+   "size_rule": "max",
+   "size_m": 1.5,
+   "bake_yaw_deg": 0,
+   "collision": "box",
+   "tex": 1024,
+   "notes": "",
+   "tris": 17963,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.545,
+    0.998,
+    0.807
+   ]
+  },
+  {
+   "name": "NAT_Tentaculo",
+   "uuid": "5e21235c-b020-419a-b88b-a907c4e675b1",
+   "src": "tripo_convert_5e21235c-b020-419a-b88b-a907c4e675b1.glb",
+   "ref2d": "Alien Tentacle Plant Cluster.png",
+   "category": "Natureza",
+   "size_rule": "z",
+   "size_m": 2.0,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 1024,
+   "notes": "",
+   "tris": 18666,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.588,
+    0.861,
+    0.998
+   ]
+  },
+  {
+   "name": "MRC_ArvoreMae",
+   "uuid": "5e89dea8-5d94-47d1-a5ba-966181f6a94a",
+   "src": "tripo_convert_5e89dea8-5d94-47d1-a5ba-966181f6a94a.glb",
+   "ref2d": "Bioluminescent Alien Mother Tree.png",
+   "category": "Marcos",
+   "size_rule": "z",
+   "size_m": 30,
+   "bake_yaw_deg": 0,
+   "collision": "complex",
+   "tex": 2048,
+   "notes": "",
+   "tris": 16722,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.803,
+    0.998,
+    0.842
+   ]
+  },
+  {
+   "name": "NAT_Cogumelo",
+   "uuid": "5efd5c98-cac6-4fb0-8f91-9172c3b10398",
+   "src": "tripo_convert_5efd5c98-cac6-4fb0-8f91-9172c3b10398.glb",
+   "ref2d": "Glowing Red-Capped Fantasy Mushroom.png",
+   "category": "Natureza",
+   "size_rule": "z",
+   "size_m": 5,
+   "bake_yaw_deg": 0,
+   "collision": "trunk",
+   "tex": 2048,
+   "notes": "",
+   "tris": 19373,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.994,
+    0.975,
+    0.998
+   ]
+  },
+  {
+   "name": "MRC_NaveResgate",
+   "uuid": "6448cff4-2b37-4ff9-8221-8ae56d762a3f",
+   "src": "tripo_convert_6448cff4-2b37-4ff9-8221-8ae56d762a3f.glb",
+   "ref2d": "Crashed Rescue Ship Split Apart.png",
+   "category": "Marcos",
+   "size_rule": "max",
+   "size_m": 20,
+   "bake_yaw_deg": 0,
+   "collision": "complex",
+   "tex": 2048,
+   "notes": "nave partida em 2 pedaços, deitada, comprimento ao longo de Y",
+   "tris": 19085,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.541,
+    0.998,
+    0.322
+   ]
+  },
+  {
+   "name": "CON_PostoCobertura",
+   "uuid": "74c9a36f-4434-43fe-9a85-cdd9afdf5976",
+   "src": "tripo_convert_74c9a36f-4434-43fe-9a85-cdd9afdf5976.glb",
+   "ref2d": "Stylized Posto Gas Station Canopy.png",
+   "category": "Construcoes",
+   "size_rule": "max",
+   "size_m": 12,
+   "bake_yaw_deg": 0,
+   "collision": "complex",
+   "tex": 2048,
+   "notes": "comprimento ao longo de Y; dá para passar por baixo",
+   "tris": 4668,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.803,
+    0.998,
+    0.486
+   ]
+  },
+  {
+   "name": "MRC_Cristal",
+   "uuid": "75c09f6d-ea7e-4b75-ab58-d2924adb8224",
+   "src": "tripo_convert_75c09f6d-ea7e-4b75-ab58-d2924adb8224.glb",
+   "ref2d": "Purple and Turquoise Crystal Cluster.png",
+   "category": "Marcos",
+   "size_rule": "z",
+   "size_m": 8,
+   "bake_yaw_deg": 0,
+   "collision": "complex",
+   "tex": 2048,
+   "notes": "",
+   "tris": 4542,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.994,
+    0.971,
+    0.998
+   ]
+  },
+  {
+   "name": "NAT_Arvore4",
+   "uuid": "762503ff-3859-4f64-8e75-e3185d343ade",
+   "src": "tripo_convert_762503ff-3859-4f64-8e75-e3185d343ade.glb",
+   "ref2d": "Bioluminescent Alien Tree Asset.png",
+   "category": "Natureza",
+   "size_rule": "z",
+   "size_m": 10,
+   "bake_yaw_deg": 0,
+   "collision": "trunk",
+   "tex": 2048,
+   "notes": "extra (fora da lista): árvore bioluminescente",
+   "tris": 19150,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.764,
+    0.986,
+    0.998
+   ]
+  },
+  {
+   "name": "PRP_Onibus",
+   "uuid": "7965908c-49cd-4d2b-9cac-1df7d9e9e7e7",
+   "src": "tripo_convert_7965908c-49cd-4d2b-9cac-1df7d9e9e7e7.glb",
+   "ref2d": "Wrecked Overturned ESCOLAR School Bus.png",
+   "category": "Props",
+   "size_rule": "max",
+   "size_m": 10,
+   "bake_yaw_deg": 90,
+   "collision": "box",
+   "tex": 2048,
+   "notes": "girado: comprimento em X; tombado de lado",
+   "tris": 17994,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.479,
+    0.998,
+    0.338
+   ]
+  },
+  {
+   "name": "PRP_Poste",
+   "uuid": "7a4a4d05-afaa-4bae-8abc-050c1ad31b06",
+   "src": "tripo_convert_7a4a4d05-afaa-4bae-8abc-050c1ad31b06.glb",
+   "ref2d": "Alien Blossom Sci-Fi Lamp Post.png",
+   "category": "Props",
+   "size_rule": "z",
+   "size_m": 5,
+   "bake_yaw_deg": 0,
+   "collision": "trunk",
+   "tex": 1024,
+   "notes": "",
+   "tris": 18340,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.279,
+    0.279,
+    0.998
+   ]
+  },
+  {
+   "name": "MRC_Colmeia",
+   "uuid": "7bfa5971-22d9-4cbd-ab1e-4bb6dbe29363",
+   "src": "tripo_convert_7bfa5971-22d9-4cbd-ab1e-4bb6dbe29363.glb",
+   "ref2d": "Alien Hive with Glowing Amber Caverns.png",
+   "category": "Marcos",
+   "size_rule": "max",
+   "size_m": 15,
+   "bake_yaw_deg": 0,
+   "collision": "complex",
+   "tex": 2048,
+   "notes": "boca da caverna em +X",
+   "tris": 18960,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.893,
+    0.998,
+    0.877
+   ]
+  },
+  {
+   "name": "NAT_Arvore3",
+   "uuid": "87646808-0e63-4857-bd66-5c603a98463f",
+   "src": "tripo_convert_87646808-0e63-4857-bd66-5c603a98463f.glb",
+   "ref2d": "Twisted Dead Tree Fantasy Render.png",
+   "category": "Natureza",
+   "size_rule": "z",
+   "size_m": 8,
+   "bake_yaw_deg": 0,
+   "collision": "trunk",
+   "tex": 2048,
+   "notes": "árvore morta",
+   "tris": 19366,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.502,
+    0.967,
+    0.998
+   ]
+  },
+  {
+   "name": "CON_PostoLoja",
+   "uuid": "8a4e2289-edba-467e-adb5-b3b9eaf01ca6",
+   "src": "tripo_convert_8a4e2289-edba-467e-adb5-b3b9eaf01ca6.glb",
+   "ref2d": "Abandoned Loja de Conveniência Frontage.png",
+   "category": "Construcoes",
+   "size_rule": "max",
+   "size_m": 10,
+   "bake_yaw_deg": 0,
+   "collision": "box",
+   "tex": 2048,
+   "notes": "decorativa (porta em +X): caixa de colisão fecha a porta",
+   "tris": 16358,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.846,
+    0.998,
+    0.666
+   ]
+  },
+  {
+   "name": "NAT_Penhasco",
+   "uuid": "95f5e654-3c26-49ac-be11-dfc9bf37d170",
+   "src": "tripo_convert_95f5e654-3c26-49ac-be11-dfc9bf37d170.glb",
+   "ref2d": "Stylized Red Layered Cliff Wall.png",
+   "category": "Natureza",
+   "size_rule": "max",
+   "size_m": 20,
+   "bake_yaw_deg": 0,
+   "collision": "complex",
+   "tex": 2048,
+   "notes": "comprimento ao longo de Y",
+   "tris": 4889,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.674,
+    0.998,
+    0.666
+   ]
+  },
+  {
+   "name": "PRP_Barricada",
+   "uuid": "985ba99b-ab55-4b87-844e-b482961765ca",
+   "src": "tripo_convert_985ba99b-ab55-4b87-844e-b482961765ca.glb",
+   "ref2d": "Stylized Wooden Tire Barricade.png",
+   "category": "Props",
+   "size_rule": "max",
+   "size_m": 3,
+   "bake_yaw_deg": 0,
+   "collision": "box",
+   "tex": 1024,
+   "notes": "comprimento ao longo de Y",
+   "tris": 18266,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.646,
+    0.998,
+    0.447
+   ]
+  },
+  {
+   "name": "PRP_CarroBatido2",
+   "uuid": "9e6496d1-4e16-4f04-b3d5-649837e62555",
+   "src": "tripo_convert_9e6496d1-4e16-4f04-b3d5-649837e62555.glb",
+   "ref2d": "Overturned Burned Pickup Truck Asset.png",
+   "category": "Props",
+   "size_rule": "max",
+   "size_m": 5,
+   "bake_yaw_deg": 0,
+   "collision": "box",
+   "tex": 2048,
+   "notes": "picape capotada, frente em +X",
+   "tris": 4898,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.998,
+    0.893,
+    0.35
+   ]
+  },
+  {
+   "name": "CON_Cabana",
+   "uuid": "a7ba59d5-41b2-46d1-b1e8-63e64333200e",
+   "src": "tripo_convert_a7ba59d5-41b2-46d1-b1e8-63e64333200e.glb",
+   "ref2d": "Rustic Wooden Cabin Game Asset.png",
+   "category": "Construcoes",
+   "size_rule": "max",
+   "size_m": 6,
+   "bake_yaw_deg": 0,
+   "collision": "box",
+   "tex": 2048,
+   "notes": "decorativa (porta em +X): caixa de colisão fecha a porta",
+   "tris": 4545,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.951,
+    0.998,
+    0.861
+   ]
+  },
+  {
+   "name": "ITM_Galao",
+   "uuid": "a7ffe774-5fb3-4716-8f7b-881cf777eef4",
+   "src": "tripo_convert_a7ffe774-5fb3-4716-8f7b-881cf777eef4.glb",
+   "ref2d": "Battered Red Jerrycan Fuel Icon.png",
+   "category": "Itens",
+   "size_rule": "max",
+   "size_m": 0.5,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 1024,
+   "notes": "",
+   "tris": 17982,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.43,
+    0.768,
+    0.998
+   ]
+  },
+  {
+   "name": "NAT_Cogumelos",
+   "uuid": "ad08aa81-8f17-4f2a-88c6-2ffe5c19c409",
+   "src": "tripo_convert_ad08aa81-8f17-4f2a-88c6-2ffe5c19c409.glb",
+   "ref2d": "Glowing Fantasy Mushroom Cluster.png",
+   "category": "Natureza",
+   "size_rule": "max",
+   "size_m": 0.5,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 1024,
+   "notes": "",
+   "tris": 19050,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.693,
+    0.982,
+    0.998
+   ]
+  },
+  {
+   "name": "CON_TorreRadio",
+   "uuid": "b2cd9c88-ae40-4e6e-9fba-0529a4e098cc",
+   "src": "tripo_convert_b2cd9c88-ae40-4e6e-9fba-0529a4e098cc.glb",
+   "ref2d": "Stylized Red and Gray Communication Tower.png",
+   "category": "Construcoes",
+   "size_rule": "z",
+   "size_m": 25,
+   "bake_yaw_deg": 0,
+   "collision": "complex",
+   "tex": 2048,
+   "notes": "",
+   "tris": 4397,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.326,
+    0.33,
+    0.998
+   ]
+  },
+  {
+   "name": "ITM_Explosivo",
+   "uuid": "b39a5e4d-cf3d-4c4d-820e-59f51b8f436e",
+   "src": "tripo_convert_b39a5e4d-cf3d-4c4d-820e-59f51b8f436e.glb",
+   "ref2d": "Fantasy Dynamite Crystal Bundle.png",
+   "category": "Itens",
+   "size_rule": "max",
+   "size_m": 0.35,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 1024,
+   "notes": "",
+   "tris": 19126,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.67,
+    0.639,
+    0.998
+   ]
+  },
+  {
+   "name": "NAT_Arbusto2",
+   "uuid": "b6f11f9d-b887-4bb9-b539-d3908093eea5",
+   "src": "tripo_convert_b6f11f9d-b887-4bb9-b539-d3908093eea5.glb",
+   "ref2d": "Crystal-Thorn Fantasy Bush.png",
+   "category": "Natureza",
+   "size_rule": "max",
+   "size_m": 1.2,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 1024,
+   "notes": "arbusto de espinhos de cristal",
+   "tris": 19073,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.998,
+    0.982,
+    0.967
+   ]
+  },
+  {
+   "name": "NAT_Flor2",
+   "uuid": "b6fab463-ae02-46b7-909a-daf6d92d80f3",
+   "src": "tripo_convert_b6fab463-ae02-46b7-909a-daf6d92d80f3.glb",
+   "ref2d": "Alien Trumpet Blossom Cluster.png",
+   "category": "Natureza",
+   "size_rule": "z",
+   "size_m": 0.8,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 1024,
+   "notes": "extra (fora da lista): flores-trombeta",
+   "tris": 19364,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.896,
+    0.947,
+    0.998
+   ]
+  },
+  {
+   "name": "CON_Cerca",
+   "uuid": "b7a70bbe-4e2d-47d4-8b0b-6cdd1bec270c",
+   "src": "tripo_convert_b7a70bbe-4e2d-47d4-8b0b-6cdd1bec270c.glb",
+   "ref2d": "Stylized Wooden Chain-Link Fence.png",
+   "category": "Construcoes",
+   "size_rule": "max",
+   "size_m": 4,
+   "bake_yaw_deg": 0,
+   "collision": "box",
+   "tex": 1024,
+   "notes": "comprimento ao longo de Y",
+   "tris": 16249,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.068,
+    0.998,
+    0.275
+   ]
+  },
+  {
+   "name": "ARM_Escopeta",
+   "uuid": "bd3fc20b-1b76-4611-a1e3-9a2757c00de5",
+   "src": "tripo_convert_bd3fc20b-1b76-4611-a1e3-9a2757c00de5.glb",
+   "ref2d": "Elongated Alien Plasma Blaster.png",
+   "category": "Armas",
+   "size_rule": "len",
+   "size_m": 0.9,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 1024,
+   "notes": "arma: origem na empunhadura, cano em +X",
+   "tris": 17508,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.998,
+    0.424,
+    0.385
+   ]
+  },
+  {
+   "name": "ITM_Municao",
+   "uuid": "c2ee5c8b-ba5c-420c-a300-3f9810a57966",
+   "src": "tripo_convert_c2ee5c8b-ba5c-420c-a300-3f9810a57966.glb",
+   "ref2d": "Futuristic Cyan Energy Ammo Crate.png",
+   "category": "Itens",
+   "size_rule": "max",
+   "size_m": 0.4,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 1024,
+   "notes": "",
+   "tris": 18278,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.807,
+    0.998,
+    0.76
+   ]
+  },
+  {
+   "name": "NAT_Arbusto3",
+   "uuid": "c4bddc28-4e21-4250-8e62-6d51d161154a",
+   "src": "tripo_convert_c4bddc28-4e21-4250-8e62-6d51d161154a.glb",
+   "ref2d": "Stylized Purple Alien Shrub Asset.png",
+   "category": "Natureza",
+   "size_rule": "max",
+   "size_m": 1.5,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 1024,
+   "notes": "extra (fora da lista): arbusto roxo",
+   "tris": 4762,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.982,
+    0.998,
+    0.943
+   ]
+  },
+  {
+   "name": "ITM_KitMedico",
+   "uuid": "c866cd29-c9f2-4767-867c-f205b6a22699",
+   "src": "tripo_convert_c866cd29-c9f2-4767-867c-f205b6a22699.glb",
+   "ref2d": "Stylized Green Medical First-Aid Kit.png",
+   "category": "Itens",
+   "size_rule": "max",
+   "size_m": 0.4,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 1024,
+   "notes": "",
+   "tris": 4707,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.611,
+    0.998,
+    0.83
+   ]
+  },
+  {
+   "name": "NAT_Pedra3",
+   "uuid": "cc8c2f6b-07ef-4ca8-afca-cafd0ca228ee",
+   "src": "tripo_convert_cc8c2f6b-07ef-4ca8-afca-cafd0ca228ee.glb",
+   "ref2d": "Mossy Stylized Rock Fortress.png",
+   "category": "Natureza",
+   "size_rule": "max",
+   "size_m": 6,
+   "bake_yaw_deg": 0,
+   "collision": "complex",
+   "tex": 2048,
+   "notes": "",
+   "tris": 17279,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.979,
+    0.998,
+    0.756
+   ]
+  },
+  {
+   "name": "NAT_Pedra2",
+   "uuid": "d191e0f5-c08d-414d-8dbe-dfa808d1ad83",
+   "src": "tripo_convert_d191e0f5-c08d-414d-8dbe-dfa808d1ad83.glb",
+   "ref2d": "Mossy Crystal-Bound Fantasy Rock.png",
+   "category": "Natureza",
+   "size_rule": "max",
+   "size_m": 2,
+   "bake_yaw_deg": 0,
+   "collision": "box",
+   "tex": 1024,
+   "notes": "",
+   "tris": 19261,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.947,
+    0.998,
+    0.971
+   ]
+  },
+  {
+   "name": "PRP_CarroBatido1",
+   "uuid": "d9838a9a-cb6e-47e7-b851-3754e4315046",
+   "src": "tripo_convert_d9838a9a-cb6e-47e7-b851-3754e4315046.glb",
+   "ref2d": "Overgrown Wrecked Sedan Asset.png",
+   "category": "Props",
+   "size_rule": "max",
+   "size_m": 4.5,
+   "bake_yaw_deg": 0,
+   "collision": "box",
+   "tex": 2048,
+   "notes": "sedã, frente em +X",
+   "tris": 18079,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.998,
+    0.607,
+    0.389
+   ]
+  },
+  {
+   "name": "PRP_Placa",
+   "uuid": "da751174-9b4b-40c6-a995-1174ba5adb86",
+   "src": "tripo_convert_da751174-9b4b-40c6-a995-1174ba5adb86.glb",
+   "ref2d": "Rustic Perigo Warning Sign.png",
+   "category": "Props",
+   "size_rule": "z",
+   "size_m": 2,
+   "bake_yaw_deg": 0,
+   "collision": "box",
+   "tex": 1024,
+   "notes": "placa PERIGO, lida de +X",
+   "tris": 4988,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.236,
+    0.662,
+    0.998
+   ]
+  },
+  {
+   "name": "CON_Barraca",
+   "uuid": "e40f22a8-cd93-4b5b-9412-18b84890c3df",
+   "src": "tripo_convert_e40f22a8-cd93-4b5b-9412-18b84890c3df.glb",
+   "ref2d": "Stylized Open Military Camp Tent.png",
+   "category": "Construcoes",
+   "size_rule": "max",
+   "size_m": 6.5,
+   "bake_yaw_deg": 0,
+   "collision": "complex",
+   "tex": 2048,
+   "notes": "6,5 m (não 4): só nesse tamanho a abertura da frente (+X) passa de 2 m de altura; sem chão (o terreno aparece)",
+   "tris": 4698,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.783,
+    0.998,
+    0.646
+   ]
+  },
+  {
+   "name": "CON_Ponte",
+   "uuid": "e42d01c9-cd0e-4d3e-8b05-2b3c29fd1d7f",
+   "src": "tripo_convert_e42d01c9-cd0e-4d3e-8b05-2b3c29fd1d7f.glb",
+   "ref2d": "Stylized Rope Suspension Bridge Asset.png",
+   "category": "Construcoes",
+   "size_rule": "max",
+   "size_m": 14,
+   "bake_yaw_deg": 90,
+   "collision": "complex",
+   "tex": 2048,
+   "notes": "girada: comprimento em X; tábuas a ~1,65 m do pé (meio) e 2,2 m (pontas)",
+   "tris": 18344,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.369,
+    0.998,
+    0.322
+   ]
+  },
+  {
+   "name": "PRP_Ossos",
+   "uuid": "e43de724-bc32-46c5-b727-83c289ba941f",
+   "src": "tripo_convert_e43de724-bc32-46c5-b727-83c289ba941f.glb",
+   "ref2d": "Alien Beast Skeleton Carcass.png",
+   "category": "Props",
+   "size_rule": "max",
+   "size_m": 3,
+   "bake_yaw_deg": 0,
+   "collision": "box",
+   "tex": 2048,
+   "notes": "",
+   "tris": 18815,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.818,
+    0.998,
+    0.354
+   ]
+  },
+  {
+   "name": "CON_CasaVila",
+   "uuid": "ec2c1c27-3c8e-481c-82bf-89343f2d5023",
+   "src": "tripo_convert_ec2c1c27-3c8e-481c-82bf-89343f2d5023.glb",
+   "ref2d": "Alien-Vine Enchanted Cottage.png",
+   "category": "Construcoes",
+   "size_rule": "max",
+   "size_m": 10,
+   "bake_yaw_deg": 0,
+   "collision": "box",
+   "tex": 2048,
+   "notes": "decorativa (porta em +X): caixa de colisão fecha a porta",
+   "tris": 17902,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.912,
+    0.998,
+    0.799
+   ]
+  },
+  {
+   "name": "CON_Cela",
+   "uuid": "f92b2d15-1916-41af-9cff-1633d02f4078",
+   "src": "tripo_convert_f92b2d15-1916-41af-9cff-1633d02f4078.glb",
+   "ref2d": "Alien Metal Cage Cell.png",
+   "category": "Construcoes",
+   "size_rule": "max",
+   "size_m": 3,
+   "bake_yaw_deg": 0,
+   "collision": "complex",
+   "tex": 1024,
+   "notes": "porta em +X",
+   "tris": 18351,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.998,
+    0.998,
+    0.986
+   ]
+  },
+  {
+   "name": "CON_PostoBomba",
+   "uuid": "f97e1765-679e-4e09-8d78-cdec5114e699",
+   "src": "tripo_convert_f97e1765-679e-4e09-8d78-cdec5114e699.glb",
+   "ref2d": "Retro 1950s Gasoline Pump.png",
+   "category": "Construcoes",
+   "size_rule": "z",
+   "size_m": 1.8,
+   "bake_yaw_deg": 0,
+   "collision": "box",
+   "tex": 1024,
+   "notes": "frente em +X",
+   "tris": 4631,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.26,
+    0.42,
+    0.998
+   ]
+  },
+  {
+   "name": "CON_Portao",
+   "uuid": "fe6f8012-65d7-4c62-9562-a693b86ed02c",
+   "src": "tripo_convert_fe6f8012-65d7-4c62-9562-a693b86ed02c.glb",
+   "ref2d": "Stylized Iron Gate with Chain Lock tshama.png",
+   "category": "Construcoes",
+   "size_rule": "max",
+   "size_m": 6,
+   "bake_yaw_deg": 0,
+   "collision": "box",
+   "tex": 2048,
+   "notes": "largura ao longo de Y",
+   "tris": 4896,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.213,
+    0.998,
+    0.51
+   ]
+  },
+  {
+   "name": "ARM_Sniper",
+   "uuid": "",
+   "src": "ARM_Sniper.glb",
+   "ref2d": "",
+   "category": "Armas",
+   "size_rule": "len",
+   "size_m": 1.2,
+   "bake_yaw_deg": 0,
+   "collision": "none",
+   "tex": 1024,
+   "notes": "arma (rifle de precisão, A-057): origem no punho, cano em +X, luneta em +Z",
+   "tris": 0,
+   "src_tex": [
+    4096,
+    4096
+   ],
+   "rigged": false,
+   "src_dims": [
+    0.998,
+    0.201,
+    0.318
+   ]
+  }
+ ]
+}

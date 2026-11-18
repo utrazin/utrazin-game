@@ -1,0 +1,9 @@
+Pack: Ultimate Space Kit, March 2023
+Author: Quaternius (https://quaternius.com)
+Page URL: https://quaternius.com/packs/ultimatespacekit.html
+Download source: https://drive.google.com/drive/folders/17F8HlI2zPTlo32aieW5YPPwOk78xo-2m (official Google Drive link from the pack page)
+Archive: Ultimate Space Kit - March 2023-20261115T191214Z-1-001.zip
+License: CC0 1.0 Universal (Public Domain Dedication) https://creativecommons.org/publicdomain/zero/1.0/
+License verified: CC0 stated on the pack page and in the License.txt shipped inside the archive.
+Attribution: not required (optional credit: Quaternius).
+Downloaded: 2026-11-15

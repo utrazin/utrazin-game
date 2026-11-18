@@ -46,9 +46,13 @@ void UJRObjectiveSubsystem::ReachCheckpoint(AJRCheckpoint* Checkpoint)
 	{
 		Progression->RecordCheckpoint(GetLevelId(), Checkpoint->GetCheckpointId());
 	}
-	if (static_cast<uint8>(Checkpoint->GetStageOnRespawn()) > static_cast<uint8>(Stage))
+	// Fase com zonas alternadas (L01 v3): Driving e OnFoot podem ir e voltar; o resto só avança.
+	const EJRLevelStage CheckpointStage = Checkpoint->GetStageOnRespawn();
+	const bool bCarFootToggle = (Stage == EJRLevelStage::Driving || Stage == EJRLevelStage::OnFoot)
+		&& (CheckpointStage == EJRLevelStage::Driving || CheckpointStage == EJRLevelStage::OnFoot);
+	if (bCarFootToggle || static_cast<uint8>(CheckpointStage) > static_cast<uint8>(Stage))
 	{
-		SetStage(Checkpoint->GetStageOnRespawn());
+		SetStage(CheckpointStage);
 	}
 	OnCheckpointReached.Broadcast(Checkpoint);
 }

@@ -69,3 +69,7 @@ Há vários (repositórios comunitários). **Não usar** sem: repositório verif
 - Cada subagente tem `tools` restritas no frontmatter.
 - Hooks bloqueiam comandos destrutivos (`.claude/hooks/guard_bash.py`).
 - Agentes nunca aprovam arte final, licença comercial ou QA não executado.
+
+## Skills `blender-*` e o Blender MCP (pipeline v2)
+
+As skills de Blender incorporadas (origem `arjun988/blender-skills`, MIT) preferem executar via MCP quando ele existe. Neste repositório isso **não muda a regra**: o MCP continua desligado e só vale depois deste guia. O `blender-director` e o guia `blender-references/mcp-integration.md` receberam avisos nesse sentido. O addon escuta em `localhost:9876` (confirmar na instalação). Chaves de Sketchfab e Hyper3D, se usadas, ficam nas preferências do addon e nunca no Git. Detalhes em `docs/pipeline/EXTERNAL_TOOLS.md`.

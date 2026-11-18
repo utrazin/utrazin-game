@@ -14,7 +14,9 @@ enum class EJREnemyState : uint8
 	Alert,
 	Chase,
 	Attack,
-	Dead
+	Dead,
+	/** Ouviu um barulho (tiro, explosão, carro, outro zumbi) e vai ver o que foi. Fica no fim para não mudar os valores antigos. */
+	Investigate
 };
 
 /** Parâmetros de decisão (copiados do UJREnemyArchetype). */
@@ -35,6 +37,8 @@ struct FJREnemyDecisionInput
 	bool bHasLineOfSight = false;
 	bool bIsDead = false;
 	float TimeInState = 0.f;
+	/** Tem um barulho para investigar (calmo, sem ver o alvo): vira Investigate em vez de Idle/Patrol. */
+	bool bInvestigating = false;
 };
 
 /**

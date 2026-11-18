@@ -46,11 +46,15 @@ void AJRCheckpoint::HandleOverlap(UPrimitiveComponent* OverlappedComponent, AAct
 	{
 		Objective->ReachCheckpoint(this);
 	}
-	if (bIsVehicleTransition && Pawn->IsA<AJRVehiclePawn>())
+	if (bIsVehicleTransition)
 	{
-		if (AJRPlayerController* PC = Cast<AJRPlayerController>(Pawn->GetController()))
+		if (AJRVehiclePawn* Vehicle = Cast<AJRVehiclePawn>(const_cast<APawn*>(Pawn)))
 		{
-			PC->RequestExitVehicle(GetRespawnTransform());
+			if (!VehicleNeedsItem.IsNone())
+			{
+				Vehicle->SetPendingRequiredItem(VehicleNeedsItem, VehicleNeedsItemLabel);
+			}
+			Vehicle->StopThenExit(GetRespawnTransform()); // freia antes de descer
 		}
 	}
 }

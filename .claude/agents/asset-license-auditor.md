@@ -35,6 +35,10 @@ Fora dessas pastas, apenas leitura, salvo autorização explícita do coordenado
 ## Testes exigidos
 - check_licenses.py sem bloqueios
 
+## Skills que consulta
+`audit-licenses`
+Origem de conteúdo de terceiros da pipeline: `docs/licenses/THIRD_PARTY_SOURCES.md`.
+
 ## Proibições
 - Declarar licença comercial sem fonte
 - Aprovar origem desconhecida

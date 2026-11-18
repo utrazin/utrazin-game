@@ -1,0 +1,9 @@
+Pack: Cars Pack (Realistic Car Pack, Nov 2018)
+Author: Quaternius (https://quaternius.com)
+Page URL: https://quaternius.com/packs/cars.html
+Download source: https://drive.google.com/drive/folders/1fKlbDry77iY8KlEoxzUxIAZQL_XhzWlA (official Google Drive link from the pack page)
+Archive: Realistic Car Pack - Nov 2018-20261115T191452Z-1-001.zip
+License: CC0 1.0 Universal (Public Domain Dedication) https://creativecommons.org/publicdomain/zero/1.0/
+License verified: CC0 stated on the pack page and in the License.txt shipped inside the archive.
+Attribution: not required (optional credit: Quaternius).
+Downloaded: 2026-11-15
