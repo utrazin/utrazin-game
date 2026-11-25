@@ -94,12 +94,16 @@ void AJRHUD::DrawHUD()
 	const bool bDriving = Pawn && Pawn->IsA<AJRVehiclePawn>();
 
 	AJRCharacter* Hero = Cast<AJRCharacter>(Pawn);
+	const bool bModalOpen = IsHudModalOpen(); // [A-083] loja/cartas/relatório da AJRRemapHUD
 	if (Hero)
 	{
 		LastIntegrity = -1.f;
 		DrawHeroHud(Hero);
-		DrawWeaponCard(Hero, RealDelta);
-		DrawInteractionPrompt(Hero);
+		if (!bModalOpen)
+		{
+			DrawWeaponCard(Hero, RealDelta); // [A-083] a lista da loja ocupa o lado direito
+			DrawInteractionPrompt(Hero);
+		}
 	}
 	else if (AJRVehiclePawn* Vehicle = Cast<AJRVehiclePawn>(Pawn))
 	{
@@ -109,13 +113,16 @@ void AJRHUD::DrawHUD()
 	DrawToasts();
 
 	UpdateTasks(Pawn, Stage); // [A-064]
-	DrawObjective(Stage, bDriving);
+	if (!bModalOpen)
+	{
+		DrawObjective(Stage, bDriving);
+	}
 
 	// ---- Guia: marcador no mundo, minimapa e mapa grande
-	if (Pawn)
+	if (Pawn && !bModalOpen)
 	{
 		AActor* Target = GuideTarget(Stage); // [A-064] tarefa atual primeiro
-		if (bBigMap)
+		if (bBigMap && UseLevelMinimapImage()) // [A-083] radar não tem mapa grande
 		{
 			DrawBigMapView(Pawn, Target);
 		}
@@ -180,8 +187,16 @@ void AJRHUD::DrawTex(UTexture2D* Tex, float X, float Y, float W, float H, const 
 	{
 		return;
 	}
-	FCanvasTileItem Tile(FVector2D(X, Y), Tex->GetResource(), FVector2D(W, H), UV0, UV1, Color);
-	Tile.BlendMode = bAdditive ? SE_BLEND_Additive : SE_BLEND_Translucent;
+	// [A-086] O "aditivo" da Canvas soma o RGB e ignora o alfa: as texturas de brilho são brancas com a forma no
+	// alfa, e viravam QUADRADOS brancos/roxos (cartas, ícones). Agora: mistura pelo alfa, com a cor um pouco mais
+	// forte para continuar parecendo luz.
+	FLinearColor TileColor = Color;
+	if (bAdditive)
+	{
+		TileColor = FLinearColor(FMath::Min(Color.R * 1.25f, 1.f), FMath::Min(Color.G * 1.25f, 1.f), FMath::Min(Color.B * 1.25f, 1.f), Color.A);
+	}
+	FCanvasTileItem Tile(FVector2D(X, Y), Tex->GetResource(), FVector2D(W, H), UV0, UV1, TileColor);
+	Tile.BlendMode = SE_BLEND_Translucent;
 	Canvas->DrawItem(Tile);
 }
 
@@ -917,7 +932,14 @@ void AJRHUD::DrawMinimap(const APawn* Pawn, bool bDriving, const AActor* Target)
 
 	// ---- fundo e imagem do mapa (recortados na elipse; a moldura cobre a borda)
 	DrawMapEllipse(nullptr, C, RX, RY, FVector2D::ZeroVector, FVector2D::ZeroVector, NavyColor);
-	UTexture2D* MapTex = GetMinimapTexture();
+	// [A-083] Radar: sem imagem (a do L01 não vale na cidade/arena); escala linear em volta do jogador.
+	const bool bRadar = !UseLevelMinimapImage();
+	if (bRadar)
+	{
+		MapMin = FVector2D(-2000000.f, -2000000.f);
+		MapMax = FVector2D(2000000.f, 2000000.f);
+	}
+	UTexture2D* MapTex = bRadar ? nullptr : GetMinimapTexture();
 	const float SpanCm = (bDriving ? MinimapSpanDriving : MinimapSpanOnFoot) * 100.f;
 	const float CmPerPx = SpanCm / FMath::Max(1.f, 2.f * RX);
 	const FVector2D UVHalf(RX * CmPerPx / FMath::Max(1.f, MapMax.X - MapMin.X), RY * CmPerPx / FMath::Max(1.f, MapMax.Y - MapMin.Y));
@@ -943,6 +965,19 @@ void AJRHUD::DrawMinimap(const APawn* Pawn, bool bDriving, const AActor* Target)
 		const FVector2D D = P - C;
 		return static_cast<float>(FMath::Square(D.X / RX) + FMath::Square(D.Y / RY));
 	};
+	if (bRadar)
+	{
+		// [A-083] anéis de distância e varredura girando (radar vivo)
+		const float RadarR = FMath::Min(RX, RY);
+		DrawArc(C, RadarR * 0.33f - 1.2f * K, RadarR * 0.33f + 1.2f * K, 0.f, 360.f, Faded(AccentColor, 0.22f), 32);
+		DrawArc(C, RadarR * 0.66f - 1.2f * K, RadarR * 0.66f + 1.2f * K, 0.f, 360.f, Faded(AccentColor, 0.18f), 48);
+		const float Sweep = FMath::Fmod(static_cast<float>(GetWorld()->GetRealTimeSeconds()) * 120.f, 360.f);
+		for (int32 Slice = 0; Slice < 8; ++Slice)
+		{
+			const float SliceAlpha = 0.20f * (1.f - static_cast<float>(Slice) / 8.f);
+			DrawArc(C, 0.f, RadarR * 0.96f, Sweep - 6.f * static_cast<float>(Slice + 1), Sweep - 6.f * static_cast<float>(Slice), Faded(AccentColor, SliceAlpha), 3);
+		}
+	}
 
 	// ---- zumbis (pontos vermelhos)
 	for (TActorIterator<AJREnemyCharacter> It(GetWorld()); It; ++It)
@@ -972,6 +1007,22 @@ void AJRHUD::DrawMinimap(const APawn* Pawn, bool bDriving, const AActor* Target)
 			}
 		}
 	}
+	// ---- [A-083] pinos extras da subclasse (nave de extração, vendedores)
+	{
+		TArray<FJRHudBlip> Blips;
+		CollectRadarBlips(Blips);
+		for (const FJRHudBlip& Blip : Blips)
+		{
+			FVector2D BlipPos = ToScreen(Blip.World);
+			const float BlipQ = EllipseQ(BlipPos);
+			const bool bBlipOut = BlipQ > 0.62f;
+			if (bBlipOut)
+			{
+				BlipPos = C + (BlipPos - C) * (0.79f / FMath::Sqrt(BlipQ));
+			}
+			DrawMarkerPin(BlipPos, (bBlipOut ? 24.f : 28.f) * K, Blip.Icon, Blip.Tint, 1.f, false);
+		}
+	}
 	// ---- tarefa atual: pino com ícone; fora da área fica preso na borda, no rumo dela
 	if (Target)
 	{
@@ -997,8 +1048,9 @@ void AJRHUD::DrawMinimap(const APawn* Pawn, bool bDriving, const AActor* Target)
 	DrawTex(HudTex(bDriving ? TEXT("MapCar") : TEXT("MapHero")), Origin.X, Origin.Y, Size.W * K, Size.H * K, FLinearColor::White);
 	const float TitleSize = 32.f * K;
 	const FVector2D TitleC = PanelPoint(Origin, K, Title.X + Title.W * 0.5f, Title.Y + Title.H * 0.5f);
-	const float TitleH = MeasureText(TEXT("MINIMAPA"), true, TitleSize).Y;
-	DrawHudText(TEXT("MINIMAPA"), TitleC.X, TitleC.Y - TitleH * 0.5f, TitleSize, TextColor, 1);
+	const TCHAR* const MapTitle = bRadar ? TEXT("RADAR") : TEXT("MINIMAPA"); // [A-083]
+	const float TitleH = MeasureText(MapTitle, true, TitleSize).Y;
+	DrawHudText(MapTitle, TitleC.X, TitleC.Y - TitleH * 0.5f, TitleSize, TextColor, 1);
 	if (!bDriving)
 	{
 		// [A-067] bússola: N em destaque e L, S, O menores na borda (norte sempre para cima)
@@ -1015,6 +1067,10 @@ void AJRHUD::DrawMinimap(const APawn* Pawn, bool bDriving, const AActor* Target)
 	}
 
 	// ---- distância e atalho do mapa (pílula embaixo da moldura)
+	if (bRadar && !Target)
+	{
+		return; // [A-083] radar sem alvo: sem mapa grande, sem pílula
+	}
 	const float RowY = Origin.Y + Size.H * K + 4.f * K;
 	const float PillH = 40.f * K;
 	FString DistText = TEXT("MAPA");
@@ -1103,26 +1159,11 @@ void AJRHUD::DrawBigMapView(const APawn* Pawn, const AActor* Target)
 void AJRHUD::DrawWorldMarker(const AActor* Target, const APawn* Pawn)
 {
 	const float Now = static_cast<float>(GetWorld()->GetRealTimeSeconds());
-	// [A-067] Pinos ciano nos itens e baús por perto que ainda servem (só a pé, só os que estão na tela).
-	if (!Pawn->IsA<AJRVehiclePawn>() && NearbyMarkerRange > 0.f && NearbyMarkerMax > 0)
+	// [A-083] Sem pinos flutuando em cima de itens e baús no chão (pedido do usuário): o mundo só marca
+	// o objetivo (e a nave de extração, desenhada pela AJRRemapHUD). Os pontos ciano no minimapa continuam.
+	if (Target && (Target->IsA<AJRPickup>() || Target->IsA<AJRLootChest>()))
 	{
-		TArray<AActor*> Nearby;
-		CollectNearbyInteractables(Pawn, NearbyMarkerRange * 100.f, NearbyMarkerMax, Target, Nearby);
-		for (const AActor* Item : Nearby)
-		{
-			const float ItemDist = static_cast<float>(FVector::Dist(Pawn->GetActorLocation(), Item->GetActorLocation())) / 100.f;
-			if (ItemDist < 3.f)
-			{
-				continue; // perto assim o aviso "E" já aparece
-			}
-			const FVector ItemScreen = Project(MarkerAnchor(Item), false);
-			if (ItemScreen.Z <= 0.f || ItemScreen.X < 0.f || ItemScreen.X > Canvas->ClipX || ItemScreen.Y < 0.f || ItemScreen.Y > Canvas->ClipY)
-			{
-				continue;
-			}
-			const float Fade = FMath::Clamp((NearbyMarkerRange - ItemDist) / 8.f, 0.f, 1.f); // some aos poucos na borda
-			DrawMarkerPin(FVector2D(ItemScreen.X, ItemScreen.Y), 30.f * S, MarkerIconFor(Item), AccentColor, 0.85f * Fade, false);
-		}
+		return;
 	}
 	if (!Target)
 	{

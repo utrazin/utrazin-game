@@ -47,6 +47,7 @@ AJRShopkeeper::AJRShopkeeper()
 	NameTag->SetHorizontalAlignment(EHTA_Center);
 	NameTag->SetWorldSize(32.f);
 	NameTag->SetTextRenderColor(FColor(255, 220, 120));
+	NameTag->SetHiddenInGame(true); // [A-083] no jogo o nome é desenhado pela AJRRemapHUD (plaquinha v2 quando perto); no editor continua visível
 
 	DisplayName = LOCTEXT("ShopDefault", "Vendedor");
 }
@@ -86,6 +87,10 @@ void AJRShopkeeper::BeginPlay()
 {
 	Super::BeginPlay();
 	RefreshVisual();
+	if (NameTag)
+	{
+		NameTag->SetHiddenInGame(true); // [A-083] vale também para vendedores já salvos no mapa
+	}
 	BackToIdle();
 }
 

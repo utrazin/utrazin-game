@@ -1,6 +1,7 @@
 // Copyright utrazin. All Rights Reserved.
 
 #include "Characters/JRCharacter.h"
+#include "Gameplay/JRBike.h" // [A-097]
 #include "Animation/AnimInstance.h"
 #include "Animation/AnimMontage.h"
 #include "Animation/AnimSequenceBase.h"
@@ -261,6 +262,24 @@ void AJRCharacter::SelectWeaponSlot(EJRWeaponSlot NewSlot)
 	{
 		bWeaponTransition = false;
 	}), FMath::Max(0.1f, Remaining - 0.35f), false);
+}
+
+void AJRCharacter::HolsterWeaponInstant()
+{
+	FTimerManager& Timers = GetWorldTimerManager();
+	Timers.ClearTimer(WeaponVisibilityTimer);
+	Timers.ClearTimer(WeaponTransitionTimer);
+	if (UAnimInstance* Anim = GetMesh() ? GetMesh()->GetAnimInstance() : nullptr)
+	{
+		Anim->StopSlotAnimation(0.f, UpperBodySlot);
+	}
+	CancelHeal(false);
+	WeaponComponent->CancelAll();
+	bFireHeld = false;
+	bWeaponTransition = false;
+	CurrentSlot = EJRWeaponSlot::None;
+	bWeaponEquipped = false;
+	UpdateWeaponVisuals();
 }
 
 void AJRCharacter::GrantWeapon(EJRWeaponSlot Slot, bool bEquipNow)
@@ -576,6 +595,10 @@ float AJRCharacter::GetFuryRemaining() const
 
 void AJRCharacter::HandleToggleWeapon(const FInputActionValue& Value)
 {
+	if (IsRidingBike()) // [A-097] de bicicleta: só anda, olha e desce (E)
+	{
+		return;
+	}
 	if (bItemWheelOpen)
 	{
 		// [A-059] Q com a roda aberta troca a aba (UpdateItemWheelInput); 1 / B continuam fechando sem trocar.
@@ -786,7 +809,7 @@ void AJRCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	if (MouseLookAction) { Input->BindAction(MouseLookAction, ETriggerEvent::Triggered, this, &AJRCharacter::HandleLook); }
 	if (JumpAction)
 	{
-		Input->BindAction(JumpAction, ETriggerEvent::Started, this, &ACharacter::Jump);
+		Input->BindAction(JumpAction, ETriggerEvent::Started, this, &AJRCharacter::HandleJumpPressed); // [A-086] escalar ou pular
 		Input->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 	}
 	if (SprintAction)
@@ -864,6 +887,10 @@ void AJRCharacter::HandleSprint(const FInputActionValue& Value)
 
 void AJRCharacter::HandleAim(const FInputActionValue& Value)
 {
+	if (IsRidingBike()) // [A-097] de bicicleta: só anda, olha e desce (E)
+	{
+		return;
+	}
 	const bool bAim = Value.Get<bool>();
 	if (bAim && bItemWheelOpen)
 	{
@@ -877,6 +904,10 @@ void AJRCharacter::HandleAim(const FInputActionValue& Value)
 
 void AJRCharacter::HandleFireStarted(const FInputActionValue& Value)
 {
+	if (IsRidingBike()) // [A-097] de bicicleta: só anda, olha e desce (E)
+	{
+		return;
+	}
 	if (bItemWheelOpen || bHealing || InteractionCamera->IsShotActive())
 	{
 		return; // roda aberta, mãos ocupadas com a bandagem ou cena de interação
@@ -903,14 +934,33 @@ void AJRCharacter::HandleFireStopped(const FInputActionValue& Value)
 
 void AJRCharacter::HandleReload(const FInputActionValue& Value)
 {
+	if (IsRidingBike()) // [A-097] de bicicleta: só anda, olha e desce (E)
+	{
+		return;
+	}
 	if (bWeaponEquipped && !bWeaponTransition && !bHealing && !bItemWheelOpen)
 	{
 		WeaponComponent->StartReload();
 	}
 }
 
+AJRBike* AJRCharacter::GetMountedBike() const
+{
+	return MountedBike.Get();
+}
+
+void AJRCharacter::SetMountedBike(AJRBike* Bike)
+{
+	MountedBike = Bike;
+}
+
 void AJRCharacter::HandleInteract(const FInputActionValue& Value)
 {
+	if (AJRBike* Bike = GetMountedBike()) // [A-097] E em cima da bicicleta = descer
+	{
+		Bike->Dismount();
+		return;
+	}
 	if (bItemWheelOpen)
 	{
 		return;
@@ -1043,6 +1093,10 @@ void AJRCharacter::ApplySkin(const FJRSkinDefinition& Skin)
 
 void AJRCharacter::HandleDeath(UJRHealthComponent* Health, AActor* Killer)
 {
+	if (AJRBike* Bike = GetMountedBike()) // [A-097]
+	{
+		Bike->Dismount();
+	}
 	InteractionCamera->StopShot(true); // [A-058]
 	CloseItemWheel(false);
 	CancelHeal(false);
@@ -1249,7 +1303,10 @@ void AJRCharacter::CalcCamera(float DeltaTime, FMinimalViewInfo& OutResult)
 		FPBlendAlpha = FMath::FInterpConstantTo(FPBlendAlpha, TargetAlpha, DeltaTime, 1.f / FPBlendTime);
 	}
 	// A cabeça some só quando a câmera já está chegando nela (metade da transição).
-	SetHeadHiddenForView(FPBlendAlpha > 0.5f);
+	// [A-086] cabeça e braços: visíveis de novo na luneta (a câmera usa a própria arma, que fica na mão) e nas
+	// cenas de interação (outra câmera vê o corpo de fora)
+	SetHeadHiddenForView(FPBlendAlpha > 0.5f && ScopeAlpha <= 0.f && !WantsScope()
+		&& !(InteractionCamera && InteractionCamera->IsShotActive()));
 	// [A-065] pivô da conferência final: o começo do braço da câmera (dentro da cápsula)
 	const FVector SafetyPivot = SpringArm ? SpringArm->GetComponentLocation() : GetActorLocation();
 	if (FPBlendAlpha <= 0.f)
@@ -1386,8 +1443,10 @@ void AJRCharacter::UpdateFirstPersonViewmodel(float DeltaTime, const FMinimalVie
 	const FTransform ParentWorld = HandParent ? HandParent->GetSocketTransform(Held->GetAttachSocketName()) : GetActorTransform();
 	const FTransform HandWorld = KickNow * Grip * ParentWorld;
 	const FQuat ViewQuat = ViewRot.Quaternion();
+	// [A-086] escala própria (os braços do corpo ficam escondidos em 1a pessoa: a mão teria escala 0)
+	const FVector ViewScale = Grip.GetScale3D() * (GetMesh() ? GetMesh()->GetComponentScale() : FVector::OneVector) * FPWeaponScale;
 	const FTransform ViewWorld = KickNow * FTransform(ViewQuat * LocalRot.Quaternion(), View.Location + ViewQuat.RotateVector(Local),
-		HandWorld.GetScale3D());
+		ViewScale);
 	FTransform Final;
 	Final.Blend(HandWorld, ViewWorld, Weight);
 	Held->SetWorldTransform(Final, false, nullptr, ETeleportType::TeleportPhysics);
@@ -1595,6 +1654,10 @@ bool AJRCharacter::TryUseFuryCharge()
 
 void AJRCharacter::HandleQuickHeal(const FInputActionValue& Value)
 {
+	if (IsRidingBike()) // [A-097] de bicicleta: só anda, olha e desce (E)
+	{
+		return;
+	}
 	if (bItemWheelOpen || bHealing)
 	{
 		return;
@@ -1645,6 +1708,10 @@ namespace
 
 void AJRCharacter::HandleItemWheelPressed(const FInputActionValue& Value)
 {
+	if (IsRidingBike()) // [A-097] de bicicleta: só anda, olha e desce (E)
+	{
+		return;
+	}
 	OpenItemWheel();
 }
 
@@ -2393,6 +2460,114 @@ void AJRCharacter::HandleScopeZoomOut()
 		if (USoundBase* Zoom = ScopeZoomSound.LoadSynchronous())
 		{
 			UGameplayStatics::PlaySound2D(this, Zoom, 0.5f, 0.9f);
+		}
+	}
+}
+
+// ---------------------------------------------------------------------------------------------------------------
+// [A-086] Escalar (mantle): o que se vê é o que se sobe. Sem caixa invisível: tudo pela colisão das malhas.
+
+void AJRCharacter::HandleJumpPressed()
+{
+	if (IsRidingBike()) // [A-097] de bicicleta: só anda, olha e desce (E)
+	{
+		return;
+	}
+	if (bMantling)
+	{
+		return;
+	}
+	if (!TryMantle())
+	{
+		Jump();
+	}
+}
+
+bool AJRCharacter::TryMantle()
+{
+	UCharacterMovementComponent* Move = GetCharacterMovement();
+	UWorld* World = GetWorld();
+	UCapsuleComponent* Capsule = GetCapsuleComponent();
+	if (!Move || !World || !Capsule || !(Move->IsMovingOnGround() || Move->IsFalling()))
+	{
+		return false;
+	}
+	const float Radius = Capsule->GetScaledCapsuleRadius();
+	const float HalfHeight = Capsule->GetScaledCapsuleHalfHeight();
+	const FVector Feet = GetActorLocation() - FVector(0.f, 0.f, HalfHeight);
+	FVector Fwd = GetActorForwardVector().GetSafeNormal2D();
+	const FVector Wish = Move->GetCurrentAcceleration().GetSafeNormal2D();
+	if (!Wish.IsNearlyZero())
+	{
+		Fwd = Wish; // vai para onde o jogador está empurrando
+	}
+	FCollisionQueryParams Query(SCENE_QUERY_STAT(JRMantle), false, this);
+	// 1) Tem algo na frente, na altura do peito?
+	FHitResult Wall;
+	const FVector Chest = Feet + FVector(0.f, 0.f, 110.f);
+	if (!World->SweepSingleByChannel(Wall, Chest, Chest + Fwd * 90.f, FQuat::Identity, ECC_Pawn,
+		FCollisionShape::MakeSphere(Radius * 0.6f), Query))
+	{
+		return false;
+	}
+	if (FVector::DotProduct(Wall.ImpactNormal.GetSafeNormal2D(), -Fwd) < 0.5f || Cast<APawn>(Wall.GetActor()))
+	{
+		return false; // parede muito de lado, ou é um personagem
+	}
+	// 2) Onde fica o topo? Desce de cima até achar chão firme, um pouco depois da borda.
+	const FVector Over = Wall.ImpactPoint + Fwd * (Radius + 25.f);
+	FHitResult Top;
+	const float MaxClimb = 265.f;
+	if (!World->LineTraceSingleByChannel(Top, FVector(Over.X, Over.Y, Feet.Z + MaxClimb + 40.f), FVector(Over.X, Over.Y, Feet.Z + 40.f),
+		ECC_Pawn, Query))
+	{
+		return false;
+	}
+	const float Climb = static_cast<float>(Top.ImpactPoint.Z - Feet.Z);
+	if (Climb < 55.f || Climb > MaxClimb || Top.ImpactNormal.Z < 0.7f || Top.bStartPenetrating)
+	{
+		return false;
+	}
+	// 3) O corpo cabe lá em cima?
+	const FVector Target = Top.ImpactPoint + FVector(0.f, 0.f, HalfHeight + 3.f);
+	if (World->OverlapBlockingTestByChannel(Target, FQuat::Identity, ECC_Pawn, FCollisionShape::MakeCapsule(Radius, HalfHeight), Query))
+	{
+		return false;
+	}
+	MantleFrom = GetActorLocation();
+	MantleTo = Target;
+	MantleStart = World->GetTimeSeconds();
+	MantleDuration = FMath::GetMappedRangeValueClamped(FVector2D(55.f, MaxClimb), FVector2D(0.28f, 0.48f), Climb);
+	bMantling = true;
+	Move->StopMovementImmediately();
+	Move->SetMovementMode(MOVE_Flying);
+	World->GetTimerManager().SetTimer(MantleTimer, this, &AJRCharacter::TickMantle, 1.f / 120.f, true);
+	return true;
+}
+
+void AJRCharacter::TickMantle()
+{
+	UWorld* World = GetWorld();
+	if (!World)
+	{
+		return;
+	}
+	const float A = FMath::Clamp(static_cast<float>(World->GetTimeSeconds() - MantleStart) / FMath::Max(0.05f, MantleDuration), 0.f, 1.f);
+	// Sobe primeiro (60% do tempo), depois avança por cima da borda: lê como "pegar e se puxar".
+	const float Up = FMath::InterpEaseOut(0.f, 1.f, FMath::Min(1.f, A / 0.6f), 2.5f);
+	const float Fwd = FMath::InterpEaseInOut(0.f, 1.f, FMath::Clamp((A - 0.35f) / 0.65f, 0.f, 1.f), 2.f);
+	FVector P;
+	P.X = FMath::Lerp(MantleFrom.X, MantleTo.X, Fwd);
+	P.Y = FMath::Lerp(MantleFrom.Y, MantleTo.Y, Fwd);
+	P.Z = FMath::Lerp(MantleFrom.Z, MantleTo.Z + 8.f, Up);
+	SetActorLocation(P, false, nullptr, ETeleportType::None);
+	if (A >= 1.f)
+	{
+		World->GetTimerManager().ClearTimer(MantleTimer);
+		bMantling = false;
+		if (UCharacterMovementComponent* Move = GetCharacterMovement())
+		{
+			Move->SetMovementMode(MOVE_Walking);
 		}
 	}
 }

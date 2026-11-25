@@ -1,0 +1,208 @@
+{
+ "fps": 30,
+ "frames": 36,
+ "heroes": {
+  "Hero01": {
+   "height_m": 1.748,
+   "leg_len_m": {
+    "l": 0.717,
+    "r": 0.717
+   },
+   "arm_len_m": {
+    "l": 0.469,
+    "r": 0.469
+   },
+   "lean_deg": 41.1,
+   "leg_ratio_worst": 0.885,
+   "checks": {
+    "reach_m": 0.0,
+    "ball_to_pedal_m": 0.0,
+    "palm_to_grip_m": 0.0
+   },
+   "ue_component_cm_frame0": {
+    "pelvis": [
+     0.0,
+     -18.13,
+     107.06
+    ],
+    "hand_l": [
+     25.52,
+     20.4,
+     101.21
+    ],
+    "hand_r": [
+     -25.57,
+     20.52,
+     101.14
+    ],
+    "ball_l": [
+     12.41,
+     -14.52,
+     31.28
+    ],
+    "ball_r": [
+     -12.41,
+     13.81,
+     31.02
+    ]
+   },
+   "ue_component_cm_frame9": {
+    "ball_l": [
+     12.41,
+     -0.35,
+     45.44
+    ],
+    "ball_r": [
+     -12.41,
+     -0.35,
+     16.86
+    ]
+   },
+   "previews": [
+    "assets/work/anims/bike/previews/Hero01_lado_f00.png",
+    "assets/work/anims/bike/previews/Hero01_tres_quartos_f00.png",
+    "assets/work/anims/bike/previews/Hero01_frente_f00.png",
+    "assets/work/anims/bike/previews/Hero01_lado_f09.png",
+    "assets/work/anims/bike/previews/Hero01_tres_quartos_f09.png",
+    "assets/work/anims/bike/previews/Hero01_frente_f09.png",
+    "assets/work/anims/bike/previews/Hero01_lado_f18.png",
+    "assets/work/anims/bike/previews/Hero01_lado_f27.png",
+    "assets/work/anims/bike/previews/Hero01_guidao20.png"
+   ],
+   "fbx": "assets/work/anims/bike/A_Bike_Pedal_Hero01.fbx",
+   "roundtrip_max_err_cm": 0.0
+  },
+  "Hero02": {
+   "height_m": 1.665,
+   "leg_len_m": {
+    "l": 0.708,
+    "r": 0.708
+   },
+   "arm_len_m": {
+    "l": 0.417,
+    "r": 0.417
+   },
+   "lean_deg": 66.1,
+   "leg_ratio_worst": 0.965,
+   "checks": {
+    "reach_m": 0.0,
+    "ball_to_pedal_m": 0.0,
+    "palm_to_grip_m": 0.0
+   },
+   "ue_component_cm_frame0": {
+    "pelvis": [
+     0.0,
+     -16.78,
+     106.85
+    ],
+    "hand_l": [
+     25.94,
+     21.66,
+     100.76
+    ],
+    "hand_r": [
+     -26.09,
+     22.08,
+     100.59
+    ],
+    "ball_l": [
+     12.41,
+     -14.52,
+     31.03
+    ],
+    "ball_r": [
+     -12.41,
+     13.81,
+     31.4
+    ]
+   },
+   "ue_component_cm_frame9": {
+    "ball_l": [
+     12.41,
+     -0.35,
+     45.19
+    ],
+    "ball_r": [
+     -12.41,
+     -0.35,
+     17.23
+    ]
+   },
+   "previews": [
+    "assets/work/anims/bike/previews/Hero02_lado_f00.png",
+    "assets/work/anims/bike/previews/Hero02_tres_quartos_f00.png",
+    "assets/work/anims/bike/previews/Hero02_frente_f00.png",
+    "assets/work/anims/bike/previews/Hero02_lado_f09.png",
+    "assets/work/anims/bike/previews/Hero02_tres_quartos_f09.png",
+    "assets/work/anims/bike/previews/Hero02_frente_f09.png",
+    "assets/work/anims/bike/previews/Hero02_lado_f18.png",
+    "assets/work/anims/bike/previews/Hero02_lado_f27.png",
+    "assets/work/anims/bike/previews/Hero02_guidao20.png"
+   ],
+   "fbx": "assets/work/anims/bike/A_Bike_Pedal_Hero02.fbx",
+   "roundtrip_max_err_cm": 0.0
+  }
+ },
+ "checks": {},
+ "bike_fbx": {
+  "quadro": "assets/work/tripo/SM_VEH_BikeQuadroSemPedivela.fbx",
+  "SM_VEH_BikePedivela": "assets/work/tripo/SM_VEH_BikePedivela.fbx",
+  "SM_VEH_BikePedal": "assets/work/tripo/SM_VEH_BikePedal.fbx",
+  "SM_VEH_BikeSelim": "assets/work/tripo/SM_VEH_BikeSelim.fbx",
+  "SM_VEH_BikeGuidao": "assets/work/tripo/SM_VEH_BikeGuidao.fbx"
+ },
+ "bike_raw_m": {
+  "head_b": [
+   0.466,
+   0.0,
+   0.5263
+  ],
+  "head_tilt_deg": 14.5345,
+  "bb": [
+   -0.004,
+   0.0,
+   0.1463
+  ],
+  "crank_len": 0.1592,
+  "spindle_y": 0.0934,
+  "pedal_out": 0.046,
+  "pedal_half_thick": 0.0135,
+  "seat_top": [
+   -0.2193,
+   0.0,
+   0.844
+  ],
+  "seat_len": 0.2735,
+  "grip_r": [
+   0.2694,
+   -0.2977,
+   0.914
+  ],
+  "grip_l": [
+   0.2695,
+   0.2977,
+   0.9141
+  ]
+ },
+ "bike_scale": 0.89,
+ "bike_scale_why": "maior escala com perna <= 0.97 nos dois heróis",
+ "cpp": {
+  "BikeScale": 0.89,
+  "CrankPivot": [
+   -0.4,
+   0.0,
+   30.43
+  ],
+  "CrankLength": 15.92,
+  "SeatDrop": 4.0,
+  "SteerPivot": [
+   46.6,
+   0.0,
+   68.43
+  ],
+  "SteerTiltDeg": 14.53,
+  "PedalSpindleY": 9.34,
+  "PedalAnimLength_s": 1.2,
+  "PhaseAtFrame0_deg": 0.0
+ }
+}

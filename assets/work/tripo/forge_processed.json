@@ -1,0 +1,314 @@
+{
+ "ARN_Ninho": {
+  "fbx": "SM_ARN_Ninho.fbx",
+  "texture": "textures/T_ARN_Ninho_D.jpg",
+  "tris": 36000,
+  "dims_m": [
+   2.269,
+   2.289,
+   1.143
+  ],
+  "min_m": [
+   0,
+   0,
+   0
+  ],
+  "max_m": [
+   2.269,
+   2.289,
+   1.143
+  ],
+  "ucx": 0,
+  "category": "Arena",
+  "collision": "none",
+  "source": "noct_forge3d"
+ },
+ "INT_Balcao": {
+  "fbx": "SM_INT_Balcao.fbx",
+  "texture": "textures/T_INT_Balcao_D.jpg",
+  "tris": 3612,
+  "dims_m": [
+   0.701,
+   2.401,
+   1.339
+  ],
+  "min_m": [
+   0,
+   0,
+   0
+  ],
+  "max_m": [
+   0.701,
+   2.401,
+   1.339
+  ],
+  "ucx": 1,
+  "category": "Interior",
+  "collision": "box",
+  "source": "noct_forge3d"
+ },
+ "INT_Prateleira": {
+  "fbx": "SM_INT_Prateleira.fbx",
+  "texture": "textures/T_INT_Prateleira_D.jpg",
+  "tris": 4448,
+  "dims_m": [
+   0.45,
+   1.391,
+   2.183
+  ],
+  "min_m": [
+   0,
+   0,
+   0
+  ],
+  "max_m": [
+   0.45,
+   1.391,
+   2.183
+  ],
+  "ucx": 1,
+  "category": "Interior",
+  "collision": "box",
+  "source": "noct_forge3d"
+ },
+ "INT_Bancada": {
+  "fbx": "SM_INT_Bancada.fbx",
+  "texture": "textures/T_INT_Bancada_D.jpg",
+  "tris": 7032,
+  "dims_m": [
+   0.823,
+   1.801,
+   1.772
+  ],
+  "min_m": [
+   0,
+   0,
+   0
+  ],
+  "max_m": [
+   0.823,
+   1.801,
+   1.772
+  ],
+  "ucx": 1,
+  "category": "Interior",
+  "collision": "box",
+  "source": "noct_forge3d"
+ },
+ "INT_SuporteArmas": {
+  "fbx": "SM_INT_SuporteArmas.fbx",
+  "texture": "textures/T_INT_SuporteArmas_D.jpg",
+  "tris": 4232,
+  "dims_m": [
+   0.196,
+   1.441,
+   0.91
+  ],
+  "min_m": [
+   0,
+   0,
+   0
+  ],
+  "max_m": [
+   0.196,
+   1.441,
+   0.91
+  ],
+  "ucx": 1,
+  "category": "Interior",
+  "collision": "box",
+  "source": "noct_forge3d"
+ },
+ "INT_Cama": {
+  "fbx": "SM_INT_Cama.fbx",
+  "texture": "textures/T_INT_Cama_D.jpg",
+  "tris": 6928,
+  "dims_m": [
+   2.001,
+   1.061,
+   0.581
+  ],
+  "min_m": [
+   0,
+   0,
+   0
+  ],
+  "max_m": [
+   2.001,
+   1.061,
+   0.581
+  ],
+  "ucx": 1,
+  "category": "Interior",
+  "collision": "box",
+  "source": "noct_forge3d"
+ },
+ "INT_Mesa": {
+  "fbx": "SM_INT_Mesa.fbx",
+  "texture": "textures/T_INT_Mesa_D.jpg",
+  "tris": 2912,
+  "dims_m": [
+   1.13,
+   1.13,
+   0.86
+  ],
+  "min_m": [
+   0,
+   0,
+   0
+  ],
+  "max_m": [
+   1.13,
+   1.13,
+   0.86
+  ],
+  "ucx": 1,
+  "category": "Interior",
+  "collision": "box",
+  "source": "noct_forge3d"
+ },
+ "INT_Cadeira": {
+  "fbx": "SM_INT_Cadeira.fbx",
+  "texture": "textures/T_INT_Cadeira_D.jpg",
+  "tris": 4188,
+  "dims_m": [
+   0.462,
+   0.461,
+   0.962
+  ],
+  "min_m": [
+   0,
+   0,
+   0
+  ],
+  "max_m": [
+   0.462,
+   0.461,
+   0.962
+  ],
+  "ucx": 1,
+  "category": "Interior",
+  "collision": "box",
+  "source": "noct_forge3d"
+ },
+ "INT_Armario": {
+  "fbx": "SM_INT_Armario.fbx",
+  "texture": "textures/T_INT_Armario_D.jpg",
+  "tris": 5408,
+  "dims_m": [
+   0.547,
+   0.9,
+   1.973
+  ],
+  "min_m": [
+   0,
+   0,
+   0
+  ],
+  "max_m": [
+   0.547,
+   0.9,
+   1.973
+  ],
+  "ucx": 1,
+  "category": "Interior",
+  "collision": "box",
+  "source": "noct_forge3d"
+ },
+ "INT_Caixotes": {
+  "fbx": "SM_INT_Caixotes.fbx",
+  "texture": "textures/T_INT_Caixotes_D.jpg",
+  "tris": 3948,
+  "dims_m": [
+   0.717,
+   1.347,
+   1.174
+  ],
+  "min_m": [
+   0,
+   0,
+   0
+  ],
+  "max_m": [
+   0.717,
+   1.347,
+   1.174
+  ],
+  "ucx": 1,
+  "category": "Interior",
+  "collision": "box",
+  "source": "noct_forge3d"
+ },
+ "INT_Luminaria": {
+  "fbx": "SM_INT_Luminaria.fbx",
+  "texture": "textures/T_INT_Luminaria_D.jpg",
+  "tris": 2720,
+  "dims_m": [
+   0.287,
+   0.267,
+   0.501
+  ],
+  "min_m": [
+   0,
+   0,
+   0
+  ],
+  "max_m": [
+   0.287,
+   0.267,
+   0.501
+  ],
+  "ucx": 0,
+  "category": "Interior",
+  "collision": "none",
+  "source": "noct_forge3d"
+ },
+ "VEH_BikeQuadro": {
+  "fbx": "SM_VEH_BikeQuadro.fbx",
+  "texture": "textures/T_VEH_BikeQuadro_D.jpg",
+  "tris": 9936,
+  "dims_m": [
+   1.634,
+   0.687,
+   0.938
+  ],
+  "min_m": [
+   0,
+   0,
+   0
+  ],
+  "max_m": [
+   1.634,
+   0.687,
+   0.938
+  ],
+  "ucx": 1,
+  "category": "Veiculos",
+  "collision": "box",
+  "source": "noct_forge3d"
+ },
+ "VEH_BikeRoda": {
+  "fbx": "SM_VEH_BikeRoda.fbx",
+  "texture": "textures/T_VEH_BikeRoda_D.jpg",
+  "tris": 7568,
+  "dims_m": [
+   0.68,
+   0.13,
+   0.68
+  ],
+  "min_m": [
+   0,
+   0,
+   0
+  ],
+  "max_m": [
+   0.68,
+   0.13,
+   0.68
+  ],
+  "ucx": 0,
+  "category": "Veiculos",
+  "collision": "none",
+  "source": "noct_forge3d"
+ }
+}

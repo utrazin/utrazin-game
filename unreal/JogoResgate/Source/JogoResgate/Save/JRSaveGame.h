@@ -57,7 +57,7 @@ class JOGORESGATE_API UJRSaveGame : public USaveGame
 	GENERATED_BODY()
 
 public:
-	static constexpr int32 CurrentVersion = 3; // [A-074] v2: bIntroSeen; [Remap F1] v3: carteira, bancada, armas compradas
+	static constexpr int32 CurrentVersion = 4; // [A-074] v2: bIntroSeen; [Remap F1] v3: carteira, bancada, armas compradas
 
 	/** 0 = save criado antes do versionamento ou recém-criado sem migração. */
 	UPROPERTY()
@@ -111,6 +111,15 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, Category = "Save|Remap")
 	int32 RunsPlayed = 0;
+
+	// ---------------- [A-098] v4: Árvore-Mãe e bairros
+	/** Níveis comprados em cada nó da Árvore-Mãe (FJRSkillTree). */
+	UPROPERTY(BlueprintReadOnly, Category = "Save|Remap")
+	TMap<FName, int32> TreeRanks;
+
+	/** Bairros cuja abertura já foi mostrada (a barricada cai com animação só na primeira vez). */
+	UPROPERTY(BlueprintReadOnly, Category = "Save|Remap")
+	TArray<FName> SeenDistricts;
 
 	FJRLevelProgress& FindOrAddLevel(FName LevelId);
 	const FJRLevelProgress* FindLevel(FName LevelId) const;

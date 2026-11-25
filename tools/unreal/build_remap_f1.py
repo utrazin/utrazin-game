@@ -2,7 +2,9 @@
 
 RODA NO EDITOR (caixa Cmd, modo Python), sem Play, DEPOIS de compilar o C++:
   py "E:/game/utrazin-game/tools/unreal/build_remap_f1.py"
-Opções (no fim da linha): --sem-npcs (não importa os GLB), --reimportar-npcs, --so-cidade, --so-arena
+Opções (no fim da linha): --sem-npcs (não importa os GLB), --reimportar-npcs, --so-cidade, --so-arena, --arena-f1
+[Remap F2] A arena agora é montada pelo tools/unreal/build_remap_f2.py (base) + AJRArenaGenerator (no Play).
+Este script só refaz a arena fixa do F1 com --arena-f1 (ou --so-arena); sem isso mexe só na cidade.
 
 Monta e salva:
 1. NPCs: importa SK_NPC_Krug/Kaar/IxVel (assets/work/characters/npc) em /Game/Characters/NPC/<Nome>
@@ -158,11 +160,13 @@ def lights(folder, sun_pitch=-40.0, sun_yaw=30.0, intensity=7.0, fog_density=0.0
         warn(f"neblina: {exc}")
 
 
-def point_light(label, loc, color=(1.0, 0.85, 0.6), intensity=8000.0, radius=1800.0, folder="Remap/Luz"):
+def point_light(label, loc, color=(1.0, 0.85, 0.6), intensity=40.0, radius=1800.0, folder="Remap/Luz"):
+    # [A-088] intensidade em CANDELAS explícita (sem unidade, 8000 virava 8000 cd e estourava a cena)
     a = spawn_cls(unreal.PointLight, loc, 0, label, folder)
     lc = a.point_light_component
     lc.set_mobility(unreal.ComponentMobility.MOVABLE)
-    lc.set_editor_property("intensity", intensity)
+    lc.set_editor_property("intensity_units", unreal.LightUnits.CANDELAS)
+    lc.set_editor_property("intensity", min(float(intensity), 120.0))
     lc.set_editor_property("attenuation_radius", radius)
     lc.set_editor_property("light_color", unreal.Color(int(color[0] * 255), int(color[1] * 255), int(color[2] * 255), 255))
     return a
@@ -171,7 +175,7 @@ def point_light(label, loc, color=(1.0, 0.85, 0.6), intensity=8000.0, radius=180
 def world_settings():
     ws = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem).get_editor_world().get_world_settings()
     for k, v in (("default_game_mode", unreal.JRRemapGameMode.static_class()),
-                 ("kill_z", -3000.0), ("force_no_precomputed_lighting", True)):
+                 ("kill_z", -10000.0)  # [A-098] cômodos a -45 m, ("force_no_precomputed_lighting", True)):
         try:
             ws.set_editor_property(k, v)
         except Exception as exc:  # noqa: BLE001
@@ -393,7 +397,7 @@ def build_arena():
         except Exception as exc:  # noqa: BLE001
             warn(f"RecastNavMesh: {exc} (use Build > Build Paths)")
     for i, (x, y) in enumerate(((-2000, 0), (2000, 0), (0, 2000), (0, -2000))):
-        point_light(f"Luz_{i}", (x, y, 600), color=(1.0, 0.55, 0.4), intensity=2500.0, radius=2200.0)
+        point_light(f"Luz_{i}", (x, y, 600), color=(1.0, 0.55, 0.4), intensity=40.0, radius=2200.0)
     lights("Remap/Luz", sun_pitch=-35.0, sun_yaw=200.0, intensity=2.5, fog_density=0.015)
     world_settings()
     try:
@@ -417,7 +421,7 @@ def main():
             build_city(npc_assets)
         except Exception as exc:  # noqa: BLE001
             err("build_city", exc)
-    if "--so-cidade" not in ARGS:
+    if "--arena-f1" in ARGS or "--so-arena" in ARGS:  # [Remap F2] arena fixa só quando pedida
         try:
             build_arena()
         except Exception as exc:  # noqa: BLE001

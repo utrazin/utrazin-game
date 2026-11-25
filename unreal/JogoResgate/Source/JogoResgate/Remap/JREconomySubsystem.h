@@ -66,6 +66,26 @@ public:
 	/** Registra o fim de uma corrida. Retorna true se bateu o recorde de ondas. */
 	bool RecordRun(int32 Waves);
 
+	// ---------------- [A-098] arenas e bairros
+	/** Maior nível de arena liberado (pelo recorde de ondas). Bairro com nível <= isto está aberto. */
+	UFUNCTION(BlueprintPure, Category = "Economy")
+	int32 GetUnlockedArenaLevel() const;
+	bool IsDistrictSeen(FName DistrictId) const;
+	void MarkDistrictSeen(FName DistrictId);
+
+	// ---------------- [A-098] Árvore-Mãe (cristais)
+	UFUNCTION(BlueprintPure, Category = "Economy")
+	int64 GetCrystals() const;
+	void AddCrystals(int64 Amount, bool bSave = true);
+	int32 GetTreeRank(FName NodeId) const;
+	/** Pode comprar o próximo nível? OutWhy explica quando não pode (pai, máximo). Não olha o preço. */
+	bool IsTreeNodeOpen(FName NodeId, FString* OutWhy = nullptr) const;
+	bool BuyTreeNode(FName NodeId);
+	/** Soma do efeito de todos os nós de um tipo (ex.: 0,18 = +18%). */
+	float GetTreeBonus(EJRTreeStat Stat) const;
+	/** Atributos de base da corrida já com a árvore (as cartas somam em cima). */
+	FJRRunStats MakeTreeBaseStats() const;
+
 	UPROPERTY(BlueprintAssignable, Category = "Economy")
 	FJROnWalletChanged OnWalletChanged;
 

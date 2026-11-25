@@ -46,7 +46,8 @@ R = {"time": datetime.now().isoformat(), "force": FORCE, "meshes": {}, "tiling":
 
 # brilho leve (emissivo = cor base x valor) nas coisas bioluminescentes
 GLOW = {"NAT_Flor": 0.6, "NAT_Flor2": 0.6, "NAT_Cogumelos": 0.5, "MRC_Cristal": 0.4, "MRC_ArvoreMae": 0.25,
-        "MRC_Colmeia": 0.2, "NAT_Arbusto1": 0.25, "NAT_Arvore4": 0.15, "PRP_Poste": 0.3, "ITM_Municao": 0.3}
+        "MRC_Colmeia": 0.2, "NAT_Arbusto1": 0.25, "NAT_Arvore4": 0.15, "PRP_Poste": 0.3, "ITM_Municao": 0.3,
+        "ARN_Ninho": 0.35}  # [A-093] ovos brilhando (o resto do ninho é escuro, quase não acende)
 # tamanho do ladrilho (cm) de cada textura repetível
 TILE_CM = {"AreiaVermelha": 800, "Asfalto": 600, "Terra": 600, "GramaAlien": 500, "LamaToxica": 600,
            "MusgoRoxo": 500, "Pedra": 500, "RochaCristal": 700, "Tijolo": 250, "TelhaCeramica": 250,
@@ -164,6 +165,9 @@ class MB:
 
 def master_prop(default_tex):
     """M_User_Prop: BaseColor (textura) x Tint; Roughness; brilho = cor x EmissiveStrength. Dois lados."""
+    # [A-087] já existe e está em uso: recriar (apagar os nós) derruba a Unreal (assert !IsRooted). Só com "force".
+    if not FORCE and EAL.does_asset_exist(f"{MATS}/M_User_Prop"):
+        return EAL.load_asset(f"{MATS}/M_User_Prop")
     b = MB(f"{MATS}/M_User_Prop")
     setp(b.m, "two_sided", True, "M_User_Prop")
     tex = b.node(unreal.MaterialExpressionTextureSampleParameter2D, parameter_name="BaseColor", texture=default_tex)
@@ -183,6 +187,8 @@ def master_prop(default_tex):
 def master_tiling(def_d, def_n):
     """M_User_Tiling: textura alinhada ao mundo (projeção de cima, de frente e de lado misturadas pela normal),
     para terreno e paredes. Parâmetros: Diffuse, Normal, TileSizeCm, Tint, Roughness."""
+    if not FORCE and EAL.does_asset_exist(f"{MATS}/M_User_Tiling"):
+        return EAL.load_asset(f"{MATS}/M_User_Tiling")  # [A-087] ver master_prop
     b = MB(f"{MATS}/M_User_Tiling")
     wp = b.node(unreal.MaterialExpressionWorldPosition)
     size = b.node(unreal.MaterialExpressionScalarParameter, parameter_name="TileSizeCm", default_value=400.0)
@@ -333,7 +339,7 @@ def mesh_item(it, proc, master):
         for i in range(max(1, len(sm.get_editor_property("static_materials")))):
             sm.set_material(i, mi)
         set_collision_flag(sm, it["collision"])
-        if p.get("tris", 0) > 12000 and cat in ("Natureza", "Props", "Itens", "Construcoes"):
+        if p.get("tris", 0) > 12000 and cat in ("Natureza", "Props", "Itens", "Construcoes", "Vila"):
             add_lods(sm, fname)
         save(sm)
         got = size_cm(sm)

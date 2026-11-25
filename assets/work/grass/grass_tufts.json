@@ -1,0 +1,23 @@
+{
+ "SM_Grama_Tufo_0": {
+  "tris": 120,
+  "verts": 90,
+  "h_cm": 30.0,
+  "w_cm": 42.0,
+  "cards": 3
+ },
+ "SM_Grama_Tufo_1": {
+  "tris": 120,
+  "verts": 90,
+  "h_cm": 50.0,
+  "w_cm": 58.0,
+  "cards": 3
+ },
+ "SM_Grama_Tufo_2": {
+  "tris": 160,
+  "verts": 120,
+  "h_cm": 75.0,
+  "w_cm": 62.0,
+  "cards": 4
+ }
+}

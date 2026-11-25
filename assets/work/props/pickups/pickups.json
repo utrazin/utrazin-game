@@ -1,0 +1,188 @@
+{
+ "items": {
+  "CellPistol": {
+   "fbx": "SM_Pickup_CellPistol.fbx",
+   "glb": "SM_Pickup_CellPistol.glb",
+   "dims_m": [
+    0.096,
+    0.039,
+    0.084
+   ],
+   "tris": 852,
+   "core_linear": [
+    0.55,
+    0.12,
+    1.0
+   ],
+   "game_scale": 1.8,
+   "what": "3 células de plasma da pistola num pente",
+   "min_z": 0.0,
+   "preview": "SM_Pickup_CellPistol_preview.png"
+  },
+  "ShellShotgun": {
+   "fbx": "SM_Pickup_ShellShotgun.fbx",
+   "glb": "SM_Pickup_ShellShotgun.glb",
+   "dims_m": [
+    0.066,
+    0.0706,
+    0.068
+   ],
+   "tris": 864,
+   "core_linear": [
+    1.0,
+    0.35,
+    0.04
+   ],
+   "game_scale": 1.7,
+   "what": "3 cartuchos de plasma da escopeta amarrados",
+   "min_z": 0.0,
+   "preview": "SM_Pickup_ShellShotgun_preview.png"
+  },
+  "CellRifle": {
+   "fbx": "SM_Pickup_CellRifle.fbx",
+   "glb": "SM_Pickup_CellRifle.glb",
+   "dims_m": [
+    0.0542,
+    0.0626,
+    0.12
+   ],
+   "tris": 192,
+   "core_linear": [
+    0.1,
+    0.85,
+    1.0
+   ],
+   "game_scale": 1.7,
+   "what": "célula longa sextavada do rifle, em pé nas aletas",
+   "min_z": 0.0,
+   "preview": "SM_Pickup_CellRifle_preview.png"
+  },
+  "HealthGel": {
+   "fbx": "SM_Pickup_HealthGel.fbx",
+   "glb": "SM_Pickup_HealthGel.glb",
+   "dims_m": [
+    0.034,
+    0.034,
+    0.09
+   ],
+   "tris": 324,
+   "core_linear": [
+    1.0,
+    0.12,
+    0.2
+   ],
+   "game_scale": 1.8,
+   "what": "injetor de gel de cura (vida na hora)",
+   "min_z": 0.0,
+   "preview": "SM_Pickup_HealthGel_preview.png"
+  },
+  "Bandage": {
+   "fbx": "SM_Pickup_Bandage.fbx",
+   "glb": "SM_Pickup_Bandage.glb",
+   "dims_m": [
+    0.0536,
+    0.103,
+    0.07
+   ],
+   "tris": 164,
+   "core_linear": [
+    1.0,
+    0.25,
+    0.25
+   ],
+   "game_scale": 1.6,
+   "what": "rolo de bandagem deitado com cruz vermelha",
+   "min_z": 0.0,
+   "preview": "SM_Pickup_Bandage_preview.png"
+  },
+  "Medkit": {
+   "fbx": "SM_Pickup_Medkit.fbx",
+   "glb": "SM_Pickup_Medkit.glb",
+   "dims_m": [
+    0.163,
+    0.0654,
+    0.136
+   ],
+   "tris": 196,
+   "core_linear": [
+    1.0,
+    0.2,
+    0.15
+   ],
+   "game_scale": 1.5,
+   "what": "maleta de kit médico em pé com alça",
+   "min_z": 0.0,
+   "preview": "SM_Pickup_Medkit_preview.png"
+  },
+  "FuryCrystal": {
+   "fbx": "SM_Pickup_FuryCrystal.fbx",
+   "glb": "SM_Pickup_FuryCrystal.glb",
+   "dims_m": [
+    0.0852,
+    0.08,
+    0.119
+   ],
+   "tris": 140,
+   "core_linear": [
+    0.75,
+    0.2,
+    1.0
+   ],
+   "game_scale": 1.6,
+   "what": "cristais de fúria saindo de uma pedra",
+   "min_z": 0.0,
+   "preview": "SM_Pickup_FuryCrystal_preview.png"
+  },
+  "Nitro": {
+   "fbx": "SM_Pickup_Nitro.fbx",
+   "glb": "SM_Pickup_Nitro.glb",
+   "dims_m": [
+    0.104,
+    0.104,
+    0.219
+   ],
+   "tris": 424,
+   "core_linear": [
+    0.1,
+    0.55,
+    1.0
+   ],
+   "game_scale": 1.6,
+   "what": "galão de nitro com faixas brilhando (carro)",
+   "min_z": 0.0,
+   "preview": "SM_Pickup_Nitro_preview.png"
+  },
+  "Repair": {
+   "fbx": "SM_Pickup_Repair.fbx",
+   "glb": "SM_Pickup_Repair.glb",
+   "dims_m": [
+    0.206,
+    0.098,
+    0.118
+   ],
+   "tris": 192,
+   "core_linear": [
+    0.2,
+    1.0,
+    0.35
+   ],
+   "game_scale": 1.5,
+   "what": "caixa de ferramentas com faixa verde (carro)",
+   "min_z": 0.0,
+   "preview": "SM_Pickup_Repair_preview.png"
+  },
+  "Ring": {
+   "fbx": "SM_Pickup_Ring.fbx",
+   "glb": "SM_Pickup_Ring.glb",
+   "dims_m": [
+    1.0,
+    1.0,
+    0.0
+   ],
+   "tris": 2
+  }
+ },
+ "palette": "T_Pickup_Palette.png",
+ "ring_texture": "T_Pickup_RingGlow.png",
+ "contact_sheet": "pickups_contact_sheet.png"
+}

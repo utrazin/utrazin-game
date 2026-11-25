@@ -94,3 +94,83 @@ void FJRRemapRules::ApplyCard(EJRRunCard Card, FJRRunStats& Stats)
 }
 
 #undef LOCTEXT_NAMESPACE
+
+
+// ---------------------------------------------------------------- [A-098] Árvore-Mãe
+const TArray<FJRTreeNodeDef>& FJRSkillTree::Nodes()
+{
+	static TArray<FJRTreeNodeDef> Table = []()
+	{
+		TArray<FJRTreeNodeDef> T;
+		auto Add = [&T](const TCHAR* Id, int32 Branch, int32 Depth, const TCHAR* Label, const TCHAR* Detail, const TCHAR* Icon,
+			EJRTreeStat Stat, float Per, int32 MaxRank, int64 Base, float Growth, const TCHAR* Req, int32 ReqRank)
+		{
+			FJRTreeNodeDef N;
+			N.Id = FName(Id); N.Branch = Branch; N.Depth = Depth; N.Label = Label; N.Detail = Detail; N.Icon = Icon; N.Stat = Stat;
+			N.PerRank = Per; N.MaxRank = MaxRank; N.BaseCost = Base; N.CostGrowth = Growth;
+			N.Requires = Req ? FName(Req) : NAME_None; N.RequiresRank = ReqRank;
+			T.Add(N);
+		};
+		// raiz: abre os 4 galhos
+		Add(TEXT("Semente"), 0, 0, TEXT("Semente da Árvore-Mãe"), TEXT("Desperta a árvore: %s e abre os galhos"), TEXT("R_Star"), EJRTreeStat::MaxHealth, 0.05f, 1, 2, 1.f, nullptr, 0);
+		// Fúria (combate)
+		Add(TEXT("Forca"), 1, 1, TEXT("Seiva de Fúria"), TEXT("%s"), TEXT("Stat_Damage"), EJRTreeStat::Damage, 0.06f, 10, 3, 1.32f, TEXT("Semente"), 1);
+		Add(TEXT("Gatilho"), 1, 2, TEXT("Espinho Ligeiro"), TEXT("%s"), TEXT("Stat_FireRate"), EJRTreeStat::FireRate, 0.04f, 8, 5, 1.35f, TEXT("Forca"), 2);
+		Add(TEXT("Sede"), 1, 3, TEXT("Raiz Sedenta"), TEXT("%s"), TEXT("R_CardLifeOnKill"), EJRTreeStat::LifeOnKill, 0.008f, 5, 9, 1.45f, TEXT("Gatilho"), 3);
+		// Casca (sobrevivência)
+		Add(TEXT("Seiva"), 2, 1, TEXT("Casca Grossa"), TEXT("%s"), TEXT("R_Heart"), EJRTreeStat::MaxHealth, 0.08f, 10, 3, 1.32f, TEXT("Semente"), 1);
+		Add(TEXT("Couraca"), 2, 2, TEXT("Couraça de Resina"), TEXT("%s"), TEXT("R_Shield"), EJRTreeStat::DamageTaken, -0.04f, 6, 5, 1.4f, TEXT("Seiva"), 2);
+		Add(TEXT("Brotos"), 2, 3, TEXT("Bolsa de Brotos"), TEXT("%s"), TEXT("Stat_Ammo"), EJRTreeStat::ReserveAmmo, 30.f, 5, 4, 1.3f, TEXT("Seiva"), 1);
+		// Raízes (economia)
+		Add(TEXT("Ouro"), 3, 1, TEXT("Raiz Dourada"), TEXT("%s"), TEXT("R_Coins"), EJRTreeStat::Credits, 0.06f, 10, 3, 1.32f, TEXT("Semente"), 1);
+		Add(TEXT("Cristalina"), 3, 2, TEXT("Veio Cristalino"), TEXT("%s"), TEXT("R_Trophy"), EJRTreeStat::Crystals, 0.10f, 5, 6, 1.4f, TEXT("Ouro"), 2);
+		Add(TEXT("Presente"), 3, 3, TEXT("Fruto do Começo"), TEXT("%s"), TEXT("V3_CardRare"), EJRTreeStat::StartCards, 1.f, 2, 15, 2.0f, TEXT("Cristalina"), 2);
+		// Vento (mobilidade)
+		Add(TEXT("Passo"), 4, 1, TEXT("Folha ao Vento"), TEXT("%s"), TEXT("R_CardSpeed"), EJRTreeStat::MoveSpeed, 0.03f, 6, 3, 1.35f, TEXT("Semente"), 1);
+		Add(TEXT("Pulso"), 4, 2, TEXT("Pulso da Seiva"), TEXT("%s"), TEXT("R_Energy"), EJRTreeStat::Energy, 0.06f, 5, 5, 1.4f, TEXT("Passo"), 2);
+		return T;
+	}();
+	return Table;
+}
+
+const FJRTreeNodeDef* FJRSkillTree::Find(FName Id)
+{
+	return Nodes().FindByPredicate([Id](const FJRTreeNodeDef& N) { return N.Id == Id; });
+}
+
+int64 FJRSkillTree::Cost(const FJRTreeNodeDef& Node, int32 Rank)
+{
+	return FMath::Max<int64>(1, FMath::RoundToInt64(Node.BaseCost * FMath::Pow(Node.CostGrowth, FMath::Max(0, Rank))));
+}
+
+FString FJRSkillTree::BranchName(int32 Branch)
+{
+	switch (Branch)
+	{
+	case 1: return TEXT("Fúria");
+	case 2: return TEXT("Casca");
+	case 3: return TEXT("Raízes");
+	case 4: return TEXT("Vento");
+	default: return TEXT("Tronco");
+	}
+}
+
+FString FJRSkillTree::EffectText(const FJRTreeNodeDef& Node, int32 Ranks)
+{
+	const float V = Node.PerRank * FMath::Max(0, Ranks);
+	switch (Node.Stat)
+	{
+	case EJRTreeStat::Damage: return FString::Printf(TEXT("+%.0f%% dano"), V * 100.f);
+	case EJRTreeStat::FireRate: return FString::Printf(TEXT("+%.0f%% cadência"), V * 100.f);
+	case EJRTreeStat::MaxHealth: return FString::Printf(TEXT("+%.0f%% vida máxima"), V * 100.f);
+	case EJRTreeStat::MoveSpeed: return FString::Printf(TEXT("+%.0f%% velocidade"), V * 100.f);
+	case EJRTreeStat::DamageTaken: return FString::Printf(TEXT("-%.0f%% dano recebido"), -V * 100.f);
+	case EJRTreeStat::LifeOnKill: return FString::Printf(TEXT("cura %.1f%% da vida por abate"), V * 100.f);
+	case EJRTreeStat::Credits: return FString::Printf(TEXT("+%.0f%% créditos"), V * 100.f);
+	case EJRTreeStat::Energy: return FString::Printf(TEXT("+%.0f%% energia por abate"), V * 100.f);
+	case EJRTreeStat::Crystals: return FString::Printf(TEXT("+%.0f%% cristais"), V * 100.f);
+	case EJRTreeStat::StartCards: return FString::Printf(TEXT("%d carta(s) logo no começo"), FMath::RoundToInt(V));
+	case EJRTreeStat::ReserveAmmo: return FString::Printf(TEXT("+%d munição reserva"), FMath::RoundToInt(V));
+	default: return FString();
+	}
+}

@@ -33,7 +33,8 @@ enum class EJRShopType : uint8
 {
 	Armeiro,  // Krug: vende armas
 	Bancada,  // Ix-Vel: +10% de dano por nível
-	Portao    // Kaar: sai para a arena
+	Portao,   // Kaar: sai para a arena
+	Arvore    // [A-098] Árvore-Mãe: árvore de melhorias permanentes paga com cristais
 };
 
 /** Atributos da corrida (multiplicadores que as cartas mexem). */
@@ -67,6 +68,57 @@ struct FJRRunReport
 	UPROPERTY(BlueprintReadOnly, Category = "Run") float Multiplier = 1.f;
 	UPROPERTY(BlueprintReadOnly, Category = "Run") int64 CreditsKept = 0;
 	UPROPERTY(BlueprintReadOnly, Category = "Run") bool bNewRecord = false;
+	/** [Remap F2] Objetivos da arena cumpridos (principal + opcional). */
+	UPROPERTY(BlueprintReadOnly, Category = "Run") int32 ObjectivesCompleted = 0;
+	/** [Remap F2] Maior sequência de abates sem levar dano. */
+	UPROPERTY(BlueprintReadOnly, Category = "Run") int32 MaxCombo = 0;
+	/** [A-098] Cristais ganhos na corrida (moeda da Árvore-Mãe). */
+	UPROPERTY(BlueprintReadOnly, Category = "Run") int32 CrystalsEarned = 0;
+};
+
+/** [A-098] O que cada nó da Árvore-Mãe melhora. */
+enum class EJRTreeStat : uint8
+{
+	Damage,       // +x dano (somado ao 1,0 base, antes das cartas)
+	FireRate,
+	MaxHealth,
+	MoveSpeed,
+	DamageTaken,  // negativo: menos dano recebido
+	LifeOnKill,   // fração da vida máxima por abate
+	Credits,
+	Energy,
+	Crystals,     // +x cristais no fim da corrida
+	StartCards,   // cartas para escolher logo no começo
+	ReserveAmmo   // munição reserva extra ao sair da cidade
+};
+
+/** [A-098] Um nó da árvore (tabela fixa em JRRemapTypes.cpp; docs/design/ARVORE_MAE.md). */
+struct FJRTreeNodeDef
+{
+	FName Id;
+	int32 Branch = 0;          // 0 raiz, 1 Fúria, 2 Casca, 3 Raízes, 4 Vento
+	int32 Depth = 0;           // posição no galho (0 = perto do tronco)
+	const TCHAR* Label = TEXT("");
+	const TCHAR* Detail = TEXT("");   // "%s" = efeito do próximo nível
+	const TCHAR* Icon = TEXT("R_Star");
+	EJRTreeStat Stat = EJRTreeStat::Damage;
+	float PerRank = 0.f;
+	int32 MaxRank = 1;
+	int64 BaseCost = 1;        // cristais do 1o nível
+	float CostGrowth = 1.35f;
+	FName Requires;            // nó pai (None = sem)
+	int32 RequiresRank = 1;
+};
+
+struct JOGORESGATE_API FJRSkillTree
+{
+	static const TArray<FJRTreeNodeDef>& Nodes();
+	static const FJRTreeNodeDef* Find(FName Id);
+	/** Cristais para ir do nível Rank para Rank+1. */
+	static int64 Cost(const FJRTreeNodeDef& Node, int32 Rank);
+	static FString BranchName(int32 Branch);
+	/** Texto do efeito de N níveis (ex.: "+12% dano"). */
+	static FString EffectText(const FJRTreeNodeDef& Node, int32 Ranks);
 };
 
 /** Fórmulas e números do REMAP (seção 0 e 7.2). */
@@ -96,12 +148,34 @@ struct JOGORESGATE_API FJRRemapRules
 	/** Inimigos na onda W: 6 + 2W (onda 1 = 8). */
 	static int32 WaveEnemyCount(int32 Wave) { return 6 + 2 * FMath::Max(1, Wave); }
 
+	/** [Remap F2] Orçamento do diretor por onda (REMAP 6.3): (8 + 3W) x (1 + 0,12 (L-1)). Onda 1 nível 1 = 11. */
+	static int32 DirectorWaveBudget(int32 Wave, int32 SectorLevel)
+	{
+		return FMath::RoundToInt((8.f + 3.f * FMath::Max(1, Wave)) * (1.f + 0.12f * (FMath::Max(1, SectorLevel) - 1)));
+	}
+	/** [Remap F2] Pontos por segundo do diretor: (1,2 + 0,12W) x (1 + 0,15 (L-1)). Mais rápido em nível alto. */
+	static float DirectorIncomePerSecond(int32 Wave, int32 SectorLevel)
+	{
+		return (1.2f + 0.12f * FMath::Max(1, Wave)) * (1.f + 0.15f * (FMath::Max(1, SectorLevel) - 1));
+	}
+	/** [Remap F2] Pressão (custo vivo + fila) que fecha um pico antes do respiro: 6 + 2W. */
+	static int32 DirectorPeakCost(int32 Wave) { return 6 + 2 * FMath::Max(1, Wave); }
+
 	/** Multiplicador da extração depois de W ondas vencidas: x1,0 (3), x1,25 (6), x1,5 (9)... */
 	static float ExtractionMultiplier(int32 WavesCleared) { return 1.f + 0.25f * FMath::Max(0, WavesCleared / 3 - 1); }
 
 	/** Contrato de morte (decisão do usuário, REMAP seção 0): fica com 50% dos créditos e 25% dos cristais. */
 	static constexpr float DeathKeepCredits = 0.5f;
 	static constexpr float DeathKeepCrystals = 0.25f;
+
+	/** [A-098] Arena liberada pelo recorde: nível novo a cada 6 ondas, até 5. Também libera os bairros da cidade. */
+	static int32 UnlockedArenaLevel(int32 BestWave) { return FMath::Clamp(1 + FMath::Max(0, BestWave) / 6, 1, 5); }
+	/** [A-098] Cristais da corrida: (ondas + 2 x objetivos) x (1 + 0,15 (setor-1)); morrer guarda 25%. */
+	static int32 RunCrystals(int32 Waves, int32 Objectives, int32 SectorLevel, bool bExtracted, float Bonus)
+	{
+		const float Raw = (FMath::Max(0, Waves) + 2.f * FMath::Max(0, Objectives)) * (1.f + 0.15f * (FMath::Max(1, SectorLevel) - 1)) * FMath::Max(0.f, Bonus);
+		return FMath::Max(Waves > 0 ? 1 : 0, FMath::RoundToInt(bExtracted ? Raw : Raw * DeathKeepCrystals));
+	}
 
 	/** No máximo quantas escolhas de carta podem ficar guardadas. */
 	static constexpr int32 MaxBankedChoices = 3;

@@ -36,8 +36,9 @@ void UJRDamageFXComponent::SetBloodType(EJRBloodType NewType)
 	if (NewType == EJRBloodType::Zombie)
 	{
 		// Azul-ciano brilhante (sangue alienígena) e flash no corpo ao levar tiro.
-		BloodColor = FLinearColor(0.02f, 0.45f, 1.f, 1.f);
-		BloodEmissive = 2.5f;
+		// [A-086] menos brilho: as manchas acesas no chão viravam "pontinhos azuis" espalhados que parecem lixo.
+		BloodColor = FLinearColor(0.02f, 0.3f, 0.55f, 1.f);
+		BloodEmissive = 0.35f;
 		bHitFlash = true;
 		MaxWounds = 5;
 		LowHealthDripFraction = 0.f; // zumbi não deixa rastro por vida baixa (só logo depois do acerto)
@@ -241,7 +242,8 @@ void UJRDamageFXComponent::PlayHit(const FVector& Point, const FVector& ShotDir,
 		// Traço curto contra o próprio corpo: ponto e normal exatos da pele (corpos do Physics Asset).
 		FHitResult Exact;
 		FCollisionQueryParams Query(SCENE_QUERY_STAT(JRWoundTrace), true);
-		if (BodyMesh->LineTraceComponent(Exact, Point - Dir * 40.f, Point + Dir * 15.f, Query))
+		const bool bExact = BodyMesh->LineTraceComponent(Exact, Point - Dir * 40.f, Point + Dir * 15.f, Query);
+		if (bExact)
 		{
 			Surface = Exact.ImpactPoint;
 			Normal = Exact.ImpactNormal;
@@ -253,6 +255,15 @@ void UJRDamageFXComponent::PlayHit(const FVector& Point, const FVector& ShotDir,
 		if (UseBone.IsNone() || BodyMesh->GetBoneIndex(UseBone) == INDEX_NONE)
 		{
 			UseBone = BodyMesh->FindClosestBone(Point);
+		}
+		// [A-085] sem Physics Asset o traço na pele falha e o ponto fica na cápsula (sangue "flutuando"
+		// ao lado do corpo). Puxa o ponto para junto do osso mais perto: a ferida e o jato saem do corpo.
+		if (!bExact && !UseBone.IsNone() && BodyMesh->GetBoneIndex(UseBone) != INDEX_NONE)
+		{
+			const FVector BoneLoc = BodyMesh->GetBoneLocation(UseBone);
+			const FVector Off = Point - BoneLoc;
+			Surface = BoneLoc + Off.GetClampedToMaxSize(6.f); // [A-088] ferida mais colada no osso
+			Normal = Off.IsNearlyZero() ? -Dir : Off.GetSafeNormal();
 		}
 	}
 
@@ -274,7 +285,8 @@ void UJRDamageFXComponent::PlayHit(const FVector& Point, const FVector& ShotDir,
 		}
 		else
 		{
-			const FVector Drop = Surface + FVector(Dir.X, Dir.Y, 0.0).GetSafeNormal() * Rand.FRandRange(40.f, 140.f);
+			// [A-088] mancha de chão perto do corpo (antes até 1,4 m: parecia sangue solto em volta)
+			const FVector Drop = Surface + FVector(Dir.X, Dir.Y, 0.0).GetSafeNormal() * Rand.FRandRange(20.f, 75.f);
 			FHitResult Floor;
 			if (World->LineTraceSingleByObjectType(Floor, Drop, Drop - FVector(0.f, 0.f, 400.f), Objects, Query))
 			{

@@ -101,6 +101,13 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Weapon")
 	void SelectWeaponSlot(EJRWeaponSlot NewSlot);
 
+	/**
+	 * [A-090] Guarda a arma na hora, sem animação, mesmo no meio de uma troca. Usado ao nascer na cidade: o
+	 * GrantWeapon(.., true) já tinha começado a puxar a arma e o SetWeaponEquipped(false) era ignorado (troca em
+	 * andamento), então o herói aparecia com a pistola na mão.
+	 */
+	void HolsterWeaponInstant();
+
 	UFUNCTION(BlueprintPure, Category = "Weapon")
 	EJRWeaponSlot GetCurrentWeaponSlot() const { return CurrentSlot; }
 
@@ -148,6 +155,17 @@ public:
 	/** Loop de dirigir (sentado, mãos no volante) usado pelo motorista visual do carro. */
 	UFUNCTION(BlueprintPure, Category = "Character")
 	UAnimSequenceBase* GetDrivingAnim() const { return DrivingAnim; }
+
+	/**
+	 * [A-097] Bicicleta da cidade (AJRBike): enquanto monta, o herói não mira, não atira, não troca de arma, não pula
+	 * e não cura; E desce. A bicicleta cuida da velocidade, da curva e da pose (DrivingAnim no slot de corpo inteiro).
+	 */
+	bool IsRidingBike() const { return MountedBike.IsValid(); }
+	class AJRBike* GetMountedBike() const;
+	void SetMountedBike(class AJRBike* Bike);
+	bool IsSprintHeld() const { return bIsSprinting; }
+	FName GetFullBodySlotName() const { return FullBodySlot; }
+	FName GetUpperBodySlotName() const { return UpperBodySlot; }
 
 	/** Console (teste): dá todas as armas. */
 	UFUNCTION(Exec)
@@ -753,13 +771,17 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "Camera|FirstPerson|Weapon")
 	bool bFPViewmodel = true;
 
+	/** [A-086] Tamanho da arma na frente da câmera (a pistola tampava ~30% da tela). */
+	UPROPERTY(EditDefaultsOnly, Category = "Camera|FirstPerson|Weapon", meta = (ClampMin = "0.3", ClampMax = "1.5"))
+	float FPWeaponScale = 0.72f;
+
 	/** Pistola: posição do punho em relação à câmera (cm; X frente, Y direita, Z cima). */
 	UPROPERTY(EditDefaultsOnly, Category = "Camera|FirstPerson|Weapon")
-	FVector FPPistolOffset = FVector(30.f, 13.f, -14.f);
+	FVector FPPistolOffset = FVector(36.f, 15.f, -16.f);
 
 	/** Pistola mirando: alça de mira no centro da tela (cm). */
 	UPROPERTY(EditDefaultsOnly, Category = "Camera|FirstPerson|Weapon")
-	FVector FPPistolAimOffset = FVector(24.f, 0.f, -9.5f);
+	FVector FPPistolAimOffset = FVector(30.f, 0.f, -10.5f);
 
 	/** Escopeta e rifle (armas longas) fora da mira (cm). O rifle mirando usa a luneta (A-058). */
 	UPROPERTY(EditDefaultsOnly, Category = "Camera|FirstPerson|Weapon")
@@ -820,7 +842,7 @@ protected:
 	 * (cabelo/capuz presos na cabeça). Se o pescoço aparecer ao olhar para baixo, adicione "neck_02".
 	 */
 	UPROPERTY(EditDefaultsOnly, Category = "Camera|FirstPerson")
-	TArray<FName> HiddenBones = { TEXT("head") };
+	TArray<FName> HiddenBones = { TEXT("head"), TEXT("upperarm_l"), TEXT("upperarm_r") }; // [A-086] braços do corpo inteiro somem em 1a pessoa (apareciam mãos soltas)
 
 	UPROPERTY(EditDefaultsOnly, Category = "Weapon")
 	float FuryDamageMultiplier = 2.f;
@@ -1074,6 +1096,9 @@ private:
 	TEnumAsByte<ECollisionResponse> ExitVehiclePawnResponse = ECR_Block;
 	bool bIsSprinting = false;
 
+	/** [A-097] Bicicleta montada (nula a pé). */
+	TWeakObjectPtr<class AJRBike> MountedBike;
+
 	// Cura
 	FTimerHandle HealApplyTimer;
 	FTimerHandle HealEndTimer;
@@ -1093,4 +1118,15 @@ private:
 	int32 WheelTabDir = 1;
 	double WheelTabChangeRealTime = -100.0;
 	int32 WheelTabHighlight[2] = { 0, 1 };
+
+	// [A-086] Escalar: pulo de frente para carro/contêiner/mureta (até ~2,6 m) sobe em cima com um movimento suave.
+	void HandleJumpPressed();
+	bool TryMantle();
+	void TickMantle();
+	FTimerHandle MantleTimer;
+	FVector MantleFrom = FVector::ZeroVector;
+	FVector MantleTo = FVector::ZeroVector;
+	double MantleStart = 0.0;
+	float MantleDuration = 0.4f;
+	bool bMantling = false;
 };

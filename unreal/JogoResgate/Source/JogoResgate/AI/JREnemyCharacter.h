@@ -20,6 +20,8 @@ class UAnimMontage;
 class AController;      // [A-073]
 class UDamageType;      // [A-073]
 class UPrimitiveComponent; // [A-073]
+class UMaterialInterface;  // [A-081]
+class UMaterialInstanceDynamic; // [A-081]
 
 /** O que o zumbi calmo está fazendo (só C++; o estado público continua Idle/Patrol). */
 enum class EJRCalmActivity : uint8
@@ -347,6 +349,100 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Enemy|Feel", meta = (Units = "cm/s", ClampMin = "0"))
 	float DeathBoneKick = 420.f;
 
+	// ------------------------------------------------------------ Sensação do zumbi (A-081)
+
+	/** Giro (graus/s) perseguindo (vira para onde corre). 0 = usa o RotationRate do BP. */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Feel", meta = (ClampMin = "0"))
+	float ChaseTurnRate = 330.f;
+
+	/** Giro (graus/s) parado encarando o alvo (alerta e ataque). 0 = usa o RotationRate do BP. */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Feel", meta = (ClampMin = "0"))
+	float AttackTurnRate = 420.f;
+
+	/** Só começa o golpe/tiro com o alvo dentro deste meio-ângulo à frente (antes, termina de virar). */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Feel", meta = (ClampMin = "5", ClampMax = "180"))
+	float AttackFacingToleranceDegrees = 35.f;
+
+	/** O dano do soco só sai se o alvo ainda estiver neste meio-ângulo à frente (deu a volta: errou). */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Feel", meta = (ClampMin = "5", ClampMax = "180"))
+	float MeleeHitHalfAngleDegrees = 80.f;
+
+	/** Avanço curto ("bote") no meio da preparação do soco. 0 desliga. */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Feel", meta = (Units = "cm/s", ClampMin = "0"))
+	float MeleeLungeSpeed = 320.f;
+
+	/**
+	 * [A-088] Alvo em cima de algo (carro, contêiner, barricada): até esta diferença de altura o soco alcança
+	 * (braço para cima / puxa pela perna). Antes o zumbi parava embaixo e o herói ficava imune.
+	 */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Feel", meta = (Units = "cm", ClampMin = "0"))
+	float VerticalAttackReach = 210.f;
+
+	/** [A-088] Altura máxima que o zumbi escala (pula e se agarra) para chegar em quem subiu em algo. 0 desliga. */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Feel", meta = (Units = "cm", ClampMin = "0"))
+	float ClimbMaxHeight = 330.f;
+
+	/** [A-088] Distância (no chão) do alvo elevado em que o zumbi tenta escalar. */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Feel", meta = (Units = "cm", ClampMin = "0"))
+	float ClimbTriggerDistance = 320.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Feel", meta = (Units = "s", ClampMin = "0"))
+	float ClimbCooldown = 1.6f;
+
+	/** [A-088] Atirador: tempo entre levantar a arma e o 1o tiro (aviso para o jogador desviar). */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Combat", meta = (Units = "s", ClampMin = "0"))
+	float RangedWindup = 0.35f;
+
+	/** [A-088] Tranco da arma a cada tiro (graus para cima), volta em ~0,1 s. */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Combat", meta = (ClampMin = "0"))
+	float GunKickDegrees = 14.f;
+
+	/** Tranco para trás ao levar tiro/golpe (vivo). 0 desliga. Zumbi grande recua menos. */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Feel", meta = (Units = "cm/s", ClampMin = "0"))
+	float HitShoveSpeed = 140.f;
+
+	/** Contorno brilhante (overlay fresnel) para ler o zumbi no escuro. Sem o material, nada acontece. */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Feel")
+	TSoftObjectPtr<UMaterialInterface> RimMaterial;
+
+	/** Parâmetro escalar de intensidade no material do contorno. */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Feel")
+	FName RimIntensityParameter = TEXT("Intensidade");
+
+	/** Intensidade normal do contorno (0 = apagado, mas o overlay continua aplicado). */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Feel", meta = (ClampMin = "0"))
+	float RimIntensity = 1.2f;
+
+	/** Somado à intensidade no instante do dano; cai até 0 em RimHitDecay. */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Feel", meta = (ClampMin = "0"))
+	float RimHitBoost = 2.5f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Feel", meta = (Units = "s", ClampMin = "0.05"))
+	float RimHitDecay = 0.35f;
+
+	/** Na morte o contorno apaga neste tempo e o overlay sai do corpo. */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Feel", meta = (Units = "s", ClampMin = "0.05"))
+	float RimDeathFade = 0.5f;
+
+	/** Distância máxima em que o contorno aparece (cm). 0 = sem limite. */
+	UPROPERTY(EditDefaultsOnly, Category = "Enemy|Feel", meta = (Units = "cm", ClampMin = "0"))
+	float RimMaxDrawDistance = 0.f;
+
+	/** [A-081] Liga o overlay do contorno (se o material existir). */
+	void SetupRimGlow();
+	/** [A-081] Pico do contorno ao levar dano. */
+	void PulseRimGlow();
+	/** [A-081] Anima o pico/apagar do contorno (timer curto, só enquanto anima). */
+	void UpdateRimGlow();
+	/** [A-081] Liga o timer do contorno (se ainda não estiver rodando). */
+	void StartRimTimer();
+	/** [A-081] Velocidade da animação acompanha a velocidade real (pé não escorrega). */
+	void UpdateLocomotionAnimRate();
+	/** [A-081] Alvo dentro do meio-ângulo à frente (no plano). */
+	bool IsFacingPoint(const FVector& Point, float HalfAngleDegrees) const;
+	/** [A-081] Bote no meio da preparação do soco. */
+	void DoMeleeLunge();
+
 private:
 	TWeakObjectPtr<AActor> Target;
 	FTimerHandle BrainTimer;
@@ -401,4 +497,38 @@ private:
 	bool bNeedsInvestigateMove = false;
 	FVector LastKnownTargetLocation = FVector::ZeroVector;
 	bool bHasLastKnownTarget = false;
+
+	// [A-081] sensação: contorno, passo e bote
+	UPROPERTY(Transient)
+	TObjectPtr<UMaterialInstanceDynamic> RimMID;
+	FTimerHandle RimTimer;
+	FTimerHandle LungeTimer;
+	float RimPulse = 0.f;
+	float RimFade = 1.f;
+	bool bRimFadingOut = false;
+	double LastRimUpdateTime = 0.0;
+	/** Velocidade da animação parado (variação por zumbi, AnimRateJitter). */
+	float IdleAnimRate = 1.f;
+
+	// [A-085] queda procedural na morte quando não há ragdoll (malha sem Physics Asset):
+	// o corpo tomba para longe do tiro, quica de leve e afunda no chão antes de sumir.
+	void StartDeathFall(const FVector& FallDir);
+	void TickDeathFall();
+	FTimerHandle DeathFallTimer;
+	FQuat DeathFallBaseQuat = FQuat::Identity;
+	FVector DeathFallBaseLoc = FVector::ZeroVector;
+	FVector DeathFallAxis = FVector::RightVector;
+	double DeathFallStart = 0.0;
+	float DeathFallLife = 10.f;
+	/** [A-088] quanto o corpo deitado sobe para nenhum osso ficar dentro do chão (só aumenta). */
+	float DeathFallLift = 0.f;
+	float DeathFallGroundZ = 0.f;
+
+	// [A-088] escalar até o alvo elevado e pegada da arma
+	bool TryClimbToward(const AActor* ClimbTarget);
+	/** Diferença de altura entre os pés do alvo e os pés do zumbi (cm). */
+	float TargetFeetHeightAbove(const AActor* Other) const;
+	double NextClimbTime = 0.0;
+	void RecoverGunKick();
+	FTimerHandle GunKickTimer;
 };

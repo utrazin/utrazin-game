@@ -1,0 +1,12161 @@
+{
+ "version": 4,
+ "seed": 2311,
+ "units": "m",
+ "landscape": {
+  "res": 1009,
+  "size_m": 1008,
+  "z_scale_m": 512.0,
+  "plaza_level_m": 0.0
+ },
+ "city_half_m": 200.0,
+ "plaza_r_m": 28.0,
+ "wall": {
+  "half": 200.0,
+  "tower_every": 48.0,
+  "gate": {
+   "side": "N",
+   "x": 0.0,
+   "width": 14.0
+  }
+ },
+ "npcs": {
+  "Krug": {
+   "x": 101.06,
+   "y": 44.54,
+   "yaw": 64.9,
+   "building": "Armeiro_Krug"
+  },
+  "IxVel": {
+   "x": -108.0,
+   "y": -19.4,
+   "yaw": 90.0,
+   "building": "Bancada_IxVel"
+  },
+  "Kaar": {
+   "x": 0.0,
+   "y": 186.0,
+   "yaw": -90.0
+  }
+ },
+ "player_start": {
+  "x": 0.0,
+  "y": -34.0,
+  "yaw": 90.0
+ },
+ "buildings": [
+  {
+   "key": "armeiro",
+   "x": 98,
+   "y": 38,
+   "yaw": 64.9,
+   "scale": 1.25,
+   "role": "Armeiro",
+   "folder": "Predios",
+   "collide": true,
+   "explorable": true,
+   "label": "Armeiro_Krug",
+   "door": [
+    100.39,
+    43.09
+   ]
+  },
+  {
+   "key": "bancada",
+   "x": -108,
+   "y": -26,
+   "yaw": 90.0,
+   "scale": 1.25,
+   "role": "Bancada",
+   "folder": "Predios",
+   "collide": true,
+   "explorable": true,
+   "label": "Bancada_IxVel",
+   "door": [
+    -108.0,
+    -21.0
+   ]
+  },
+  {
+   "key": "casa1",
+   "x": -62,
+   "y": -112,
+   "yaw": 109.0,
+   "scale": 1.05,
+   "role": "CasaHeroi",
+   "folder": "Predios",
+   "collide": true,
+   "explorable": true,
+   "label": "Casa_Heroi",
+   "door": [
+    -63.47,
+    -107.73
+   ]
+  },
+  {
+   "key": "casavila",
+   "x": 22,
+   "y": -112,
+   "yaw": 331.7,
+   "scale": 1.0,
+   "role": "CasaSaqueada",
+   "folder": "Predios",
+   "collide": true,
+   "explorable": true,
+   "label": "Casa_Saqueada",
+   "door": [
+    26.4,
+    -114.37
+   ]
+  },
+  {
+   "key": "casa2",
+   "x": 60,
+   "y": 92,
+   "yaw": 270.0,
+   "scale": 1.05,
+   "role": "Bar",
+   "folder": "Predios",
+   "collide": true,
+   "explorable": true,
+   "label": "Bar_Conversa",
+   "door": [
+    60.0,
+    87.28
+   ]
+  },
+  {
+   "key": "posto_loja",
+   "x": -108,
+   "y": 40,
+   "yaw": 268.7,
+   "scale": 1.1,
+   "role": "Garagem",
+   "folder": "Predios",
+   "collide": true,
+   "explorable": false,
+   "label": "Garagem",
+   "door": [
+    -108.12,
+    34.5
+   ]
+  },
+  {
+   "key": "torre_radio",
+   "x": -50,
+   "y": 150,
+   "yaw": 296.4,
+   "scale": 0.9,
+   "role": "Radio",
+   "folder": "Predios",
+   "collide": true,
+   "explorable": false,
+   "label": "Radio_Contratos",
+   "door": [
+    -48.34,
+    146.65
+   ]
+  },
+  {
+   "key": "cabana",
+   "x": 150,
+   "y": 150,
+   "yaw": 294.0,
+   "scale": 1.3,
+   "role": "Laboratorio",
+   "folder": "Predios",
+   "collide": true,
+   "explorable": false,
+   "label": "Laboratorio",
+   "door": [
+    151.59,
+    146.44
+   ]
+  },
+  {
+   "key": "casavila",
+   "x": -150,
+   "y": -160,
+   "yaw": 90.0,
+   "scale": 1.15,
+   "role": "Prefeitura",
+   "folder": "Predios",
+   "collide": true,
+   "explorable": false,
+   "label": "Prefeitura",
+   "door": [
+    -150.0,
+    -154.25
+   ]
+  },
+  {
+   "key": "barraca",
+   "x": 99.31,
+   "y": -26.08,
+   "yaw": 187.6,
+   "scale": 1.0,
+   "role": null,
+   "folder": "Mercado",
+   "collide": true,
+   "explorable": false,
+   "label": "Mercado_0"
+  },
+  {
+   "key": "barraca",
+   "x": 98.0,
+   "y": -32.0,
+   "yaw": 175.9,
+   "scale": 1.0,
+   "role": "Mercado",
+   "folder": "Mercado",
+   "collide": true,
+   "explorable": false,
+   "label": "Mercado_1"
+  },
+  {
+   "key": "barraca",
+   "x": 99.31,
+   "y": -37.92,
+   "yaw": 164.9,
+   "scale": 1.0,
+   "role": null,
+   "folder": "Mercado",
+   "collide": true,
+   "explorable": false,
+   "label": "Mercado_2"
+  },
+  {
+   "key": "conteiner",
+   "x": 140.0,
+   "y": -160,
+   "yaw": 89.9,
+   "scale": 1.15,
+   "role": "Armazem",
+   "folder": "Armazem",
+   "collide": true,
+   "explorable": false,
+   "label": "Armazem_0"
+  },
+  {
+   "key": "conteiner",
+   "x": 147.5,
+   "y": -160,
+   "yaw": 91.3,
+   "scale": 1.15,
+   "role": null,
+   "folder": "Armazem",
+   "collide": true,
+   "explorable": false,
+   "label": "Armazem_1"
+  },
+  {
+   "key": "conteiner",
+   "x": 155.0,
+   "y": -160,
+   "yaw": 91.3,
+   "scale": 1.15,
+   "role": null,
+   "folder": "Armazem",
+   "collide": true,
+   "explorable": false,
+   "label": "Armazem_2"
+  },
+  {
+   "key": "conteiner",
+   "x": 140.0,
+   "y": -150,
+   "yaw": 92.5,
+   "scale": 1.15,
+   "role": null,
+   "folder": "Armazem",
+   "collide": true,
+   "explorable": false,
+   "label": "Armazem_3"
+  },
+  {
+   "key": "conteiner",
+   "x": 147.5,
+   "y": -150,
+   "yaw": 88.0,
+   "scale": 1.15,
+   "role": null,
+   "folder": "Armazem",
+   "collide": true,
+   "explorable": false,
+   "label": "Armazem_4"
+  },
+  {
+   "key": "cristal",
+   "x": 166,
+   "y": 138,
+   "yaw": 60.5,
+   "scale": 0.8,
+   "role": null,
+   "folder": "Predios",
+   "collide": true,
+   "explorable": false,
+   "label": "Lab_Cristal"
+  },
+  {
+   "key": "nave",
+   "x": 0,
+   "y": 0,
+   "yaw": 35.0,
+   "scale": 0.7,
+   "role": "Monumento",
+   "folder": "Praca",
+   "collide": true,
+   "explorable": false,
+   "label": "Monumento_Nave"
+  }
+ ],
+ "houses": [
+  {
+   "key": "casa2",
+   "x": 130.46,
+   "y": 22.95,
+   "yaw": 15.6,
+   "scale": 1.146,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": 107.3,
+   "y": 80.91,
+   "yaw": 31.8,
+   "scale": 0.935,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": 97.12,
+   "y": 93.24,
+   "yaw": 42.5,
+   "scale": 1.057,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": 86.52,
+   "y": 104.66,
+   "yaw": 51.7,
+   "scale": 1.092,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": 72.85,
+   "y": 113.18,
+   "yaw": 55.7,
+   "scale": 1.078,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": -17.65,
+   "y": 131.08,
+   "yaw": 101.2,
+   "scale": 1.001,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": -99.43,
+   "y": 89.25,
+   "yaw": 134.1,
+   "scale": 1.038,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": -118.18,
+   "y": 64.22,
+   "yaw": 147.0,
+   "scale": 1.036,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": -132.99,
+   "y": -28.02,
+   "yaw": 191.5,
+   "scale": 1.052,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": -114.54,
+   "y": -71.27,
+   "yaw": 213.4,
+   "scale": 1.043,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": -105.09,
+   "y": -84.2,
+   "yaw": 214.0,
+   "scale": 0.95,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": 66.59,
+   "y": -117.44,
+   "yaw": 296.5,
+   "scale": 1.102,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": 112.71,
+   "y": -75.01,
+   "yaw": 328.0,
+   "scale": 0.993,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": 118.62,
+   "y": -60.0,
+   "yaw": 327.8,
+   "scale": 1.052,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": 124.91,
+   "y": -45.48,
+   "yaw": 340.6,
+   "scale": 1.025,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": 142.48,
+   "y": 84.34,
+   "yaw": 211.1,
+   "scale": 1.074,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casavila",
+   "x": 103.92,
+   "y": 128.23,
+   "yaw": 236.0,
+   "scale": 0.954,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": 90.02,
+   "y": 142.33,
+   "yaw": 234.2,
+   "scale": 1.109,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": 52.65,
+   "y": 155.85,
+   "yaw": 249.4,
+   "scale": 1.022,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": -81.14,
+   "y": 146.71,
+   "yaw": 303.7,
+   "scale": 1.126,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casavila",
+   "x": -112.21,
+   "y": 122.12,
+   "yaw": 316.7,
+   "scale": 0.901,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": -148.98,
+   "y": -76.78,
+   "yaw": 24.8,
+   "scale": 1.085,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": -123.96,
+   "y": -107.38,
+   "yaw": 40.3,
+   "scale": 1.082,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": -61.66,
+   "y": -153.88,
+   "yaw": 75.0,
+   "scale": 0.902,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": -42.96,
+   "y": -159.05,
+   "yaw": 73.2,
+   "scale": 0.986,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": 71.25,
+   "y": -148.75,
+   "yaw": 113.5,
+   "scale": 0.92,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": 89.55,
+   "y": -140.53,
+   "yaw": 128.2,
+   "scale": 1.044,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": 106.17,
+   "y": -130.08,
+   "yaw": 126.2,
+   "scale": 1.072,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": 142.38,
+   "y": -83.61,
+   "yaw": 143.2,
+   "scale": 0.935,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": 151.24,
+   "y": -65.81,
+   "yaw": 161.5,
+   "scale": 1.007,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": 157.62,
+   "y": -47.56,
+   "yaw": 166.2,
+   "scale": 1.016,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casavila",
+   "x": -15.78,
+   "y": 86.11,
+   "yaw": 354.8,
+   "scale": 1.093,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": 14.98,
+   "y": -51.53,
+   "yaw": 177.4,
+   "scale": 1.046,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": 16.86,
+   "y": -68.56,
+   "yaw": 183.7,
+   "scale": 1.15,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": 16.03,
+   "y": -85.58,
+   "yaw": 183.0,
+   "scale": 1.094,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casavila",
+   "x": 16.96,
+   "y": -170.69,
+   "yaw": 174.6,
+   "scale": 1.068,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": -17.27,
+   "y": -51.75,
+   "yaw": 357.6,
+   "scale": 1.063,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casavila",
+   "x": -16.17,
+   "y": -68.92,
+   "yaw": 4.5,
+   "scale": 0.928,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": -15.78,
+   "y": -86.09,
+   "yaw": 356.3,
+   "scale": 0.959,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casavila",
+   "x": -15.75,
+   "y": -103.26,
+   "yaw": 356.8,
+   "scale": 1.056,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casavila",
+   "x": -15.84,
+   "y": -120.43,
+   "yaw": 4.9,
+   "scale": 1.077,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": -14.0,
+   "y": -171.93,
+   "yaw": 5.7,
+   "scale": 1.032,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": 106.76,
+   "y": 15.86,
+   "yaw": 270.3,
+   "scale": 1.02,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casavila",
+   "x": 178.55,
+   "y": 17.53,
+   "yaw": 268.2,
+   "scale": 1.093,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casavila",
+   "x": 53.0,
+   "y": -18.17,
+   "yaw": 94.7,
+   "scale": 1.034,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": -53.59,
+   "y": -14.65,
+   "yaw": 93.6,
+   "scale": 0.915,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": -127.18,
+   "y": -15.42,
+   "yaw": 87.7,
+   "scale": 1.048,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": -93.07,
+   "y": 15.91,
+   "yaw": 268.9,
+   "scale": 0.991,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": -169.73,
+   "y": 15.26,
+   "yaw": 274.9,
+   "scale": 0.968,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": 137.4,
+   "y": 113.63,
+   "yaw": 153.8,
+   "scale": 1.044,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casavila",
+   "x": 164.57,
+   "y": 120.24,
+   "yaw": 129.9,
+   "scale": 0.992,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": 83.9,
+   "y": 59.48,
+   "yaw": 81.5,
+   "scale": 0.903,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": 105.0,
+   "y": -62.11,
+   "yaw": 100.8,
+   "scale": 0.955,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": 80.75,
+   "y": -61.23,
+   "yaw": 81.8,
+   "scale": 1.051,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": 61.95,
+   "y": -55.72,
+   "yaw": 82.1,
+   "scale": 1.121,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": 136.04,
+   "y": -112.75,
+   "yaw": 241.0,
+   "scale": 0.965,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": 155.16,
+   "y": -126.23,
+   "yaw": 224.0,
+   "scale": 0.97,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": 123.64,
+   "y": -131.23,
+   "yaw": 65.9,
+   "scale": 1.053,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": 42.89,
+   "y": -127.79,
+   "yaw": 151.7,
+   "scale": 0.983,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casavila",
+   "x": 41.37,
+   "y": -80.94,
+   "yaw": 163.0,
+   "scale": 0.915,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": -120.44,
+   "y": -133.02,
+   "yaw": 116.4,
+   "scale": 1.122,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": -132.95,
+   "y": -142.73,
+   "yaw": 134.1,
+   "scale": 1.002,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": -151.29,
+   "y": -127.5,
+   "yaw": 310.3,
+   "scale": 0.95,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": 93.49,
+   "y": -96.44,
+   "yaw": 240.0,
+   "scale": 1.015,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": 63.84,
+   "y": -93.63,
+   "yaw": 16.8,
+   "scale": 1.058,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": -58.93,
+   "y": -71.45,
+   "yaw": 323.1,
+   "scale": 1.049,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": -69.3,
+   "y": -85.31,
+   "yaw": 326.1,
+   "scale": 1.1,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": -174.31,
+   "y": -118.17,
+   "yaw": 318.8,
+   "scale": 1.087,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casavila",
+   "x": 173.38,
+   "y": 157.1,
+   "yaw": 239.6,
+   "scale": 0.92,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": 163.96,
+   "y": -114.04,
+   "yaw": 223.4,
+   "scale": 1.017,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": -19.46,
+   "y": 61.24,
+   "yaw": 4.6,
+   "scale": 0.943,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": -104.29,
+   "y": -130.05,
+   "yaw": 132.8,
+   "scale": 0.96,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": -178.87,
+   "y": 51.4,
+   "yaw": 336.8,
+   "scale": 1.003,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": -63.46,
+   "y": -40.07,
+   "yaw": 295.2,
+   "scale": 1.033,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": 101.98,
+   "y": 156.57,
+   "yaw": 228.7,
+   "scale": 1.017,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": -82.61,
+   "y": -59.64,
+   "yaw": 329.1,
+   "scale": 1.056,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": -87.98,
+   "y": -71.49,
+   "yaw": 280.3,
+   "scale": 1.01,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": -57.29,
+   "y": -169.29,
+   "yaw": 70.5,
+   "scale": 0.952,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casavila",
+   "x": -173.41,
+   "y": -21.01,
+   "yaw": 90.0,
+   "scale": 0.984,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": -136.75,
+   "y": 121.25,
+   "yaw": 203.5,
+   "scale": 1.063,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": -184.0,
+   "y": -133.79,
+   "yaw": 347.5,
+   "scale": 1.051,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": -85.68,
+   "y": 76.63,
+   "yaw": 134.6,
+   "scale": 0.926,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": -98.36,
+   "y": -144.78,
+   "yaw": 48.5,
+   "scale": 0.904,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": -138.97,
+   "y": -116.09,
+   "yaw": 292.5,
+   "scale": 1.023,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": 54.98,
+   "y": -181.73,
+   "yaw": 108.8,
+   "scale": 1.009,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casavila",
+   "x": -44.37,
+   "y": -44.7,
+   "yaw": 263.5,
+   "scale": 0.931,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casavila",
+   "x": -70.65,
+   "y": -25.25,
+   "yaw": 94.9,
+   "scale": 0.918,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": -148.53,
+   "y": -97.33,
+   "yaw": 27.9,
+   "scale": 0.994,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": 42.51,
+   "y": -184.09,
+   "yaw": 95.2,
+   "scale": 1.039,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": 19.94,
+   "y": 95.84,
+   "yaw": 179.1,
+   "scale": 1.066,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": 48.17,
+   "y": 35.45,
+   "yaw": 268.2,
+   "scale": 0.948,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": -63.07,
+   "y": 111.82,
+   "yaw": 120.4,
+   "scale": 0.933,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa2",
+   "x": 166.3,
+   "y": -69.96,
+   "yaw": 151.5,
+   "scale": 0.96,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "cabana",
+   "x": 45.0,
+   "y": -43.32,
+   "yaw": 355.9,
+   "scale": 0.92,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  },
+  {
+   "key": "casa1",
+   "x": -58.68,
+   "y": 24.87,
+   "yaw": 184.5,
+   "scale": 1.081,
+   "role": null,
+   "folder": "Casas",
+   "collide": true,
+   "explorable": false,
+   "label": null
+  }
+ ],
+ "props": [
+  {
+   "key": "poste",
+   "x": 142.79,
+   "y": 15.19,
+   "yaw": 7.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": 148.42,
+   "y": 49.27,
+   "yaw": 199.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": 123.66,
+   "y": 72.96,
+   "yaw": 31.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": 114.75,
+   "y": 106.23,
+   "yaw": 223.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": 82.34,
+   "y": 117.62,
+   "yaw": 55.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": 60.55,
+   "y": 144.18,
+   "yaw": 247.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": 26.23,
+   "y": 141.17,
+   "yaw": 79.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": -4.5,
+   "y": 156.32,
+   "yaw": 271.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": -34.6,
+   "y": 139.37,
+   "yaw": 103.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": -68.95,
+   "y": 140.37,
+   "yaw": 297.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": -89.03,
+   "y": 112.65,
+   "yaw": 129.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": -120.82,
+   "y": 99.28,
+   "yaw": 321.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": -127.69,
+   "y": 65.66,
+   "yaw": 153.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": -151.06,
+   "y": 40.42,
+   "yaw": 345.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": -143.41,
+   "y": 6.88,
+   "yaw": 177.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": -154.26,
+   "y": -25.67,
+   "yaw": 9.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": -133.39,
+   "y": -53.14,
+   "yaw": 201.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": -129.84,
+   "y": -87.18,
+   "yaw": 33.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": -99.57,
+   "y": -103.47,
+   "yaw": 227.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": -81.97,
+   "y": -133.18,
+   "yaw": 59.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": -47.77,
+   "y": -135.4,
+   "yaw": 251.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": -19.55,
+   "y": -155.15,
+   "yaw": 83.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": 12.6,
+   "y": -143.02,
+   "yaw": 275.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": 46.36,
+   "y": -149.35,
+   "yaw": 107.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": 70.71,
+   "y": -124.96,
+   "yaw": 299.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": 103.99,
+   "y": -116.81,
+   "yaw": 131.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": 116.13,
+   "y": -84.47,
+   "yaw": 323.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": 143.08,
+   "y": -63.14,
+   "yaw": 157.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": 140.63,
+   "y": -29.0,
+   "yaw": 349.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": -5.9,
+   "y": 42.0,
+   "yaw": 0.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": 5.9,
+   "y": 74.0,
+   "yaw": 180.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": -5.9,
+   "y": 106.0,
+   "yaw": 0.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": 5.9,
+   "y": 138.0,
+   "yaw": 180.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": -5.9,
+   "y": 170.0,
+   "yaw": 0.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": 5.9,
+   "y": -42.0,
+   "yaw": 180.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": -5.9,
+   "y": -74.0,
+   "yaw": 0.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": 5.9,
+   "y": -106.0,
+   "yaw": 180.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": -5.9,
+   "y": -138.0,
+   "yaw": 0.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": 5.9,
+   "y": -170.0,
+   "yaw": 180.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": 42.0,
+   "y": 5.9,
+   "yaw": 270.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": 74.0,
+   "y": -5.9,
+   "yaw": 90.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": 106.0,
+   "y": 5.9,
+   "yaw": 270.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": 138.0,
+   "y": -5.9,
+   "yaw": 90.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": 170.0,
+   "y": 5.9,
+   "yaw": 270.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": -42.0,
+   "y": -5.9,
+   "yaw": 90.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": -74.0,
+   "y": 5.9,
+   "yaw": 270.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": -106.0,
+   "y": -5.9,
+   "yaw": 90.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": -138.0,
+   "y": 5.9,
+   "yaw": 270.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": -170.0,
+   "y": -5.9,
+   "yaw": 90.0,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "poste",
+   "x": 27.25,
+   "y": 11.29,
+   "yaw": 202.5,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": 11.29,
+   "y": 27.25,
+   "yaw": 247.5,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": -11.29,
+   "y": 27.25,
+   "yaw": 292.5,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": -27.25,
+   "y": 11.29,
+   "yaw": 337.5,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": -27.25,
+   "y": -11.29,
+   "yaw": 22.5,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": -11.29,
+   "y": -27.25,
+   "yaw": 67.5,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": 11.29,
+   "y": -27.25,
+   "yaw": 112.5,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "poste",
+   "x": 27.25,
+   "y": -11.29,
+   "yaw": 157.5,
+   "scale": 1.0,
+   "folder": "Postes",
+   "collide": true,
+   "light": 40.0
+  },
+  {
+   "key": "arv1",
+   "x": 32.04,
+   "y": 18.5,
+   "yaw": 42.8,
+   "scale": 0.763,
+   "folder": "Natureza",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 18.5,
+   "y": 32.04,
+   "yaw": 82.6,
+   "scale": 0.754,
+   "folder": "Natureza",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": -18.5,
+   "y": 32.04,
+   "yaw": 326.3,
+   "scale": 0.755,
+   "folder": "Natureza",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -32.04,
+   "y": 18.5,
+   "yaw": 338.8,
+   "scale": 0.784,
+   "folder": "Natureza",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -32.04,
+   "y": -18.5,
+   "yaw": 137.6,
+   "scale": 0.814,
+   "folder": "Natureza",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -18.5,
+   "y": -32.04,
+   "yaw": 263.6,
+   "scale": 0.785,
+   "folder": "Natureza",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 18.5,
+   "y": -32.04,
+   "yaw": 18.9,
+   "scale": 0.753,
+   "folder": "Natureza",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 32.04,
+   "y": -18.5,
+   "yaw": 219.5,
+   "scale": 0.77,
+   "folder": "Natureza",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 135.36,
+   "y": 12.98,
+   "yaw": 70.3,
+   "scale": 0.777,
+   "folder": "Natureza",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 130.43,
+   "y": 38.47,
+   "yaw": 176.8,
+   "scale": 0.847,
+   "folder": "Natureza",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": 43.82,
+   "y": 128.73,
+   "yaw": 163.7,
+   "scale": 0.97,
+   "folder": "Natureza",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 18.56,
+   "y": 134.72,
+   "yaw": 341.3,
+   "scale": 0.776,
+   "folder": "Natureza",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -57.51,
+   "y": 123.22,
+   "yaw": 83.9,
+   "scale": 0.868,
+   "folder": "Natureza",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -79.89,
+   "y": 110.06,
+   "yaw": 285.4,
+   "scale": 0.962,
+   "folder": "Natureza",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -126.81,
+   "y": 49.1,
+   "yaw": 113.0,
+   "scale": 0.824,
+   "folder": "Natureza",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -54.29,
+   "y": -124.68,
+   "yaw": 304.6,
+   "scale": 0.825,
+   "folder": "Natureza",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": 138.34,
+   "y": 21.35,
+   "yaw": 161.1,
+   "scale": 0.831,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 138.25,
+   "y": 21.68,
+   "yaw": 116.6,
+   "scale": 1.079,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 120.68,
+   "y": 20.22,
+   "yaw": 95.7,
+   "scale": 0.728,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": 110.88,
+   "y": 84.26,
+   "yaw": 149.8,
+   "scale": 0.917,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": 111.77,
+   "y": 82.82,
+   "yaw": 290.3,
+   "scale": 0.968,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": 100.25,
+   "y": 99.83,
+   "yaw": 221.1,
+   "scale": 0.997,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 102.54,
+   "y": 97.32,
+   "yaw": 15.2,
+   "scale": 0.931,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 89.93,
+   "y": 86.65,
+   "yaw": 251.2,
+   "scale": 0.935,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": 87.79,
+   "y": 110.38,
+   "yaw": 323.4,
+   "scale": 0.888,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": 89.71,
+   "y": 108.86,
+   "yaw": 36.8,
+   "scale": 1.063,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 81.39,
+   "y": 98.17,
+   "yaw": 316.0,
+   "scale": 0.87,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": 73.47,
+   "y": 120.79,
+   "yaw": 197.5,
+   "scale": 1.004,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": -18.29,
+   "y": 137.58,
+   "yaw": 177.2,
+   "scale": 1.059,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": -106.34,
+   "y": 91.56,
+   "yaw": 303.1,
+   "scale": 1.049,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -92.84,
+   "y": 82.45,
+   "yaw": 25.4,
+   "scale": 0.878,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -124.51,
+   "y": 66.32,
+   "yaw": 197.4,
+   "scale": 1.019,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -125.21,
+   "y": 65.25,
+   "yaw": 82.3,
+   "scale": 1.026,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -137.62,
+   "y": -31.15,
+   "yaw": 20.2,
+   "scale": 1.044,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -121.59,
+   "y": -72.36,
+   "yaw": 32.5,
+   "scale": 0.911,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": -110.55,
+   "y": -86.99,
+   "yaw": 102.9,
+   "scale": 1.012,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": -97.56,
+   "y": -79.12,
+   "yaw": 10.1,
+   "scale": 0.932,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": 122.95,
+   "y": -65.77,
+   "yaw": 307.5,
+   "scale": 0.968,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": 126.03,
+   "y": -60.87,
+   "yaw": 206.0,
+   "scale": 1.097,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": 110.38,
+   "y": -54.81,
+   "yaw": 86.4,
+   "scale": 0.893,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": 130.16,
+   "y": -49.87,
+   "yaw": 46.7,
+   "scale": 0.998,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": 130.36,
+   "y": -49.3,
+   "yaw": 151.8,
+   "scale": 0.839,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 137.38,
+   "y": 79.98,
+   "yaw": 13.5,
+   "scale": 1.099,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": 102.3,
+   "y": 121.16,
+   "yaw": 67.0,
+   "scale": 0.976,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 109.38,
+   "y": 136.33,
+   "yaw": 40.3,
+   "scale": 0.938,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 88.97,
+   "y": 134.47,
+   "yaw": 24.8,
+   "scale": 0.849,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": 50.99,
+   "y": 151.06,
+   "yaw": 200.8,
+   "scale": 0.939,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": 52.98,
+   "y": 150.31,
+   "yaw": 71.7,
+   "scale": 0.954,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": 55.49,
+   "y": 163.4,
+   "yaw": 294.8,
+   "scale": 0.933,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": -76.88,
+   "y": 141.33,
+   "yaw": 204.6,
+   "scale": 1.098,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -73.4,
+   "y": 143.65,
+   "yaw": 100.9,
+   "scale": 1.047,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -86.6,
+   "y": 154.9,
+   "yaw": 226.2,
+   "scale": 0.895,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -104.78,
+   "y": 120.52,
+   "yaw": 178.2,
+   "scale": 0.854,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -107.05,
+   "y": 118.11,
+   "yaw": 44.0,
+   "scale": 0.918,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -141.13,
+   "y": -77.35,
+   "yaw": 184.4,
+   "scale": 1.006,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": -120.23,
+   "y": -103.66,
+   "yaw": 161.5,
+   "scale": 0.979,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -62.32,
+   "y": -148.83,
+   "yaw": 120.6,
+   "scale": 0.808,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": -44.08,
+   "y": -153.53,
+   "yaw": 75.6,
+   "scale": 1.055,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -45.26,
+   "y": -166.67,
+   "yaw": 90.5,
+   "scale": 0.774,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": 71.29,
+   "y": -142.04,
+   "yaw": 305.3,
+   "scale": 0.969,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": 85.15,
+   "y": -135.73,
+   "yaw": 203.5,
+   "scale": 0.992,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": 82.23,
+   "y": -138.03,
+   "yaw": 262.8,
+   "scale": 1.03,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": 105.6,
+   "y": -122.31,
+   "yaw": 330.1,
+   "scale": 1.086,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 99.44,
+   "y": -126.81,
+   "yaw": 196.6,
+   "scale": 0.858,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 111.85,
+   "y": -137.83,
+   "yaw": 116.8,
+   "scale": 0.891,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 138.36,
+   "y": -78.93,
+   "yaw": 53.9,
+   "scale": 0.805,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": 139.19,
+   "y": -77.82,
+   "yaw": 31.3,
+   "scale": 0.826,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 149.6,
+   "y": -89.01,
+   "yaw": 293.8,
+   "scale": 0.775,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": 145.77,
+   "y": -61.58,
+   "yaw": 210.7,
+   "scale": 0.819,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": 152.15,
+   "y": -42.29,
+   "yaw": 307.9,
+   "scale": 0.949,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": 150.97,
+   "y": -47.09,
+   "yaw": 211.4,
+   "scale": 1.077,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -8.48,
+   "y": 84.0,
+   "yaw": 321.6,
+   "scale": 0.91,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": -26.2,
+   "y": 87.06,
+   "yaw": 53.0,
+   "scale": 0.882,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": 8.18,
+   "y": -53.48,
+   "yaw": 276.6,
+   "scale": 0.896,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": 8.36,
+   "y": -49.47,
+   "yaw": 176.8,
+   "scale": 1.089,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": 9.87,
+   "y": -71.7,
+   "yaw": 357.6,
+   "scale": 0.934,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 10.6,
+   "y": -82.97,
+   "yaw": 350.5,
+   "scale": 0.968,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": 10.64,
+   "y": -83.64,
+   "yaw": 209.4,
+   "scale": 0.942,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": 9.81,
+   "y": -168.34,
+   "yaw": 36.1,
+   "scale": 0.8,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 27.25,
+   "y": -171.66,
+   "yaw": 40.5,
+   "scale": 0.936,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": -10.89,
+   "y": -56.48,
+   "yaw": 117.9,
+   "scale": 0.893,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -10.58,
+   "y": -48.99,
+   "yaw": 102.2,
+   "scale": 1.079,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": -9.34,
+   "y": -71.09,
+   "yaw": 235.8,
+   "scale": 0.925,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -9.32,
+   "y": -71.28,
+   "yaw": 116.4,
+   "scale": 1.052,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -9.75,
+   "y": -87.75,
+   "yaw": 333.1,
+   "scale": 0.871,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": -8.66,
+   "y": -106.93,
+   "yaw": 266.4,
+   "scale": 0.999,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": -8.25,
+   "y": -122.53,
+   "yaw": 27.5,
+   "scale": 0.996,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -26.19,
+   "y": -121.32,
+   "yaw": 82.0,
+   "scale": 0.944,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": -8.74,
+   "y": -173.35,
+   "yaw": 353.3,
+   "scale": 0.873,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": -9.17,
+   "y": -168.99,
+   "yaw": 353.6,
+   "scale": 0.816,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 107.2,
+   "y": 9.48,
+   "yaw": 218.4,
+   "scale": 1.081,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": 183.39,
+   "y": 9.91,
+   "yaw": 79.8,
+   "scale": 1.046,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 173.11,
+   "y": 10.23,
+   "yaw": 225.4,
+   "scale": 0.875,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 178.88,
+   "y": 27.99,
+   "yaw": 233.2,
+   "scale": 0.92,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": 55.09,
+   "y": -10.8,
+   "yaw": 37.0,
+   "scale": 0.834,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": 52.16,
+   "y": -11.05,
+   "yaw": 145.3,
+   "scale": 1.006,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 53.83,
+   "y": -28.31,
+   "yaw": 212.3,
+   "scale": 0.786,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": -52.87,
+   "y": -8.66,
+   "yaw": 102.4,
+   "scale": 1.061,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -124.31,
+   "y": -9.02,
+   "yaw": 0.1,
+   "scale": 0.945,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": -127.37,
+   "y": -8.9,
+   "yaw": 238.6,
+   "scale": 0.985,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": -90.91,
+   "y": 10.89,
+   "yaw": 338.9,
+   "scale": 1.05,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": -92.83,
+   "y": 10.93,
+   "yaw": 168.4,
+   "scale": 0.932,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": -167.56,
+   "y": 10.52,
+   "yaw": 67.3,
+   "scale": 0.961,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -170.41,
+   "y": 23.14,
+   "yaw": 165.6,
+   "scale": 0.763,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 130.1,
+   "y": 113.5,
+   "yaw": 139.7,
+   "scale": 1.082,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": 161.98,
+   "y": 127.15,
+   "yaw": 184.5,
+   "scale": 0.902,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 163.08,
+   "y": 128.07,
+   "yaw": 226.5,
+   "scale": 0.919,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 170.96,
+   "y": 112.6,
+   "yaw": 97.7,
+   "scale": 0.743,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 85.46,
+   "y": 64.01,
+   "yaw": 321.4,
+   "scale": 0.968,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": 105.27,
+   "y": -57.11,
+   "yaw": 228.8,
+   "scale": 0.884,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 106.47,
+   "y": -69.84,
+   "yaw": 156.0,
+   "scale": 0.744,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": 78.71,
+   "y": -54.35,
+   "yaw": 223.9,
+   "scale": 1.009,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": 84.66,
+   "y": -55.21,
+   "yaw": 47.2,
+   "scale": 0.995,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": 64.1,
+   "y": -50.6,
+   "yaw": 152.3,
+   "scale": 0.957,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": 63.11,
+   "y": -50.47,
+   "yaw": 197.6,
+   "scale": 1.008,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 136.02,
+   "y": -119.77,
+   "yaw": 261.5,
+   "scale": 1.007,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": 149.86,
+   "y": -129.63,
+   "yaw": 59.8,
+   "scale": 1.093,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 148.73,
+   "y": -128.46,
+   "yaw": 304.5,
+   "scale": 1.072,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 161.76,
+   "y": -119.86,
+   "yaw": 156.3,
+   "scale": 0.736,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 122.09,
+   "y": -123.15,
+   "yaw": 156.6,
+   "scale": 0.876,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": 119.66,
+   "y": -140.12,
+   "yaw": 70.7,
+   "scale": 0.945,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 36.13,
+   "y": -127.2,
+   "yaw": 305.1,
+   "scale": 0.803,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": 35.68,
+   "y": -77.06,
+   "yaw": 349.0,
+   "scale": 1.03,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": 50.53,
+   "y": -83.74,
+   "yaw": 244.4,
+   "scale": 0.776,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -121.98,
+   "y": -127.79,
+   "yaw": 83.5,
+   "scale": 0.986,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": -125.53,
+   "y": -129.55,
+   "yaw": 276.5,
+   "scale": 1.055,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -135.68,
+   "y": -138.4,
+   "yaw": 126.5,
+   "scale": 0.919,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -127.38,
+   "y": -148.48,
+   "yaw": 67.9,
+   "scale": 0.713,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -149.92,
+   "y": -134.32,
+   "yaw": 88.8,
+   "scale": 0.838,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -149.24,
+   "y": -133.74,
+   "yaw": 108.5,
+   "scale": 0.992,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -157.17,
+   "y": -120.57,
+   "yaw": 116.3,
+   "scale": 0.923,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 88.71,
+   "y": -99.51,
+   "yaw": 85.1,
+   "scale": 1.016,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": 69.33,
+   "y": -89.15,
+   "yaw": 14.9,
+   "scale": 1.081,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -55.14,
+   "y": -77.59,
+   "yaw": 291.6,
+   "scale": 0.891,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": -66.7,
+   "y": -65.61,
+   "yaw": 157.4,
+   "scale": 0.917,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": -63.49,
+   "y": -86.17,
+   "yaw": 213.5,
+   "scale": 0.815,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": -63.28,
+   "y": -85.86,
+   "yaw": 356.2,
+   "scale": 1.034,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -167.79,
+   "y": -120.85,
+   "yaw": 138.0,
+   "scale": 1.073,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 173.39,
+   "y": 149.44,
+   "yaw": 210.7,
+   "scale": 0.962,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": 158.76,
+   "y": -115.89,
+   "yaw": 12.6,
+   "scale": 1.049,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": -13.03,
+   "y": 59.14,
+   "yaw": 260.2,
+   "scale": 1.02,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -28.67,
+   "y": 60.5,
+   "yaw": 96.2,
+   "scale": 0.728,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": -106.37,
+   "y": -123.36,
+   "yaw": 146.1,
+   "scale": 0.906,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -97.96,
+   "y": -136.89,
+   "yaw": 115.6,
+   "scale": 0.909,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": -172.48,
+   "y": 50.28,
+   "yaw": 273.6,
+   "scale": 1.067,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -187.43,
+   "y": 55.07,
+   "yaw": 252.4,
+   "scale": 0.918,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -64.15,
+   "y": -47.74,
+   "yaw": 9.5,
+   "scale": 1.004,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -63.09,
+   "y": -47.24,
+   "yaw": 4.6,
+   "scale": 1.068,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -67.57,
+   "y": -31.34,
+   "yaw": 50.8,
+   "scale": 0.916,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": 96.56,
+   "y": 152.85,
+   "yaw": 233.5,
+   "scale": 0.941,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 108.17,
+   "y": 163.61,
+   "yaw": 190.9,
+   "scale": 0.889,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -78.73,
+   "y": -65.9,
+   "yaw": 26.9,
+   "scale": 1.012,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": -88.98,
+   "y": -76.78,
+   "yaw": 228.2,
+   "scale": 1.087,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": -85.0,
+   "y": -76.06,
+   "yaw": 239.4,
+   "scale": 0.927,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -89.42,
+   "y": -63.59,
+   "yaw": 313.0,
+   "scale": 0.894,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": -57.4,
+   "y": -162.79,
+   "yaw": 113.3,
+   "scale": 0.911,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": -173.11,
+   "y": -14.09,
+   "yaw": 157.0,
+   "scale": 0.863,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -173.41,
+   "y": -30.93,
+   "yaw": 81.5,
+   "scale": 0.893,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -143.12,
+   "y": 119.41,
+   "yaw": 287.5,
+   "scale": 0.935,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -143.0,
+   "y": 119.14,
+   "yaw": 60.4,
+   "scale": 1.056,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -127.97,
+   "y": 125.07,
+   "yaw": 138.1,
+   "scale": 0.95,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -178.43,
+   "y": -132.48,
+   "yaw": 55.5,
+   "scale": 0.981,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": -178.29,
+   "y": -131.86,
+   "yaw": 240.4,
+   "scale": 0.981,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -91.27,
+   "y": 79.78,
+   "yaw": 65.7,
+   "scale": 1.097,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -87.11,
+   "y": 83.88,
+   "yaw": 305.4,
+   "scale": 1.092,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -94.29,
+   "y": -140.28,
+   "yaw": 273.2,
+   "scale": 0.882,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": -92.4,
+   "y": -141.95,
+   "yaw": 85.7,
+   "scale": 1.045,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -139.78,
+   "y": -123.35,
+   "yaw": 135.4,
+   "scale": 0.803,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": 51.22,
+   "y": -177.7,
+   "yaw": 67.2,
+   "scale": 0.92,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -48.74,
+   "y": -50.9,
+   "yaw": 150.6,
+   "scale": 0.913,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -43.28,
+   "y": -35.11,
+   "yaw": 5.5,
+   "scale": 0.938,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -69.09,
+   "y": -18.5,
+   "yaw": 33.2,
+   "scale": 0.901,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": -144.57,
+   "y": -94.16,
+   "yaw": 128.7,
+   "scale": 0.948,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": -144.04,
+   "y": -95.17,
+   "yaw": 88.8,
+   "scale": 0.872,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb2",
+   "x": 39.99,
+   "y": -179.18,
+   "yaw": 189.1,
+   "scale": 0.844,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 43.25,
+   "y": -192.17,
+   "yaw": 164.1,
+   "scale": 0.732,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 13.15,
+   "y": 96.52,
+   "yaw": 221.2,
+   "scale": 0.863,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 29.74,
+   "y": 95.69,
+   "yaw": 52.3,
+   "scale": 0.87,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": 46.26,
+   "y": 29.24,
+   "yaw": 279.5,
+   "scale": 1.031,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -65.57,
+   "y": 115.92,
+   "yaw": 171.0,
+   "scale": 1.02,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -67.16,
+   "y": 114.99,
+   "yaw": 98.4,
+   "scale": 0.95,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": 161.86,
+   "y": -64.9,
+   "yaw": 148.8,
+   "scale": 0.914,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 174.49,
+   "y": -74.41,
+   "yaw": 254.4,
+   "scale": 0.853,
+   "folder": "Jardins",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "flor2",
+   "x": 49.63,
+   "y": -45.25,
+   "yaw": 29.7,
+   "scale": 0.886,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "flor",
+   "x": -65.3,
+   "y": 24.24,
+   "yaw": 305.1,
+   "scale": 0.979,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arb1",
+   "x": -65.18,
+   "y": 22.67,
+   "yaw": 76.2,
+   "scale": 0.902,
+   "folder": "Jardins",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "placa",
+   "x": 104.93,
+   "y": 44.83,
+   "yaw": 64.9,
+   "scale": 1.2,
+   "folder": "Placas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "barril",
+   "x": -114.71,
+   "y": -24.24,
+   "yaw": 88.0,
+   "scale": 1.035,
+   "folder": "Props",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "barril",
+   "x": -117.0,
+   "y": -23.29,
+   "yaw": 238.0,
+   "scale": 0.988,
+   "folder": "Props",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "placa",
+   "x": -105.0,
+   "y": -17.5,
+   "yaw": 90.0,
+   "scale": 1.2,
+   "folder": "Placas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "placa",
+   "x": 57.16,
+   "y": 83.78,
+   "yaw": 270.0,
+   "scale": 1.2,
+   "folder": "Placas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "barril",
+   "x": -116.92,
+   "y": 36.57,
+   "yaw": 92.7,
+   "scale": 1.057,
+   "folder": "Props",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "barril",
+   "x": -116.52,
+   "y": 36.89,
+   "yaw": 284.3,
+   "scale": 0.961,
+   "folder": "Props",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "placa",
+   "x": -111.5,
+   "y": 31.08,
+   "yaw": 268.7,
+   "scale": 1.2,
+   "folder": "Placas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "placa",
+   "x": -48.79,
+   "y": 142.52,
+   "yaw": 296.4,
+   "scale": 1.2,
+   "folder": "Placas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "placa",
+   "x": 150.87,
+   "y": 142.29,
+   "yaw": 294.0,
+   "scale": 1.2,
+   "folder": "Placas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "placa",
+   "x": -146.55,
+   "y": -150.75,
+   "yaw": 90.0,
+   "scale": 1.2,
+   "folder": "Placas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "placa",
+   "x": 91.41,
+   "y": -29.57,
+   "yaw": 175.9,
+   "scale": 1.2,
+   "folder": "Placas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "barril",
+   "x": 146.78,
+   "y": -158.56,
+   "yaw": 289.1,
+   "scale": 1.096,
+   "folder": "Props",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "gerador",
+   "x": 147.96,
+   "y": -157.01,
+   "yaw": 310.0,
+   "scale": 0.965,
+   "folder": "Props",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "barricada",
+   "x": -140.82,
+   "y": 86.07,
+   "yaw": 224.2,
+   "scale": 1.08,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": -135.47,
+   "y": 93.16,
+   "yaw": 180.7,
+   "scale": 0.912,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": -134.11,
+   "y": 85.58,
+   "yaw": 40.4,
+   "scale": 1.039,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "barricada",
+   "x": -137.95,
+   "y": 98.19,
+   "yaw": 48.8,
+   "scale": 1.03,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra3",
+   "x": -134.06,
+   "y": 89.12,
+   "yaw": 77.4,
+   "scale": 1.056,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": -140.65,
+   "y": 92.82,
+   "yaw": 221.7,
+   "scale": 1.007,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": -141.84,
+   "y": 93.57,
+   "yaw": 135.4,
+   "scale": 0.941,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "ossos",
+   "x": -143.14,
+   "y": 88.07,
+   "yaw": 108.9,
+   "scale": 0.935,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": -143.94,
+   "y": 87.81,
+   "yaw": 134.0,
+   "scale": 0.99,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "cristal_peq",
+   "x": -137.36,
+   "y": 89.13,
+   "yaw": 235.8,
+   "scale": 0.322,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": -174.7,
+   "y": -54.84,
+   "yaw": 260.9,
+   "scale": 1.038,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra3",
+   "x": -171.62,
+   "y": -66.45,
+   "yaw": 139.2,
+   "scale": 0.926,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": -165.66,
+   "y": -62.31,
+   "yaw": 56.9,
+   "scale": 1.031,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "tronco",
+   "x": -175.64,
+   "y": -58.66,
+   "yaw": 310.3,
+   "scale": 0.995,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "barricada",
+   "x": -172.92,
+   "y": -53.56,
+   "yaw": 185.9,
+   "scale": 0.926,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "barricada",
+   "x": -169.01,
+   "y": -63.18,
+   "yaw": 17.5,
+   "scale": 1.017,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra1",
+   "x": -166.76,
+   "y": -58.09,
+   "yaw": 309.1,
+   "scale": 1.098,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra1",
+   "x": -174.27,
+   "y": -63.38,
+   "yaw": 171.5,
+   "scale": 1.055,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "ossos",
+   "x": -174.05,
+   "y": -58.74,
+   "yaw": 99.4,
+   "scale": 0.967,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "cristal_peq",
+   "x": -171.72,
+   "y": -59.72,
+   "yaw": 84.4,
+   "scale": 0.305,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "tronco",
+   "x": 158.12,
+   "y": 59.01,
+   "yaw": 194.5,
+   "scale": 0.983,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": 165.42,
+   "y": 55.93,
+   "yaw": 95.4,
+   "scale": 1.015,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": 174.03,
+   "y": 60.57,
+   "yaw": 186.2,
+   "scale": 0.96,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": 162.26,
+   "y": 62.8,
+   "yaw": 226.6,
+   "scale": 0.959,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "ossos",
+   "x": 166.89,
+   "y": 56.74,
+   "yaw": 209.4,
+   "scale": 0.968,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": 165.92,
+   "y": 54.24,
+   "yaw": 348.2,
+   "scale": 1.007,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "ossos",
+   "x": 160.04,
+   "y": 60.36,
+   "yaw": 147.5,
+   "scale": 1.006,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "cristal_peq",
+   "x": 163.7,
+   "y": 62.18,
+   "yaw": 160.3,
+   "scale": 0.299,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "barricada",
+   "x": 87.89,
+   "y": -168.99,
+   "yaw": 37.4,
+   "scale": 1.03,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra3",
+   "x": 96.34,
+   "y": -173.44,
+   "yaw": 357.8,
+   "scale": 0.902,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "barricada",
+   "x": 92.92,
+   "y": -168.82,
+   "yaw": 225.0,
+   "scale": 1.037,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "tronco",
+   "x": 91.78,
+   "y": -164.22,
+   "yaw": 52.6,
+   "scale": 1.089,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "barricada",
+   "x": 85.47,
+   "y": -176.78,
+   "yaw": 65.5,
+   "scale": 1.039,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": 90.42,
+   "y": -174.7,
+   "yaw": 19.5,
+   "scale": 0.926,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra1",
+   "x": 91.88,
+   "y": -175.1,
+   "yaw": 227.6,
+   "scale": 1.09,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "cristal_peq",
+   "x": 94.84,
+   "y": -173.0,
+   "yaw": 62.6,
+   "scale": 0.39,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "barricada",
+   "x": -55.91,
+   "y": 170.22,
+   "yaw": 253.3,
+   "scale": 1.066,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra3",
+   "x": -56.68,
+   "y": 176.5,
+   "yaw": 275.5,
+   "scale": 0.935,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": -63.47,
+   "y": 172.88,
+   "yaw": 252.3,
+   "scale": 1.006,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "tronco",
+   "x": -51.6,
+   "y": 177.0,
+   "yaw": 313.6,
+   "scale": 0.92,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "tronco",
+   "x": -52.69,
+   "y": 175.57,
+   "yaw": 313.2,
+   "scale": 1.031,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": -57.52,
+   "y": 174.9,
+   "yaw": 161.4,
+   "scale": 1.07,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra1",
+   "x": -57.64,
+   "y": 176.43,
+   "yaw": 59.0,
+   "scale": 0.95,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra1",
+   "x": -62.71,
+   "y": 173.88,
+   "yaw": 119.4,
+   "scale": 0.992,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra1",
+   "x": -57.6,
+   "y": 169.26,
+   "yaw": 75.4,
+   "scale": 0.912,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "cristal_peq",
+   "x": -56.61,
+   "y": 171.41,
+   "yaw": 151.3,
+   "scale": 0.289,
+   "folder": "Ruinas",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": 195.0,
+   "y": 150.26,
+   "yaw": 250.3,
+   "scale": 0.821,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": -100.58,
+   "y": -195.0,
+   "yaw": 317.2,
+   "scale": 1.198,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": -195.0,
+   "y": -71.93,
+   "yaw": 8.6,
+   "scale": 0.857,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": 195.0,
+   "y": -138.41,
+   "yaw": 188.0,
+   "scale": 0.927,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": -133.17,
+   "y": -195.0,
+   "yaw": 10.1,
+   "scale": 1.171,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": -195.0,
+   "y": 91.17,
+   "yaw": 279.6,
+   "scale": 0.971,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra1",
+   "x": 28.59,
+   "y": 195.0,
+   "yaw": 256.4,
+   "scale": 1.148,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": 195.0,
+   "y": 151.76,
+   "yaw": 240.7,
+   "scale": 1.227,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 38.05,
+   "y": -195.0,
+   "yaw": 44.6,
+   "scale": 1.11,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": -195.0,
+   "y": 109.07,
+   "yaw": 288.5,
+   "scale": 0.995,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": 163.57,
+   "y": 195.0,
+   "yaw": 205.5,
+   "scale": 1.169,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": 195.0,
+   "y": -50.96,
+   "yaw": 359.2,
+   "scale": 0.939,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": -16.25,
+   "y": -195.0,
+   "yaw": 325.6,
+   "scale": 1.168,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra1",
+   "x": -195.0,
+   "y": -154.01,
+   "yaw": 69.0,
+   "scale": 1.049,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": -61.35,
+   "y": 195.0,
+   "yaw": 237.3,
+   "scale": 0.887,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 195.0,
+   "y": -158.09,
+   "yaw": 112.2,
+   "scale": 1.111,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra1",
+   "x": -62.68,
+   "y": -195.0,
+   "yaw": 299.9,
+   "scale": 0.819,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": -195.0,
+   "y": -107.81,
+   "yaw": 355.8,
+   "scale": 1.043,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": -53.14,
+   "y": 195.0,
+   "yaw": 8.5,
+   "scale": 0.954,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 195.0,
+   "y": 91.52,
+   "yaw": 58.3,
+   "scale": 1.289,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra1",
+   "x": 80.4,
+   "y": -195.0,
+   "yaw": 70.4,
+   "scale": 1.138,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra1",
+   "x": -195.0,
+   "y": 105.53,
+   "yaw": 225.8,
+   "scale": 0.933,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra1",
+   "x": -25.59,
+   "y": 195.0,
+   "yaw": 272.3,
+   "scale": 1.022,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "arb3",
+   "x": 195.0,
+   "y": -112.67,
+   "yaw": 341.9,
+   "scale": 0.827,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": 95.6,
+   "y": -195.0,
+   "yaw": 96.4,
+   "scale": 1.057,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "pedra2",
+   "x": -195.0,
+   "y": -63.74,
+   "yaw": 30.2,
+   "scale": 0.948,
+   "folder": "Muralha",
+   "collide": true,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 282.92,
+   "y": -1.57,
+   "yaw": 249.8,
+   "scale": 2.268,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 268.18,
+   "y": 41.64,
+   "yaw": 179.6,
+   "scale": 1.649,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 316.06,
+   "y": 101.58,
+   "yaw": 163.9,
+   "scale": 2.511,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 302.06,
+   "y": 130.62,
+   "yaw": 88.8,
+   "scale": 2.477,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 288.66,
+   "y": 184.51,
+   "yaw": 283.0,
+   "scale": 1.929,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 283.58,
+   "y": 241.57,
+   "yaw": 59.0,
+   "scale": 2.48,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 258.73,
+   "y": 302.59,
+   "yaw": 36.6,
+   "scale": 2.07,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 210.41,
+   "y": 312.1,
+   "yaw": 122.9,
+   "scale": 1.61,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 124.1,
+   "y": 308.92,
+   "yaw": 216.3,
+   "scale": 2.202,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 69.21,
+   "y": 265.37,
+   "yaw": 107.4,
+   "scale": 1.95,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 36.36,
+   "y": 287.75,
+   "yaw": 89.2,
+   "scale": 1.753,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -7.9,
+   "y": 286.89,
+   "yaw": 85.3,
+   "scale": 1.708,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -52.02,
+   "y": 318.74,
+   "yaw": 290.0,
+   "scale": 1.606,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -89.57,
+   "y": 266.61,
+   "yaw": 29.3,
+   "scale": 1.998,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -136.9,
+   "y": 289.55,
+   "yaw": 252.7,
+   "scale": 2.047,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -208.19,
+   "y": 292.88,
+   "yaw": 271.8,
+   "scale": 1.98,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -237.26,
+   "y": 268.66,
+   "yaw": 299.7,
+   "scale": 1.889,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -291.63,
+   "y": 241.23,
+   "yaw": 91.1,
+   "scale": 2.365,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -296.09,
+   "y": 195.17,
+   "yaw": 257.5,
+   "scale": 1.707,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -317.44,
+   "y": 134.16,
+   "yaw": 235.8,
+   "scale": 2.278,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -294.07,
+   "y": 78.79,
+   "yaw": 195.0,
+   "scale": 2.469,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -286.34,
+   "y": 45.75,
+   "yaw": 96.0,
+   "scale": 1.604,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -298.22,
+   "y": -2.14,
+   "yaw": 329.8,
+   "scale": 1.915,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -313.04,
+   "y": -35.61,
+   "yaw": 109.3,
+   "scale": 2.27,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -318.08,
+   "y": -76.48,
+   "yaw": 231.4,
+   "scale": 2.037,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -314.67,
+   "y": -150.22,
+   "yaw": 224.4,
+   "scale": 2.38,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -296.71,
+   "y": -211.16,
+   "yaw": 235.8,
+   "scale": 1.639,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -312.19,
+   "y": -290.71,
+   "yaw": 163.1,
+   "scale": 2.331,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -226.45,
+   "y": -285.83,
+   "yaw": 352.7,
+   "scale": 1.672,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -181.62,
+   "y": -313.41,
+   "yaw": 41.0,
+   "scale": 2.284,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -134.05,
+   "y": -297.93,
+   "yaw": 162.3,
+   "scale": 2.063,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -80.36,
+   "y": -300.86,
+   "yaw": 181.3,
+   "scale": 2.492,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -39.33,
+   "y": -276.59,
+   "yaw": 265.4,
+   "scale": 1.917,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": -13.08,
+   "y": -287.38,
+   "yaw": 327.5,
+   "scale": 2.059,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 29.88,
+   "y": -305.43,
+   "yaw": 203.8,
+   "scale": 2.372,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 82.83,
+   "y": -318.65,
+   "yaw": 293.5,
+   "scale": 2.487,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 133.61,
+   "y": -265.27,
+   "yaw": 286.4,
+   "scale": 2.043,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 192.9,
+   "y": -271.0,
+   "yaw": 309.7,
+   "scale": 2.463,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 266.19,
+   "y": -280.36,
+   "yaw": 228.5,
+   "scale": 1.635,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 307.28,
+   "y": -272.68,
+   "yaw": 72.7,
+   "scale": 1.716,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 265.83,
+   "y": -180.44,
+   "yaw": 82.4,
+   "scale": 2.422,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 285.12,
+   "y": -129.4,
+   "yaw": 59.5,
+   "scale": 1.689,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 295.33,
+   "y": -83.03,
+   "yaw": 71.4,
+   "scale": 2.095,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "penhasco",
+   "x": 283.67,
+   "y": -54.74,
+   "yaw": 161.4,
+   "scale": 2.539,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": -393.87,
+   "y": 261.05,
+   "yaw": 342.0,
+   "scale": 1.061,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 41.5,
+   "y": -376.76,
+   "yaw": 132.6,
+   "scale": 1.424,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -315.04,
+   "y": -388.66,
+   "yaw": 57.8,
+   "scale": 1.641,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": 297.99,
+   "y": -218.07,
+   "yaw": 136.9,
+   "scale": 1.256,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv2",
+   "x": 293.68,
+   "y": -330.05,
+   "yaw": 66.9,
+   "scale": 1.503,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 213.1,
+   "y": -409.94,
+   "yaw": 211.8,
+   "scale": 1.794,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": 122.79,
+   "y": -402.23,
+   "yaw": 158.2,
+   "scale": 1.345,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv2",
+   "x": -258.2,
+   "y": -178.46,
+   "yaw": 146.5,
+   "scale": 1.682,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -207.49,
+   "y": 377.73,
+   "yaw": 43.9,
+   "scale": 1.644,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 302.99,
+   "y": -286.39,
+   "yaw": 57.3,
+   "scale": 1.684,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": -322.62,
+   "y": 307.54,
+   "yaw": 300.9,
+   "scale": 1.618,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": -230.06,
+   "y": 318.71,
+   "yaw": 64.3,
+   "scale": 1.693,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -104.65,
+   "y": 356.78,
+   "yaw": 80.2,
+   "scale": 1.277,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -401.65,
+   "y": 268.87,
+   "yaw": 332.5,
+   "scale": 1.003,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -136.97,
+   "y": -407.72,
+   "yaw": 81.1,
+   "scale": 1.661,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv2",
+   "x": 239.24,
+   "y": -69.07,
+   "yaw": 107.5,
+   "scale": 1.614,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -266.59,
+   "y": -119.3,
+   "yaw": 266.1,
+   "scale": 1.459,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": 243.94,
+   "y": 340.45,
+   "yaw": 147.2,
+   "scale": 1.231,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 317.1,
+   "y": 179.78,
+   "yaw": 152.3,
+   "scale": 1.592,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": 347.65,
+   "y": 71.95,
+   "yaw": 326.4,
+   "scale": 1.467,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": -224.05,
+   "y": -267.78,
+   "yaw": 275.7,
+   "scale": 1.431,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": 174.1,
+   "y": -327.64,
+   "yaw": 110.0,
+   "scale": 1.744,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 248.86,
+   "y": -85.38,
+   "yaw": 293.6,
+   "scale": 1.231,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": 308.67,
+   "y": -310.26,
+   "yaw": 56.4,
+   "scale": 1.482,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": 189.73,
+   "y": 271.22,
+   "yaw": 157.0,
+   "scale": 1.081,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -152.13,
+   "y": -229.3,
+   "yaw": 100.1,
+   "scale": 1.626,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 314.92,
+   "y": 80.29,
+   "yaw": 234.1,
+   "scale": 1.042,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": 315.91,
+   "y": -335.54,
+   "yaw": 250.1,
+   "scale": 1.111,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv2",
+   "x": -87.62,
+   "y": 226.44,
+   "yaw": 182.8,
+   "scale": 1.125,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv2",
+   "x": -286.49,
+   "y": -182.34,
+   "yaw": 185.8,
+   "scale": 1.471,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": -312.9,
+   "y": 61.1,
+   "yaw": 317.1,
+   "scale": 1.735,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": 181.3,
+   "y": 343.17,
+   "yaw": 192.8,
+   "scale": 1.559,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": -374.75,
+   "y": -158.24,
+   "yaw": 326.4,
+   "scale": 1.338,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 262.89,
+   "y": 120.11,
+   "yaw": 287.9,
+   "scale": 1.682,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": 339.55,
+   "y": 133.99,
+   "yaw": 184.7,
+   "scale": 1.523,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": 64.91,
+   "y": -268.82,
+   "yaw": 245.7,
+   "scale": 1.101,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv2",
+   "x": -236.02,
+   "y": -300.41,
+   "yaw": 25.5,
+   "scale": 1.237,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 36.49,
+   "y": 246.72,
+   "yaw": 272.3,
+   "scale": 1.618,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -146.85,
+   "y": 232.96,
+   "yaw": 125.4,
+   "scale": 1.619,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -301.13,
+   "y": -144.47,
+   "yaw": 250.4,
+   "scale": 1.678,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -310.31,
+   "y": 52.88,
+   "yaw": 1.2,
+   "scale": 1.716,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 328.45,
+   "y": 215.84,
+   "yaw": 9.1,
+   "scale": 1.202,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -15.34,
+   "y": 277.66,
+   "yaw": 121.8,
+   "scale": 1.771,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -25.11,
+   "y": 368.18,
+   "yaw": 79.2,
+   "scale": 1.37,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": -424.72,
+   "y": -339.01,
+   "yaw": 276.5,
+   "scale": 1.492,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -426.23,
+   "y": 7.97,
+   "yaw": 241.5,
+   "scale": 1.19,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 277.5,
+   "y": -48.79,
+   "yaw": 159.3,
+   "scale": 1.739,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": -266.32,
+   "y": 239.41,
+   "yaw": 114.3,
+   "scale": 1.706,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 274.32,
+   "y": 57.97,
+   "yaw": 334.8,
+   "scale": 1.422,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": -337.94,
+   "y": 49.7,
+   "yaw": 330.3,
+   "scale": 1.543,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": -277.15,
+   "y": 395.77,
+   "yaw": 104.1,
+   "scale": 1.341,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 341.21,
+   "y": 330.93,
+   "yaw": 350.6,
+   "scale": 1.222,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": 366.03,
+   "y": 267.77,
+   "yaw": 85.2,
+   "scale": 1.025,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": -338.49,
+   "y": 122.44,
+   "yaw": 196.3,
+   "scale": 1.124,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": -372.55,
+   "y": -1.83,
+   "yaw": 249.4,
+   "scale": 1.548,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": 292.74,
+   "y": -351.89,
+   "yaw": 156.3,
+   "scale": 1.204,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": 270.84,
+   "y": 213.06,
+   "yaw": 329.9,
+   "scale": 1.463,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": -131.79,
+   "y": 243.11,
+   "yaw": 93.1,
+   "scale": 1.163,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -139.14,
+   "y": 273.25,
+   "yaw": 47.2,
+   "scale": 1.426,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": 246.61,
+   "y": -173.27,
+   "yaw": 77.1,
+   "scale": 1.762,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": 286.81,
+   "y": 184.07,
+   "yaw": 281.1,
+   "scale": 1.061,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -239.11,
+   "y": -59.19,
+   "yaw": 83.6,
+   "scale": 1.282,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": -140.54,
+   "y": -415.43,
+   "yaw": 167.0,
+   "scale": 1.195,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": 234.55,
+   "y": 117.17,
+   "yaw": 332.1,
+   "scale": 1.136,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": -284.62,
+   "y": 77.43,
+   "yaw": 148.5,
+   "scale": 1.292,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": -354.69,
+   "y": 193.06,
+   "yaw": 290.4,
+   "scale": 1.584,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 234.89,
+   "y": 159.56,
+   "yaw": 80.5,
+   "scale": 1.017,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": 148.27,
+   "y": -316.03,
+   "yaw": 78.9,
+   "scale": 1.3,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": -119.7,
+   "y": -420.25,
+   "yaw": 319.0,
+   "scale": 1.571,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -46.27,
+   "y": -284.78,
+   "yaw": 329.0,
+   "scale": 1.035,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -256.2,
+   "y": -49.72,
+   "yaw": 67.2,
+   "scale": 1.141,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": 87.8,
+   "y": 274.61,
+   "yaw": 334.1,
+   "scale": 1.488,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -58.19,
+   "y": 268.71,
+   "yaw": 145.7,
+   "scale": 1.755,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": -372.17,
+   "y": -252.18,
+   "yaw": 132.5,
+   "scale": 1.105,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv2",
+   "x": 358.4,
+   "y": -349.88,
+   "yaw": 111.1,
+   "scale": 1.255,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 10.96,
+   "y": -238.07,
+   "yaw": 117.5,
+   "scale": 1.593,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": 106.34,
+   "y": 428.04,
+   "yaw": 158.4,
+   "scale": 1.643,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": 317.27,
+   "y": 50.58,
+   "yaw": 118.7,
+   "scale": 1.498,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv2",
+   "x": 404.11,
+   "y": -126.16,
+   "yaw": 109.9,
+   "scale": 1.036,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": -60.36,
+   "y": -322.0,
+   "yaw": 170.8,
+   "scale": 1.38,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": 416.65,
+   "y": -154.06,
+   "yaw": 177.6,
+   "scale": 1.547,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv2",
+   "x": 348.9,
+   "y": -221.09,
+   "yaw": 24.5,
+   "scale": 1.343,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -364.78,
+   "y": -156.7,
+   "yaw": 97.5,
+   "scale": 1.608,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": -317.06,
+   "y": -111.14,
+   "yaw": 218.3,
+   "scale": 1.619,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": 81.11,
+   "y": -387.3,
+   "yaw": 245.0,
+   "scale": 1.704,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 299.15,
+   "y": -61.35,
+   "yaw": 126.5,
+   "scale": 1.772,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": -13.1,
+   "y": 319.84,
+   "yaw": 3.9,
+   "scale": 1.096,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -25.64,
+   "y": -286.82,
+   "yaw": 70.2,
+   "scale": 1.778,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv2",
+   "x": 250.44,
+   "y": 4.84,
+   "yaw": 90.6,
+   "scale": 1.037,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": 328.16,
+   "y": 8.51,
+   "yaw": 86.3,
+   "scale": 1.492,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": 300.58,
+   "y": -256.99,
+   "yaw": 285.4,
+   "scale": 1.229,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": 422.11,
+   "y": 237.25,
+   "yaw": 281.7,
+   "scale": 1.354,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 88.79,
+   "y": 336.44,
+   "yaw": 311.9,
+   "scale": 1.2,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -173.57,
+   "y": -386.6,
+   "yaw": 341.4,
+   "scale": 1.737,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": -302.64,
+   "y": 69.0,
+   "yaw": 243.9,
+   "scale": 1.715,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": 14.05,
+   "y": -380.27,
+   "yaw": 205.1,
+   "scale": 1.765,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": -240.31,
+   "y": 404.58,
+   "yaw": 136.1,
+   "scale": 1.351,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": 392.99,
+   "y": 303.04,
+   "yaw": 333.3,
+   "scale": 1.336,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -359.16,
+   "y": 215.92,
+   "yaw": 83.3,
+   "scale": 1.343,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": 160.17,
+   "y": 327.19,
+   "yaw": 330.3,
+   "scale": 1.629,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 37.2,
+   "y": -297.42,
+   "yaw": 318.5,
+   "scale": 1.583,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv3",
+   "x": 344.56,
+   "y": 239.78,
+   "yaw": 177.4,
+   "scale": 1.037,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv2",
+   "x": -83.84,
+   "y": -362.64,
+   "yaw": 68.5,
+   "scale": 1.724,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": 385.77,
+   "y": 72.98,
+   "yaw": 257.6,
+   "scale": 1.24,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": -379.35,
+   "y": 15.95,
+   "yaw": 172.4,
+   "scale": 1.386,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv1",
+   "x": 294.38,
+   "y": -253.79,
+   "yaw": 35.6,
+   "scale": 1.657,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": -217.44,
+   "y": -244.01,
+   "yaw": 124.5,
+   "scale": 1.372,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arv4",
+   "x": 331.08,
+   "y": 44.94,
+   "yaw": 137.9,
+   "scale": 1.313,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cogu",
+   "x": -138.39,
+   "y": -250.79,
+   "yaw": 21.0,
+   "scale": 1.01,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "tentaculo",
+   "x": 261.29,
+   "y": 113.27,
+   "yaw": 99.0,
+   "scale": 1.422,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arvoremae",
+   "x": -330,
+   "y": 260,
+   "yaw": 231.2,
+   "scale": 1.6,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "arvoremae",
+   "x": 360,
+   "y": -250,
+   "yaw": 48.4,
+   "scale": 1.3,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cristal",
+   "x": 300,
+   "y": 330,
+   "yaw": 293.8,
+   "scale": 2.5,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "colmeia",
+   "x": -360,
+   "y": -320,
+   "yaw": 122.4,
+   "scale": 2.0,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  },
+  {
+   "key": "cristal",
+   "x": 40,
+   "y": 380,
+   "yaw": 134.8,
+   "scale": 1.8,
+   "folder": "Fora",
+   "collide": false,
+   "light": null
+  }
+ ],
+ "ruins": [
+  [
+   -140,
+   90
+  ],
+  [
+   -172,
+   -58
+  ],
+  [
+   166,
+   60
+  ],
+  [
+   92,
+   -172
+  ],
+  [
+   -58,
+   172
+  ]
+ ],
+ "roads": [
+  {
+   "name": "anel",
+   "width": 10.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     150.0,
+     0.0
+    ],
+    [
+     149.95,
+     2.62
+    ],
+    [
+     149.91,
+     5.23
+    ],
+    [
+     149.77,
+     7.85
+    ],
+    [
+     149.63,
+     10.46
+    ],
+    [
+     149.41,
+     13.07
+    ],
+    [
+     149.18,
+     15.68
+    ],
+    [
+     148.86,
+     18.28
+    ],
+    [
+     148.54,
+     20.88
+    ],
+    [
+     148.13,
+     23.46
+    ],
+    [
+     147.72,
+     26.05
+    ],
+    [
+     147.22,
+     28.62
+    ],
+    [
+     146.72,
+     31.19
+    ],
+    [
+     146.13,
+     33.74
+    ],
+    [
+     145.54,
+     36.29
+    ],
+    [
+     144.87,
+     38.82
+    ],
+    [
+     144.19,
+     41.35
+    ],
+    [
+     143.42,
+     43.85
+    ],
+    [
+     142.66,
+     46.35
+    ],
+    [
+     141.81,
+     48.83
+    ],
+    [
+     140.95,
+     51.3
+    ],
+    [
+     140.02,
+     53.75
+    ],
+    [
+     139.08,
+     56.19
+    ],
+    [
+     138.05,
+     58.6
+    ],
+    [
+     137.03,
+     61.01
+    ],
+    [
+     135.93,
+     63.38
+    ],
+    [
+     134.82,
+     65.76
+    ],
+    [
+     133.63,
+     68.09
+    ],
+    [
+     132.44,
+     70.42
+    ],
+    [
+     131.17,
+     72.71
+    ],
+    [
+     129.9,
+     75.0
+    ],
+    [
+     128.56,
+     77.24
+    ],
+    [
+     127.21,
+     79.49
+    ],
+    [
+     125.78,
+     81.68
+    ],
+    [
+     124.36,
+     83.88
+    ],
+    [
+     122.85,
+     86.02
+    ],
+    [
+     121.35,
+     88.17
+    ],
+    [
+     119.78,
+     90.26
+    ],
+    [
+     118.2,
+     92.35
+    ],
+    [
+     116.55,
+     94.38
+    ],
+    [
+     114.91,
+     96.42
+    ],
+    [
+     113.19,
+     98.39
+    ],
+    [
+     111.47,
+     100.37
+    ],
+    [
+     109.69,
+     102.28
+    ],
+    [
+     107.9,
+     104.2
+    ],
+    [
+     106.05,
+     106.05
+    ],
+    [
+     104.2,
+     107.9
+    ],
+    [
+     102.28,
+     109.69
+    ],
+    [
+     100.37,
+     111.47
+    ],
+    [
+     98.39,
+     113.19
+    ],
+    [
+     96.42,
+     114.91
+    ],
+    [
+     94.38,
+     116.55
+    ],
+    [
+     92.35,
+     118.2
+    ],
+    [
+     90.26,
+     119.78
+    ],
+    [
+     88.17,
+     121.35
+    ],
+    [
+     86.02,
+     122.85
+    ],
+    [
+     83.88,
+     124.36
+    ],
+    [
+     81.68,
+     125.78
+    ],
+    [
+     79.49,
+     127.21
+    ],
+    [
+     77.24,
+     128.56
+    ],
+    [
+     75.0,
+     129.9
+    ],
+    [
+     72.71,
+     131.17
+    ],
+    [
+     70.42,
+     132.44
+    ],
+    [
+     68.09,
+     133.63
+    ],
+    [
+     65.76,
+     134.82
+    ],
+    [
+     63.38,
+     135.93
+    ],
+    [
+     61.01,
+     137.03
+    ],
+    [
+     58.6,
+     138.05
+    ],
+    [
+     56.19,
+     139.08
+    ],
+    [
+     53.75,
+     140.02
+    ],
+    [
+     51.3,
+     140.95
+    ],
+    [
+     48.83,
+     141.81
+    ],
+    [
+     46.35,
+     142.66
+    ],
+    [
+     43.85,
+     143.42
+    ],
+    [
+     41.35,
+     144.19
+    ],
+    [
+     38.82,
+     144.87
+    ],
+    [
+     36.29,
+     145.54
+    ],
+    [
+     33.74,
+     146.13
+    ],
+    [
+     31.19,
+     146.72
+    ],
+    [
+     28.62,
+     147.22
+    ],
+    [
+     26.05,
+     147.72
+    ],
+    [
+     23.46,
+     148.13
+    ],
+    [
+     20.88,
+     148.54
+    ],
+    [
+     18.28,
+     148.86
+    ],
+    [
+     15.68,
+     149.18
+    ],
+    [
+     13.07,
+     149.41
+    ],
+    [
+     10.46,
+     149.63
+    ],
+    [
+     7.85,
+     149.77
+    ],
+    [
+     5.23,
+     149.91
+    ],
+    [
+     2.62,
+     149.95
+    ],
+    [
+     0.0,
+     150.0
+    ],
+    [
+     -2.62,
+     149.95
+    ],
+    [
+     -5.23,
+     149.91
+    ],
+    [
+     -7.85,
+     149.77
+    ],
+    [
+     -10.46,
+     149.63
+    ],
+    [
+     -13.07,
+     149.41
+    ],
+    [
+     -15.68,
+     149.18
+    ],
+    [
+     -18.28,
+     148.86
+    ],
+    [
+     -20.88,
+     148.54
+    ],
+    [
+     -23.46,
+     148.13
+    ],
+    [
+     -26.05,
+     147.72
+    ],
+    [
+     -28.62,
+     147.22
+    ],
+    [
+     -31.19,
+     146.72
+    ],
+    [
+     -33.74,
+     146.13
+    ],
+    [
+     -36.29,
+     145.54
+    ],
+    [
+     -38.82,
+     144.87
+    ],
+    [
+     -41.35,
+     144.19
+    ],
+    [
+     -43.85,
+     143.42
+    ],
+    [
+     -46.35,
+     142.66
+    ],
+    [
+     -48.83,
+     141.81
+    ],
+    [
+     -51.3,
+     140.95
+    ],
+    [
+     -53.75,
+     140.02
+    ],
+    [
+     -56.19,
+     139.08
+    ],
+    [
+     -58.6,
+     138.05
+    ],
+    [
+     -61.01,
+     137.03
+    ],
+    [
+     -63.38,
+     135.93
+    ],
+    [
+     -65.76,
+     134.82
+    ],
+    [
+     -68.09,
+     133.63
+    ],
+    [
+     -70.42,
+     132.44
+    ],
+    [
+     -72.71,
+     131.17
+    ],
+    [
+     -75.0,
+     129.9
+    ],
+    [
+     -77.24,
+     128.56
+    ],
+    [
+     -79.49,
+     127.21
+    ],
+    [
+     -81.68,
+     125.78
+    ],
+    [
+     -83.88,
+     124.36
+    ],
+    [
+     -86.02,
+     122.85
+    ],
+    [
+     -88.17,
+     121.35
+    ],
+    [
+     -90.26,
+     119.78
+    ],
+    [
+     -92.35,
+     118.2
+    ],
+    [
+     -94.38,
+     116.55
+    ],
+    [
+     -96.42,
+     114.91
+    ],
+    [
+     -98.39,
+     113.19
+    ],
+    [
+     -100.37,
+     111.47
+    ],
+    [
+     -102.28,
+     109.69
+    ],
+    [
+     -104.2,
+     107.9
+    ],
+    [
+     -106.05,
+     106.05
+    ],
+    [
+     -107.9,
+     104.2
+    ],
+    [
+     -109.69,
+     102.28
+    ],
+    [
+     -111.47,
+     100.37
+    ],
+    [
+     -113.19,
+     98.39
+    ],
+    [
+     -114.91,
+     96.42
+    ],
+    [
+     -116.55,
+     94.38
+    ],
+    [
+     -118.2,
+     92.35
+    ],
+    [
+     -119.78,
+     90.26
+    ],
+    [
+     -121.35,
+     88.17
+    ],
+    [
+     -122.85,
+     86.02
+    ],
+    [
+     -124.36,
+     83.88
+    ],
+    [
+     -125.78,
+     81.68
+    ],
+    [
+     -127.21,
+     79.49
+    ],
+    [
+     -128.56,
+     77.24
+    ],
+    [
+     -129.9,
+     75.0
+    ],
+    [
+     -131.17,
+     72.71
+    ],
+    [
+     -132.44,
+     70.42
+    ],
+    [
+     -133.63,
+     68.09
+    ],
+    [
+     -134.82,
+     65.76
+    ],
+    [
+     -135.93,
+     63.38
+    ],
+    [
+     -137.03,
+     61.01
+    ],
+    [
+     -138.05,
+     58.6
+    ],
+    [
+     -139.08,
+     56.19
+    ],
+    [
+     -140.02,
+     53.75
+    ],
+    [
+     -140.95,
+     51.3
+    ],
+    [
+     -141.81,
+     48.83
+    ],
+    [
+     -142.66,
+     46.35
+    ],
+    [
+     -143.42,
+     43.85
+    ],
+    [
+     -144.19,
+     41.35
+    ],
+    [
+     -144.87,
+     38.82
+    ],
+    [
+     -145.54,
+     36.29
+    ],
+    [
+     -146.13,
+     33.74
+    ],
+    [
+     -146.72,
+     31.19
+    ],
+    [
+     -147.22,
+     28.62
+    ],
+    [
+     -147.72,
+     26.05
+    ],
+    [
+     -148.13,
+     23.46
+    ],
+    [
+     -148.54,
+     20.88
+    ],
+    [
+     -148.86,
+     18.28
+    ],
+    [
+     -149.18,
+     15.68
+    ],
+    [
+     -149.41,
+     13.07
+    ],
+    [
+     -149.63,
+     10.46
+    ],
+    [
+     -149.77,
+     7.85
+    ],
+    [
+     -149.91,
+     5.23
+    ],
+    [
+     -149.95,
+     2.62
+    ],
+    [
+     -150.0,
+     0.0
+    ],
+    [
+     -149.95,
+     -2.62
+    ],
+    [
+     -149.91,
+     -5.23
+    ],
+    [
+     -149.77,
+     -7.85
+    ],
+    [
+     -149.63,
+     -10.46
+    ],
+    [
+     -149.41,
+     -13.07
+    ],
+    [
+     -149.18,
+     -15.68
+    ],
+    [
+     -148.86,
+     -18.28
+    ],
+    [
+     -148.54,
+     -20.88
+    ],
+    [
+     -148.13,
+     -23.46
+    ],
+    [
+     -147.72,
+     -26.05
+    ],
+    [
+     -147.22,
+     -28.62
+    ],
+    [
+     -146.72,
+     -31.19
+    ],
+    [
+     -146.13,
+     -33.74
+    ],
+    [
+     -145.54,
+     -36.29
+    ],
+    [
+     -144.87,
+     -38.82
+    ],
+    [
+     -144.19,
+     -41.35
+    ],
+    [
+     -143.42,
+     -43.85
+    ],
+    [
+     -142.66,
+     -46.35
+    ],
+    [
+     -141.81,
+     -48.83
+    ],
+    [
+     -140.95,
+     -51.3
+    ],
+    [
+     -140.02,
+     -53.75
+    ],
+    [
+     -139.08,
+     -56.19
+    ],
+    [
+     -138.05,
+     -58.6
+    ],
+    [
+     -137.03,
+     -61.01
+    ],
+    [
+     -135.93,
+     -63.38
+    ],
+    [
+     -134.82,
+     -65.76
+    ],
+    [
+     -133.63,
+     -68.09
+    ],
+    [
+     -132.44,
+     -70.42
+    ],
+    [
+     -131.17,
+     -72.71
+    ],
+    [
+     -129.9,
+     -75.0
+    ],
+    [
+     -128.56,
+     -77.24
+    ],
+    [
+     -127.21,
+     -79.49
+    ],
+    [
+     -125.78,
+     -81.68
+    ],
+    [
+     -124.36,
+     -83.88
+    ],
+    [
+     -122.85,
+     -86.02
+    ],
+    [
+     -121.35,
+     -88.17
+    ],
+    [
+     -119.78,
+     -90.26
+    ],
+    [
+     -118.2,
+     -92.35
+    ],
+    [
+     -116.55,
+     -94.38
+    ],
+    [
+     -114.91,
+     -96.42
+    ],
+    [
+     -113.19,
+     -98.39
+    ],
+    [
+     -111.47,
+     -100.37
+    ],
+    [
+     -109.69,
+     -102.28
+    ],
+    [
+     -107.9,
+     -104.2
+    ],
+    [
+     -106.05,
+     -106.05
+    ],
+    [
+     -104.2,
+     -107.9
+    ],
+    [
+     -102.28,
+     -109.69
+    ],
+    [
+     -100.37,
+     -111.47
+    ],
+    [
+     -98.39,
+     -113.19
+    ],
+    [
+     -96.42,
+     -114.91
+    ],
+    [
+     -94.38,
+     -116.55
+    ],
+    [
+     -92.35,
+     -118.2
+    ],
+    [
+     -90.26,
+     -119.78
+    ],
+    [
+     -88.17,
+     -121.35
+    ],
+    [
+     -86.02,
+     -122.85
+    ],
+    [
+     -83.88,
+     -124.36
+    ],
+    [
+     -81.68,
+     -125.78
+    ],
+    [
+     -79.49,
+     -127.21
+    ],
+    [
+     -77.24,
+     -128.56
+    ],
+    [
+     -75.0,
+     -129.9
+    ],
+    [
+     -72.71,
+     -131.17
+    ],
+    [
+     -70.42,
+     -132.44
+    ],
+    [
+     -68.09,
+     -133.63
+    ],
+    [
+     -65.76,
+     -134.82
+    ],
+    [
+     -63.38,
+     -135.93
+    ],
+    [
+     -61.01,
+     -137.03
+    ],
+    [
+     -58.6,
+     -138.05
+    ],
+    [
+     -56.19,
+     -139.08
+    ],
+    [
+     -53.75,
+     -140.02
+    ],
+    [
+     -51.3,
+     -140.95
+    ],
+    [
+     -48.83,
+     -141.81
+    ],
+    [
+     -46.35,
+     -142.66
+    ],
+    [
+     -43.85,
+     -143.42
+    ],
+    [
+     -41.35,
+     -144.19
+    ],
+    [
+     -38.82,
+     -144.87
+    ],
+    [
+     -36.29,
+     -145.54
+    ],
+    [
+     -33.74,
+     -146.13
+    ],
+    [
+     -31.19,
+     -146.72
+    ],
+    [
+     -28.62,
+     -147.22
+    ],
+    [
+     -26.05,
+     -147.72
+    ],
+    [
+     -23.46,
+     -148.13
+    ],
+    [
+     -20.88,
+     -148.54
+    ],
+    [
+     -18.28,
+     -148.86
+    ],
+    [
+     -15.68,
+     -149.18
+    ],
+    [
+     -13.07,
+     -149.41
+    ],
+    [
+     -10.46,
+     -149.63
+    ],
+    [
+     -7.85,
+     -149.77
+    ],
+    [
+     -5.23,
+     -149.91
+    ],
+    [
+     -2.62,
+     -149.95
+    ],
+    [
+     -0.0,
+     -150.0
+    ],
+    [
+     2.62,
+     -149.95
+    ],
+    [
+     5.23,
+     -149.91
+    ],
+    [
+     7.85,
+     -149.77
+    ],
+    [
+     10.46,
+     -149.63
+    ],
+    [
+     13.07,
+     -149.41
+    ],
+    [
+     15.68,
+     -149.18
+    ],
+    [
+     18.28,
+     -148.86
+    ],
+    [
+     20.88,
+     -148.54
+    ],
+    [
+     23.46,
+     -148.13
+    ],
+    [
+     26.05,
+     -147.72
+    ],
+    [
+     28.62,
+     -147.22
+    ],
+    [
+     31.19,
+     -146.72
+    ],
+    [
+     33.74,
+     -146.13
+    ],
+    [
+     36.29,
+     -145.54
+    ],
+    [
+     38.82,
+     -144.87
+    ],
+    [
+     41.35,
+     -144.19
+    ],
+    [
+     43.85,
+     -143.42
+    ],
+    [
+     46.35,
+     -142.66
+    ],
+    [
+     48.83,
+     -141.81
+    ],
+    [
+     51.3,
+     -140.95
+    ],
+    [
+     53.75,
+     -140.02
+    ],
+    [
+     56.19,
+     -139.08
+    ],
+    [
+     58.6,
+     -138.05
+    ],
+    [
+     61.01,
+     -137.03
+    ],
+    [
+     63.38,
+     -135.93
+    ],
+    [
+     65.76,
+     -134.82
+    ],
+    [
+     68.09,
+     -133.63
+    ],
+    [
+     70.42,
+     -132.44
+    ],
+    [
+     72.71,
+     -131.17
+    ],
+    [
+     75.0,
+     -129.9
+    ],
+    [
+     77.24,
+     -128.56
+    ],
+    [
+     79.49,
+     -127.21
+    ],
+    [
+     81.68,
+     -125.78
+    ],
+    [
+     83.88,
+     -124.36
+    ],
+    [
+     86.02,
+     -122.85
+    ],
+    [
+     88.17,
+     -121.35
+    ],
+    [
+     90.26,
+     -119.78
+    ],
+    [
+     92.35,
+     -118.2
+    ],
+    [
+     94.38,
+     -116.55
+    ],
+    [
+     96.42,
+     -114.91
+    ],
+    [
+     98.39,
+     -113.19
+    ],
+    [
+     100.37,
+     -111.47
+    ],
+    [
+     102.28,
+     -109.69
+    ],
+    [
+     104.2,
+     -107.9
+    ],
+    [
+     106.05,
+     -106.05
+    ],
+    [
+     107.9,
+     -104.2
+    ],
+    [
+     109.69,
+     -102.28
+    ],
+    [
+     111.47,
+     -100.37
+    ],
+    [
+     113.19,
+     -98.39
+    ],
+    [
+     114.91,
+     -96.42
+    ],
+    [
+     116.55,
+     -94.38
+    ],
+    [
+     118.2,
+     -92.35
+    ],
+    [
+     119.78,
+     -90.26
+    ],
+    [
+     121.35,
+     -88.17
+    ],
+    [
+     122.85,
+     -86.02
+    ],
+    [
+     124.36,
+     -83.88
+    ],
+    [
+     125.78,
+     -81.68
+    ],
+    [
+     127.21,
+     -79.49
+    ],
+    [
+     128.56,
+     -77.24
+    ],
+    [
+     129.9,
+     -75.0
+    ],
+    [
+     131.17,
+     -72.71
+    ],
+    [
+     132.44,
+     -70.42
+    ],
+    [
+     133.63,
+     -68.09
+    ],
+    [
+     134.82,
+     -65.76
+    ],
+    [
+     135.93,
+     -63.38
+    ],
+    [
+     137.03,
+     -61.01
+    ],
+    [
+     138.05,
+     -58.6
+    ],
+    [
+     139.08,
+     -56.19
+    ],
+    [
+     140.02,
+     -53.75
+    ],
+    [
+     140.95,
+     -51.3
+    ],
+    [
+     141.81,
+     -48.83
+    ],
+    [
+     142.66,
+     -46.35
+    ],
+    [
+     143.42,
+     -43.85
+    ],
+    [
+     144.19,
+     -41.35
+    ],
+    [
+     144.87,
+     -38.82
+    ],
+    [
+     145.54,
+     -36.29
+    ],
+    [
+     146.13,
+     -33.74
+    ],
+    [
+     146.72,
+     -31.19
+    ],
+    [
+     147.22,
+     -28.62
+    ],
+    [
+     147.72,
+     -26.05
+    ],
+    [
+     148.13,
+     -23.46
+    ],
+    [
+     148.54,
+     -20.88
+    ],
+    [
+     148.86,
+     -18.28
+    ],
+    [
+     149.18,
+     -15.68
+    ],
+    [
+     149.41,
+     -13.07
+    ],
+    [
+     149.63,
+     -10.46
+    ],
+    [
+     149.77,
+     -7.85
+    ],
+    [
+     149.91,
+     -5.23
+    ],
+    [
+     149.95,
+     -2.62
+    ],
+    [
+     150.0,
+     -0.0
+    ]
+   ]
+  },
+  {
+   "name": "av_norte",
+   "width": 9.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     0,
+     26.0
+    ],
+    [
+     0.0,
+     28.0
+    ],
+    [
+     0.0,
+     30.0
+    ],
+    [
+     0.0,
+     32.0
+    ],
+    [
+     0.0,
+     34.0
+    ],
+    [
+     0.0,
+     36.0
+    ],
+    [
+     0.0,
+     38.0
+    ],
+    [
+     0.0,
+     40.0
+    ],
+    [
+     0.0,
+     42.0
+    ],
+    [
+     0.0,
+     44.0
+    ],
+    [
+     0.0,
+     46.0
+    ],
+    [
+     0.0,
+     48.0
+    ],
+    [
+     0.0,
+     50.0
+    ],
+    [
+     0.0,
+     52.0
+    ],
+    [
+     0.0,
+     54.0
+    ],
+    [
+     0.0,
+     56.0
+    ],
+    [
+     0.0,
+     58.0
+    ],
+    [
+     0.0,
+     60.0
+    ],
+    [
+     0.0,
+     62.0
+    ],
+    [
+     0.0,
+     64.0
+    ],
+    [
+     0.0,
+     66.0
+    ],
+    [
+     0.0,
+     68.0
+    ],
+    [
+     0.0,
+     70.0
+    ],
+    [
+     0.0,
+     72.0
+    ],
+    [
+     0.0,
+     74.0
+    ],
+    [
+     0.0,
+     76.0
+    ],
+    [
+     0.0,
+     78.0
+    ],
+    [
+     0.0,
+     80.0
+    ],
+    [
+     0.0,
+     82.0
+    ],
+    [
+     0.0,
+     84.0
+    ],
+    [
+     0.0,
+     86.0
+    ],
+    [
+     0.0,
+     88.0
+    ],
+    [
+     0.0,
+     90.0
+    ],
+    [
+     0.0,
+     92.0
+    ],
+    [
+     0.0,
+     94.0
+    ],
+    [
+     0.0,
+     96.0
+    ],
+    [
+     0.0,
+     98.0
+    ],
+    [
+     0.0,
+     100.0
+    ],
+    [
+     0.0,
+     102.0
+    ],
+    [
+     0.0,
+     104.0
+    ],
+    [
+     0.0,
+     106.0
+    ],
+    [
+     0.0,
+     108.0
+    ],
+    [
+     0.0,
+     110.0
+    ],
+    [
+     0.0,
+     112.0
+    ],
+    [
+     0.0,
+     114.0
+    ],
+    [
+     0.0,
+     116.0
+    ],
+    [
+     0.0,
+     118.0
+    ],
+    [
+     0.0,
+     120.0
+    ],
+    [
+     0.0,
+     122.0
+    ],
+    [
+     0.0,
+     124.0
+    ],
+    [
+     0.0,
+     126.0
+    ],
+    [
+     0.0,
+     128.0
+    ],
+    [
+     0.0,
+     130.0
+    ],
+    [
+     0.0,
+     132.0
+    ],
+    [
+     0.0,
+     134.0
+    ],
+    [
+     0.0,
+     136.0
+    ],
+    [
+     0.0,
+     138.0
+    ],
+    [
+     0.0,
+     140.0
+    ],
+    [
+     0.0,
+     142.0
+    ],
+    [
+     0.0,
+     144.0
+    ],
+    [
+     0.0,
+     146.0
+    ],
+    [
+     0.0,
+     148.0
+    ],
+    [
+     0.0,
+     150.0
+    ],
+    [
+     0.0,
+     152.0
+    ],
+    [
+     0.0,
+     154.0
+    ],
+    [
+     0.0,
+     156.0
+    ],
+    [
+     0.0,
+     158.0
+    ],
+    [
+     0.0,
+     160.0
+    ],
+    [
+     0.0,
+     162.0
+    ],
+    [
+     0.0,
+     164.0
+    ],
+    [
+     0.0,
+     166.0
+    ],
+    [
+     0.0,
+     168.0
+    ],
+    [
+     0.0,
+     170.0
+    ],
+    [
+     0.0,
+     172.0
+    ],
+    [
+     0.0,
+     174.0
+    ],
+    [
+     0.0,
+     176.0
+    ],
+    [
+     0.0,
+     178.0
+    ],
+    [
+     0.0,
+     180.0
+    ],
+    [
+     0.0,
+     182.0
+    ],
+    [
+     0.0,
+     184.0
+    ],
+    [
+     0.0,
+     186.0
+    ],
+    [
+     0.0,
+     188.0
+    ],
+    [
+     0.0,
+     190.0
+    ],
+    [
+     0.0,
+     192.0
+    ],
+    [
+     0.0,
+     194.0
+    ]
+   ]
+  },
+  {
+   "name": "av_sul",
+   "width": 9.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     0,
+     -26.0
+    ],
+    [
+     0.0,
+     -28.0
+    ],
+    [
+     0.0,
+     -30.0
+    ],
+    [
+     0.0,
+     -32.0
+    ],
+    [
+     0.0,
+     -34.0
+    ],
+    [
+     0.0,
+     -36.0
+    ],
+    [
+     0.0,
+     -38.0
+    ],
+    [
+     0.0,
+     -40.0
+    ],
+    [
+     0.0,
+     -42.0
+    ],
+    [
+     0.0,
+     -44.0
+    ],
+    [
+     0.0,
+     -46.0
+    ],
+    [
+     0.0,
+     -48.0
+    ],
+    [
+     0.0,
+     -50.0
+    ],
+    [
+     0.0,
+     -52.0
+    ],
+    [
+     0.0,
+     -54.0
+    ],
+    [
+     0.0,
+     -56.0
+    ],
+    [
+     0.0,
+     -58.0
+    ],
+    [
+     0.0,
+     -60.0
+    ],
+    [
+     0.0,
+     -62.0
+    ],
+    [
+     0.0,
+     -64.0
+    ],
+    [
+     0.0,
+     -66.0
+    ],
+    [
+     0.0,
+     -68.0
+    ],
+    [
+     0.0,
+     -70.0
+    ],
+    [
+     0.0,
+     -72.0
+    ],
+    [
+     0.0,
+     -74.0
+    ],
+    [
+     0.0,
+     -76.0
+    ],
+    [
+     0.0,
+     -78.0
+    ],
+    [
+     0.0,
+     -80.0
+    ],
+    [
+     0.0,
+     -82.0
+    ],
+    [
+     0.0,
+     -84.0
+    ],
+    [
+     0.0,
+     -86.0
+    ],
+    [
+     0.0,
+     -88.0
+    ],
+    [
+     0.0,
+     -90.0
+    ],
+    [
+     0.0,
+     -92.0
+    ],
+    [
+     0.0,
+     -94.0
+    ],
+    [
+     0.0,
+     -96.0
+    ],
+    [
+     0.0,
+     -98.0
+    ],
+    [
+     0.0,
+     -100.0
+    ],
+    [
+     0.0,
+     -102.0
+    ],
+    [
+     0.0,
+     -104.0
+    ],
+    [
+     0.0,
+     -106.0
+    ],
+    [
+     0.0,
+     -108.0
+    ],
+    [
+     0.0,
+     -110.0
+    ],
+    [
+     0.0,
+     -112.0
+    ],
+    [
+     0.0,
+     -114.0
+    ],
+    [
+     0.0,
+     -116.0
+    ],
+    [
+     0.0,
+     -118.0
+    ],
+    [
+     0.0,
+     -120.0
+    ],
+    [
+     0.0,
+     -122.0
+    ],
+    [
+     0.0,
+     -124.0
+    ],
+    [
+     0.0,
+     -126.0
+    ],
+    [
+     0.0,
+     -128.0
+    ],
+    [
+     0.0,
+     -130.0
+    ],
+    [
+     0.0,
+     -132.0
+    ],
+    [
+     0.0,
+     -134.0
+    ],
+    [
+     0.0,
+     -136.0
+    ],
+    [
+     0.0,
+     -138.0
+    ],
+    [
+     0.0,
+     -140.0
+    ],
+    [
+     0.0,
+     -142.0
+    ],
+    [
+     0.0,
+     -144.0
+    ],
+    [
+     0.0,
+     -146.0
+    ],
+    [
+     0.0,
+     -148.0
+    ],
+    [
+     0.0,
+     -150.0
+    ],
+    [
+     0.0,
+     -152.0
+    ],
+    [
+     0.0,
+     -154.0
+    ],
+    [
+     0.0,
+     -156.0
+    ],
+    [
+     0.0,
+     -158.0
+    ],
+    [
+     0.0,
+     -160.0
+    ],
+    [
+     0.0,
+     -162.0
+    ],
+    [
+     0.0,
+     -164.0
+    ],
+    [
+     0.0,
+     -166.0
+    ],
+    [
+     0.0,
+     -168.0
+    ],
+    [
+     0.0,
+     -170.0
+    ],
+    [
+     0.0,
+     -172.0
+    ],
+    [
+     0.0,
+     -174.0
+    ],
+    [
+     0.0,
+     -176.0
+    ],
+    [
+     0.0,
+     -178.0
+    ],
+    [
+     0.0,
+     -180.0
+    ],
+    [
+     0.0,
+     -182.0
+    ],
+    [
+     0.0,
+     -184.0
+    ],
+    [
+     0.0,
+     -186.0
+    ],
+    [
+     0.0,
+     -188.0
+    ]
+   ]
+  },
+  {
+   "name": "av_leste",
+   "width": 9.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     26.0,
+     0
+    ],
+    [
+     28.0,
+     0.0
+    ],
+    [
+     30.0,
+     0.0
+    ],
+    [
+     32.0,
+     0.0
+    ],
+    [
+     34.0,
+     0.0
+    ],
+    [
+     36.0,
+     0.0
+    ],
+    [
+     38.0,
+     0.0
+    ],
+    [
+     40.0,
+     0.0
+    ],
+    [
+     42.0,
+     0.0
+    ],
+    [
+     44.0,
+     0.0
+    ],
+    [
+     46.0,
+     0.0
+    ],
+    [
+     48.0,
+     0.0
+    ],
+    [
+     50.0,
+     0.0
+    ],
+    [
+     52.0,
+     0.0
+    ],
+    [
+     54.0,
+     0.0
+    ],
+    [
+     56.0,
+     0.0
+    ],
+    [
+     58.0,
+     0.0
+    ],
+    [
+     60.0,
+     0.0
+    ],
+    [
+     62.0,
+     0.0
+    ],
+    [
+     64.0,
+     0.0
+    ],
+    [
+     66.0,
+     0.0
+    ],
+    [
+     68.0,
+     0.0
+    ],
+    [
+     70.0,
+     0.0
+    ],
+    [
+     72.0,
+     0.0
+    ],
+    [
+     74.0,
+     0.0
+    ],
+    [
+     76.0,
+     0.0
+    ],
+    [
+     78.0,
+     0.0
+    ],
+    [
+     80.0,
+     0.0
+    ],
+    [
+     82.0,
+     0.0
+    ],
+    [
+     84.0,
+     0.0
+    ],
+    [
+     86.0,
+     0.0
+    ],
+    [
+     88.0,
+     0.0
+    ],
+    [
+     90.0,
+     0.0
+    ],
+    [
+     92.0,
+     0.0
+    ],
+    [
+     94.0,
+     0.0
+    ],
+    [
+     96.0,
+     0.0
+    ],
+    [
+     98.0,
+     0.0
+    ],
+    [
+     100.0,
+     0.0
+    ],
+    [
+     102.0,
+     0.0
+    ],
+    [
+     104.0,
+     0.0
+    ],
+    [
+     106.0,
+     0.0
+    ],
+    [
+     108.0,
+     0.0
+    ],
+    [
+     110.0,
+     0.0
+    ],
+    [
+     112.0,
+     0.0
+    ],
+    [
+     114.0,
+     0.0
+    ],
+    [
+     116.0,
+     0.0
+    ],
+    [
+     118.0,
+     0.0
+    ],
+    [
+     120.0,
+     0.0
+    ],
+    [
+     122.0,
+     0.0
+    ],
+    [
+     124.0,
+     0.0
+    ],
+    [
+     126.0,
+     0.0
+    ],
+    [
+     128.0,
+     0.0
+    ],
+    [
+     130.0,
+     0.0
+    ],
+    [
+     132.0,
+     0.0
+    ],
+    [
+     134.0,
+     0.0
+    ],
+    [
+     136.0,
+     0.0
+    ],
+    [
+     138.0,
+     0.0
+    ],
+    [
+     140.0,
+     0.0
+    ],
+    [
+     142.0,
+     0.0
+    ],
+    [
+     144.0,
+     0.0
+    ],
+    [
+     146.0,
+     0.0
+    ],
+    [
+     148.0,
+     0.0
+    ],
+    [
+     150.0,
+     0.0
+    ],
+    [
+     152.0,
+     0.0
+    ],
+    [
+     154.0,
+     0.0
+    ],
+    [
+     156.0,
+     0.0
+    ],
+    [
+     158.0,
+     0.0
+    ],
+    [
+     160.0,
+     0.0
+    ],
+    [
+     162.0,
+     0.0
+    ],
+    [
+     164.0,
+     0.0
+    ],
+    [
+     166.0,
+     0.0
+    ],
+    [
+     168.0,
+     0.0
+    ],
+    [
+     170.0,
+     0.0
+    ],
+    [
+     172.0,
+     0.0
+    ],
+    [
+     174.0,
+     0.0
+    ],
+    [
+     176.0,
+     0.0
+    ],
+    [
+     178.0,
+     0.0
+    ],
+    [
+     180.0,
+     0.0
+    ],
+    [
+     182.0,
+     0.0
+    ],
+    [
+     184.0,
+     0.0
+    ],
+    [
+     186.0,
+     0.0
+    ],
+    [
+     188.0,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "av_oeste",
+   "width": 9.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     -26.0,
+     0
+    ],
+    [
+     -28.0,
+     0.0
+    ],
+    [
+     -30.0,
+     0.0
+    ],
+    [
+     -32.0,
+     0.0
+    ],
+    [
+     -34.0,
+     0.0
+    ],
+    [
+     -36.0,
+     0.0
+    ],
+    [
+     -38.0,
+     0.0
+    ],
+    [
+     -40.0,
+     0.0
+    ],
+    [
+     -42.0,
+     0.0
+    ],
+    [
+     -44.0,
+     0.0
+    ],
+    [
+     -46.0,
+     0.0
+    ],
+    [
+     -48.0,
+     0.0
+    ],
+    [
+     -50.0,
+     0.0
+    ],
+    [
+     -52.0,
+     0.0
+    ],
+    [
+     -54.0,
+     0.0
+    ],
+    [
+     -56.0,
+     0.0
+    ],
+    [
+     -58.0,
+     0.0
+    ],
+    [
+     -60.0,
+     0.0
+    ],
+    [
+     -62.0,
+     0.0
+    ],
+    [
+     -64.0,
+     0.0
+    ],
+    [
+     -66.0,
+     0.0
+    ],
+    [
+     -68.0,
+     0.0
+    ],
+    [
+     -70.0,
+     0.0
+    ],
+    [
+     -72.0,
+     0.0
+    ],
+    [
+     -74.0,
+     0.0
+    ],
+    [
+     -76.0,
+     0.0
+    ],
+    [
+     -78.0,
+     0.0
+    ],
+    [
+     -80.0,
+     0.0
+    ],
+    [
+     -82.0,
+     0.0
+    ],
+    [
+     -84.0,
+     0.0
+    ],
+    [
+     -86.0,
+     0.0
+    ],
+    [
+     -88.0,
+     0.0
+    ],
+    [
+     -90.0,
+     0.0
+    ],
+    [
+     -92.0,
+     0.0
+    ],
+    [
+     -94.0,
+     0.0
+    ],
+    [
+     -96.0,
+     0.0
+    ],
+    [
+     -98.0,
+     0.0
+    ],
+    [
+     -100.0,
+     0.0
+    ],
+    [
+     -102.0,
+     0.0
+    ],
+    [
+     -104.0,
+     0.0
+    ],
+    [
+     -106.0,
+     0.0
+    ],
+    [
+     -108.0,
+     0.0
+    ],
+    [
+     -110.0,
+     0.0
+    ],
+    [
+     -112.0,
+     0.0
+    ],
+    [
+     -114.0,
+     0.0
+    ],
+    [
+     -116.0,
+     0.0
+    ],
+    [
+     -118.0,
+     0.0
+    ],
+    [
+     -120.0,
+     0.0
+    ],
+    [
+     -122.0,
+     0.0
+    ],
+    [
+     -124.0,
+     0.0
+    ],
+    [
+     -126.0,
+     0.0
+    ],
+    [
+     -128.0,
+     0.0
+    ],
+    [
+     -130.0,
+     0.0
+    ],
+    [
+     -132.0,
+     0.0
+    ],
+    [
+     -134.0,
+     0.0
+    ],
+    [
+     -136.0,
+     0.0
+    ],
+    [
+     -138.0,
+     0.0
+    ],
+    [
+     -140.0,
+     0.0
+    ],
+    [
+     -142.0,
+     0.0
+    ],
+    [
+     -144.0,
+     0.0
+    ],
+    [
+     -146.0,
+     0.0
+    ],
+    [
+     -148.0,
+     0.0
+    ],
+    [
+     -150.0,
+     0.0
+    ],
+    [
+     -152.0,
+     0.0
+    ],
+    [
+     -154.0,
+     0.0
+    ],
+    [
+     -156.0,
+     0.0
+    ],
+    [
+     -158.0,
+     0.0
+    ],
+    [
+     -160.0,
+     0.0
+    ],
+    [
+     -162.0,
+     0.0
+    ],
+    [
+     -164.0,
+     0.0
+    ],
+    [
+     -166.0,
+     0.0
+    ],
+    [
+     -168.0,
+     0.0
+    ],
+    [
+     -170.0,
+     0.0
+    ],
+    [
+     -172.0,
+     0.0
+    ],
+    [
+     -174.0,
+     0.0
+    ],
+    [
+     -176.0,
+     0.0
+    ],
+    [
+     -178.0,
+     0.0
+    ],
+    [
+     -180.0,
+     0.0
+    ],
+    [
+     -182.0,
+     0.0
+    ],
+    [
+     -184.0,
+     0.0
+    ],
+    [
+     -186.0,
+     0.0
+    ],
+    [
+     -188.0,
+     0.0
+    ]
+   ]
+  },
+  {
+   "name": "rua_lab",
+   "width": 6.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     106.07,
+     106.07
+    ],
+    [
+     106.77,
+     106.22
+    ],
+    [
+     107.68,
+     106.37
+    ],
+    [
+     108.75,
+     106.52
+    ],
+    [
+     109.96,
+     106.69
+    ],
+    [
+     111.27,
+     106.89
+    ],
+    [
+     112.64,
+     107.12
+    ],
+    [
+     114.04,
+     107.4
+    ],
+    [
+     115.44,
+     107.74
+    ],
+    [
+     116.81,
+     108.15
+    ],
+    [
+     118.11,
+     108.65
+    ],
+    [
+     119.3,
+     109.23
+    ],
+    [
+     120.36,
+     109.92
+    ],
+    [
+     121.29,
+     110.78
+    ],
+    [
+     122.11,
+     111.83
+    ],
+    [
+     122.86,
+     113.04
+    ],
+    [
+     123.55,
+     114.36
+    ],
+    [
+     124.21,
+     115.75
+    ],
+    [
+     124.85,
+     117.17
+    ],
+    [
+     125.5,
+     118.57
+    ],
+    [
+     126.18,
+     119.93
+    ],
+    [
+     126.91,
+     121.18
+    ],
+    [
+     127.7,
+     122.29
+    ],
+    [
+     128.59,
+     123.22
+    ],
+    [
+     129.59,
+     123.93
+    ],
+    [
+     130.71,
+     124.4
+    ],
+    [
+     131.93,
+     124.65
+    ],
+    [
+     133.25,
+     124.72
+    ],
+    [
+     134.63,
+     124.67
+    ],
+    [
+     136.06,
+     124.51
+    ],
+    [
+     137.52,
+     124.3
+    ],
+    [
+     138.99,
+     124.06
+    ],
+    [
+     140.45,
+     123.84
+    ],
+    [
+     141.88,
+     123.68
+    ],
+    [
+     143.26,
+     123.61
+    ],
+    [
+     144.58,
+     123.68
+    ],
+    [
+     145.81,
+     123.92
+    ],
+    [
+     147.01,
+     124.33
+    ],
+    [
+     148.22,
+     124.89
+    ],
+    [
+     149.43,
+     125.56
+    ],
+    [
+     150.63,
+     126.31
+    ],
+    [
+     151.8,
+     127.12
+    ],
+    [
+     152.92,
+     127.96
+    ],
+    [
+     153.99,
+     128.8
+    ],
+    [
+     154.99,
+     129.6
+    ],
+    [
+     155.91,
+     130.36
+    ],
+    [
+     156.72,
+     131.03
+    ],
+    [
+     157.42,
+     131.58
+    ],
+    [
+     158.0,
+     132.0
+    ]
+   ]
+  },
+  {
+   "name": "rua_comercio",
+   "width": 6.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     140.95,
+     51.3
+    ],
+    [
+     140.0,
+     51.65
+    ],
+    [
+     138.81,
+     52.07
+    ],
+    [
+     137.41,
+     52.56
+    ],
+    [
+     135.85,
+     53.12
+    ],
+    [
+     134.14,
+     53.72
+    ],
+    [
+     132.33,
+     54.36
+    ],
+    [
+     130.46,
+     55.04
+    ],
+    [
+     128.55,
+     55.73
+    ],
+    [
+     126.65,
+     56.43
+    ],
+    [
+     124.78,
+     57.13
+    ],
+    [
+     122.99,
+     57.83
+    ],
+    [
+     121.3,
+     58.5
+    ],
+    [
+     119.68,
+     59.18
+    ],
+    [
+     118.07,
+     59.91
+    ],
+    [
+     116.47,
+     60.68
+    ],
+    [
+     114.88,
+     61.47
+    ],
+    [
+     113.29,
+     62.27
+    ],
+    [
+     111.69,
+     63.06
+    ],
+    [
+     110.1,
+     63.85
+    ],
+    [
+     108.49,
+     64.6
+    ],
+    [
+     106.88,
+     65.31
+    ],
+    [
+     105.26,
+     65.97
+    ],
+    [
+     103.62,
+     66.57
+    ],
+    [
+     101.96,
+     67.09
+    ],
+    [
+     100.29,
+     67.54
+    ],
+    [
+     98.61,
+     67.93
+    ],
+    [
+     96.91,
+     68.27
+    ],
+    [
+     95.2,
+     68.57
+    ],
+    [
+     93.48,
+     68.83
+    ],
+    [
+     91.76,
+     69.05
+    ],
+    [
+     90.03,
+     69.25
+    ],
+    [
+     88.29,
+     69.42
+    ],
+    [
+     86.55,
+     69.57
+    ],
+    [
+     84.8,
+     69.7
+    ],
+    [
+     83.05,
+     69.83
+    ],
+    [
+     81.31,
+     69.95
+    ],
+    [
+     79.49,
+     70.05
+    ],
+    [
+     77.55,
+     70.12
+    ],
+    [
+     75.53,
+     70.16
+    ],
+    [
+     73.46,
+     70.18
+    ],
+    [
+     71.4,
+     70.17
+    ],
+    [
+     69.36,
+     70.15
+    ],
+    [
+     67.4,
+     70.12
+    ],
+    [
+     65.55,
+     70.09
+    ],
+    [
+     63.84,
+     70.06
+    ],
+    [
+     62.33,
+     70.03
+    ],
+    [
+     61.03,
+     70.01
+    ],
+    [
+     60.0,
+     70.0
+    ]
+   ]
+  },
+  {
+   "name": "rua_mercado",
+   "width": 6.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     144.89,
+     -38.82
+    ],
+    [
+     143.84,
+     -38.55
+    ],
+    [
+     142.52,
+     -38.11
+    ],
+    [
+     140.96,
+     -37.57
+    ],
+    [
+     139.22,
+     -36.94
+    ],
+    [
+     137.33,
+     -36.29
+    ],
+    [
+     135.32,
+     -35.65
+    ],
+    [
+     133.25,
+     -35.07
+    ],
+    [
+     131.15,
+     -34.58
+    ],
+    [
+     129.05,
+     -34.24
+    ],
+    [
+     127.01,
+     -34.07
+    ],
+    [
+     125.06,
+     -34.14
+    ],
+    [
+     123.24,
+     -34.47
+    ],
+    [
+     121.51,
+     -35.14
+    ],
+    [
+     119.8,
+     -36.15
+    ],
+    [
+     118.12,
+     -37.44
+    ],
+    [
+     116.45,
+     -38.94
+    ],
+    [
+     114.79,
+     -40.58
+    ],
+    [
+     113.14,
+     -42.29
+    ],
+    [
+     111.49,
+     -44.01
+    ],
+    [
+     109.83,
+     -45.66
+    ],
+    [
+     108.16,
+     -47.19
+    ],
+    [
+     106.48,
+     -48.52
+    ],
+    [
+     104.78,
+     -49.59
+    ],
+    [
+     103.06,
+     -50.33
+    ],
+    [
+     101.31,
+     -50.76
+    ],
+    [
+     99.55,
+     -50.97
+    ],
+    [
+     97.77,
+     -50.99
+    ],
+    [
+     95.98,
+     -50.85
+    ],
+    [
+     94.19,
+     -50.58
+    ],
+    [
+     92.38,
+     -50.21
+    ],
+    [
+     90.57,
+     -49.78
+    ],
+    [
+     88.76,
+     -49.31
+    ],
+    [
+     86.95,
+     -48.84
+    ],
+    [
+     85.14,
+     -48.41
+    ],
+    [
+     83.33,
+     -48.03
+    ],
+    [
+     81.54,
+     -47.76
+    ],
+    [
+     79.67,
+     -47.52
+    ],
+    [
+     77.7,
+     -47.27
+    ],
+    [
+     75.65,
+     -47.01
+    ],
+    [
+     73.56,
+     -46.75
+    ],
+    [
+     71.47,
+     -46.48
+    ],
+    [
+     69.42,
+     -46.22
+    ],
+    [
+     67.45,
+     -45.96
+    ],
+    [
+     65.58,
+     -45.72
+    ],
+    [
+     63.87,
+     -45.5
+    ],
+    [
+     62.34,
+     -45.3
+    ],
+    [
+     61.04,
+     -45.13
+    ],
+    [
+     60.0,
+     -45.0
+    ]
+   ]
+  },
+  {
+   "name": "rua_armazem",
+   "width": 6.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     106.07,
+     -106.07
+    ],
+    [
+     106.52,
+     -106.57
+    ],
+    [
+     107.07,
+     -107.23
+    ],
+    [
+     107.71,
+     -108.01
+    ],
+    [
+     108.43,
+     -108.89
+    ],
+    [
+     109.22,
+     -109.84
+    ],
+    [
+     110.06,
+     -110.83
+    ],
+    [
+     110.95,
+     -111.84
+    ],
+    [
+     111.87,
+     -112.85
+    ],
+    [
+     112.82,
+     -113.82
+    ],
+    [
+     113.79,
+     -114.72
+    ],
+    [
+     114.76,
+     -115.55
+    ],
+    [
+     115.73,
+     -116.26
+    ],
+    [
+     116.73,
+     -116.86
+    ],
+    [
+     117.78,
+     -117.39
+    ],
+    [
+     118.88,
+     -117.85
+    ],
+    [
+     120.02,
+     -118.27
+    ],
+    [
+     121.18,
+     -118.66
+    ],
+    [
+     122.36,
+     -119.02
+    ],
+    [
+     123.55,
+     -119.38
+    ],
+    [
+     124.73,
+     -119.74
+    ],
+    [
+     125.9,
+     -120.12
+    ],
+    [
+     127.03,
+     -120.54
+    ],
+    [
+     128.14,
+     -121.01
+    ],
+    [
+     129.19,
+     -121.54
+    ],
+    [
+     130.21,
+     -122.11
+    ],
+    [
+     131.2,
+     -122.71
+    ],
+    [
+     132.18,
+     -123.34
+    ],
+    [
+     133.14,
+     -123.99
+    ],
+    [
+     134.09,
+     -124.65
+    ],
+    [
+     135.02,
+     -125.34
+    ],
+    [
+     135.94,
+     -126.04
+    ],
+    [
+     136.84,
+     -126.76
+    ],
+    [
+     137.74,
+     -127.49
+    ],
+    [
+     138.62,
+     -128.24
+    ],
+    [
+     139.5,
+     -129.0
+    ],
+    [
+     140.37,
+     -129.76
+    ],
+    [
+     141.26,
+     -130.58
+    ],
+    [
+     142.18,
+     -131.47
+    ],
+    [
+     143.11,
+     -132.42
+    ],
+    [
+     144.05,
+     -133.4
+    ],
+    [
+     144.98,
+     -134.4
+    ],
+    [
+     145.88,
+     -135.39
+    ],
+    [
+     146.75,
+     -136.36
+    ],
+    [
+     147.56,
+     -137.27
+    ],
+    [
+     148.31,
+     -138.11
+    ],
+    [
+     148.97,
+     -138.86
+    ],
+    [
+     149.54,
+     -139.5
+    ],
+    [
+     150.0,
+     -140.0
+    ]
+   ]
+  },
+  {
+   "name": "rua_residencial_l",
+   "width": 6.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     26.05,
+     -147.72
+    ],
+    [
+     26.32,
+     -146.68
+    ],
+    [
+     26.64,
+     -145.37
+    ],
+    [
+     27.01,
+     -143.83
+    ],
+    [
+     27.43,
+     -142.11
+    ],
+    [
+     27.88,
+     -140.24
+    ],
+    [
+     28.37,
+     -138.25
+    ],
+    [
+     28.9,
+     -136.2
+    ],
+    [
+     29.45,
+     -134.1
+    ],
+    [
+     30.02,
+     -132.02
+    ],
+    [
+     30.62,
+     -129.97
+    ],
+    [
+     31.22,
+     -128.0
+    ],
+    [
+     31.84,
+     -126.16
+    ],
+    [
+     32.55,
+     -124.4
+    ],
+    [
+     33.42,
+     -122.66
+    ],
+    [
+     34.39,
+     -120.94
+    ],
+    [
+     35.43,
+     -119.23
+    ],
+    [
+     36.49,
+     -117.53
+    ],
+    [
+     37.53,
+     -115.82
+    ],
+    [
+     38.51,
+     -114.1
+    ],
+    [
+     39.38,
+     -112.37
+    ],
+    [
+     40.11,
+     -110.61
+    ],
+    [
+     40.65,
+     -108.82
+    ],
+    [
+     40.96,
+     -107.0
+    ],
+    [
+     40.99,
+     -105.13
+    ],
+    [
+     40.65,
+     -103.2
+    ],
+    [
+     39.94,
+     -101.21
+    ],
+    [
+     38.92,
+     -99.18
+    ],
+    [
+     37.68,
+     -97.11
+    ],
+    [
+     36.3,
+     -95.01
+    ],
+    [
+     34.84,
+     -92.91
+    ],
+    [
+     33.39,
+     -90.8
+    ],
+    [
+     32.03,
+     -88.71
+    ],
+    [
+     30.82,
+     -86.65
+    ],
+    [
+     29.86,
+     -84.62
+    ],
+    [
+     29.2,
+     -82.64
+    ],
+    [
+     28.94,
+     -80.73
+    ],
+    [
+     29.09,
+     -78.8
+    ],
+    [
+     29.57,
+     -76.82
+    ],
+    [
+     30.34,
+     -74.8
+    ],
+    [
+     31.32,
+     -72.78
+    ],
+    [
+     32.47,
+     -70.78
+    ],
+    [
+     33.72,
+     -68.84
+    ],
+    [
+     35.01,
+     -66.98
+    ],
+    [
+     36.28,
+     -65.24
+    ],
+    [
+     37.47,
+     -63.64
+    ],
+    [
+     38.53,
+     -62.21
+    ],
+    [
+     39.39,
+     -60.99
+    ],
+    [
+     40.0,
+     -60.0
+    ]
+   ]
+  },
+  {
+   "name": "rua_residencial_o",
+   "width": 6.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     -38.82,
+     -144.89
+    ],
+    [
+     -38.65,
+     -143.96
+    ],
+    [
+     -38.45,
+     -142.81
+    ],
+    [
+     -38.21,
+     -141.45
+    ],
+    [
+     -37.94,
+     -139.93
+    ],
+    [
+     -37.64,
+     -138.27
+    ],
+    [
+     -37.33,
+     -136.52
+    ],
+    [
+     -37.0,
+     -134.7
+    ],
+    [
+     -36.66,
+     -132.84
+    ],
+    [
+     -36.31,
+     -130.99
+    ],
+    [
+     -35.97,
+     -129.16
+    ],
+    [
+     -35.63,
+     -127.41
+    ],
+    [
+     -35.3,
+     -125.75
+    ],
+    [
+     -34.93,
+     -124.15
+    ],
+    [
+     -34.5,
+     -122.54
+    ],
+    [
+     -34.03,
+     -120.93
+    ],
+    [
+     -33.53,
+     -119.32
+    ],
+    [
+     -33.02,
+     -117.71
+    ],
+    [
+     -32.53,
+     -116.1
+    ],
+    [
+     -32.08,
+     -114.49
+    ],
+    [
+     -31.68,
+     -112.88
+    ],
+    [
+     -31.35,
+     -111.29
+    ],
+    [
+     -31.12,
+     -109.7
+    ],
+    [
+     -31.01,
+     -108.12
+    ],
+    [
+     -31.03,
+     -106.55
+    ],
+    [
+     -31.19,
+     -104.99
+    ],
+    [
+     -31.48,
+     -103.44
+    ],
+    [
+     -31.88,
+     -101.9
+    ],
+    [
+     -32.37,
+     -100.37
+    ],
+    [
+     -32.94,
+     -98.85
+    ],
+    [
+     -33.56,
+     -97.33
+    ],
+    [
+     -34.23,
+     -95.82
+    ],
+    [
+     -34.92,
+     -94.3
+    ],
+    [
+     -35.62,
+     -92.79
+    ],
+    [
+     -36.3,
+     -91.27
+    ],
+    [
+     -36.96,
+     -89.76
+    ],
+    [
+     -37.57,
+     -88.24
+    ],
+    [
+     -38.18,
+     -86.66
+    ],
+    [
+     -38.84,
+     -84.98
+    ],
+    [
+     -39.54,
+     -83.24
+    ],
+    [
+     -40.25,
+     -81.48
+    ],
+    [
+     -40.98,
+     -79.71
+    ],
+    [
+     -41.69,
+     -77.97
+    ],
+    [
+     -42.38,
+     -76.3
+    ],
+    [
+     -43.04,
+     -74.73
+    ],
+    [
+     -43.64,
+     -73.28
+    ],
+    [
+     -44.18,
+     -71.98
+    ],
+    [
+     -44.64,
+     -70.88
+    ],
+    [
+     -45.0,
+     -70.0
+    ]
+   ]
+  },
+  {
+   "name": "rua_prefeitura",
+   "width": 6.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     -106.07,
+     -106.07
+    ],
+    [
+     -106.49,
+     -106.66
+    ],
+    [
+     -107.0,
+     -107.41
+    ],
+    [
+     -107.6,
+     -108.31
+    ],
+    [
+     -108.27,
+     -109.32
+    ],
+    [
+     -109.0,
+     -110.41
+    ],
+    [
+     -109.78,
+     -111.55
+    ],
+    [
+     -110.61,
+     -112.73
+    ],
+    [
+     -111.47,
+     -113.9
+    ],
+    [
+     -112.36,
+     -115.05
+    ],
+    [
+     -113.26,
+     -116.14
+    ],
+    [
+     -114.16,
+     -117.14
+    ],
+    [
+     -115.06,
+     -118.04
+    ],
+    [
+     -115.99,
+     -118.84
+    ],
+    [
+     -116.95,
+     -119.6
+    ],
+    [
+     -117.95,
+     -120.32
+    ],
+    [
+     -118.98,
+     -121.0
+    ],
+    [
+     -120.04,
+     -121.65
+    ],
+    [
+     -121.11,
+     -122.28
+    ],
+    [
+     -122.2,
+     -122.9
+    ],
+    [
+     -123.29,
+     -123.51
+    ],
+    [
+     -124.38,
+     -124.12
+    ],
+    [
+     -125.47,
+     -124.74
+    ],
+    [
+     -126.54,
+     -125.37
+    ],
+    [
+     -127.6,
+     -126.02
+    ],
+    [
+     -128.65,
+     -126.68
+    ],
+    [
+     -129.72,
+     -127.32
+    ],
+    [
+     -130.8,
+     -127.95
+    ],
+    [
+     -131.88,
+     -128.57
+    ],
+    [
+     -132.96,
+     -129.19
+    ],
+    [
+     -134.03,
+     -129.82
+    ],
+    [
+     -135.1,
+     -130.46
+    ],
+    [
+     -136.15,
+     -131.12
+    ],
+    [
+     -137.19,
+     -131.8
+    ],
+    [
+     -138.2,
+     -132.5
+    ],
+    [
+     -139.18,
+     -133.23
+    ],
+    [
+     -140.13,
+     -134.0
+    ],
+    [
+     -141.08,
+     -134.85
+    ],
+    [
+     -142.05,
+     -135.79
+    ],
+    [
+     -143.02,
+     -136.8
+    ],
+    [
+     -143.99,
+     -137.85
+    ],
+    [
+     -144.93,
+     -138.93
+    ],
+    [
+     -145.85,
+     -140.0
+    ],
+    [
+     -146.72,
+     -141.05
+    ],
+    [
+     -147.54,
+     -142.04
+    ],
+    [
+     -148.29,
+     -142.95
+    ],
+    [
+     -148.96,
+     -143.77
+    ],
+    [
+     -149.53,
+     -144.46
+    ],
+    [
+     -150.0,
+     -145.0
+    ]
+   ]
+  },
+  {
+   "name": "rua_oficinas",
+   "width": 6.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     -147.72,
+     26.05
+    ],
+    [
+     -146.84,
+     26.1
+    ],
+    [
+     -145.74,
+     26.17
+    ],
+    [
+     -144.45,
+     26.27
+    ],
+    [
+     -143.0,
+     26.37
+    ],
+    [
+     -141.43,
+     26.48
+    ],
+    [
+     -139.76,
+     26.59
+    ],
+    [
+     -138.03,
+     26.7
+    ],
+    [
+     -136.26,
+     26.79
+    ],
+    [
+     -134.5,
+     26.87
+    ],
+    [
+     -132.77,
+     26.93
+    ],
+    [
+     -131.1,
+     26.95
+    ],
+    [
+     -129.52,
+     26.94
+    ],
+    [
+     -128.01,
+     26.9
+    ],
+    [
+     -126.5,
+     26.82
+    ],
+    [
+     -124.98,
+     26.71
+    ],
+    [
+     -123.47,
+     26.58
+    ],
+    [
+     -121.95,
+     26.43
+    ],
+    [
+     -120.44,
+     26.27
+    ],
+    [
+     -118.93,
+     26.1
+    ],
+    [
+     -117.42,
+     25.94
+    ],
+    [
+     -115.9,
+     25.78
+    ],
+    [
+     -114.39,
+     25.63
+    ],
+    [
+     -112.88,
+     25.49
+    ],
+    [
+     -111.36,
+     25.38
+    ],
+    [
+     -109.85,
+     25.28
+    ],
+    [
+     -108.33,
+     25.18
+    ],
+    [
+     -106.82,
+     25.09
+    ],
+    [
+     -105.31,
+     25.0
+    ],
+    [
+     -103.79,
+     24.91
+    ],
+    [
+     -102.28,
+     24.83
+    ],
+    [
+     -100.76,
+     24.76
+    ],
+    [
+     -99.25,
+     24.7
+    ],
+    [
+     -97.74,
+     24.64
+    ],
+    [
+     -96.22,
+     24.6
+    ],
+    [
+     -94.71,
+     24.56
+    ],
+    [
+     -93.19,
+     24.54
+    ],
+    [
+     -91.62,
+     24.53
+    ],
+    [
+     -89.95,
+     24.55
+    ],
+    [
+     -88.22,
+     24.57
+    ],
+    [
+     -86.45,
+     24.61
+    ],
+    [
+     -84.69,
+     24.66
+    ],
+    [
+     -82.96,
+     24.72
+    ],
+    [
+     -81.29,
+     24.77
+    ],
+    [
+     -79.72,
+     24.83
+    ],
+    [
+     -78.27,
+     24.89
+    ],
+    [
+     -76.98,
+     24.93
+    ],
+    [
+     -75.88,
+     24.97
+    ],
+    [
+     -75.0,
+     25.0
+    ]
+   ]
+  },
+  {
+   "name": "rua_radio",
+   "width": 6.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     -51.3,
+     140.95
+    ],
+    [
+     -51.16,
+     140.86
+    ],
+    [
+     -50.97,
+     140.74
+    ],
+    [
+     -50.76,
+     140.59
+    ],
+    [
+     -50.53,
+     140.42
+    ],
+    [
+     -50.27,
+     140.25
+    ],
+    [
+     -50.0,
+     140.06
+    ],
+    [
+     -49.71,
+     139.87
+    ],
+    [
+     -49.41,
+     139.69
+    ],
+    [
+     -49.1,
+     139.51
+    ],
+    [
+     -48.79,
+     139.35
+    ],
+    [
+     -48.48,
+     139.21
+    ],
+    [
+     -48.18,
+     139.09
+    ],
+    [
+     -47.87,
+     139.0
+    ],
+    [
+     -47.54,
+     138.93
+    ],
+    [
+     -47.2,
+     138.88
+    ],
+    [
+     -46.85,
+     138.84
+    ],
+    [
+     -46.49,
+     138.81
+    ],
+    [
+     -46.13,
+     138.78
+    ],
+    [
+     -45.77,
+     138.75
+    ],
+    [
+     -45.41,
+     138.72
+    ],
+    [
+     -45.05,
+     138.69
+    ],
+    [
+     -44.7,
+     138.64
+    ],
+    [
+     -44.37,
+     138.58
+    ],
+    [
+     -44.04,
+     138.51
+    ],
+    [
+     -43.72,
+     138.43
+    ],
+    [
+     -43.4,
+     138.36
+    ],
+    [
+     -43.07,
+     138.29
+    ],
+    [
+     -42.74,
+     138.21
+    ],
+    [
+     -42.42,
+     138.14
+    ],
+    [
+     -42.11,
+     138.05
+    ],
+    [
+     -41.81,
+     137.95
+    ],
+    [
+     -41.52,
+     137.82
+    ],
+    [
+     -41.25,
+     137.67
+    ],
+    [
+     -41.01,
+     137.5
+    ],
+    [
+     -40.8,
+     137.28
+    ],
+    [
+     -40.61,
+     137.03
+    ],
+    [
+     -40.46,
+     136.72
+    ],
+    [
+     -40.34,
+     136.34
+    ],
+    [
+     -40.25,
+     135.91
+    ],
+    [
+     -40.18,
+     135.43
+    ],
+    [
+     -40.13,
+     134.93
+    ],
+    [
+     -40.09,
+     134.42
+    ],
+    [
+     -40.07,
+     133.92
+    ],
+    [
+     -40.05,
+     133.44
+    ],
+    [
+     -40.04,
+     132.99
+    ],
+    [
+     -40.03,
+     132.59
+    ],
+    [
+     -40.02,
+     132.25
+    ],
+    [
+     -40.0,
+     132.0
+    ]
+   ]
+  },
+  {
+   "name": "beco_sudeste",
+   "width": 6.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     40.0,
+     -60.0
+    ],
+    [
+     40.8,
+     -60.45
+    ],
+    [
+     41.82,
+     -61.01
+    ],
+    [
+     43.01,
+     -61.65
+    ],
+    [
+     44.35,
+     -62.38
+    ],
+    [
+     45.8,
+     -63.17
+    ],
+    [
+     47.33,
+     -64.02
+    ],
+    [
+     48.92,
+     -64.9
+    ],
+    [
+     50.53,
+     -65.81
+    ],
+    [
+     52.13,
+     -66.73
+    ],
+    [
+     53.69,
+     -67.65
+    ],
+    [
+     55.17,
+     -68.55
+    ],
+    [
+     56.55,
+     -69.42
+    ],
+    [
+     57.88,
+     -70.26
+    ],
+    [
+     59.23,
+     -71.08
+    ],
+    [
+     60.59,
+     -71.88
+    ],
+    [
+     61.95,
+     -72.69
+    ],
+    [
+     63.3,
+     -73.51
+    ],
+    [
+     64.62,
+     -74.35
+    ],
+    [
+     65.92,
+     -75.23
+    ],
+    [
+     67.18,
+     -76.14
+    ],
+    [
+     68.39,
+     -77.12
+    ],
+    [
+     69.53,
+     -78.16
+    ],
+    [
+     70.61,
+     -79.28
+    ],
+    [
+     71.6,
+     -80.49
+    ],
+    [
+     72.47,
+     -81.83
+    ],
+    [
+     73.22,
+     -83.31
+    ],
+    [
+     73.86,
+     -84.91
+    ],
+    [
+     74.42,
+     -86.59
+    ],
+    [
+     74.94,
+     -88.33
+    ],
+    [
+     75.43,
+     -90.09
+    ],
+    [
+     75.92,
+     -91.86
+    ],
+    [
+     76.44,
+     -93.59
+    ],
+    [
+     77.01,
+     -95.26
+    ],
+    [
+     77.67,
+     -96.84
+    ],
+    [
+     78.43,
+     -98.3
+    ],
+    [
+     79.33,
+     -99.61
+    ],
+    [
+     80.41,
+     -100.82
+    ],
+    [
+     81.66,
+     -101.97
+    ],
+    [
+     83.06,
+     -103.07
+    ],
+    [
+     84.55,
+     -104.11
+    ],
+    [
+     86.09,
+     -105.08
+    ],
+    [
+     87.65,
+     -106.0
+    ],
+    [
+     89.18,
+     -106.85
+    ],
+    [
+     90.64,
+     -107.63
+    ],
+    [
+     92.0,
+     -108.34
+    ],
+    [
+     93.2,
+     -108.97
+    ],
+    [
+     94.22,
+     -109.53
+    ],
+    [
+     95.0,
+     -110.0
+    ]
+   ]
+  },
+  {
+   "name": "beco_sudoeste",
+   "width": 6.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     -45.0,
+     -70.0
+    ],
+    [
+     -45.49,
+     -70.72
+    ],
+    [
+     -46.1,
+     -71.63
+    ],
+    [
+     -46.81,
+     -72.7
+    ],
+    [
+     -47.61,
+     -73.9
+    ],
+    [
+     -48.48,
+     -75.21
+    ],
+    [
+     -49.41,
+     -76.59
+    ],
+    [
+     -50.37,
+     -78.01
+    ],
+    [
+     -51.37,
+     -79.45
+    ],
+    [
+     -52.37,
+     -80.87
+    ],
+    [
+     -53.36,
+     -82.26
+    ],
+    [
+     -54.34,
+     -83.57
+    ],
+    [
+     -55.27,
+     -84.78
+    ],
+    [
+     -56.17,
+     -85.96
+    ],
+    [
+     -57.03,
+     -87.19
+    ],
+    [
+     -57.87,
+     -88.44
+    ],
+    [
+     -58.7,
+     -89.7
+    ],
+    [
+     -59.55,
+     -90.95
+    ],
+    [
+     -60.41,
+     -92.16
+    ],
+    [
+     -61.32,
+     -93.33
+    ],
+    [
+     -62.28,
+     -94.41
+    ],
+    [
+     -63.31,
+     -95.41
+    ],
+    [
+     -64.42,
+     -96.29
+    ],
+    [
+     -65.63,
+     -97.04
+    ],
+    [
+     -66.94,
+     -97.64
+    ],
+    [
+     -68.41,
+     -98.03
+    ],
+    [
+     -70.05,
+     -98.18
+    ],
+    [
+     -71.83,
+     -98.15
+    ],
+    [
+     -73.71,
+     -97.98
+    ],
+    [
+     -75.65,
+     -97.71
+    ],
+    [
+     -77.63,
+     -97.4
+    ],
+    [
+     -79.61,
+     -97.09
+    ],
+    [
+     -81.55,
+     -96.83
+    ],
+    [
+     -83.43,
+     -96.66
+    ],
+    [
+     -85.2,
+     -96.62
+    ],
+    [
+     -86.84,
+     -96.78
+    ],
+    [
+     -88.32,
+     -97.16
+    ],
+    [
+     -89.67,
+     -97.8
+    ],
+    [
+     -90.96,
+     -98.68
+    ],
+    [
+     -92.19,
+     -99.73
+    ],
+    [
+     -93.36,
+     -100.93
+    ],
+    [
+     -94.46,
+     -102.22
+    ],
+    [
+     -95.49,
+     -103.55
+    ],
+    [
+     -96.45,
+     -104.89
+    ],
+    [
+     -97.33,
+     -106.18
+    ],
+    [
+     -98.13,
+     -107.38
+    ],
+    [
+     -98.84,
+     -108.45
+    ],
+    [
+     -99.47,
+     -109.34
+    ],
+    [
+     -100.0,
+     -110.0
+    ]
+   ]
+  },
+  {
+   "name": "beco_noroeste",
+   "width": 6.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     -129.9,
+     75.0
+    ],
+    [
+     -130.21,
+     75.7
+    ],
+    [
+     -130.55,
+     76.62
+    ],
+    [
+     -130.93,
+     77.71
+    ],
+    [
+     -131.36,
+     78.94
+    ],
+    [
+     -131.83,
+     80.26
+    ],
+    [
+     -132.36,
+     81.64
+    ],
+    [
+     -132.94,
+     83.05
+    ],
+    [
+     -133.58,
+     84.44
+    ],
+    [
+     -134.27,
+     85.77
+    ],
+    [
+     -135.04,
+     87.01
+    ],
+    [
+     -135.87,
+     88.12
+    ],
+    [
+     -136.77,
+     89.06
+    ],
+    [
+     -137.8,
+     89.83
+    ],
+    [
+     -138.99,
+     90.45
+    ],
+    [
+     -140.31,
+     90.95
+    ],
+    [
+     -141.73,
+     91.38
+    ],
+    [
+     -143.2,
+     91.74
+    ],
+    [
+     -144.7,
+     92.09
+    ],
+    [
+     -146.2,
+     92.44
+    ],
+    [
+     -147.66,
+     92.82
+    ],
+    [
+     -149.04,
+     93.26
+    ],
+    [
+     -150.33,
+     93.8
+    ],
+    [
+     -151.47,
+     94.46
+    ],
+    [
+     -152.44,
+     95.28
+    ],
+    [
+     -153.23,
+     96.26
+    ],
+    [
+     -153.86,
+     97.38
+    ],
+    [
+     -154.35,
+     98.62
+    ],
+    [
+     -154.75,
+     99.95
+    ],
+    [
+     -155.07,
+     101.35
+    ],
+    [
+     -155.35,
+     102.78
+    ],
+    [
+     -155.62,
+     104.22
+    ],
+    [
+     -155.91,
+     105.65
+    ],
+    [
+     -156.24,
+     107.03
+    ],
+    [
+     -156.65,
+     108.35
+    ],
+    [
+     -157.17,
+     109.57
+    ],
+    [
+     -157.82,
+     110.67
+    ],
+    [
+     -158.64,
+     111.69
+    ],
+    [
+     -159.6,
+     112.69
+    ],
+    [
+     -160.67,
+     113.65
+    ],
+    [
+     -161.83,
+     114.58
+    ],
+    [
+     -163.03,
+     115.46
+    ],
+    [
+     -164.25,
+     116.3
+    ],
+    [
+     -165.44,
+     117.08
+    ],
+    [
+     -166.59,
+     117.81
+    ],
+    [
+     -167.65,
+     118.47
+    ],
+    [
+     -168.6,
+     119.06
+    ],
+    [
+     -169.39,
+     119.57
+    ],
+    [
+     -170.0,
+     120.0
+    ]
+   ]
+  },
+  {
+   "name": "beco_externo_s",
+   "width": 6.0,
+   "kind": "asfalto",
+   "poly": [
+    [
+     0.0,
+     -150.0
+    ],
+    [
+     0.0,
+     -150.42
+    ],
+    [
+     0.0,
+     -150.95
+    ],
+    [
+     0.0,
+     -151.57
+    ],
+    [
+     0.0,
+     -152.27
+    ],
+    [
+     0.0,
+     -153.03
+    ],
+    [
+     0.0,
+     -153.83
+    ],
+    [
+     0.0,
+     -154.66
+    ],
+    [
+     0.0,
+     -155.51
+    ],
+    [
+     0.0,
+     -156.36
+    ],
+    [
+     0.0,
+     -157.19
+    ],
+    [
+     0.0,
+     -157.99
+    ],
+    [
+     0.0,
+     -158.75
+    ],
+    [
+     0.0,
+     -159.48
+    ],
+    [
+     0.0,
+     -160.21
+    ],
+    [
+     0.0,
+     -160.94
+    ],
+    [
+     0.0,
+     -161.67
+    ],
+    [
+     0.0,
+     -162.4
+    ],
+    [
+     0.0,
+     -163.12
+    ],
+    [
+     0.0,
+     -163.85
+    ],
+    [
+     0.0,
+     -164.58
+    ],
+    [
+     0.0,
+     -165.31
+    ],
+    [
+     0.0,
+     -166.04
+    ],
+    [
+     0.0,
+     -166.77
+    ],
+    [
+     0.0,
+     -167.5
+    ],
+    [
+     0.0,
+     -168.23
+    ],
+    [
+     0.0,
+     -168.96
+    ],
+    [
+     0.0,
+     -169.69
+    ],
+    [
+     0.0,
+     -170.42
+    ],
+    [
+     0.0,
+     -171.15
+    ],
+    [
+     0.0,
+     -171.88
+    ],
+    [
+     0.0,
+     -172.6
+    ],
+    [
+     0.0,
+     -173.33
+    ],
+    [
+     0.0,
+     -174.06
+    ],
+    [
+     0.0,
+     -174.79
+    ],
+    [
+     0.0,
+     -175.52
+    ],
+    [
+     0.0,
+     -176.25
+    ],
+    [
+     0.0,
+     -177.01
+    ],
+    [
+     0.0,
+     -177.81
+    ],
+    [
+     0.0,
+     -178.64
+    ],
+    [
+     0.0,
+     -179.49
+    ],
+    [
+     0.0,
+     -180.34
+    ],
+    [
+     0.0,
+     -181.17
+    ],
+    [
+     0.0,
+     -181.97
+    ],
+    [
+     0.0,
+     -182.73
+    ],
+    [
+     0.0,
+     -183.43
+    ],
+    [
+     0.0,
+     -184.05
+    ],
+    [
+     0.0,
+     -184.58
+    ],
+    [
+     0.0,
+     -185.0
+    ]
+   ]
+  },
+  {
+   "name": "trilha_Armeiro_Krug",
+   "width": 3.5,
+   "kind": "terra",
+   "poly": [
+    [
+     100.39,
+     43.09
+    ],
+    [
+     101.27,
+     44.97
+    ],
+    [
+     102.15,
+     46.85
+    ],
+    [
+     103.03,
+     48.73
+    ],
+    [
+     103.91,
+     50.61
+    ],
+    [
+     104.79,
+     52.49
+    ],
+    [
+     105.67,
+     54.37
+    ],
+    [
+     106.55,
+     56.25
+    ],
+    [
+     107.43,
+     58.13
+    ],
+    [
+     108.31,
+     60.01
+    ],
+    [
+     109.19,
+     61.89
+    ],
+    [
+     110.07,
+     63.77
+    ],
+    [
+     110.95,
+     65.65
+    ]
+   ]
+  },
+  {
+   "name": "trilha_Bancada_IxVel",
+   "width": 3.5,
+   "kind": "terra",
+   "poly": [
+    [
+     -108.0,
+     -21.0
+    ],
+    [
+     -108.0,
+     -18.91
+    ],
+    [
+     -108.0,
+     -16.82
+    ],
+    [
+     -108.0,
+     -14.73
+    ],
+    [
+     -108.0,
+     -12.64
+    ],
+    [
+     -108.0,
+     -10.55
+    ],
+    [
+     -108.0,
+     -8.45
+    ],
+    [
+     -108.0,
+     -6.36
+    ],
+    [
+     -108.0,
+     -4.27
+    ],
+    [
+     -108.0,
+     -2.18
+    ],
+    [
+     -108.0,
+     -0.09
+    ],
+    [
+     -108.0,
+     2.0
+    ]
+   ]
+  },
+  {
+   "name": "trilha_Casa_Heroi",
+   "width": 3.5,
+   "kind": "terra",
+   "poly": [
+    [
+     -63.47,
+     -107.73
+    ],
+    [
+     -64.16,
+     -105.73
+    ],
+    [
+     -64.84,
+     -103.74
+    ],
+    [
+     -65.53,
+     -101.74
+    ],
+    [
+     -66.22,
+     -99.74
+    ],
+    [
+     -66.91,
+     -97.75
+    ],
+    [
+     -67.59,
+     -95.75
+    ]
+   ]
+  },
+  {
+   "name": "trilha_Casa_Saqueada",
+   "width": 3.5,
+   "kind": "terra",
+   "poly": [
+    [
+     26.4,
+     -114.37
+    ],
+    [
+     28.2,
+     -115.34
+    ],
+    [
+     30.0,
+     -116.31
+    ],
+    [
+     31.8,
+     -117.27
+    ],
+    [
+     33.59,
+     -118.24
+    ],
+    [
+     35.39,
+     -119.21
+    ],
+    [
+     37.19,
+     -120.18
+    ]
+   ]
+  },
+  {
+   "name": "trilha_Bar_Conversa",
+   "width": 3.5,
+   "kind": "terra",
+   "poly": [
+    [
+     60.0,
+     87.28
+    ],
+    [
+     60.0,
+     85.13
+    ],
+    [
+     60.0,
+     82.99
+    ],
+    [
+     60.0,
+     80.85
+    ],
+    [
+     60.0,
+     78.71
+    ],
+    [
+     60.0,
+     76.57
+    ],
+    [
+     60.0,
+     74.42
+    ],
+    [
+     60.0,
+     72.28
+    ],
+    [
+     60.0,
+     70.14
+    ],
+    [
+     60.0,
+     68.0
+    ]
+   ]
+  },
+  {
+   "name": "trilha_Garagem",
+   "width": 3.5,
+   "kind": "terra",
+   "poly": [
+    [
+     -108.12,
+     34.5
+    ],
+    [
+     -108.18,
+     32.24
+    ],
+    [
+     -108.23,
+     29.97
+    ],
+    [
+     -108.28,
+     27.71
+    ],
+    [
+     -108.33,
+     25.45
+    ],
+    [
+     -108.38,
+     23.18
+    ]
+   ]
+  },
+  {
+   "name": "trilha_Radio_Contratos",
+   "width": 3.5,
+   "kind": "terra",
+   "poly": [
+    [
+     -48.34,
+     146.65
+    ],
+    [
+     -47.38,
+     144.72
+    ],
+    [
+     -46.42,
+     142.8
+    ],
+    [
+     -45.47,
+     140.87
+    ]
+   ]
+  },
+  {
+   "name": "trilha_Laboratorio",
+   "width": 3.5,
+   "kind": "terra",
+   "poly": [
+    [
+     151.59,
+     146.44
+    ],
+    [
+     152.49,
+     144.4
+    ],
+    [
+     153.4,
+     142.37
+    ],
+    [
+     154.3,
+     140.34
+    ],
+    [
+     155.21,
+     138.31
+    ],
+    [
+     156.11,
+     136.28
+    ],
+    [
+     157.02,
+     134.24
+    ],
+    [
+     157.92,
+     132.21
+    ],
+    [
+     158.83,
+     130.18
+    ]
+   ]
+  },
+  {
+   "name": "trilha_Prefeitura",
+   "width": 3.5,
+   "kind": "terra",
+   "poly": [
+    [
+     -150.0,
+     -154.25
+    ],
+    [
+     -150.0,
+     -152.0
+    ],
+    [
+     -150.0,
+     -149.75
+    ],
+    [
+     -150.0,
+     -147.5
+    ],
+    [
+     -150.0,
+     -145.25
+    ],
+    [
+     -150.0,
+     -143.0
+    ]
+   ]
+  }
+ ]
+}

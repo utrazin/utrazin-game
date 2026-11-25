@@ -21,6 +21,9 @@ class JOGORESGATE_API UJRRunSubsystem : public UGameInstanceSubsystem
 public:
 	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
 
+	/** [A-087] Tela de título da cidade: aparece uma vez por sessão do jogo (não volta ao sair da arena). */
+	bool bTitleShown = false;
+
 	/** Começa uma corrida nova (zera cartas, energia, ganhos). */
 	UFUNCTION(BlueprintCallable, Category = "Run")
 	void StartRun(int32 InSectorLevel);
@@ -44,6 +47,13 @@ public:
 
 	/** Energia extra (ex.: fim de onda). Pode subir de nível e guardar escolhas de carta. */
 	void AddEnergy(float Amount);
+
+	/** [Remap F2] Créditos extras da corrida (objetivo, baú). Entram no multiplicador e no contrato de morte. */
+	void AddBonusCredits(int64 Amount);
+	/** [Remap F2] Objetivo da arena cumprido (vai para o relatório). */
+	void MarkObjectiveCompleted() { ++ObjectivesCompleted; }
+	/** [Remap F2] O herói levou dano: o combo zera. */
+	void NotifyHeroDamaged() { Combo = 0; }
 
 	// ---------------- cartas
 	/** Tem escolha guardada e nenhuma aberta. */
@@ -69,6 +79,9 @@ public:
 	float GetEnergy() const { return Energy; }
 	float GetEnergyNeeded() const { return FJRRemapRules::EnergyForLevel(RunLevel); }
 	int64 GetRunCredits() const { return RunCredits; }
+	int32 GetCombo() const { return Combo; }
+	int32 GetMaxCombo() const { return MaxCombo; }
+	int32 GetObjectivesCompleted() const { return ObjectivesCompleted; }
 	int64 GetCreditsIfDie() const { return FMath::FloorToInt64(RunCredits * FJRRemapRules::DeathKeepCredits); }
 	const FJRRunStats& GetStats() const { return Stats; }
 	const TArray<EJRRunCard>& GetPickedCards() const { return Picked; }
@@ -87,6 +100,9 @@ private:
 	int32 RunLevel = 1;
 	float Energy = 0.f;
 	int64 RunCredits = 0;
+	int32 Combo = 0;
+	int32 MaxCombo = 0;
+	int32 ObjectivesCompleted = 0;
 	FJRRunStats Stats;
 	TArray<EJRRunCard> Picked;
 

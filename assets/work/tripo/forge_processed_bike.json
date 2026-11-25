@@ -1,0 +1,50 @@
+{
+ "VEH_BikeQuadro": {
+  "fbx": "SM_VEH_BikeQuadro.fbx",
+  "texture": "textures/T_VEH_BikeQuadro_D.jpg",
+  "tris": 9936,
+  "dims_m": [
+   1.634,
+   0.687,
+   0.938
+  ],
+  "min_m": [
+   0,
+   0,
+   0
+  ],
+  "max_m": [
+   1.634,
+   0.687,
+   0.938
+  ],
+  "ucx": 1,
+  "category": "Veiculos",
+  "collision": "box",
+  "source": "noct_forge3d"
+ },
+ "VEH_BikeRoda": {
+  "fbx": "SM_VEH_BikeRoda.fbx",
+  "texture": "textures/T_VEH_BikeRoda_D.jpg",
+  "tris": 7568,
+  "dims_m": [
+   0.68,
+   0.13,
+   0.68
+  ],
+  "min_m": [
+   0,
+   0,
+   0
+  ],
+  "max_m": [
+   0.68,
+   0.13,
+   0.68
+  ],
+  "ucx": 0,
+  "category": "Veiculos",
+  "collision": "none",
+  "source": "noct_forge3d"
+ }
+}

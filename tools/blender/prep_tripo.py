@@ -325,6 +325,8 @@ def process(it):
 
 
 for it in CAT["items"]:
+    if it.get("source") == "noct_forge3d":
+        continue  # [A-093] já sai pronto do tools/blender/polish_forge.py
     if ONLY and it["name"] not in ONLY:
         continue
     try:

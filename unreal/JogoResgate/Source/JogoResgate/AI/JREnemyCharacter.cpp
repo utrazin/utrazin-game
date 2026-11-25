@@ -6,12 +6,14 @@
 #include "AI/JREnemyArchetype.h"
 #include "AI/JREnemyBudgetSubsystem.h"
 #include "AI/JRNoise.h"
+#include "Remap/JRArenaInteractives.h"
 #include "AIController.h"
 #include "Animation/AnimInstance.h"
 #include "Animation/AnimMontage.h"
 #include "Components/InstancedStaticMeshComponent.h"
 #include "Components/StaticMeshComponent.h"
 #include "Engine/OverlapResult.h"
+#include "Engine/SkeletalMesh.h"
 #include "Engine/StaticMesh.h"
 #include "EngineUtils.h"
 #include "Navigation/PathFollowingComponent.h"
@@ -25,6 +27,9 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Materials/MaterialInstanceDynamic.h"
+#include "Materials/MaterialInterface.h"
+#include "Misc/PackageName.h"
 #include "JogoResgate.h"
 #include "TimerManager.h"
 #include "Vehicles/JRVehicleDamageComponent.h"
@@ -47,6 +52,8 @@ AJREnemyCharacter::AJREnemyCharacter()
 	GunMesh->SetVisibility(false);
 	GunMesh->SetCastShadow(false);
 	GunStaticMesh = TSoftObjectPtr<UStaticMesh>(FSoftObjectPath(TEXT("/Game/Weapons/SM_AlienPistol.SM_AlienPistol")));
+	// [A-081] contorno verde-tóxico (criado pelo tools/unreal/setup_zombie_feel.py; sem ele, nada muda)
+	RimMaterial = TSoftObjectPtr<UMaterialInterface>(FSoftObjectPath(TEXT("/Game/Materials/Remap/M_ZombieRim.M_ZombieRim")));
 }
 
 void AJREnemyCharacter::BeginPlay()
@@ -73,7 +80,25 @@ void AJREnemyCharacter::BeginPlay()
 	// [Remap F1] Atirador segura a pistola.
 	if (Archetype && Archetype->AttackType == EJREnemyAttackType::Burst && GunMesh && GetMesh())
 	{
-		if (UStaticMesh* Gun = GunStaticMesh.LoadSynchronous())
+		// [A-085] os rigs dos zumbis usam nomes Mixamo: "hand_r" não existe e a arma sumia (ou ia para os pés).
+		if (!GetMesh()->DoesSocketExist(MuzzleSocket))
+		{
+			for (const TCHAR* Alt : { TEXT("mixamorig:RightHand"), TEXT("RightHand"), TEXT("hand_r"), TEXT("Hand_R") })
+			{
+				if (GetMesh()->DoesSocketExist(Alt))
+				{
+					MuzzleSocket = Alt;
+					break;
+				}
+			}
+		}
+		UStaticMesh* Gun = GunStaticMesh.LoadSynchronous();
+		if (!Gun)
+		{
+			// sem arma no BP: usa a pistola alien do herói
+			Gun = LoadObject<UStaticMesh>(nullptr, TEXT("/Game/Weapons/SM_AlienPistol.SM_AlienPistol"));
+		}
+		if (Gun)
 		{
 			GunMesh->SetStaticMesh(Gun);
 			GunMesh->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale, MuzzleSocket);
@@ -99,11 +124,19 @@ void AJREnemyCharacter::BeginPlay()
 		WanderSpeed = Random.FRandRange(FMath::Min(Archetype->WanderSpeedMin, Archetype->WanderSpeedMax),
 			FMath::Max(Archetype->WanderSpeedMin, Archetype->WanderSpeedMax));
 		InvestigateMoveSpeed = FMath::Min(Archetype->InvestigateSpeed, ChaseSpeed) * Random.FRandRange(0.9f, 1.1f);
+		if (Archetype->LocomotionRunSpeed > 1.f)
+		{
+			// [A-081] acima disto o passo não acompanha (o pé escorregaria): limita a perseguição.
+			ChaseSpeed = FMath::Min(ChaseSpeed, Archetype->LocomotionRunSpeed * FMath::Max(1.f, Archetype->MaxLocomotionRate));
+			InvestigateMoveSpeed = FMath::Min(InvestigateMoveSpeed, ChaseSpeed);
+		}
 		if (Archetype->AnimRateJitter > 0.f)
 		{
-			GetMesh()->GlobalAnimRateScale = 1.f + Random.FRandRange(-Archetype->AnimRateJitter, Archetype->AnimRateJitter);
+			IdleAnimRate = 1.f + Random.FRandRange(-Archetype->AnimRateJitter, Archetype->AnimRateJitter);
+			GetMesh()->GlobalAnimRateScale = IdleAnimRate;
 		}
 	}
+	SetupRimGlow();
 	Move->MaxWalkSpeed = bForceAggro ? ChaseSpeed : WanderSpeed;
 	CalmActivity = EJRCalmActivity::Pause;
 	CalmActivityEnd = GetWorld()->GetTimeSeconds() + Random.FRandRange(0.3f, 4.f); // começa desfasado
@@ -135,6 +168,8 @@ void AJREnemyCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
 	GetWorldTimerManager().ClearTimer(BrainTimer);
 	GetWorldTimerManager().ClearTimer(BurstTimer);
 	GetWorldTimerManager().ClearTimer(GrabTimer);
+	GetWorldTimerManager().ClearTimer(RimTimer);
+	GetWorldTimerManager().ClearTimer(LungeTimer);
 	Super::EndPlay(EndPlayReason);
 }
 
@@ -210,6 +245,7 @@ void AJREnemyCharacter::UpdateBrain()
 		GetWorldTimerManager().ClearTimer(BrainTimer);
 		return;
 	}
+	UpdateLocomotionAnimRate(); // [A-081] passo acompanha a velocidade real
 	if (GrabbedVehicle.IsValid())
 	{
 		return; // agarrado no carro: TickGrab cuida
@@ -250,6 +286,13 @@ void AJREnemyCharacter::UpdateBrain()
 	else if (PlayerPawn)
 	{
 		In.DistanceToTarget = static_cast<float>(FVector::Dist(GetActorLocation(), PlayerPawn->GetActorLocation()));
+		// [A-088] alvo em cima de algo baixo (carro, barricada, contêiner): conta a distância no chão, o soco alcança
+		// para cima (ResolveMeleeHit também mede no chão). Antes o zumbi parava embaixo sem atacar.
+		const float TargetHeight = TargetFeetHeightAbove(PlayerPawn);
+		if (TargetHeight > 40.f && TargetHeight <= VerticalAttackReach)
+		{
+			In.DistanceToTarget = static_cast<float>(FVector::Dist2D(GetActorLocation(), PlayerPawn->GetActorLocation()));
+		}
 		// Traço de visão só quando o alvo está perto o bastante para importar (custo).
 		// Calmo: só enxerga dentro do cone (ou bem perto). Já perseguindo: sem cone.
 		bool bWorthTracing = In.DistanceToTarget <= (bWasEngaged ? Archetype->LoseAggroRadius : Archetype->AggroRadius);
@@ -343,6 +386,10 @@ void AJREnemyCharacter::UpdateBrain()
 	case EJREnemyState::Chase:
 		SetFaceFocus(false);
 		ApplyMovementStyle(false, ChaseSpeed);
+		if (!Car && PlayerPawn && TryClimbToward(PlayerPawn))
+		{
+			break; // [A-088] pulou para subir onde o herói está
+		}
 		if (Car)
 		{
 			MoveTowardVehicle(AI, Car, In.DistanceToTarget, CarContact);
@@ -373,6 +420,10 @@ void AJREnemyCharacter::UpdateBrain()
 		AI->StopMovement();
 		ApplyMovementStyle(false, ChaseSpeed);
 		SetFaceFocus(true); // parado, vira para o jogador antes do golpe
+		if (AttackTurnRate > 0.f)
+		{
+			GetCharacterMovement()->RotationRate = FRotator(0.f, AttackTurnRate, 0.f); // [A-081] giro suave e firme
+		}
 		if (PlayerPawn)
 		{
 			AI->SetFocus(PlayerPawn);
@@ -383,6 +434,10 @@ void AJREnemyCharacter::UpdateBrain()
 		AI->StopMovement();
 		ApplyMovementStyle(false, ChaseSpeed);
 		SetFaceFocus(true);
+		if (AttackTurnRate > 0.f)
+		{
+			GetCharacterMovement()->RotationRate = FRotator(0.f, AttackTurnRate, 0.f);
+		}
 		if (PlayerPawn)
 		{
 			AI->SetFocus(PlayerPawn);
@@ -445,6 +500,7 @@ bool AJREnemyCharacter::TryGrabVehicle(AJRVehiclePawn* Car)
 	GrabbedVehicle = Car;
 	GrabSlot = Slot;
 	GetWorldTimerManager().ClearTimer(MeleeHitTimer);
+	GetWorldTimerManager().ClearTimer(LungeTimer);
 	if (AAIController* AI = Cast<AAIController>(GetController()))
 	{
 		AI->StopMovement();
@@ -547,12 +603,102 @@ void AJREnemyCharacter::FreezeRagdoll()
 	SetLifeSpan(3.f);
 }
 
+void AJREnemyCharacter::StartDeathFall(const FVector& FallDir)
+{
+	USkeletalMeshComponent* Body = GetMesh();
+	if (!Body)
+	{
+		return;
+	}
+	Body->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	Body->bPauseAnims = true; // congela a pose do golpe; a queda vem da rotação abaixo
+	const FVector Dir2D = FVector(FallDir.X, FallDir.Y, 0.f).GetSafeNormal();
+	DeathFallAxis = FVector::CrossProduct(FVector::UpVector, Dir2D.IsNearlyZero() ? -GetActorForwardVector() : Dir2D).GetSafeNormal();
+	DeathFallBaseQuat = Body->GetComponentQuat();
+	DeathFallBaseLoc = Body->GetComponentLocation(); // pivô da malha = pés
+	// [A-088] chão de verdade embaixo do corpo (morreu numa rampa/degrau)
+	DeathFallGroundZ = static_cast<float>(DeathFallBaseLoc.Z);
+	DeathFallLift = 0.f;
+	{
+		FHitResult GroundHit;
+		FCollisionQueryParams GroundQuery(SCENE_QUERY_STAT(JRDeathGround), false, this);
+		if (GetWorld()->LineTraceSingleByChannel(GroundHit, DeathFallBaseLoc + FVector(0.f, 0.f, 80.f),
+			DeathFallBaseLoc - FVector(0.f, 0.f, 200.f), ECC_Visibility, GroundQuery))
+		{
+			DeathFallGroundZ = static_cast<float>(GroundHit.ImpactPoint.Z);
+		}
+	}
+	DeathFallStart = GetWorld()->GetTimeSeconds();
+	DeathFallLife = Archetype ? Archetype->CorpseLifetime : 10.f;
+	GetWorldTimerManager().SetTimer(DeathFallTimer, this, &AJREnemyCharacter::TickDeathFall, 1.f / 60.f, true);
+}
+
+void AJREnemyCharacter::TickDeathFall()
+{
+	USkeletalMeshComponent* Body = GetMesh();
+	if (!Body || !GetWorld())
+	{
+		return;
+	}
+	const float T = static_cast<float>(GetWorld()->GetTimeSeconds() - DeathFallStart);
+	// 0 a 0,45 s: tomba acelerando (gravidade); depois um quique pequeno que assenta em 0,25 s.
+	const float FallTime = 0.45f;
+	float Angle;
+	if (T < FallTime)
+	{
+		const float A = T / FallTime;
+		Angle = 88.f * A * A;
+	}
+	else
+	{
+		const float B = FMath::Min(1.f, (T - FallTime) / 0.25f);
+		Angle = 88.f - 7.f * FMath::Sin(B * PI) * (1.f - B * 0.5f);
+	}
+	Body->SetWorldRotation(FQuat(DeathFallAxis, FMath::DegreesToRadians(Angle)) * DeathFallBaseQuat);
+	// [A-088] Pernas dentro do chão (print 9): girar pelos pés enterra o que fica atrás do pivô (calcanhar, costas,
+	// joelho dobrado). Mede o osso mais baixo e levanta o corpo até tudo ficar ~9 cm acima do chão (só sobe, não pula).
+	if (T < FallTime + 0.4f)
+	{
+		float MinZ = TNumericLimits<float>::Max();
+		const int32 NumBones = Body->GetNumBones();
+		for (int32 BoneIdx = 1; BoneIdx < NumBones; ++BoneIdx)
+		{
+			const FName BoneName = Body->GetBoneName(BoneIdx);
+			const FString BoneStr = BoneName.ToString();
+			if (BoneStr.StartsWith(TEXT("ik_"), ESearchCase::IgnoreCase) || BoneStr.Contains(TEXT("root"), ESearchCase::IgnoreCase))
+			{
+				continue; // ossos de apoio ficam no pivô (no chão) e não são corpo
+			}
+			MinZ = FMath::Min(MinZ, static_cast<float>(Body->GetBoneLocation(BoneName).Z));
+		}
+		if (MinZ < TNumericLimits<float>::Max())
+		{
+			const float Need = (DeathFallGroundZ + 9.f) - (MinZ - DeathFallLift);
+			DeathFallLift = FMath::Clamp(FMath::Max(DeathFallLift, Need), 0.f, 80.f);
+		}
+	}
+	// Último 1,5 s antes de sumir: afunda no chão (em vez de desaparecer de uma vez).
+	const float SinkStart = FMath::Max(1.f, DeathFallLife - 1.5f);
+	const float Sink = FMath::Clamp((T - SinkStart) / 1.5f, 0.f, 1.f);
+	Body->SetWorldLocation(DeathFallBaseLoc + FVector(0.f, 0.f, DeathFallLift - (70.f + DeathFallLift) * Sink));
+	if (T > FallTime + 0.3f && Sink <= 0.f)
+	{
+		// parado no chão: diminui a frequência até começar a afundar
+		GetWorldTimerManager().SetTimer(DeathFallTimer, this, &AJREnemyCharacter::TickDeathFall, 1.f / 30.f, true,
+			FMath::Max(0.05f, SinkStart - T));
+	}
+}
+
 bool AJREnemyCharacter::TryAttack()
 {
 	AActor* TargetActor = Target.Get();
 	if (!Archetype || !TargetActor || IsDead())
 	{
 		return false;
+	}
+	if (!TargetActor->IsA<AJRVehiclePawn>() && !IsFacingPoint(TargetActor->GetActorLocation(), AttackFacingToleranceDegrees))
+	{
+		return false; // [A-081] ainda virando: o golpe/tiro sai de frente para o alvo, nunca de lado
 	}
 	const double Now = GetWorld()->GetTimeSeconds();
 	if (Now - LastAttackTime < Archetype->AttackInterval)
@@ -569,12 +715,96 @@ bool AJREnemyCharacter::TryAttack()
 	{
 		// Golpe com preparação: o dano só sai se o alvo ainda estiver ao alcance (dá para desviar).
 		GetWorldTimerManager().SetTimer(MeleeHitTimer, this, &AJREnemyCharacter::ResolveMeleeHit, MeleeWindup, false);
+		if (MeleeLungeSpeed > 0.f && !TargetActor->IsA<AJRVehiclePawn>())
+		{
+			// [A-081] bote curto no meio da preparação (o corpo vai junto com o soco)
+			GetWorldTimerManager().SetTimer(LungeTimer, this, &AJREnemyCharacter::DoMeleeLunge, FMath::Max(0.01f, MeleeWindup * 0.55f), false);
+		}
 		return true;
 	}
 
 	BurstShotsRemaining = FMath::Max(1, Archetype->BurstCount);
-	FireRangedShot();
+	// [A-088] levanta a arma (montage de tiro) e só então atira: aviso legível para o jogador desviar
+	if (RangedWindup > 0.f)
+	{
+		GetWorldTimerManager().SetTimer(BurstTimer, this, &AJREnemyCharacter::FireRangedShot, RangedWindup, false);
+	}
+	else
+	{
+		FireRangedShot();
+	}
 	return true;
+}
+
+float AJREnemyCharacter::TargetFeetHeightAbove(const AActor* Other) const
+{
+	if (!Other)
+	{
+		return 0.f;
+	}
+	double OtherFeet = Other->GetActorLocation().Z;
+	if (const ACharacter* OtherChar = Cast<ACharacter>(Other))
+	{
+		OtherFeet -= OtherChar->GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+	}
+	const double MyFeet = GetActorLocation().Z - GetCapsuleComponent()->GetScaledCapsuleHalfHeight();
+	return static_cast<float>(OtherFeet - MyFeet);
+}
+
+bool AJREnemyCharacter::TryClimbToward(const AActor* ClimbTarget)
+{
+	UCharacterMovementComponent* Move = GetCharacterMovement();
+	if (!ClimbTarget || ClimbMaxHeight <= 0.f || !Move || !Move->IsMovingOnGround() || IsDead() || !Archetype
+		|| Archetype->AttackType != EJREnemyAttackType::Melee || GrabbedVehicle.IsValid())
+	{
+		return false;
+	}
+	const double Now = GetWorld()->GetTimeSeconds();
+	if (Now < NextClimbTime)
+	{
+		return false;
+	}
+	const float Height = TargetFeetHeightAbove(ClimbTarget);
+	const FVector ToTarget = ClimbTarget->GetActorLocation() - GetActorLocation();
+	const float Flat = static_cast<float>(ToTarget.Size2D());
+	if (Height < 80.f || Height > ClimbMaxHeight || Flat > ClimbTriggerDistance)
+	{
+		return false;
+	}
+	if (const ACharacter* TargetChar = Cast<ACharacter>(ClimbTarget))
+	{
+		const UCharacterMovementComponent* TargetMove = TargetChar->GetCharacterMovement();
+		if (!TargetMove || !TargetMove->IsMovingOnGround())
+		{
+			return false; // o alvo está no meio de um pulo: espera ele assentar
+		}
+	}
+	NextClimbTime = Now + ClimbCooldown * Random.FRandRange(0.8f, 1.3f);
+	// Pulo calculado para passar 60 cm acima do topo e cair em cima, perto do alvo (não em cima dele).
+	const float Gravity = FMath::Max(100.f, FMath::Abs(Move->GetGravityZ()));
+	const float Rise = Height + 60.f;
+	const float VZ = FMath::Sqrt(2.f * Gravity * Rise);
+	const float AirTime = VZ / Gravity + FMath::Sqrt(2.f * 60.f / Gravity);
+	const float Reach = FMath::Max(0.f, Flat - GetCapsuleComponent()->GetScaledCapsuleRadius() - 45.f);
+	const FVector Horizontal = ToTarget.GetSafeNormal2D() * (Reach / FMath::Max(0.2f, AirTime));
+	if (AAIController* AI = Cast<AAIController>(GetController()))
+	{
+		AI->StopMovement();
+	}
+	LaunchCharacter(FVector(Horizontal.X, Horizontal.Y, VZ), true, true);
+	if (Archetype->AttackMontage)
+	{
+		PlayAnimMontage(Archetype->AttackMontage, 1.25f); // braços para cima, agarrando a borda
+	}
+	return true;
+}
+
+void AJREnemyCharacter::RecoverGunKick()
+{
+	if (GunMesh)
+	{
+		GunMesh->SetRelativeTransform(GunGripOffset);
+	}
 }
 
 FVector AJREnemyCharacter::GetMuzzleLocation() const
@@ -632,7 +862,8 @@ void AJREnemyCharacter::FireRangedShot()
 				break;
 			}
 		}
-		if (bShotHit && Hit.GetActor())
+		// [A-090] tiro de zumbi não machuca o ninho (item 31): o objetivo "destrua os ninhos" é do jogador
+		if (bShotHit && Hit.GetActor() && !Hit.GetActor()->IsA<AJRArenaNest>())
 		{
 			UGameplayStatics::ApplyPointDamage(Hit.GetActor(), Archetype->AttackDamage, Dir, Hit, GetController(), this, nullptr);
 		}
@@ -645,6 +876,14 @@ void AJREnemyCharacter::FireRangedShot()
 		}
 	}
 
+	// [A-088] tranco da arma no tiro (a pistola não fica parada como estátua na mão)
+	if (GunMesh && GunMesh->IsVisible() && GunKickDegrees > 0.f)
+	{
+		const FQuat Kick = GunGripOffset.GetRotation() * FRotator(GunKickDegrees, 0.f, 0.f).Quaternion();
+		GunMesh->SetRelativeTransform(FTransform(Kick, GunGripOffset.GetLocation() - Kick.RotateVector(FVector(4.f, 0.f, 0.f)),
+			GunGripOffset.GetScale3D()));
+		GetWorldTimerManager().SetTimer(GunKickTimer, this, &AJREnemyCharacter::RecoverGunKick, 0.09f, false);
+	}
 	if (BurstShotsRemaining > 0)
 	{
 		GetWorldTimerManager().SetTimer(BurstTimer, this, &AJREnemyCharacter::FireRangedShot, Archetype->BurstShotInterval, false);
@@ -661,6 +900,12 @@ void AJREnemyCharacter::HandleDeath(UJRHealthComponent* Health, AActor* Killer)
 	GetWorldTimerManager().ClearTimer(BrainTimer);
 	GetWorldTimerManager().ClearTimer(BurstTimer);
 	GetWorldTimerManager().ClearTimer(MeleeHitTimer);
+	GetWorldTimerManager().ClearTimer(LungeTimer);
+	if (RimMID)
+	{
+		bRimFadingOut = true; // [A-081] o contorno apaga no corpo caído
+		StartRimTimer();
+	}
 	if (AAIController* AI = Cast<AAIController>(GetController()))
 	{
 		AI->StopMovement();
@@ -668,29 +913,43 @@ void AJREnemyCharacter::HandleDeath(UJRHealthComponent* Health, AActor* Killer)
 	}
 	GetCharacterMovement()->DisableMovement();
 	GetCapsuleComponent()->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-	GetMesh()->SetCollisionProfileName(TEXT("Ragdoll"));
-	GetMesh()->SetSimulatePhysics(true);
 	SetLifeSpan(Archetype ? Archetype->CorpseLifetime : 10.f);
-	if (!PendingLaunch.IsZero())
+	if (!GetMesh()->GetPhysicsAsset())
 	{
-		GetMesh()->SetAllPhysicsLinearVelocity(PendingLaunch, false); // atropelado/explosão: o corpo todo voa longe
-		PendingLaunch = FVector::ZeroVector;
-	}
-	else if (GetWorld()->GetTimeSeconds() - LastFeelHitTime < 0.25 && !LastFeelHitDir.IsNearlyZero())
-	{
-		// [A-073] morte por tiro/golpe: o corpo cede PARA LONGE do golpe (antes desabava no lugar).
-		// Só velocidade no ragdoll recém-ligado deste zumbi (não mexe em mais nada).
-		const float KickScale = FMath::Clamp(LastFeelHitDamage / 40.f, 0.6f, 1.6f);
-		const FVector PushDir = (LastFeelHitDir.GetSafeNormal2D() + FVector(0.f, 0.f, 0.15f)).GetSafeNormal();
-		GetMesh()->SetAllPhysicsLinearVelocity(PushDir * (DeathPushSpeed * KickScale), true);
-		if (!LastFeelHitBone.IsNone() && GetMesh()->GetBoneIndex(LastFeelHitBone) != INDEX_NONE)
+		// [A-085] sem Physics Asset o ragdoll não faz nada (o zumbi ficava de pé, parado): queda procedural.
+		FVector FallDir = !PendingLaunch.IsZero() ? PendingLaunch : LastFeelHitDir;
+		if (FallDir.IsNearlyZero())
 		{
-			GetMesh()->AddImpulse(LastFeelHitDir * (DeathBoneKick * KickScale), LastFeelHitBone, true);
+			FallDir = -GetActorForwardVector();
 		}
+		PendingLaunch = FVector::ZeroVector;
+		StartDeathFall(FallDir);
 	}
-	if (UJREnemyBudgetSubsystem* Budget = GetWorld()->GetSubsystem<UJREnemyBudgetSubsystem>())
+	else
 	{
-		Budget->RegisterRagdoll(this); // teto de ragdolls ativos (os mais antigos congelam)
+		GetMesh()->SetCollisionProfileName(TEXT("Ragdoll"));
+		GetMesh()->SetSimulatePhysics(true);
+		if (!PendingLaunch.IsZero())
+		{
+			GetMesh()->SetAllPhysicsLinearVelocity(PendingLaunch, false); // atropelado/explosão: o corpo todo voa longe
+			PendingLaunch = FVector::ZeroVector;
+		}
+		else if (GetWorld()->GetTimeSeconds() - LastFeelHitTime < 0.25 && !LastFeelHitDir.IsNearlyZero())
+		{
+			// [A-073] morte por tiro/golpe: o corpo cede PARA LONGE do golpe (antes desabava no lugar).
+			// Só velocidade no ragdoll recém-ligado deste zumbi (não mexe em mais nada).
+			const float KickScale = FMath::Clamp(LastFeelHitDamage / 40.f, 0.6f, 1.6f);
+			const FVector PushDir = (LastFeelHitDir.GetSafeNormal2D() + FVector(0.f, 0.f, 0.15f)).GetSafeNormal();
+			GetMesh()->SetAllPhysicsLinearVelocity(PushDir * (DeathPushSpeed * KickScale), true);
+			if (!LastFeelHitBone.IsNone() && GetMesh()->GetBoneIndex(LastFeelHitBone) != INDEX_NONE)
+			{
+				GetMesh()->AddImpulse(LastFeelHitDir * (DeathBoneKick * KickScale), LastFeelHitBone, true);
+			}
+		}
+		if (UJREnemyBudgetSubsystem* Budget = GetWorld()->GetSubsystem<UJREnemyBudgetSubsystem>())
+		{
+			Budget->RegisterRagdoll(this); // teto de ragdolls ativos (os mais antigos congelam)
+		}
 	}
 	if (AJRAIDirector* Director = AJRAIDirector::Find(this))
 	{
@@ -715,6 +974,19 @@ void AJREnemyCharacter::HandlePointDamageFeel(AActor* DamagedActor, float Damage
 	LastFeelHitBone = BoneName;
 	LastFeelHitDamage = Damage;
 	LastFeelHitTime = GetWorld() ? GetWorld()->GetTimeSeconds() : 0.0;
+
+	// [A-081] tranco: vivo, o corpo recua um pouco na direção do tiro (o grandão recua menos)
+	if (HitShoveSpeed > 0.f && Damage > 0.f && !IsDead() && !GrabbedVehicle.IsValid())
+	{
+		UCharacterMovementComponent* Move = GetCharacterMovement();
+		const FVector Push = LastFeelHitDir.GetSafeNormal2D();
+		if (Move && Move->IsMovingOnGround() && !Push.IsNearlyZero())
+		{
+			const float SizeScale = FMath::Clamp(34.f / FMath::Max(GetCapsuleComponent()->GetScaledCapsuleRadius(), 1.f), 0.3f, 1.f);
+			const float DamageScale = FMath::Clamp(Damage / 30.f, 0.5f, 1.5f);
+			Move->AddImpulse(Push * (HitShoveSpeed * SizeScale * DamageScale), /*bVelocityChange*/ true);
+		}
+	}
 }
 
 void AJREnemyCharacter::HandleCapsuleOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
@@ -798,6 +1070,10 @@ void AJREnemyCharacter::ResolveMeleeHit()
 	{
 		return; // desviou
 	}
+	if (!IsFacingPoint(TargetActor->GetActorLocation(), MeleeHitHalfAngleDegrees))
+	{
+		return; // [A-081] deu a volta no zumbi durante a preparação: o soco passa no vazio
+	}
 	// Dano pontual: no veículo vira dano por zona (UJRVehicleDamageComponent).
 	FHitResult Hit;
 	// [Sensação de combate] o golpe acerta um ponto do corpo (coxa, braço, tronco) virado para o zumbi:
@@ -819,6 +1095,8 @@ void AJREnemyCharacter::HandleHealthChanged(UJRHealthComponent* Health, float Ne
 	}
 	StaggerUntil = GetWorld()->GetTimeSeconds() + StaggerTime;
 	GetWorldTimerManager().ClearTimer(MeleeHitTimer); // apanhou: perde o golpe
+	GetWorldTimerManager().ClearTimer(LungeTimer);
+	PulseRimGlow(); // [A-081] o contorno acende no golpe
 	if (Archetype && Archetype->HitReactMontage)
 	{
 		PlayAnimMontage(Archetype->HitReactMontage);
@@ -912,7 +1190,9 @@ void AJREnemyCharacter::ApplyMovementStyle(bool bShamble, float NewMaxSpeed)
 {
 	UCharacterMovementComponent* Move = GetCharacterMovement();
 	Move->MaxWalkSpeed = NewMaxSpeed;
-	Move->RotationRate = bShamble ? FRotator(0.f, ShambleTurnRate, 0.f) : BaseRotationRate;
+	// [A-081] perseguindo: giro próprio (curvas suaves, sem "estalo"); 0 = o do BP
+	const FRotator ChaseRotation = ChaseTurnRate > 0.f ? FRotator(0.f, ChaseTurnRate, 0.f) : BaseRotationRate;
+	Move->RotationRate = bShamble ? FRotator(0.f, ShambleTurnRate, 0.f) : ChaseRotation;
 	Move->MaxAcceleration = bShamble ? FMath::Min(BaseMaxAcceleration, ShambleMaxAcceleration) : BaseMaxAcceleration;
 }
 
@@ -1328,5 +1608,179 @@ void AJREnemyCharacter::LogLife(const TCHAR* What) const
 	if (bLogLife)
 	{
 		UE_LOG(LogJR, Log, TEXT("IA %s: %s"), *GetName(), What);
+	}
+}
+
+// ============================================================================================
+// Sensação do zumbi (A-081): passo x velocidade, encarar o alvo, bote, tranco e contorno.
+// ============================================================================================
+
+void AJREnemyCharacter::UpdateLocomotionAnimRate()
+{
+	USkeletalMeshComponent* BodyMesh = GetMesh();
+	if (!BodyMesh || !Archetype)
+	{
+		return;
+	}
+	const float RunReference = Archetype->LocomotionRunSpeed;
+	if (RunReference <= 1.f)
+	{
+		BodyMesh->GlobalAnimRateScale = IdleAnimRate; // sem medida (script não rodou): como antes
+		return;
+	}
+	// Até RunReference a blend space já casa passo e velocidade (amostras medidas). Acima, a animação
+	// de correr acelera na mesma proporção. Parado: a variação de ritmo de cada zumbi.
+	const float GroundSpeed = static_cast<float>(GetVelocity().Size2D());
+	float NewRate = 1.f;
+	if (GroundSpeed > RunReference)
+	{
+		NewRate = FMath::Min(GroundSpeed / RunReference, FMath::Max(1.f, Archetype->MaxLocomotionRate));
+	}
+	else if (GroundSpeed < 15.f)
+	{
+		NewRate = IdleAnimRate;
+	}
+	BodyMesh->GlobalAnimRateScale = NewRate;
+}
+
+bool AJREnemyCharacter::IsFacingPoint(const FVector& Point, float HalfAngleDegrees) const
+{
+	const FVector ToPoint = (Point - GetActorLocation()).GetSafeNormal2D();
+	if (ToPoint.IsNearlyZero())
+	{
+		return true;
+	}
+	const double CosHalf = FMath::Cos(FMath::DegreesToRadians(static_cast<double>(HalfAngleDegrees)));
+	return FVector::DotProduct(GetActorForwardVector().GetSafeNormal2D(), ToPoint) >= CosHalf;
+}
+
+void AJREnemyCharacter::DoMeleeLunge()
+{
+	AActor* LungeTarget = Target.Get();
+	UCharacterMovementComponent* Move = GetCharacterMovement();
+	if (!LungeTarget || IsDead() || GrabbedVehicle.IsValid() || !Move || !Move->IsMovingOnGround())
+	{
+		return;
+	}
+	const FVector ToTarget = LungeTarget->GetActorLocation() - GetActorLocation();
+	const float Gap = static_cast<float>(ToTarget.Size2D()) - GetCapsuleComponent()->GetScaledCapsuleRadius() - 45.f;
+	if (Gap <= 5.f)
+	{
+		return; // já colado: não empurra o jogador
+	}
+	// Impulso curto: o atrito para o corpo em ~0,1 s (avança uns 15 a 25 cm).
+	const float LungeSpeed = FMath::Min(MeleeLungeSpeed, Gap * 8.f);
+	Move->AddImpulse(ToTarget.GetSafeNormal2D() * LungeSpeed, /*bVelocityChange*/ true);
+}
+
+void AJREnemyCharacter::SetupRimGlow()
+{
+	USkeletalMeshComponent* BodyMesh = GetMesh();
+	if (!BodyMesh || RimMaterial.IsNull() || BodyMesh->GetOverlayMaterial())
+	{
+		return; // sem material configurado ou o BP já usa outro overlay
+	}
+	if (!RimMaterial.IsValid() && !FPackageName::DoesPackageExist(RimMaterial.ToSoftObjectPath().GetLongPackageName()))
+	{
+		return; // material ainda não criado (setup_zombie_feel.py): segue sem contorno
+	}
+	UMaterialInterface* RimBase = RimMaterial.LoadSynchronous();
+	if (!RimBase)
+	{
+		return;
+	}
+	RimMID = UMaterialInstanceDynamic::Create(RimBase, this);
+	if (!RimMID)
+	{
+		return;
+	}
+	RimPulse = 0.f;
+	RimFade = 1.f;
+	bRimFadingOut = false;
+	// [A-085] cor do contorno por tipo (antes todos verde-tóxico e o grupo virava uma mancha verde):
+	// Comum quase sem contorno, Corredor laranja, Tanque ciano-cristal, Atirador magenta.
+	{
+		const FString MeshName = BodyMesh->GetSkeletalMeshAsset() ? BodyMesh->GetSkeletalMeshAsset()->GetName() : FString();
+		FLinearColor TypeColor(0.25f, 1.f, 0.12f, 1.f);
+		float TypeScale = 1.f;
+		if (Archetype && Archetype->AttackType != EJREnemyAttackType::Melee)
+		{
+			TypeColor = FLinearColor(1.f, 0.15f, 0.85f, 1.f);
+		}
+		else if (MeshName.Contains(TEXT("Corredor")))
+		{
+			TypeColor = FLinearColor(1.f, 0.45f, 0.05f, 1.f);
+		}
+		else if (MeshName.Contains(TEXT("Tanque")))
+		{
+			TypeColor = FLinearColor(0.1f, 0.85f, 1.f, 1.f);
+		}
+		else
+		{
+			TypeScale = 0.35f;
+		}
+		RimMID->SetVectorParameterValue(TEXT("Cor"), TypeColor);
+		RimIntensity *= TypeScale;
+	}
+	RimMID->SetScalarParameterValue(RimIntensityParameter, RimIntensity);
+	BodyMesh->SetOverlayMaterial(RimMID.Get());
+	if (RimMaxDrawDistance > 0.f)
+	{
+		BodyMesh->SetOverlayMaterialMaxDrawDistance(RimMaxDrawDistance);
+	}
+}
+
+void AJREnemyCharacter::PulseRimGlow()
+{
+	if (!RimMID || bRimFadingOut || RimHitBoost <= 0.f)
+	{
+		return;
+	}
+	RimPulse = 1.f;
+	RimMID->SetScalarParameterValue(RimIntensityParameter, (RimIntensity + RimHitBoost) * RimFade);
+	StartRimTimer();
+}
+
+void AJREnemyCharacter::StartRimTimer()
+{
+	if (GetWorldTimerManager().IsTimerActive(RimTimer))
+	{
+		return;
+	}
+	LastRimUpdateTime = GetWorld()->GetTimeSeconds();
+	GetWorldTimerManager().SetTimer(RimTimer, this, &AJREnemyCharacter::UpdateRimGlow, 1.f / 30.f, true);
+}
+
+void AJREnemyCharacter::UpdateRimGlow()
+{
+	if (!RimMID)
+	{
+		GetWorldTimerManager().ClearTimer(RimTimer);
+		return;
+	}
+	const double Now = GetWorld()->GetTimeSeconds();
+	const float StepSeconds = FMath::Max(0.f, static_cast<float>(Now - LastRimUpdateTime));
+	LastRimUpdateTime = Now;
+	RimPulse = FMath::Max(0.f, RimPulse - StepSeconds / FMath::Max(RimHitDecay, 0.05f));
+	if (bRimFadingOut)
+	{
+		RimFade = FMath::Max(0.f, RimFade - StepSeconds / FMath::Max(RimDeathFade, 0.05f));
+	}
+	// Pico ao quadrado: acende forte e cai rápido, com cauda suave.
+	const float Shaped = RimPulse * RimPulse;
+	RimMID->SetScalarParameterValue(RimIntensityParameter, (RimIntensity + RimHitBoost * Shaped) * RimFade);
+	const bool bDone = RimPulse <= 0.f && (!bRimFadingOut || RimFade <= 0.f);
+	if (!bDone)
+	{
+		return;
+	}
+	GetWorldTimerManager().ClearTimer(RimTimer);
+	if (bRimFadingOut)
+	{
+		USkeletalMeshComponent* BodyMesh = GetMesh();
+		if (BodyMesh && BodyMesh->GetOverlayMaterial() == RimMID.Get())
+		{
+			BodyMesh->SetOverlayMaterial(nullptr); // morto: tira o overlay (o flash de dano pode devolver, já apagado)
+		}
 	}
 }

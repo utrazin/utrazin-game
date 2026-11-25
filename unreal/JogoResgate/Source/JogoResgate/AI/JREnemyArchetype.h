@@ -169,7 +169,25 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Movement", meta = (ClampMin = "0.1", ClampMax = "1"))
 	float WalkerChaseSpeedScale = 0.72f;
 
-	/** Variação de velocidade das animações por zumbi (0,1 = de 0,9x a 1,1x): ninguém anda sincronizado. */
+	/**
+	 * Variação de velocidade das animações por zumbi (0,1 = de 0,9x a 1,1x): ninguém anda sincronizado.
+	 * Com LocomotionRunSpeed > 0 só vale parado (andando, a animação segue a velocidade real: A-081).
+	 */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Feedback", meta = (ClampMin = "0", ClampMax = "0.5"))
 	float AnimRateJitter = 0.1f;
+
+	// ---------------------------------------------------------------- Passo x velocidade (A-081)
+
+	/**
+	 * Velocidade (cm/s) em que a blend space toca a animação de CORRER sem o pé escorregar
+	 * (medida pelo tools/unreal/setup_zombie_feel.py). Acima dela a animação acelera junto
+	 * (até MaxLocomotionRate) e a perseguição não passa de LocomotionRunSpeed x MaxLocomotionRate.
+	 * 0 = desligado (comportamento antigo).
+	 */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Movement", meta = (Units = "cm/s", ClampMin = "0"))
+	float LocomotionRunSpeed = 0.f;
+
+	/** Maior aceleração da animação de correr (1,5 = 50% mais rápida que a original). */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Enemy|Movement", meta = (ClampMin = "1", ClampMax = "3"))
+	float MaxLocomotionRate = 1.5f;
 };

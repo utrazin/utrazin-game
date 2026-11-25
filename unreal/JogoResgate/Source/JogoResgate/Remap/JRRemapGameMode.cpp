@@ -76,7 +76,7 @@ void AJRRemapGameMode::SetPlayerDefaults(APawn* PlayerPawn)
 	// Na cidade a arma fica guardada; na arena o diretor equipa e aplica as cartas.
 	if (!AJRArenaDirector::FindInWorld(this))
 	{
-		Hero->SetWeaponEquipped(false);
+		Hero->HolsterWeaponInstant(); // [A-090] sem animação: o GrantWeapon acima já tinha começado a puxar a arma
 	}
 }
 

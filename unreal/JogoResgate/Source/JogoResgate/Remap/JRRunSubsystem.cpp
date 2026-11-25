@@ -24,9 +24,21 @@ void UJRRunSubsystem::StartRun(int32 InSectorLevel)
 	RunLevel = 1;
 	Energy = 0.f;
 	RunCredits = 0;
-	Stats = FJRRunStats();
+	Combo = 0;
+	MaxCombo = 0;
+	ObjectivesCompleted = 0;
 	Picked.Reset();
 	PendingChoices = 0;
+	// [A-098] a Árvore-Mãe vira a base da corrida (as cartas somam em cima) e pode dar cartas logo no começo
+	if (const UJREconomySubsystem* Economy = GetGameInstance()->GetSubsystem<UJREconomySubsystem>())
+	{
+		Stats = Economy->MakeTreeBaseStats();
+		PendingChoices = FMath::Min(FJRRemapRules::MaxBankedChoices, FMath::RoundToInt(Economy->GetTreeBonus(EJRTreeStat::StartCards)));
+	}
+	else
+	{
+		Stats = FJRRunStats();
+	}
 	bChoosing = false;
 	Offered.Reset();
 	Rng.GenerateNewSeed();
@@ -52,11 +64,17 @@ void UJRRunSubsystem::EndRun(bool bExtracted, float Multiplier)
 	Report.CreditsEarned = RunCredits;
 	Report.Multiplier = bExtracted ? Multiplier : FJRRemapRules::DeathKeepCredits;
 	Report.CreditsKept = bExtracted ? FMath::RoundToInt64(RunCredits * Multiplier) : GetCreditsIfDie();
+	Report.ObjectivesCompleted = ObjectivesCompleted;
+	Report.MaxCombo = MaxCombo;
 
 	if (UJREconomySubsystem* Economy = GetGameInstance()->GetSubsystem<UJREconomySubsystem>())
 	{
 		Report.bNewRecord = Economy->RecordRun(WavesCleared);
 		Economy->AddCredits(Report.CreditsKept, false);
+		// [A-098] cristais para a Árvore-Mãe
+		Report.CrystalsEarned = FJRRemapRules::RunCrystals(WavesCleared, ObjectivesCompleted, SectorLevel, bExtracted,
+			1.f + Economy->GetTreeBonus(EJRTreeStat::Crystals));
+		Economy->AddCrystals(Report.CrystalsEarned, false);
 		Economy->Save();
 	}
 	bHasReport = true;
@@ -71,11 +89,21 @@ int64 UJRRunSubsystem::RegisterKill(int32 EnemyCost, float EffectiveLevel)
 		return 0;
 	}
 	++Kills;
+	++Combo;
+	MaxCombo = FMath::Max(MaxCombo, Combo);
 	const int32 Cost = FMath::Max(1, EnemyCost);
 	const int64 Gain = FMath::RoundToInt64(FJRRemapRules::CreditsPerCost(EffectiveLevel) * Cost * Stats.Credits);
 	RunCredits += Gain;
 	AddEnergy(Cost * Stats.Energy);
 	return Gain;
+}
+
+void UJRRunSubsystem::AddBonusCredits(int64 Amount)
+{
+	if (bActive && Amount > 0)
+	{
+		RunCredits += Amount;
+	}
 }
 
 void UJRRunSubsystem::AddEnergy(float Amount)
@@ -152,7 +180,7 @@ void UJRRunSubsystem::ApplyStatsToHero(AJRCharacter* Hero, bool bRefillHealth) c
 	}
 	const UJREconomySubsystem* Economy = GetGameInstance()->GetSubsystem<UJREconomySubsystem>();
 	const float Bench = Economy ? Economy->GetPermanentDamageMultiplier() : 1.f;
-	const FJRRunStats S = bActive ? Stats : FJRRunStats();
+	const FJRRunStats S = bActive ? Stats : (Economy ? Economy->MakeTreeBaseStats() : FJRRunStats()); // [A-098]
 	if (UJRWeaponComponent* Weapon = Hero->GetWeaponComponent())
 	{
 		Weapon->SetUpgradeMultipliers(Bench * S.Damage, S.FireRate);

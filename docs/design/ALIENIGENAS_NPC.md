@@ -115,3 +115,21 @@ Formato baixo e largo inspirado numa **arraia**, carenagem lisa roxa/escura com 
 3. **Monumento da praça** (a sua nave caída, que vai sendo restaurada).
 
 Depois dessas três, eu retrabalho as construções que já existem para combinarem.
+
+### 5.1 Prompts da arte da vila (18/11)
+Estilo fixo: o da `referencias/rua_villa_star_v2.png` e da `fachada_armeiro_v2_aprovada.png` (pintado, contorno escuro, céu roxo com planeta de anel, pedra cinza esverdeada, brilhos ciano, lampião âmbar). No Gemini, anexe a rua v2 como referência de estilo em toda geração.
+Duas etapas por prédio: (A) cena para aprovar o visual; (B) versão isolada para o Tripo (fundo branco liso, frente e costas).
+
+**Bancada (Ix-Vel, inseto engenheiro)**
+> (A) Same art style as the attached reference image. A small alien engineering workshop facade on the same street: walls of polished amber insect chitin plates riveted to dark iron, a big round workshop door half open showing a workbench with tools and glowing cyan parts, brass gears and thin antenna-like pipes on the roof, a hanging sign with a wrench-and-gear symbol (symbol only, no letters), warm amber lamp post at the side, crates and spare parts on the sidewalk, purple dusk sky with ringed planet. No people, no text, no measurement lines.
+> (B) Same building as the attached image, isolated, centered, full building visible from the ground to the roof, plain white background, no ground plane, no sky, no lamp post, no loose crates, game asset concept, front view. (Depois o mesmo com "back view".)
+
+**Portão da Arena + muralha**
+> (A) Same art style as the attached reference image. The massive arena gate of an alien frontier town: two tall stone-and-iron towers with claw-shaped tops, a wide arched gate between them filled with a shimmering cyan energy force field, a section of thick town wall continuing on both sides with battlements and glowing cyan crystals embedded in the stone, warning lights, a guard post booth beside the gate, purple dusk sky with ringed planet. No people, no text, no measurement lines.
+> (B) Isolar em duas peças separadas: só o portão com as duas torres; e só um trecho reto de muralha de 20 metros (para repetir). Plain white background, front view, depois back view.
+
+**Prédio comum (encher os quarteirões, 2 variações)**
+> (A) Same art style as the attached reference image. Two small alien residential houses side by side on the same street, each a different style: one rounded house made of stacked grey stone shells with a small round window glowing cyan, one narrow two-story house of rusty iron plates with pipes and a satellite dish, small balconies, potted alien plants, purple dusk sky with ringed planet. No people, no text, no measurement lines.
+> (B) Uma casa por imagem, isolada, plain white background, front view e back view.
+
+Regras de sempre: sem texto e sem régua na imagem; frente e costas no Tripo Multiview (não 3/4); me mandar a imagem (A) antes de gerar a (B).

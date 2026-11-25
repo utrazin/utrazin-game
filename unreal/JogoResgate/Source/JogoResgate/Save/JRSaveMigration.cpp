@@ -49,7 +49,15 @@ bool FJRSaveMigration::Migrate(UJRSaveGame& Save, FString& OutError)
 		Save.SaveVersion = 3;
 	}
 
-	// Próximos passos: if (Save.SaveVersion == 3) { ...; Save.SaveVersion = 4; }
+	// v3 -> v4 [A-098]: Árvore-Mãe e bairros começam vazios (o resto do save fica).
+	if (Save.SaveVersion == 3)
+	{
+		Save.TreeRanks.Reset();
+		Save.SeenDistricts.Reset();
+		Save.SaveVersion = 4;
+	}
+
+	// Próximos passos: if (Save.SaveVersion == 4) { ...; Save.SaveVersion = 5; }
 
 	return Save.SaveVersion == UJRSaveGame::CurrentVersion;
 }

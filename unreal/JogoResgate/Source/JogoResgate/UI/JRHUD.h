@@ -14,6 +14,15 @@ class UFont;
 class UFontFace;
 struct FJRWheelEntryInfo;
 
+/** [A-083] Pino extra no minimapa/radar (nave de extração, vendedores da cidade...). */
+struct FJRHudBlip
+{
+	FVector World = FVector::ZeroVector;
+	/** Textura T_HUD2_<Icon> no meio do pino (vazio = losango). */
+	FString Icon;
+	FLinearColor Tint = FLinearColor::White;
+};
+
 /**
  * HUD do jogo (GDD 10): vida, munição, mira, objetivo, carro, interação e avisos.
  * Desenhado em C++ (Canvas) para funcionar sem montar widgets no editor.
@@ -81,11 +90,11 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "HUD|Minimap", meta = (ClampMin = "0", ClampMax = "1"))
 	float MinimapTint = 0.f;
 
-	/** [A-067] Itens e baús que ainda servem ganham um pino ciano até esta distância (a pé). 0 = desliga. */
+	/** [A-067] Alcance dos pontos ciano de itens e baús no minimapa. [A-083] Pinos flutuando no mundo em cima de itens foram removidos. */
 	UPROPERTY(EditDefaultsOnly, Category = "HUD|Marcadores", meta = (Units = "m", ClampMin = "0"))
 	float NearbyMarkerRange = 35.f;
 
-	/** [A-067] No máximo quantos pinos ciano ao mesmo tempo (os mais perto). */
+	/** [A-067] Não usado desde a A-083 (sem pinos de item no mundo). */
 	UPROPERTY(EditDefaultsOnly, Category = "HUD|Marcadores", meta = (ClampMin = "0"))
 	int32 NearbyMarkerMax = 6;
 
@@ -101,8 +110,15 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = "HUD|Vehicle", meta = (ClampMin = "10"))
 	float SpeedometerMaxKmh = 160.f;
 
-private:
-	// ------------------------------------------------------------ peças básicas (v2)
+	// ------------------------------------------------------------ ganchos para subclasses (A-083)
+	/** false = o minimapa vira radar sem imagem (cidade/arena do Remap: a imagem do L01 não vale lá) e a tecla M não abre o mapa. */
+	virtual bool UseLevelMinimapImage() const { return true; }
+	/** Pinos extras no minimapa/radar. Chamado a cada quadro com a lista vazia. */
+	virtual void CollectRadarBlips(TArray<FJRHudBlip>& OutBlips) const {}
+	/** Tela cheia aberta (loja, cartas, relatório): esconde aviso "E", marcador no mundo, minimapa e objetivo. */
+	virtual bool IsHudModalOpen() const { return false; }
+
+	// ------------------------------------------------------------ peças básicas (v2), protegidas para a AJRRemapHUD (A-083)
 	/** /Game/UI/HUD/V2/T_HUD2_<Name> (nulo se o setup_hud_v2.py ainda não importou). */
 	UTexture2D* HudTex(const FString& Name);
 	/** Desenha uma textura (ou parte dela, por UV) num retângulo da tela. */
@@ -190,6 +206,7 @@ private:
 	/** Pedaço de anel sem textura (graus a partir do topo, sentido horário). */
 	void DrawArc(const FVector2D& Center, float RIn, float ROut, float Deg0, float Deg1, const FLinearColor& Color, int32 Segments = 24);
 
+private:
 	TWeakObjectPtr<AActor> CachedTransition;
 	TWeakObjectPtr<AActor> CachedRescue;
 	TWeakObjectPtr<UTexture2D> CachedMinimap;
@@ -256,9 +273,10 @@ private:
 	/** Alvo do marcador: a tarefa atual ou, sem ela, o objetivo geral do estágio. */
 	AActor* GuideTarget(EJRLevelStage Stage);
 
+protected:
 	// ------------------------------------------------------------ marcadores (A-067)
 	/** Textura do ícone para um alvo ("Icon_Stick", "Icon_CarKey", "Stat_Ammo"...). Vazio = sem ícone. */
-	FString MarkerIconFor(const AActor* Target) const;
+	virtual FString MarkerIconFor(const AActor* Target) const; // [A-083] virtual: a AJRRemapHUD dá ícone aos vendedores
 	/** Pino: halo, ponta para baixo em Tip, disco escuro, anel colorido e o ícone no meio. */
 	void DrawMarkerPin(const FVector2D& Tip, float Size, const FString& Icon, const FLinearColor& RingColor, float Alpha, bool bPulse);
 	/** Triângulo liso (Canvas), para a ponta do pino e a seta da borda. */

@@ -450,6 +450,23 @@ Anotado no teste de 18/11 (fazer depois que o combate estiver ok):
 - Vila e arena com arte de verdade (hoje são blocos).
 - Zumbi andando "duro/deslizando": a animação não acompanha o movimento. Primeira tentativa (bUseAccelerationForPaths) fez eles pararem; desfeita.
 
+### 11.2 F2 em andamento (2026-11-18): arena procedural v1
+Código pronto, ainda não compilado (A-084). O que tem:
+- **Planta** (`FJRArenaLayout`, lógica pura com teste): grade de células de 8 m, 10 células (80 m) no nível 1 e +1 por nível até 20 (160 m). Molde sorteado entre círculo, cruz, U, dois pátios e rua com becos. Centro 3 x 3 sempre livre e saídas nos 4 lados. Bloqueio: primeiro quebra as linhas de visão retas maiores que 64 m com cobertura alta, depois grupos de cobertura (sozinha, linha de 2 ou 3, "L"), sempre com um corredor de 8 m entre grupos. Conferência: tudo alcançável a partir do centro (flood fill), nenhuma área fechada, nenhuma visão reta maior que 8 células, 3+ saídas do centro, 6+ pontos de surgimento, 2+ pontos da nave, 3+ pontos de objetivo. Falhou, tenta outra semente (até 12; último recurso: círculo sem cobertura extra). No teste fora da engine: 2.000 plantas, 0 quebradas, 98% na primeira semente.
+- **Peças** (`AJRArenaGenerator`, tema "Posto abandonado", só malhas que já existem): muro com contêineres, ônibus, caminhão, muro do L01; coberturas altas com carros batidos do usuário, SM_CarWreck, contêineres, picape; baixas com barricadas, bloqueios, barris/caixas/pneus/gerador em grupinhos; enfeites (sacos de lixo, ossos, placas); marco do posto (cobertura com 2 bombas e a loja); postes com luz no muro. Visual em malhas instanciadas sem colisão; colisão em caixas simples invisíveis do tamanho de cada peça (entram na navmesh dinâmica). Muro: caixas de 6 m na borda. Cada peça cabe na sua célula, então nada se sobrepõe (e o gerador confere).
+- **Diretor por créditos**: orçamento por onda (8 + 3W) x (1 + 0,12 (L-1)), renda (1,2 + 0,12W) x (1 + 0,15 (L-1)) pontos/s, carteira inicial 35%. Compra grupos: comum 1 (3 a 5), corredor 2 (comum mais rápido, 2 a 4), arqueiro 3, atirador 4, tanque 8; elite = custo x 6, vida x 4, maior e com luz roxa, a partir da onda 4 (mais provável quando o diretor está rico). Ritmo: junta pressão até o pico (6 + 2W), espera a horda cair para 35% e respira 3 s (+2,5 s se o herói estiver com menos de 40% de vida). Surgimento só fora da visão, com rosnado no lugar de onde vêm, poeira e aviso "Horda chegando pela esquerda"; elite com rugido e aviso. Ondas, nave a cada 3 ondas, multiplicador, cartas, energia e créditos como no F1.
+- **Objetivos (2 por arena)**: "Sobreviva 3 ondas" (+80 x nível) e um opcional sorteado pela semente (+150 x nível): elite marcado (luz dourada, chega na onda 2), destruir 3 ninhos (os ninhos também viram ponto de surgimento) ou combo de 10 + 2 x nível abates sem levar dano (12 a 30).
+- **Relatório**: objetivos cumpridos e maior combo (abates seguidos sem levar dano; zera ao levar dano).
+- **Baús grátis**: até 2 por arena (munição 40, vida 25, 1 bandagem, 40 créditos x nível).
+
+Como testar:
+1. Feche a Unreal e rode `E:\game\compilar_remap.bat`.
+2. Abra a Unreal e, na caixa Cmd (modo Python): `py "E:/game/utrazin-game/tools/unreal/build_remap_f2.py"` (deixa `L_Arena_F1` só com a base). Se o log reclamar da navegação: Build > Build Paths e salve.
+3. Play na cidade (Kaar, "Arena nível 1") ou direto na arena. A semente aparece no aviso de entrada e no log (`LogJR`, com o desenho da planta em texto).
+4. Para repetir ou trocar: console `jr.Arena.Seed 1234` (0 = sorteia) e `jr.Arena.Shape 0` a `4` (-1 = sorteia), depois `RestartLevel`.
+5. Testes: `Automation RunTests JR.Remap` (planta: 500 sementes; regras do diretor) e `python -m pytest tests/python/test_build_remap_f2.py -q`.
+Pronto quando: 10 sementes seguidas sem arena quebrada.
+
 ---
 
 ## 12. Perguntas que ainda faltam
